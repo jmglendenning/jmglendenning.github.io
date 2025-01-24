@@ -1,0 +1,26 @@
+---
+title: "John Glendenning"
+---
+
+I am a masters student studying geographical information systems. My research topics have included site locations of Roman villas and the dispersal of coinage throughout the Roman Empire.
+
+### More Information
+
+I am interested applying modern GIS principles and techniques to historical questions.
+
+-   GIS
+-   Remote Sensing
+
+### Contact me
+
+[jmg220005\@utdallas.edu](mailto:jmg20005@utdallas.edu)
+
+## [Website](https://jmglendenning.github.io)
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```
