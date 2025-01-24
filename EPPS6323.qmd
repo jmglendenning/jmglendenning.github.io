@@ -1,9 +1,0 @@
----
-title: "EPPS6323 Files"
----
-
-Assignments
-
-```{r}
-1 + 1
-```
