@@ -1,8 +1,8 @@
 ---
-title: "About"
+title: "EPPS6323 Files"
 ---
 
-About this site
+Assignments
 
 ```{r}
 1 + 1
