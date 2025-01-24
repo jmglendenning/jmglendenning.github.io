@@ -8,8 +8,6 @@ I am a masters student studying geographical information systems. My research to
 
 I am interested applying modern GIS principles and techniques to historical questions.
 
--   GIS
--   Remote Sensing
 
 ### Contact me
 
