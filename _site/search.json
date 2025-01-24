@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "John Glendenning",
+    "section": "",
+    "text": "I am a masters student studying geographical information systems. My research topics have included site locations of Roman villas and the dispersal of coinage throughout the Roman Empire."
+  },
+  {
+    "objectID": "index.html#website",
+    "href": "index.html#website",
+    "title": "John Glendenning",
+    "section": "Website",
+    "text": "Website\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]
