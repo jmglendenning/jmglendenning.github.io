@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a78bc22c21c5275f96438b53095d57b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,8 +97,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">SPARQL</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./EPPS6323.html"> 
+<span class="menu-text">EPPS6323 Files</span></a>
+  </li>  
+  <li class="nav-item">
     <span class="nav-link">
-<span class="menu-text">EPPS6323</span>
+<span class="menu-text">Work.qmd</span>
     </span>
   </li>  
 </ul>
@@ -144,11 +148,29 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Some SPARQL queries for nomisma.org</p>
-<section id="modified-from-r-networks-analysis-works" class="level1">
-<h1>Modified from R networks analysis / works</h1>
-<p>PREFIX dcterms: <a href="http://purl.org/dc/terms/" class="uri">http://purl.org/dc/terms/</a> PREFIX nmo: <a href="http://nomisma.org/ontology#" class="uri">http://nomisma.org/ontology#</a> PREFIX void: <a href="http://rdfs.org/ns/void#" class="uri">http://rdfs.org/ns/void#</a></p>
-<p>SELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE { { ?hoard void:inDataset <a href="http://numismatics.org/chrr/" class="uri">http://numismatics.org/chrr/</a> ; dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint . } UNION { ?hoard a nmo:Hoard ; dcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] . ?tsi nmo:hasMint ?mint . } OPTIONAL { ?hoard nmo:hasFindspot [ geo:lat ?hoardlat ; geo:long ?hoardlong ] } OPTIONAL { ?mint geo:location [ geo:lat ?mintlat ; geo:long ?mintlong ] } }</p>
-<pre><code></code></pre>
+<section id="modified-from-r-networks-analysis-works" class="level3">
+<h3 class="anchored" data-anchor-id="modified-from-r-networks-analysis-works">Modified from R networks analysis / works</h3>
+<pre><code>PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX nmo: &lt;http://nomisma.org/ontology#&gt; 
+PREFIX void: &lt;http://rdfs.org/ns/void#&gt; 
+
+SELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {
+{
+  ?hoard void:inDataset &lt;http://numismatics.org/chrr/&gt; ;
+  dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint .
+}
+UNION
+{ ?hoard a nmo:Hoard ;
+dcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] .
+?tsi nmo:hasMint ?mint .
+}
+OPTIONAL { ?hoard nmo:hasFindspot [
+geo:lat ?hoardlat ;
+geo:long ?hoardlong ] }
+OPTIONAL { ?mint geo:location [
+geo:lat ?mintlat ;
+geo:long ?mintlong ] }
+}</code></pre>
 
 
 </section>

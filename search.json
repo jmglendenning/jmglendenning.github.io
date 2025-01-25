@@ -18,20 +18,27 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "About this site\n\nmtcars[1:5, \"mpg\"]\n\n[1] 21.0 21.0 22.8 21.4 18.7"
   },
   {
     "objectID": "EPPS6323.html",
     "href": "EPPS6323.html",
     "title": "EPPS6323 Files",
     "section": "",
-    "text": "#Assignments\n##Assignment 1: How to structure this?\n\n1 + 1\n\n[1] 2"
+    "text": "1 + 1\n\n[1] 2"
   },
   {
     "objectID": "SPARQL.html",
     "href": "SPARQL.html",
     "title": "SPARQL",
     "section": "",
-    "text": "Some SPARQL queries for nomisma.org\n\nModified from R networks analysis / works\nPREFIX dcterms: http://purl.org/dc/terms/ PREFIX nmo: http://nomisma.org/ontology# PREFIX void: http://rdfs.org/ns/void#\nSELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE { { ?hoard void:inDataset http://numismatics.org/chrr/ ; dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint . } UNION { ?hoard a nmo:Hoard ; dcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] . ?tsi nmo:hasMint ?mint . } OPTIONAL { ?hoard nmo:hasFindspot [ geo:lat ?hoardlat ; geo:long ?hoardlong ] } OPTIONAL { ?mint geo:location [ geo:lat ?mintlat ; geo:long ?mintlong ] } }"
+    "text": "Some SPARQL queries for nomisma.org\n\nModified from R networks analysis / works\nPREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;\nPREFIX nmo: &lt;http://nomisma.org/ontology#&gt; \nPREFIX void: &lt;http://rdfs.org/ns/void#&gt; \n\nSELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {\n{\n  ?hoard void:inDataset &lt;http://numismatics.org/chrr/&gt; ;\n  dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint .\n}\nUNION\n{ ?hoard a nmo:Hoard ;\ndcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] .\n?tsi nmo:hasMint ?mint .\n}\nOPTIONAL { ?hoard nmo:hasFindspot [\ngeo:lat ?hoardlat ;\ngeo:long ?hoardlong ] }\nOPTIONAL { ?mint geo:location [\ngeo:lat ?mintlat ;\ngeo:long ?mintlong ] }\n}"
+  },
+  {
+    "objectID": "EPPS6323.html#assignment-1-how-to-structure-this",
+    "href": "EPPS6323.html#assignment-1-how-to-structure-this",
+    "title": "EPPS6323 Files",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
   }
 ]
