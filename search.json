@@ -1,24 +1,45 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "John Glendenning",
+    "objectID": "project01.html",
+    "href": "project01.html",
+    "title": "Project - Brainstorming",
     "section": "",
-    "text": "I am a masters student studying geographical information systems. My research topics have included site locations of Roman villas and the dispersal of coinage throughout the Roman Empire."
-  },
-  {
-    "objectID": "index.html#website",
-    "href": "index.html#website",
-    "title": "John Glendenning",
-    "section": "Website",
-    "text": "Website\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Background\nMoses Finley’s The Ancient Economy (1973) challenged traditional views of ancient economies, particularly those of Greece and Rome. Finley argued that ancient economies were fundamentally different from modern capitalist systems and should not be analyzed using modern economic concepts.\nSince publication, there have been some shifting thoughts on the inequalities of ancient Rome. This project will be designed to see if there has been a shift in scholarly publications on inequalities in the Roman economic system.\n\n\nHypothesis\n\\[\n\\begin{flalign}\n\\scriptsize\nH_0&: \\scriptsize  \\text{Scholarship about inequality in ancient Rome has not changed.}\\\\\n\\scriptsize\nH_1&: \\scriptsize  \\text{Scholarship has changed.}\n\\end{flalign}\n\\]\n\n\nData Collection\nInitially, data collection will start with gathering access to scholarly journals related to the ancient Roman Empire. We will start with selected articles from JSTOR from publications such as The Journal of Roman Studies.\n\n\nMethods\n\nJournal Acquisition\n\nAcquire a limited dataset of publications\nPreprocess the data including OCR, tokenization, stemming, etc.\n\nConversion\n\nConvert text to numerical representations\n\nModel Selection & Training\nPost-processing\n\n\n\nStart\nThe first step in the process is to verify that the data can actually be collected. Given the size and time constraints, it may be necessary to limit the scope of data collection to a reasonable, but not exhaustive amount.\nThe book The Ancient Economy has been obtained and OCRed.\nOne paper has been downloaded for examination (Brock, Motta, and Terrenato 2021).\n\n\nAlternative Projects to Consider\nSome other projects that could be considered:\n\nPredictive Modeling of Archaeological Site Locations\nAutomated Artifact Classification and Typology\nTemporal and Spatial Analysis of Settlement Patterns\nText Mining and NLP for Archaeological Literature\nReconstructing Ancient Trade Routes\n\n\n\nBibliography\nBrock, Andrea L., Lorenzo Motta, and Nicola Terrenato. 2021. “On the Banks of the Tiber: Opportunity and Transformation in Early Rome.” The Journal of Roman Studies 111: 1–30. https://www.jstor.org/stable/27128849.\nFinley, Moses I. 1973. The Ancient Economy. Berkeley: University of California Press."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "CV Goes Here"
+    "text": "I am a Master’s student at the University of Texas at Dallas studying GIS.\nI am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nI am currently working on analyzing Roman coin hoards.\nI have a strong interest in remote sensing and tools.\nCurriculum vitae"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "John Glendenning",
+    "section": "",
+    "text": "I am a masters student studying geographical information systems.\n\nContact\njmg220005@utdallas.edu"
+  },
+  {
+    "objectID": "assignment02.html",
+    "href": "assignment02.html",
+    "title": "Assignment 02",
+    "section": "",
+    "text": "Exercises\nI bet you can’t wait for this. Well, it’s coming soon."
+  },
+  {
+    "objectID": "Work.html",
+    "href": "Work.html",
+    "title": "Work",
+    "section": "",
+    "text": "Work samples will go here.\n\n\n\nPrincess Donut"
+  },
+  {
+    "objectID": "comparison01.html",
+    "href": "comparison01.html",
+    "title": "Comparison of Shmueli & Breiman",
+    "section": "",
+    "text": "Comparison of “To Explain or to Predict?” by Galit Shmueli and “Statistical Modeling: The Two Cultures” by Leo Breiman\n\nBackground\nThe two papers from Breiman and Shmueli are both critiques of traditional modeling approaches. Breiman advocates for shifting from traditional parametric modeling to algorithmic modeling. Schmueli advocates differentiating between explanatory modeling and predictive modeling.\n\n\nBreiman\nThe paper by Breiman (Breiman, 2001) critiques the “data modeling culture” in the field of traditional statistics. He argues that there has been an overreliance on statistical models and interpretability at the expense of algorithmic models, which favor predictability. “Usually, simple parametric models imposed on data generated by complex systems…result in a loss of accuracy and information as compared to algorithmic models.” This has led to models that may not capture real-world data complexities and assume an underlying data generation process that may not exist.\nThrough several examples, he examines the use of traditional modeling as compared to algorithmic modeling. His conclusion is that the “emphasis needs to be on the problem and not the data.”\nAt the end of this paper, there are comments and follow-up by some noted statisticians, which generally agree (except for Cox) with Breiman but bring about some interesting caveats. For instance, Hoadley warns that when creating algorithmic models, care should be taken not to overfit models.\n\n\nSchmueli\nThe paper by Shmueli (Shmueli, 2010) looks at the difference between explanatory and predictive modeling, outlining that each supports different goals. Explanatory modeling tests causal hypotheses to describe the underlying mechanisms. Predictive modeling, according to Shmueli, “predictive modeling [is] the process of applying a statistical model or data mining algorithm to data for the purpose of predicting new or future observations.”\nThe paper emphasizes that understanding the difference between the two models is critical to proper model selection during the process. Understanding this difference can impact the study design, data collection, data processing, variable choices, methodologies, and nearly everything else in the modeling process.\nIn the end, it is suggested that it is important to be aware of how models are used and to acknowledge the difference between explanatory, predictive, and descriptive modeling.\n\n\nComparison\nBoth of these papers point out that it is important to distinguish between the different modeling methods while highlighting the strengths and weaknesses of each. They also both acknowledge the growing acceptance and usefulness of black-box predictive modeling for data science.\nWhile both support the role of modeling, Breiman advocates primarily for predictive modeling, and Shmueli advocates for making a conscious choice between the two. Shmueli also cautions against assuming that a strong explanatory model means it will have good predictive performance. Breiman states that the historical modeling focus has kept statisticians from effectively modeling real problems.\n\n\nConclusion\nThese papers discuss the evolving landscape of statistical modeling, urging researchers to be more deliberate in their methodological choices and recognize the trade-offs between explanation and prediction. Although both of these papers are decades old, the conclusions remain relevant.\n\n\nBibliography\nBreiman, Leo. 2001. “Statistical modeling: The two cultures (with comments and a rejoinder by the author)”. Statistical Science, 16(3), pp.199-231.\nShmueli, Galit. 2010. “To explain or to predict?.” Statistical Science 25, no. 3: 289-310."
   },
   {
     "objectID": "EPPS6323.html",
@@ -28,45 +49,283 @@
     "text": "library(ggplot2)\nlibrary(palmerpenguins)\nlibrary(ggthemes)\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\nggplot() +\n  geom_point(\n    data = penguins,\n    mapping = aes(x = flipper_length_mm, y = body_mass_g)\n  ) +\n  geom_smooth(\n    data = penguins,\n    mapping = aes(x = flipper_length_mm, y = body_mass_g)\n  )\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`)."
   },
   {
-    "objectID": "SPARQL.html",
-    "href": "SPARQL.html",
-    "title": "SPARQL",
-    "section": "",
-    "text": "Some SPARQL queries for nomisma.org\n\nModified from R networks analysis / works\nPREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;\nPREFIX nmo: &lt;http://nomisma.org/ontology#&gt; \nPREFIX void: &lt;http://rdfs.org/ns/void#&gt; \n\nSELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {\n{\n  ?hoard void:inDataset &lt;http://numismatics.org/chrr/&gt; ;\n  dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint .\n}\nUNION\n{ ?hoard a nmo:Hoard ;\ndcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] .\n?tsi nmo:hasMint ?mint .\n}\nOPTIONAL { ?hoard nmo:hasFindspot [\ngeo:lat ?hoardlat ;\ngeo:long ?hoardlong ] }\nOPTIONAL { ?mint geo:location [\ngeo:lat ?mintlat ;\ngeo:long ?mintlong ] }\n}"
-  },
-  {
-    "objectID": "EPPS6323.html#assignment-1-how-to-structure-this",
-    "href": "EPPS6323.html#assignment-1-how-to-structure-this",
-    "title": "EPPS6323 Files",
-    "section": "",
-    "text": "library(ggplot2)\nlibrary(palmerpenguins)\nlibrary(ggthemes)\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\nggplot() +\n  geom_point(\n    data = penguins,\n    mapping = aes(x = flipper_length_mm, y = body_mass_g)\n  ) +\n  geom_smooth(\n    data = penguins,\n    mapping = aes(x = flipper_length_mm, y = body_mass_g)\n  )\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`)."
-  },
-  {
-    "objectID": "Work.html#machine-vision",
-    "href": "Work.html#machine-vision",
-    "title": "Current Work",
-    "section": "Machine Vision",
-    "text": "Machine Vision"
-  },
-  {
-    "objectID": "Work.html#owl",
-    "href": "Work.html#owl",
-    "title": "Current Work",
-    "section": "OWL",
-    "text": "OWL"
-  },
-  {
-    "objectID": "Work.html#spatial-data-science",
-    "href": "Work.html#spatial-data-science",
-    "title": "Current Work",
-    "section": "Spatial Data Science",
-    "text": "Spatial Data Science"
-  },
-  {
     "objectID": "EPPS6323.html#assignment-1-more-penguins",
     "href": "EPPS6323.html#assignment-1-more-penguins",
     "title": "EPPS6323 Files",
     "section": "",
     "text": "library(ggplot2)\nlibrary(palmerpenguins)\nlibrary(ggthemes)\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\nggplot() +\n  geom_point(\n    data = penguins,\n    mapping = aes(x = flipper_length_mm, y = body_mass_g)\n  ) +\n  geom_smooth(\n    data = penguins,\n    mapping = aes(x = flipper_length_mm, y = body_mass_g)\n  )\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+  },
+  {
+    "objectID": "assignment01.html",
+    "href": "assignment01.html",
+    "title": "Assignment 01",
+    "section": "",
+    "text": "Review/refresh R programming:"
+  },
+  {
+    "objectID": "assignment01.html#exercise-1",
+    "href": "assignment01.html#exercise-1",
+    "title": "Assignment 01",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nAfter installation, type R.version. What version of R did you install? What is the nickname of that particular software build?\n\nR.version\n\n               _                           \nplatform       aarch64-apple-darwin20      \narch           aarch64                     \nos             darwin20                    \nsystem         aarch64, darwin20           \nstatus                                     \nmajor          4                           \nminor          4.2                         \nyear           2024                        \nmonth          10                          \nday            31                          \nsvn rev        87279                       \nlanguage       R                           \nversion.string R version 4.4.2 (2024-10-31)\nnickname       Pile of Leaves"
+  },
+  {
+    "objectID": "assignment01.html#exercise-2",
+    "href": "assignment01.html#exercise-2",
+    "title": "Assignment 01",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nOpen RStudio. In the console pane (usually at the bottom-left), type 1 + 1 and press Enter. What result do you get?\n\n1+1\n\n[1] 2"
+  },
+  {
+    "objectID": "assignment01.html#exercise-3",
+    "href": "assignment01.html#exercise-3",
+    "title": "Assignment 01",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCreate a new R script (File &gt; New File &gt; R Script). Type print(“Hello, Data Science!”) and run the code. What output do you see in the console?\n\nprint(\"Hello, Data Science!\")\n\n[1] \"Hello, Data Science!\""
+  },
+  {
+    "objectID": "assignment01.html#exercise-4",
+    "href": "assignment01.html#exercise-4",
+    "title": "Assignment 01",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nUse pacman to install and load the tidyr package. Then, use p_functions() to list all functions in the tidyr package.\n\nlibrary(pacman)\np_functions(tidyr)\n\n [1] \"%&gt;%\"                      \"all_of\"                  \n [3] \"any_of\"                   \"as_tibble\"               \n [5] \"build_longer_spec\"        \"build_wider_spec\"        \n [7] \"check_pivot_spec\"         \"chop\"                    \n [9] \"complete\"                 \"complete_\"               \n[11] \"contains\"                 \"crossing\"                \n[13] \"crossing_\"                \"drop_na\"                 \n[15] \"drop_na_\"                 \"ends_with\"               \n[17] \"everything\"               \"expand\"                  \n[19] \"expand_\"                  \"expand_grid\"             \n[21] \"extract\"                  \"extract_\"                \n[23] \"extract_numeric\"          \"fill\"                    \n[25] \"fill_\"                    \"full_seq\"                \n[27] \"gather\"                   \"gather_\"                 \n[29] \"hoist\"                    \"last_col\"                \n[31] \"matches\"                  \"nest\"                    \n[33] \"nest_\"                    \"nest_legacy\"             \n[35] \"nesting\"                  \"nesting_\"                \n[37] \"num_range\"                \"one_of\"                  \n[39] \"pack\"                     \"pivot_longer\"            \n[41] \"pivot_longer_spec\"        \"pivot_wider\"             \n[43] \"pivot_wider_spec\"         \"replace_na\"              \n[45] \"separate\"                 \"separate_\"               \n[47] \"separate_longer_delim\"    \"separate_longer_position\"\n[49] \"separate_rows\"            \"separate_rows_\"          \n[51] \"separate_wider_delim\"     \"separate_wider_position\" \n[53] \"separate_wider_regex\"     \"spread\"                  \n[55] \"spread_\"                  \"starts_with\"             \n[57] \"tibble\"                   \"tidyr_legacy\"            \n[59] \"tribble\"                  \"unchop\"                  \n[61] \"uncount\"                  \"unite\"                   \n[63] \"unite_\"                   \"unnest\"                  \n[65] \"unnest_\"                  \"unnest_auto\"             \n[67] \"unnest_legacy\"            \"unnest_longer\"           \n[69] \"unnest_wider\"             \"unpack\""
+  },
+  {
+    "objectID": "assignment01.html#exercise-5",
+    "href": "assignment01.html#exercise-5",
+    "title": "Assignment 01",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nCreate a new folder on your computer called “DataScience”. Set this as your working directory in RStudio. Then, use getwd() to confirm it’s set correctly.\nNote: This was done, but running this in Quarto is problematic, so this output is copied from the Console.\n&gt; getwd()\n[1] \"/Users/john/DataScience\""
+  },
+  {
+    "objectID": "assignment01.html#exercise-1-1",
+    "href": "assignment01.html#exercise-1-1",
+    "title": "Assignment 01",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nCreate two variables c and d with values of your choice. Perform all the above operations on these variables and print the results.\n\nc &lt;- 11\nd &lt;- 13\n\nsum &lt;- c + d\ndifference &lt;- c - d\nproduct &lt;- c * d\nquotient &lt;- c / d\npower &lt;- c ^ d\nmodulus &lt;- c %% d\n\nprint(sum)\n\n[1] 24\n\nprint(difference)\n\n[1] -2\n\nprint(product)\n\n[1] 143\n\nprint(quotient)\n\n[1] 0.8461538\n\nprint(power)\n\n[1] 3.452271e+13\n\nprint(modulus)\n\n[1] 11"
+  },
+  {
+    "objectID": "assignment01.html#exercise-2-1",
+    "href": "assignment01.html#exercise-2-1",
+    "title": "Assignment 01",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCreate variables of each data type we’ve discussed so far (numeric, character, logical). Use the class() function to verify their types.\n\nnumeric_vector &lt;- rnorm(5)\ncharacter_vector &lt;- c(\"carbon\", \"hydrogen\", \"oxygen\")\nlogical_vector &lt;- c(FALSE, FALSE, TRUE, TRUE)\n\nprint(numeric_vector)\n\n[1] -0.8999696 -0.6532147  1.0557834 -1.3351076  0.1643424\n\nprint(character_vector)\n\n[1] \"carbon\"   \"hydrogen\" \"oxygen\"  \n\nprint(logical_vector)\n\n[1] FALSE FALSE  TRUE  TRUE\n\ncolors &lt;- factor(c(\"red\", \"cornflowerblue\", \"green\", \"red3\", \"pink\"))\nprint(colors)\n\n[1] red            cornflowerblue green          red3           pink          \nLevels: cornflowerblue green pink red red3\n\nlevels(colors)\n\n[1] \"cornflowerblue\" \"green\"          \"pink\"           \"red\"           \n[5] \"red3\"          \n\nclass(numeric_vector)\n\n[1] \"numeric\"\n\nclass(character_vector)\n\n[1] \"character\"\n\nclass(logical_vector)\n\n[1] \"logical\"\n\nclass(colors)\n\n[1] \"factor\""
+  },
+  {
+    "objectID": "assignment01.html#exercise-3-1",
+    "href": "assignment01.html#exercise-3-1",
+    "title": "Assignment 01",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nThere is no Exercise 3."
+  },
+  {
+    "objectID": "assignment01.html#exercise-4-1",
+    "href": "assignment01.html#exercise-4-1",
+    "title": "Assignment 01",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nCreate a vector of numbers from 1 to 10. Then, use indexing to:\n\nExtract the 5th element\nExtract all elements except the 3rd\nExtract the 2nd, 4th, and 6th elements\n\n\n# Create a vector of numbers from 1 to 10\nnumbers &lt;- 1:10\n\n# Extract the 5th element\nfifth &lt;- numbers[5]\n\n# Extract all elements except the 3rd\nnot_third &lt;- numbers[-3]\n\n# Extract the 2nd, 4th, and 6th elements\nevens &lt;- numbers[c(2, 4, 6)]\n\n# Print results\nprint(numbers)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\nprint(fifth)\n\n[1] 5\n\nprint(not_third)\n\n[1]  1  2  4  5  6  7  8  9 10\n\nprint(evens)\n\n[1] 2 4 6"
+  },
+  {
+    "objectID": "assignment01.html#exercise-5-1",
+    "href": "assignment01.html#exercise-5-1",
+    "title": "Assignment 01",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nWrite a conditional statement that checks if a number is positive, negative, or zero, and prints an appropriate message for each case.\n\n# Define a number\nnum &lt;- sample(-10:10, 1)  # generate number\nprint(num)\n\n[1] 6\n\n# Conditional statement to check if the number is positive, negative, or zero\nif (num &gt; 0) {\n  print(\"The number is positive.\")\n} else if (num &lt; 0) {\n  print(\"The number is negative.\")\n} else {\n  print(\"The number is zero.\")\n}\n\n[1] \"The number is positive.\""
+  },
+  {
+    "objectID": "assignment01.html#exercise-6",
+    "href": "assignment01.html#exercise-6",
+    "title": "Assignment 01",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nCreate a vector of 5 numbers and a vector of 5 names. Combine them into a data frame where each number corresponds to an age and each name corresponds to a person. Then, calculate the mean age and display a summary of the data frame.\n\n# Create a vector of 5 ages\nages &lt;- c(25, 30, 11, 28, 55)\n\n# Create a vector of 5 names\nnames &lt;- c(\"Alice\", \"Bob\", \"Charlie\", \"David\", \"Eve\")\n\n# Combine into a data frame\npeople_df &lt;- data.frame(Name = names, Age = ages)\n\n# Calculate the mean age\nmean_age &lt;- mean(people_df$Age)\n\n# Display the summary of the data frame\nsummary(people_df)\n\n     Name                Age      \n Length:5           Min.   :11.0  \n Class :character   1st Qu.:25.0  \n Mode  :character   Median :28.0  \n                    Mean   :29.8  \n                    3rd Qu.:30.0  \n                    Max.   :55.0  \n\n# Print the mean age\nprint(paste(\"The mean age is:\", mean_age))\n\n[1] \"The mean age is: 29.8\""
+  },
+  {
+    "objectID": "assignment01.html#exercise-6---advanced",
+    "href": "assignment01.html#exercise-6---advanced",
+    "title": "Assignment 01",
+    "section": "Exercise 6 - Advanced",
+    "text": "Exercise 6 - Advanced\nCreate a custom function that takes a vector of numbers as input and returns a list containing the following: 1. The square of each number in the vector. 2. A count of how many numbers in the vector are greater than a specified threshold. 3. The mean of the numbers in the vector, but only include numbers greater than a specified threshold in the calculation.\nTest your function with a vector of random numbers, using a threshold of your choice.\n\n# Define the custom function\nvector_out &lt;- function(numbers, target) {\n  squared_num &lt;- numbers^2\n  target_count &lt;- sum(numbers &gt; target)\n  target_mean &lt;- mean(numbers[numbers &gt; target])\n  \n  # Return a list with results\n  return(list(\n    Squared_Numbers = squared_num,\n    Count_Above_Target = target_count,\n    Mean_Above_Target = target_mean\n  ))\n}\n\n# Generate a vector of 10 random numbers between 1 and 50\nset.seed(111)  # Set seed for reproducibility\nrandom_numbers &lt;- sample(1:100, 10, replace = TRUE)\nprint(random_numbers)\n\n [1] 78 84 83 47 25 59 69 35 72 26\n\n# Define a threshold value\ntarget_value &lt;- median(random_numbers)\n\n# Call the function with the generated vector and threshold\nresult &lt;- vector_out(random_numbers, target_value)\n\n# Print the results\nprint(result)\n\n$Squared_Numbers\n [1] 6084 7056 6889 2209  625 3481 4761 1225 5184  676\n\n$Count_Above_Target\n[1] 5\n\n$Mean_Above_Target\n[1] 77.2"
+  },
+  {
+    "objectID": "assignment01.html#part-1",
+    "href": "assignment01.html#part-1",
+    "title": "Assignment 01",
+    "section": "Part 1",
+    "text": "Part 1\n\nExercise 1\nVector Manipulation\n\nCreate a vector of 5 superhero ages.\nIncrease all ages by 2 years.\nFind which heroes are older than 40 after the increase.\nCreate a logical vector indicating if each hero is from DC (assume the first 3 are from DC).\n\n\n# Ages\nsuper_ages &lt;- c(40, 21, 132, 55, 33)\nplus_two &lt;- super_ages + 2\nprint(plus_two)\n\n[1]  42  23 134  57  35\n\n# Over 40\nis_old &lt;- plus_two &gt; 40\nprint(is_old)\n\n[1]  TRUE FALSE  TRUE  TRUE FALSE\n\n# Publisher\n\npub_vector &lt;- c(TRUE, TRUE, TRUE, FALSE, FALSE)\nprint(pub_vector)\n\n[1]  TRUE  TRUE  TRUE FALSE FALSE\n\nclass(pub_vector)\n\n[1] \"logical\"\n\n\n\n\nExercise 2\nMatrix Manipulation\n\nCreate a 3x3 matrix of hero power levels (strength, speed, intelligence) for three new heroes.\nCalculate the average power level for each hero.\nFind which hero has the highest strength.\nScale all power levels by 1.5 and round to the nearest integer.\n\n\nsuper_df &lt;- data.frame(\n  Strength = c(110, 20, 180),\n  Speed = c(25, 95, 130),\n  Intelligence = c(19, 150, 91)\n)\n\nprint(super_df)\n\n  Strength Speed Intelligence\n1      110    25           19\n2       20    95          150\n3      180   130           91\n\n# Average for individuals\nprint(\"The average for individual superheros are:\")\n\n[1] \"The average for individual superheros are:\"\n\nprint(rowMeans(super_df[, 1:3]))\n\n[1]  51.33333  88.33333 133.66667\n\n# Average for type of power\nprint(\"The average for the categories are:\")\n\n[1] \"The average for the categories are:\"\n\nprint(paste(\"Strength:  \", mean(super_df$Strength))) \n\n[1] \"Strength:   103.333333333333\"\n\nprint(paste(\"Speed:  \",mean(super_df$Speed)))\n\n[1] \"Speed:   83.3333333333333\"\n\nprint(paste(\"Intelligence:  \",mean(super_df$Intelligence)))\n\n[1] \"Intelligence:   86.6666666666667\"\n\n# High Strength\nsuper_strength &lt;- super_df[which.max(super_df$Strength), ]\nprint(super_strength)\n\n  Strength Speed Intelligence\n3      180   130           91\n\n# Scale and round\nsuper_round &lt;- round(1.5*super_df)\nprint(super_round)\n\n  Strength Speed Intelligence\n1      165    38           28\n2       30   142          225\n3      270   195          136\n\n\n\n\nExercise 3\nData Frame Manipulation\n\nAdd a “PowerLevel” column that’s the average of Strength, Intelligence, and Speed.\nFilter the data frame to show only heroes with a PowerLevel above 85.\nSort the heroes by PowerLevel in descending order.\nCreate a new data frame with only the Name and PowerLevel columns for non-Marvel heroes.\n\n\n# Add a column for average power\nsuper_df$PowerLevel &lt;- rowMeans(super_df[, 1:3])\nprint(super_df)\n\n  Strength Speed Intelligence PowerLevel\n1      110    25           19   51.33333\n2       20    95          150   88.33333\n3      180   130           91  133.66667\n\n# Filter data for PowerLevel &gt; 85\ntemp_df &lt;- super_df[super_df$PowerLevel &gt; 85,]\nprint(temp_df)\n\n  Strength Speed Intelligence PowerLevel\n2       20    95          150   88.33333\n3      180   130           91  133.66667\n\n# Sort by PowerLevel (descending)\ntemp_df &lt;- super_df[order(-super_df$PowerLevel), ]\nprint(temp_df)\n\n  Strength Speed Intelligence PowerLevel\n3      180   130           91  133.66667\n2       20    95          150   88.33333\n1      110    25           19   51.33333\n\n# Add character type to df\npublisher &lt;- c(\"DC\", \"Dark Horse\", \"Marvel\")\nsuper_df$Publisher &lt;- publisher\nprint (super_df)\n\n  Strength Speed Intelligence PowerLevel  Publisher\n1      110    25           19   51.33333         DC\n2       20    95          150   88.33333 Dark Horse\n3      180   130           91  133.66667     Marvel\n\n# No Marvel df\ntemp_df &lt;- subset(super_df, Publisher != \"Marvel\")\nsuper_df_nomarvel &lt;- data.frame(Name = c(\"Batman\", \"Hellboy\"), \n                                PowerLevel = temp_df$PowerLevel)\nprint(super_df_nomarvel)\n\n     Name PowerLevel\n1  Batman   51.33333\n2 Hellboy   88.33333"
+  },
+  {
+    "objectID": "assignment01.html#part-2",
+    "href": "assignment01.html#part-2",
+    "title": "Assignment 01",
+    "section": "Part 2",
+    "text": "Part 2\n\nExercise 1\n\nCreate a numeric vector containing the numbers 10, 20, 30, 40, and 50.\nCreate a character vector containing the names “Alice”, “Bob”, “Charlie”, “David”, and “Eve”.\nUse indexing to retrieve the third element from each of these vectors.\nModify the second element in the numeric vector to be 25.\nCalculate the sum of all elements in the numeric vector.\n\n\n# Numeric vector\nnum_vector &lt;- c(10, 20, 30, 40, 50)\n\n# Character vector\nchar_vector &lt;- c(\"Alice\", \"Bob\", \"Charlie\", \"David\", \"Eve\")\n\n# Indexing\nnum_vector[3]\n\n[1] 30\n\nchar_vector[3]\n\n[1] \"Charlie\"\n\n# Second Element\nnum_vector[2] &lt;- 25\nprint(num_vector)\n\n[1] 10 25 30 40 50\n\n# Sum\nsum(num_vector)\n\n[1] 155\n\n\n\n\nExercise 2\nWorking with Factors\nObjective: Understand how to create and manipulate factors in R.\nInstructions:\n\nCreate a factor variable from the following vector: c(“low”, “medium”, “high”, “low”, “medium”, “high”).\nDisplay the levels of the factor variable.\nConvert the factor levels to an ordered factor where “low” &lt; “medium” &lt; “high”.\nCreate a bar plot to visualize the frequency of each level.\n\n\n# Create factor variable\nfactor_var &lt;- factor(c(\"low\", \"medium\", \"high\", \"low\", \"medium\", \"high\"))\n\nlevels(factor_var)\n\n[1] \"high\"   \"low\"    \"medium\"\n\n# Ordered factor\nord_factor &lt;- factor(factor_var, \n                     levels = c(\"low\", \"medium\", \"high\"), \n                     ordered = TRUE)\n\n# Create a bar plot\nbarplot(table(ord_factor))\n\n\n\n\n\n\n\n\n\n\nExercise 3\nData Frame Operations Objective: Learn how to create, access, and manipulate data frames.\nInstructions:\n\nCreate a data frame with the following columns: ID (1, 2, 3), Name (“Alice”, “Bob”, “Charlie”), and Score (85, 90, 88).\nAccess the Name column and print it.\nAdd a new column Pass that indicates whether the Score is greater than or equal to 90.\nCalculate the average Score for all students.\n\n\n# Create a data frame\ndf &lt;- data.frame(\n  ID = 1:3,\n  Name = c(\"Alice\", \"Bob\", \"Charlie\"),\n  Score = c(85, 90, 88)\n)\n\n# Access the Name column\ndf$Name\n\n[1] \"Alice\"   \"Bob\"     \"Charlie\"\n\n# New column\ndf$Pass &lt;- df$Score &gt;= 90\nprint(df)\n\n  ID    Name Score  Pass\n1  1   Alice    85 FALSE\n2  2     Bob    90  TRUE\n3  3 Charlie    88 FALSE\n\n# Calculate the average score\nmean(df$Score)\n\n[1] 87.66667\n\n\n\n\nExercise 4\nText Data Manipulation with stringr Objective: Practice manipulating text data using the stringr package.\nInstructions: 1. Load the stringr package. 2. Create a character string: “The quick brown fox jumps over the lazy dog”. 3. Count the number of words in the string. 4. Extract the word “quick” from the string. 5. Replace the word “lazy” with “energetic”.\n\n# Load the stringr package\nlibrary(stringr)\n\n# Create a string\ntext_string &lt;- \"The quick brown fox jumps over the lazy dog\"\n\n# Count words\nstr_count(text_string, \"\\\\w+\")\n\n[1] 9\n\n# Extract \"quick\"\nstr_extract(text_string, \"quick\")\n\n[1] \"quick\"\n\n# Replace \"lazy\" with \"crazy\"\nstr_replace(text_string, \"lazy\", \"energetic\")\n\n[1] \"The quick brown fox jumps over the energetic dog\"\n\n# Try the following and count again?\ntext_string &lt;- \"The quick brown fox jumps over the lazy dog #\"\nstr_count(text_string, \"\\\\w+\")\n\n[1] 9\n\n\n\n\nExercise 5\nCreating and Analyzing a Document-Term Matrix (DTM) Objective: Learn how to create and analyze a Document-Term Matrix using text data.\nInstructions:\n\nLoad the tm package.\nCreate a small corpus using the following text documents:\n\n“R is a programming language for data analysis.”\n“Data analysis in R is powerful and flexible.”\n“Learning R can be fun and rewarding.”\n\nCreate a Document-Term Matrix (DTM) from the corpus.\nInspect the DTM to see the term frequency matrix.\nIdentify the term with the highest frequency across all documents.\n\n\n# Load tm package\nlibrary(tm)\n\nLoading required package: NLP\n\n# Create a corpus\ndocuments &lt;- c(\"R is a programming language for data analysis.\",\n          \"Data analysis in R is powerful and flexible.\",\n          \"Learning R can be fun and rewarding.\")\ncorpus &lt;- Corpus(VectorSource(documents))\n\n# Create a Document-Term Matrix\ndtm &lt;- DocumentTermMatrix(corpus)\n\n# Inspect the DTM\ninspect(dtm)\n\n&lt;&lt;DocumentTermMatrix (documents: 3, terms: 13)&gt;&gt;\nNon-/sparse entries: 15/24\nSparsity           : 62%\nMaximal term length: 11\nWeighting          : term frequency (tf)\nSample             :\n    Terms\nDocs analysis analysis. and can data flexible. for language powerful\n   1        0         1   0   0    1         0   1        1        0\n   2        1         0   1   0    1         1   0        0        1\n   3        0         0   1   1    0         0   0        0        0\n    Terms\nDocs programming\n   1           1\n   2           0\n   3           0\n\n# Find highest frequency\nterm_frequencies &lt;- colSums(as.matrix(dtm))\nmost_frequent_term &lt;- names(term_frequencies[which.max(term_frequencies)])\nmost_frequent_term\n\n[1] \"data\""
+  },
+  {
+    "objectID": "assignment01.html#basic-statistical-functions---q1",
+    "href": "assignment01.html#basic-statistical-functions---q1",
+    "title": "Assignment 01",
+    "section": "2.1 Basic Statistical Functions - Q1",
+    "text": "2.1 Basic Statistical Functions - Q1\n\nCreate a vector data with the following values: c(12, 17, 14, 22, 15, 19, 16).\nCalculate the mean, median, standard deviation, and variance of data.\nDetermine the minimum, maximum, and range of the data.\nGenerate a summary of data.\n\n\n# Create vector\ndata &lt;- c(12, 17, 14, 22, 15, 19, 16)\n\n# Statistics\nmean_data &lt;- mean(data)\nmedian_data &lt;- median(data)\nsd_data &lt;- sd(data)\nvar_data &lt;- var(data)\n\nstat_data &lt;- c(Mean = mean_data, \n               Median = median_data, \n               SD = sd_data, \n               Var = var_data)\n\nprint(stat_data)\n\n     Mean    Median        SD       Var \n16.428571 16.000000  3.309438 10.952381 \n\n# Min, Max, Range\nmin_data &lt;- min(data)\nmax_data &lt;- max(data)\nrange_data &lt;- range(data)\n\nrange_data &lt;- c(Min = min_data, \n               Max = max_data, \n               Range = range_data \n               )\nprint(range_data)\n\n   Min    Max Range1 Range2 \n    12     22     12     22 \n\n# Summary statistics\nsummary_data &lt;- summary(data)\nprint(summary_data)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  12.00   14.50   16.00   16.43   18.00   22.00"
+  },
+  {
+    "objectID": "assignment01.html#matrix-operations---q2",
+    "href": "assignment01.html#matrix-operations---q2",
+    "title": "Assignment 01",
+    "section": "2.2 Matrix Operations - Q2",
+    "text": "2.2 Matrix Operations - Q2\n\nCreate a 2x3 matrix matrix_A with the values c(1, 2, 3, 4, 5, 6).\nCreate another 2x3 matrix matrix_B with the values c(6, 5, 4, 3, 2, 1).\nPerform element-wise addition and subtraction on matrix_A and matrix_B.\nTranspose matrix_A to create matrix_A_T.\nMultiply matrix_A_T by matrix_B (after ensuring their dimensions match).\n\n\n# Creating matrices\nmatrix_A &lt;- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)\nprint(matrix_A)\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6\n\nmatrix_B &lt;- matrix(c(6, 5, 4, 3, 2, 1), nrow = 2, ncol = 3)\nprint(matrix_B)\n\n     [,1] [,2] [,3]\n[1,]    6    4    2\n[2,]    5    3    1\n\n# Operations\nmatrix_add &lt;- matrix_A + matrix_B\nprint(matrix_add)\n\n     [,1] [,2] [,3]\n[1,]    7    7    7\n[2,]    7    7    7\n\nmatrix_sub &lt;- matrix_A - matrix_B\nprint(matrix_sub)\n\n     [,1] [,2] [,3]\n[1,]   -5   -1    3\n[2,]   -3    1    5\n\n# Transpose\nmatrix_A_T &lt;- t(matrix_A)\nprint(matrix_A_T)\n\n     [,1] [,2]\n[1,]    1    2\n[2,]    3    4\n[3,]    5    6\n\n# Multiplying AT X BT\nmatrix_mul &lt;- matrix_A_T %*% matrix_B\nprint(matrix_mul)\n\n     [,1] [,2] [,3]\n[1,]   16   10    4\n[2,]   38   24   10\n[3,]   60   38   16"
+  },
+  {
+    "objectID": "assignment01.html#creating-functions---q3",
+    "href": "assignment01.html#creating-functions---q3",
+    "title": "Assignment 01",
+    "section": "2.3 Creating Functions - Q3",
+    "text": "2.3 Creating Functions - Q3\n\nWrite a function cube() that calculates the cube of a number.\nCreate a vector numbers with the values c(2, 3, 4), and use the cube() function to find the cube of each element in numbers.\nWrite a function is_positive() that checks if a number is positive, negative, or zero, and returns a corresponding message.\nTest the is_positive() function with the numbers 5, -3, and 0.\n\n\n# Cube Function\ncube &lt;- function(x) {\n  return(x^3)\n}\n\n# Cube a Vector\nnumbers &lt;- c(2, 3, 4)\ncubes &lt;- sapply(numbers, cube)\nprint(cubes)\n\n[1]  8 27 64\n\n# Sign Test\nis_positive &lt;- function(num) {\n  if (num &gt; 0) {\n    return(\"Positive\")\n  } else if (num &lt; 0) {\n    return(\"Negative\")\n  } else {\n    return(\"Zero\")\n  }\n}\n\n# Test is_positive function\nresult_1 &lt;- is_positive(5)  # Should return \"Positive\"\nprint(result_1)\n\n[1] \"Positive\"\n\nresult_2 &lt;- is_positive(-3) # Should return \"Negative\"\nprint(result_2)\n\n[1] \"Negative\"\n\nresult_3 &lt;- is_positive(0)  # Should return \"Zero\"\nprint(result_3)\n\n[1] \"Zero\""
+  },
+  {
+    "objectID": "assignment01.html#q1",
+    "href": "assignment01.html#q1",
+    "title": "Assignment 01",
+    "section": "Q1",
+    "text": "Q1\n\n1. Import the Air_Quality data and view the column names.\n\n# 1.1.1 Direct import If the data is in the same folder as the current working directory\n\nair_data &lt;- read.csv(\"Air_Quality.csv\")\n\n# 1.1.2 Setting working directory before direct import\n\n#setwd('D:/Summer Coding Camp/Jeong_CodingCamp_draft_code/Jeong_CodingCamp_draft_code')\n#air_data &lt;- read.csv(\"Air_Quality.csv\")\n\n# 1.1.3 Reading by giving the absolute address\n\n#air_data &lt;- read.csv('D:/Summer Coding Camp/Jeong_CodingCamp_draft_code/Jeong_CodingCamp_draft_code/Air_Quality.csv')\n\n\n\n2. Calculate the mean of a numeric column of your choice.\n\nmean_air &lt;- mean(air_data$Year)\nprint(mean_air)\n\n[1] 2014.657\n\n\n\n\n3. Identify the number of unique values in a categorical column.\n\nnum_unique_values &lt;- length(unique(air_data$Name))\nprint(num_unique_values)\n\n[1] 18"
+  },
+  {
+    "objectID": "assignment01.html#q2",
+    "href": "assignment01.html#q2",
+    "title": "Assignment 01",
+    "section": "Q2",
+    "text": "Q2\n\n1. Import the Air_Quality data and check the number of rows and columns.\n\ndimensions &lt;- dim(air_data)\nprint(\"Rows    Columns\")\n\n[1] \"Rows    Columns\"\n\nprint(dimensions)\n\n[1] 14077     9\n\n\n\n\n2. Calculate the median of a numeric column.\n\nmedian_air &lt;- median(air_data$Year)\nprint(median_air)\n\n[1] 2015\n\n\n\n\n3. Count the number of missing values in the Electric Vehicle data.\n\nlibrary(readxl)\nev_data &lt;- read_excel(\"Electric_Vehicle_Population_Data.xlsx\")\nnum_missing_values &lt;- sum(is.na(ev_data))\nprint(paste(\"Number of missing values in the entire data frame:\", num_missing_values))\n\n[1] \"Number of missing values in the entire data frame: 494\""
+  },
+  {
+    "objectID": "assignment01.html#q3",
+    "href": "assignment01.html#q3",
+    "title": "Assignment 01",
+    "section": "Q3",
+    "text": "Q3\n\nExport the Electric Vehicle data to a new CSV file.\n\n\nwrite.csv(ev_data, \"electric_vehicle_data.csv\", row.names = FALSE)\n\n\nModify a column (e.g., replace missing values) and save the modified data.\n\n\nev_data$Postal_Code[is.na(ev_data$Postal_Code)] &lt;- \"XXXXX\"\nprint(ev_data)\n\n# A tibble: 194,232 × 17\n   `VIN (1-10)` County    City         State Postal_Code Model_Year Make   Model\n   &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;\n 1 1C4RJXN66R   Snohomish Everett      WA    98204             2024 JEEP   WRAN…\n 2 KNDJX3AEXG   King      Renton       WA    98058             2016 KIA    SOUL \n 3 5YJ3E1EA3L   King      Seattle      WA    98125             2020 TESLA  MODE…\n 4 1G1RC6S5XH   Kitsap    Port Orchard WA    98367             2017 CHEVR… VOLT \n 5 5UXTA6C09P   Snohomish Monroe       WA    98272             2023 BMW    X5   \n 6 1FMCU0EZXN   Yakima    Moxee        WA    98936             2022 FORD   ESCA…\n 7 5YJSA1DNXD   Thurston  Olympia      WA    98506             2013 TESLA  MODE…\n 8 1N4AZ0CP8F   Snohomish Monroe       WA    98272             2015 NISSAN LEAF \n 9 WP1AE2A21J   Snohomish Everett      WA    98208             2018 PORSC… CAYE…\n10 1N4BZ1BV4N   Snohomish Everett      WA    98208             2022 NISSAN LEAF \n# ℹ 194,222 more rows\n# ℹ 9 more variables: `Electric Vehicle Type` &lt;chr&gt;,\n#   `Clean Alternative Fuel Vehicle (CAFV) Eligibility` &lt;chr&gt;,\n#   Electric_Range &lt;dbl&gt;, `Base MSRP` &lt;dbl&gt;, `Legislative District` &lt;dbl&gt;,\n#   `DOL Vehicle ID` &lt;dbl&gt;, `Vehicle Location` &lt;chr&gt;, `Electric Utility` &lt;chr&gt;,\n#   `2020 Census Tract` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "assignment01.html#creating-visualizations-for-age-adjusted-death-rate",
+    "href": "assignment01.html#creating-visualizations-for-age-adjusted-death-rate",
+    "title": "Assignment 01",
+    "section": "2.1 Creating Visualizations for Age-adjusted Death Rate",
+    "text": "2.1 Creating Visualizations for Age-adjusted Death Rate\n\n1. Create a basic histogram of Age_adjusted_Death_Rate with mean and median lines.\n\nlife_data &lt;- read.csv(\"US_Life_expectancy.csv\")\n# Replotting with mean and median\nmean_le &lt;- mean(life_data$Average_Life_Expectancy, na.rm = TRUE)\nmedian_le &lt;- median(life_data$Average_Life_Expectancy, na.rm = TRUE)\nhist(life_data$Average_Life_Expectancy,\n     main = \"Histogram of Average Life Expectancy with Mean and Median\",\n     xlab = \"Average Life Expectancy\",\n     col = \"lightblue\", border = \"black\")\nabline(v = mean_le, col = \"grey\", lwd = 2)\nabline(v = median_le, col = \"pink\", lwd = 2)\nlegend(\"topleft\", legend = c(\"Mean\", \"Median\"), col = c(\"grey\", \"pink\"), lwd = 2)\n\n\n\n\n\n\n\n\n\n\n2. Create a boxplot of Age_adjusted_Death_Rate by gender with colors.\n\nboxplot(Average_Life_Expectancy ~ Gender, data = life_data,\n        main = \"Boxplot of Life Expectancy by Gender\",\n        xlab = \"Gender\", ylab = \"Average Life Expectancy\",\n        col = c(\"lightblue\", \"lightgreen\"))\n\n\n\n\n\n\n\n\n\n\n3. Create a scatter plot of Year vs. Age_adjusted_Death_Rate with points colored by gender.\n\nplot(life_data$Year, life_data$Average_Life_Expectancy,\n     xlab = \"Year\", ylab = \"Average Life Expectancy\",\n     main = \"Scatter Plot of Life Expectancy Over Time by Gender\",\n     pch = 19, col = ifelse(life_data$Gender == \"Male\", \"grey\", \"cornflowerblue\"))\nlegend(\"topleft\", legend = c(\"Male\", \"Female\"), col = c(\"grey\", \"cornflowerblue\"), lwd = 2)\n\n\n\n\n\n\n\n\n\n\n4. Create a line plot of Year vs. Age_adjusted_Death_Rate with lines for each gender.\n\nmale_data &lt;- subset(life_data, Gender == \"Male\")\nfemale_data &lt;- subset(life_data, Gender == \"Female\")\nplot(male_data$Year, male_data$Average_Life_Expectancy,\n     type = \"l\", col = \"lightblue\", lwd = 2,\n     xlab = \"Year\", ylab = \"Average Life Expectancy (years)\",\n     main = \"Life Expectancy by Gender Over Time\",\n     lty = 1,\n     xlim = c(min(life_data$Year), max(life_data$Year)), \n     ylim = c(min(life_data$Average_Life_Expectancy, na.rm = TRUE), \n              max(life_data$Average_Life_Expectancy, na.rm = TRUE)))\nlines(female_data$Year, female_data$Average_Life_Expectancy, col = \"red4\", lwd = 2, lty = 2)\n\nlegend(\"bottomright\", legend = c(\"Male\", \"Female\"), col = c(\"lightblue\", \"red4\"), lwd = 2, lty = c(1, 2))\ntext(1918, 75, \"End of World War I\", col = \"black\")\nabline(v = 1918, col = \"black\", lwd = 1, lty = 3)"
+  },
+  {
+    "objectID": "assignment01.html#introduction",
+    "href": "assignment01.html#introduction",
+    "title": "Assignment 01",
+    "section": "1.1 Introduction",
+    "text": "1.1 Introduction\nThere were no exercises in this section."
+  },
+  {
+    "objectID": "assignment01.html#loading-the-data",
+    "href": "assignment01.html#loading-the-data",
+    "title": "Assignment 01",
+    "section": "1.2 Loading the Data",
+    "text": "1.2 Loading the Data\nThere were no exercises in this section."
+  },
+  {
+    "objectID": "assignment01.html#grouping-and-summarizing-data",
+    "href": "assignment01.html#grouping-and-summarizing-data",
+    "title": "Assignment 01",
+    "section": "1.3 Grouping and Summarizing Data",
+    "text": "1.3 Grouping and Summarizing Data\nGroup the data by Year, Aggregate by sum the Age_adjusted_Death_Rate\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nyear_data &lt;- life_data %&gt;%\n  group_by(Year) %&gt;%\n  summarize(Total_Death_Rate = sum(Age_adjusted_Death_Rate, na.rm = TRUE))\nhead(year_data)\n\n# A tibble: 6 × 2\n   Year Total_Death_Rate\n  &lt;int&gt;            &lt;dbl&gt;\n1  1900            5041.\n2  1901            4951 \n3  1902            4611.\n4  1903            4764.\n5  1904            5012.\n6  1905            4853."
+  },
+  {
+    "objectID": "assignment01.html#joining-data-frames",
+    "href": "assignment01.html#joining-data-frames",
+    "title": "Assignment 01",
+    "section": "1.4 Joining Data Frames",
+    "text": "1.4 Joining Data Frames\nCreate a new dataset with a column specifying if the year is before or after 1945, and join it ON the original dataset, keeping the original dataset intact and without na values. Hint: which side of join you should use?\n\nadditional_data_war &lt;- data.frame(\n  Year = 1900:2020,\n  Year_Category = ifelse(1900:2020 &lt;1945, \"Before WW2\", \"After WW2\")\n)\n\n# Joining data frames\njoined_data_ww2 &lt;- left_join(life_data, additional_data_war, by = 'Year')\n\n# Viewing the joined data\nhead(joined_data_ww2)\n\n  Year Gender Average_Life_Expectancy Age_adjusted_Death_Rate Year_Category\n1 1900 Female                    48.3                  2410.4    Before WW2\n2 1901 Female                    50.6                  2350.5    Before WW2\n3 1902 Female                    53.4                  2162.8    Before WW2\n4 1903 Female                    52.0                  2250.6    Before WW2\n5 1904 Female                    49.1                  2358.8    Before WW2\n6 1905 Female                    50.2                  2287.7    Before WW2"
+  },
+  {
+    "objectID": "assignment01.html#adding-data-using-function-with-mutate",
+    "href": "assignment01.html#adding-data-using-function-with-mutate",
+    "title": "Assignment 01",
+    "section": "1.5 Adding data using function with mutate()",
+    "text": "1.5 Adding data using function with mutate()\n\nlife_data_norm &lt;- mutate(\n  life_data, \n  life_normalized = (Average_Life_Expectancy - min(Average_Life_Expectancy)) / \n                               (max(Average_Life_Expectancy) - min(Average_Life_Expectancy))\n)\n\nhead(life_data_norm[,c(1,5)] )\n\n  Year life_normalized\n1 1900       0.2617450\n2 1901       0.3131991\n3 1902       0.3758389\n4 1903       0.3445190\n5 1904       0.2796421\n6 1905       0.3042506"
+  },
+  {
+    "objectID": "assignment01.html#exercise-1-descriptive-statistics",
+    "href": "assignment01.html#exercise-1-descriptive-statistics",
+    "title": "Assignment 01",
+    "section": "Exercise 1: Descriptive Statistics",
+    "text": "Exercise 1: Descriptive Statistics\n\nQ1-1.\nCalculate the mean and standard deviation of the carat, price, and depth variables.\n\nlibrary(\"ggplot2\")\n\n\nAttaching package: 'ggplot2'\n\n\nThe following object is masked from 'package:NLP':\n\n    annotate\n\ndata(\"diamonds\")\nmean_carat &lt;- mean(diamonds$carat, na.rm = TRUE)\nprint(mean_carat)\n\n[1] 0.7979397\n\nsd_carat &lt;- sd(diamonds$carat, na.rm = TRUE)\nprint(sd_carat)\n\n[1] 0.4740112\n\nmean_price &lt;- mean(diamonds$price, na.rm = TRUE)\nprint(mean_price)\n\n[1] 3932.8\n\nsd_price &lt;- sd(diamonds$price, na.rm = TRUE)\nprint(sd_price)\n\n[1] 3989.44\n\nmean_depth &lt;- mean(diamonds$depth, na.rm = TRUE)\nprint(mean_depth)\n\n[1] 61.7494\n\nsd_depth &lt;- sd(diamonds$depth, na.rm = TRUE)\nprint(sd_depth)\n\n[1] 1.432621\n\n\n\n\nQ1-2.\nUse the summary() function to get a detailed summary of the price variable.\n\nprint(summary(diamonds$price))\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n    326     950    2401    3933    5324   18823 \n\n\n\n\nQ1-3.\nDetermine the number of diamonds within each cut category using the table() function.\n\nprint(table(diamonds$cut))\n\n\n     Fair      Good Very Good   Premium     Ideal \n     1610      4906     12082     13791     21551"
+  },
+  {
+    "objectID": "assignment01.html#exercise-2-t-test",
+    "href": "assignment01.html#exercise-2-t-test",
+    "title": "Assignment 01",
+    "section": "Exercise 2: t-test",
+    "text": "Exercise 2: t-test\n\nQ2\n\nSubset the diamonds dataset to include only diamonds with an “Ideal” or “Fair” cut.\nPerform a t-test to compare the mean prices between these two cut categories.\nInterpret the p-value to determine if the difference in mean prices is statistically significant.\n\n\ndiamonds_subset &lt;- subset(diamonds, cut %in% c(\"Ideal\", \"Fair\"))\nt_test_result &lt;- t.test(price ~ cut, data = diamonds_subset)\n\nt_test_result\n\n\n    Welch Two Sample t-test\n\ndata:  price by cut\nt = 9.7484, df = 1894.8, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means between group Fair and group Ideal is not equal to 0\n95 percent confidence interval:\n  719.9065 1082.5251\nsample estimates:\n mean in group Fair mean in group Ideal \n           4358.758            3457.542 \n\n\nInterpretation:\n\nt = 9.7484, df = 1894.8\nThe alternative hypothesis is that the difference in means between the “Fair” and “Ideal” groups is not equal to 0. Since the p-value is near zero, we reject the null hypothesis. The means of the two groups are different.\nThe 95% CI is between 719.9065 and 1082.5251.\nThe mean for Fair is 4358.758.\nThe mean for Ideal is 3457.542."
+  },
+  {
+    "objectID": "assignment01.html#exercise-3-anova",
+    "href": "assignment01.html#exercise-3-anova",
+    "title": "Assignment 01",
+    "section": "Exercise 3 ANOVA",
+    "text": "Exercise 3 ANOVA\n\nQ3-1\n\nPerform an ANOVA test to assess the effect of clarity on diamond price.\nIf significant differences are found, conduct a Tukey’s HSD post-hoc test to identify which clarity levels differ from each other.\n\n\nsummary(aov(price ~ clarity, data = diamonds))\n\n               Df    Sum Sq   Mean Sq F value Pr(&gt;F)    \nclarity         7 2.331e+10 3.330e+09     215 &lt;2e-16 ***\nResiduals   53932 8.352e+11 1.549e+07                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nClarity has a significant effect on price.\n\n\nQ3-2\n\nIf significant differences are found, conduct a Tukey’s HSD post-hoc test to identify which clarity levels differ from each other.\n\n\nTukeyHSD(aov(price ~ clarity, data = diamonds))\n\n  Tukey multiple comparisons of means\n    95% family-wise confidence level\n\nFit: aov(formula = price ~ clarity, data = diamonds)\n\n$clarity\n                   diff          lwr         upr     p adj\nSI2-I1     1138.8599147   683.395891  1594.32394 0.0000000\nSI1-I1       71.8324571  -378.570901   522.23582 0.9997320\nVS2-I1        0.8207037  -450.377702   452.01911 1.0000000\nVS1-I1      -84.7132999  -542.298929   372.87233 0.9992819\nVVS2-I1    -640.4316203 -1109.531923  -171.33132 0.0009165\nVVS1-I1   -1401.0540535 -1881.569711  -920.53840 0.0000000\nIF-I1     -1059.3295848 -1580.334655  -538.32451 0.0000000\nSI1-SI2   -1067.0274575 -1229.386830  -904.66808 0.0000000\nVS2-SI2   -1138.0392109 -1302.591274  -973.48715 0.0000000\nVS1-SI2   -1223.5732146 -1404.907129 -1042.23930 0.0000000\nVVS2-SI2  -1779.2915349 -1987.983831 -1570.59924 0.0000000\nVVS1-SI2  -2539.9139681 -2773.136347 -2306.69159 0.0000000\nIF-SI2    -2198.1894995 -2506.318797 -1890.06020 0.0000000\nVS2-SI1     -71.0117534  -220.988718    78.96521 0.8410824\nVS1-SI1    -156.5457571  -324.764949    11.67343 0.0899007\nVVS2-SI1   -712.2640774  -909.667681  -514.86047 0.0000000\nVVS1-SI1  -1472.8865106 -1696.064436 -1249.70859 0.0000000\nIF-SI1    -1131.1620420 -1431.760399  -830.56369 0.0000000\nVS1-VS2     -85.5340037  -255.870471    84.80246 0.7958312\nVVS2-VS2   -641.2523240  -840.463263  -442.04138 0.0000000\nVVS1-VS2  -1401.8747572 -1626.652874 -1177.09664 0.0000000\nIF-VS2    -1060.1502885 -1361.938605  -758.36197 0.0000000\nVVS2-VS1   -555.7183203  -769.001243  -342.43540 0.0000000\nVVS1-VS1  -1316.3407535 -1553.679770 -1079.00174 0.0000000\nIF-VS1     -974.6162849 -1285.873083  -663.35949 0.0000000\nVVS1-VVS2  -760.6224332 -1019.466585  -501.77828 0.0000000\nIF-VVS2    -418.8979645  -746.848084   -90.94785 0.0027364\nIF-VVS1     341.7244687    -2.356168   685.80510 0.0531204"
+  },
+  {
+    "objectID": "assignment01.html#exercise-4-simple-linear-regression",
+    "href": "assignment01.html#exercise-4-simple-linear-regression",
+    "title": "Assignment 01",
+    "section": "Exercise 4: Simple Linear Regression",
+    "text": "Exercise 4: Simple Linear Regression\n\nQ4\n\nFit a simple linear regression model with carat as the predictor and price as the response variable.\nDisplay the summary of the regression model, including coefficients, R-squared, and p-value.\nCreate a scatter plot of price versus carat, and add the regression line to visualize the relationship.\n\n\ndiamond_lm &lt;- lm(price ~ carat, data = diamonds)\nsummary(diamond_lm)\n\n\nCall:\nlm(formula = price ~ carat, data = diamonds)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-18585.3   -804.8    -18.9    537.4  12731.7 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -2256.36      13.06  -172.8   &lt;2e-16 ***\ncarat        7756.43      14.07   551.4   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1549 on 53938 degrees of freedom\nMultiple R-squared:  0.8493,    Adjusted R-squared:  0.8493 \nF-statistic: 3.041e+05 on 1 and 53938 DF,  p-value: &lt; 2.2e-16\n\n\n\n# Create a scatter plot and add the regression line\nplot(diamonds$carat, diamonds$price, main = \"Linear Regression of Price on Carat\",\n     xlab = \"Carat\", ylab = \"Price\",pch = 19, col = \"pink\")\nabline(diamond_lm, col = \"cornflowerblue\")"
+  },
+  {
+    "objectID": "assignment01.html#exercise-1-fitting-a-multiple-linear-regression-model",
+    "href": "assignment01.html#exercise-1-fitting-a-multiple-linear-regression-model",
+    "title": "Assignment 01",
+    "section": "Exercise 1: Fitting a Multiple Linear Regression Model",
+    "text": "Exercise 1: Fitting a Multiple Linear Regression Model\n\nQ1-1\nUse the lm() function to create a multiple linear regression model with your selected variables.\n\nlibrary(MASS)\n\n\nAttaching package: 'MASS'\n\n\nThe following object is masked from 'package:dplyr':\n\n    select\n\ndata(\"Boston\")\nstr(Boston)\n\n'data.frame':   506 obs. of  14 variables:\n $ crim   : num  0.00632 0.02731 0.02729 0.03237 0.06905 ...\n $ zn     : num  18 0 0 0 0 0 12.5 12.5 12.5 12.5 ...\n $ indus  : num  2.31 7.07 7.07 2.18 2.18 2.18 7.87 7.87 7.87 7.87 ...\n $ chas   : int  0 0 0 0 0 0 0 0 0 0 ...\n $ nox    : num  0.538 0.469 0.469 0.458 0.458 0.458 0.524 0.524 0.524 0.524 ...\n $ rm     : num  6.58 6.42 7.18 7 7.15 ...\n $ age    : num  65.2 78.9 61.1 45.8 54.2 58.7 66.6 96.1 100 85.9 ...\n $ dis    : num  4.09 4.97 4.97 6.06 6.06 ...\n $ rad    : int  1 2 2 3 3 3 5 5 5 5 ...\n $ tax    : num  296 242 242 222 222 222 311 311 311 311 ...\n $ ptratio: num  15.3 17.8 17.8 18.7 18.7 18.7 15.2 15.2 15.2 15.2 ...\n $ black  : num  397 397 393 395 397 ...\n $ lstat  : num  4.98 9.14 4.03 2.94 5.33 ...\n $ medv   : num  24 21.6 34.7 33.4 36.2 28.7 22.9 27.1 16.5 18.9 ...\n\n# Fitting the multiple linear regression model\nlm1 &lt;- lm(crim ~ indus + lstat + nox, data = Boston)\n\n\n\nQ1-2\nDisplay the summary of the model to interpret the coefficients, R-squared, and p-values.\n\n# Display the model summary\nsummary(lm1)\n\n\nCall:\nlm(formula = crim ~ indus + lstat + nox, data = Boston)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-12.330  -2.667  -0.557   1.169  81.408 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -9.35640    1.94271  -4.816 1.94e-06 ***\nindus        0.12046    0.07869   1.531  0.12644    \nlstat        0.35573    0.06050   5.880 7.49e-09 ***\nnox         12.84903    4.60314   2.791  0.00545 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.489 on 502 degrees of freedom\nMultiple R-squared:  0.2465,    Adjusted R-squared:  0.242 \nF-statistic: 54.74 on 3 and 502 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nQ1-3\nFor each independent variable, interpret the coefficient in terms of its impact on the dependent variable.\ncrim will be -9.36 indus, lstat, and nox are zero. This is the intercept and is significant.\nindus is 0.12046. For every 1 increase in indus, crim will increase 0.12. This is not significant.\nlstat is 0.35573. For every 1 increase in lstat, crim will increase 0.36. This has a strong significance.\nnox is 12.84903. For every 1 increase in nox, crim will increase 12.85. This is significant."
+  },
+  {
+    "objectID": "assignment01.html#exercise-2-refining-the-model-with-stepwise-regression",
+    "href": "assignment01.html#exercise-2-refining-the-model-with-stepwise-regression",
+    "title": "Assignment 01",
+    "section": "Exercise 2: Refining the Model with Stepwise Regression",
+    "text": "Exercise 2: Refining the Model with Stepwise Regression\n\nQ2-1\nApply forward selection, backward elimination, or bidirectional elimination to your model using the step() function.\nForward\n\nforward_model &lt;- step(lm(crim ~ 1, data = Boston), \n                      scope = list(lower = lm(crim ~ 1, data = Boston), \n                                   upper = lm(crim ~ indus + lstat + nox, data = Boston)), \n                      direction = \"forward\")\n\nStart:  AIC=2178.76\ncrim ~ 1\n\n        Df Sum of Sq   RSS    AIC\n+ lstat  1    7756.3 29607 2063.0\n+ nox    1    6621.4 30742 2082.1\n+ indus  1    6176.5 31187 2089.3\n&lt;none&gt;               37363 2178.8\n\nStep:  AIC=2063.03\ncrim ~ lstat\n\n        Df Sum of Sq   RSS    AIC\n+ nox    1    1322.0 28285 2041.9\n+ indus  1    1016.5 28590 2047.3\n&lt;none&gt;               29607 2063.0\n\nStep:  AIC=2041.92\ncrim ~ lstat + nox\n\n        Df Sum of Sq   RSS    AIC\n+ indus  1    131.43 28154 2041.6\n&lt;none&gt;               28285 2041.9\n\nStep:  AIC=2041.56\ncrim ~ lstat + nox + indus\n\nsummary(forward_model)\n\n\nCall:\nlm(formula = crim ~ lstat + nox + indus, data = Boston)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-12.330  -2.667  -0.557   1.169  81.408 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -9.35640    1.94271  -4.816 1.94e-06 ***\nlstat        0.35573    0.06050   5.880 7.49e-09 ***\nnox         12.84903    4.60314   2.791  0.00545 ** \nindus        0.12046    0.07869   1.531  0.12644    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.489 on 502 degrees of freedom\nMultiple R-squared:  0.2465,    Adjusted R-squared:  0.242 \nF-statistic: 54.74 on 3 and 502 DF,  p-value: &lt; 2.2e-16\n\n\nBackward\n\nbackward_model &lt;- step(lm(crim ~ indus + lstat + nox, data = Boston), \n                       direction = \"backward\")\n\nStart:  AIC=2041.56\ncrim ~ indus + lstat + nox\n\n        Df Sum of Sq   RSS    AIC\n&lt;none&gt;               28154 2041.6\n- indus  1    131.43 28285 2041.9\n- nox    1    436.98 28590 2047.3\n- lstat  1   1939.05 30093 2073.3\n\nsummary(backward_model)\n\n\nCall:\nlm(formula = crim ~ indus + lstat + nox, data = Boston)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-12.330  -2.667  -0.557   1.169  81.408 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -9.35640    1.94271  -4.816 1.94e-06 ***\nindus        0.12046    0.07869   1.531  0.12644    \nlstat        0.35573    0.06050   5.880 7.49e-09 ***\nnox         12.84903    4.60314   2.791  0.00545 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.489 on 502 degrees of freedom\nMultiple R-squared:  0.2465,    Adjusted R-squared:  0.242 \nF-statistic: 54.74 on 3 and 502 DF,  p-value: &lt; 2.2e-16\n\n\nBoth\n\nboth_model &lt;- step(lm(crim ~ 1, data = Boston), \n                   scope = list(lower = lm(crim ~ 1, data = Boston), \n                                upper = lm(crim ~ indus + lstat + nox, data = Boston)), \n                   direction = \"both\")\n\nStart:  AIC=2178.76\ncrim ~ 1\n\n        Df Sum of Sq   RSS    AIC\n+ lstat  1    7756.3 29607 2063.0\n+ nox    1    6621.4 30742 2082.1\n+ indus  1    6176.5 31187 2089.3\n&lt;none&gt;               37363 2178.8\n\nStep:  AIC=2063.03\ncrim ~ lstat\n\n        Df Sum of Sq   RSS    AIC\n+ nox    1    1322.0 28285 2041.9\n+ indus  1    1016.5 28590 2047.3\n&lt;none&gt;               29607 2063.0\n- lstat  1    7756.3 37363 2178.8\n\nStep:  AIC=2041.92\ncrim ~ lstat + nox\n\n        Df Sum of Sq   RSS    AIC\n+ indus  1    131.43 28154 2041.6\n&lt;none&gt;               28285 2041.9\n- nox    1   1322.02 29607 2063.0\n- lstat  1   2456.88 30742 2082.1\n\nStep:  AIC=2041.56\ncrim ~ lstat + nox + indus\n\n        Df Sum of Sq   RSS    AIC\n&lt;none&gt;               28154 2041.6\n- indus  1    131.43 28285 2041.9\n- nox    1    436.98 28590 2047.3\n- lstat  1   1939.05 30093 2073.3\n\nsummary(both_model)\n\n\nCall:\nlm(formula = crim ~ lstat + nox + indus, data = Boston)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-12.330  -2.667  -0.557   1.169  81.408 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -9.35640    1.94271  -4.816 1.94e-06 ***\nlstat        0.35573    0.06050   5.880 7.49e-09 ***\nnox         12.84903    4.60314   2.791  0.00545 ** \nindus        0.12046    0.07869   1.531  0.12644    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.489 on 502 degrees of freedom\nMultiple R-squared:  0.2465,    Adjusted R-squared:  0.242 \nF-statistic: 54.74 on 3 and 502 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nQ2-2\nCompare the new model with your initial model and discuss any differences in the selected variables and model performance.\nlstat and nox are the most significant predictors of crime rate. Adding indus only slightly improves the model."
+  },
+  {
+    "objectID": "assignment01.html#selecting-variables-and-fitting-a-regression-model",
+    "href": "assignment01.html#selecting-variables-and-fitting-a-regression-model",
+    "title": "Assignment 01",
+    "section": "Selecting Variables and Fitting a Regression Model",
+    "text": "Selecting Variables and Fitting a Regression Model\n\nQ1\n\nUse the lm() function to create a multiple linear regression model.\nDisplay the summary of the model to interpret the coefficients, R-squared, and p-values.\n\n\nlm1 &lt;- lm(price ~ color + depth + table, data = diamonds)\n\nsummary(lm1)\n\n\nCall:\nlm(formula = price ~ color + depth + table, data = diamonds)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n -6738  -2593  -1326   1302  15936 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -12295.321    992.830 -12.384  &lt; 2e-16 ***\ncolor.L       2051.961     56.700  36.190  &lt; 2e-16 ***\ncolor.Q        146.868     53.863   2.727   0.0064 ** \ncolor.C       -273.608     50.687  -5.398 6.77e-08 ***\ncolor^4         60.871     46.552   1.308   0.1910    \ncolor^5       -241.934     44.009  -5.497 3.87e-08 ***\ncolor^6         62.399     39.908   1.564   0.1179    \ndepth           52.593     12.282   4.282 1.85e-05 ***\ntable          229.054      7.876  29.083  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 3896 on 53931 degrees of freedom\nMultiple R-squared:  0.0466,    Adjusted R-squared:  0.04646 \nF-statistic: 329.5 on 8 and 53931 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "assignment01.html#residual-analysis",
+    "href": "assignment01.html#residual-analysis",
+    "title": "Assignment 01",
+    "section": "Residual Analysis",
+    "text": "Residual Analysis\n\nQ2\n\nCreate residual plots to check for linearity, homoscedasticity, and normality.\nUse the par() function to display multiple plots at once.\n\n\npar(mfrow = c(2, 2))\nplot(lm1)"
+  },
+  {
+    "objectID": "assignment01.html#checking-for-multicollinearity-and-heteroscedasticity",
+    "href": "assignment01.html#checking-for-multicollinearity-and-heteroscedasticity",
+    "title": "Assignment 01",
+    "section": "Checking for Multicollinearity and Heteroscedasticity",
+    "text": "Checking for Multicollinearity and Heteroscedasticity\n\nQ3\n\nCalculate VIF for each independent variable in your model.\nUse the bptest() function from the lmtest package to test for heteroscedasticity.\nInterpret the results of the test.\n\n\nlibrary(car)\n\nLoading required package: carData\n\n\n\nAttaching package: 'car'\n\n\nThe following object is masked from 'package:dplyr':\n\n    recode\n\nvif_values &lt;- vif(lm1)\nvif_values\n\n          GVIF Df GVIF^(1/(2*Df))\ncolor 1.007114  6        1.000591\ndepth 1.100311  1        1.048957\ntable 1.100780  1        1.049181\n\n\n\n# Install the lmtest package if not already installed\n# install.packages(\"lmtest\")\nlibrary(lmtest)\n\nLoading required package: zoo\n\n\n\nAttaching package: 'zoo'\n\n\nThe following objects are masked from 'package:base':\n\n    as.Date, as.Date.numeric\n\n# Breusch-Pagan test for heteroscedasticity\nbp_test &lt;- bptest(lm1)\nbp_test\n\n\n    studentized Breusch-Pagan test\n\ndata:  lm1\nBP = 785.22, df = 8, p-value &lt; 2.2e-16"
+  },
+  {
+    "objectID": "assignment01.html#model-comparison-and-evaluation",
+    "href": "assignment01.html#model-comparison-and-evaluation",
+    "title": "Assignment 01",
+    "section": "Model Comparison and Evaluation",
+    "text": "Model Comparison and Evaluation\n\nQ4\n\nFit an alternative model with a different set of independent variables.\nCompare the models based on Adjusted R-squared and AIC to determine which model is better.\n\n\n# Alternative model with different independent variables\nlm2 &lt;- lm(price ~ carat + cut + color, data = diamonds)"
+  },
+  {
+    "objectID": "SPARQL.html",
+    "href": "SPARQL.html",
+    "title": "SPARQL",
+    "section": "",
+    "text": "Nomisma SPARQL Endpoint"
+  },
+  {
+    "objectID": "SPARQL.html#example-1",
+    "href": "SPARQL.html#example-1",
+    "title": "SPARQL",
+    "section": "Example 1",
+    "text": "Example 1\nModified from R networks analysis / works\nSELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {\n{\n  ?hoard void:inDataset &lt;http://numismatics.org/chrr/&gt; ;\n  dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint .\n}\nUNION\n{ ?hoard a nmo:Hoard ;\ndcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] .\n?tsi nmo:hasMint ?mint .\n}\nOPTIONAL { ?hoard nmo:hasFindspot [\ngeo:lat ?hoardlat ;\ngeo:long ?hoardlong ] }\nOPTIONAL { ?mint geo:location [\ngeo:lat ?mintlat ;\ngeo:long ?mintlong ] }\n}"
   }
 ]

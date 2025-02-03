@@ -66,6 +66,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<meta name="robots" content="noindex, nofollow">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -87,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
@@ -96,13 +97,35 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./SPARQL.html" aria-current="page"> 
 <span class="menu-text">SPARQL</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./EPPS6323.html"> 
-<span class="menu-text">EPPS6323 Files</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Assignments</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-assignments">    
+        <li>
+    <a class="dropdown-item" href="./assignment01.html">
+ <span class="dropdown-text">Assignment 01</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./comparison01.html">
+ <span class="dropdown-text">Shmueli &amp; Breiman Comparison</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="./project01.html">
+ <span class="dropdown-text">Brainstorming</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./Work.html"> 
-<span class="menu-text">Current Work</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -120,7 +143,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#modified-from-r-networks-analysis-works" id="toc-modified-from-r-networks-analysis-works" class="nav-link active" data-scroll-target="#modified-from-r-networks-analysis-works">Modified from R networks analysis / works</a></li>
+  <li><a href="#endpoint" id="toc-endpoint" class="nav-link active" data-scroll-target="#endpoint">Endpoint</a></li>
+  <li><a href="#headers-prefixes" id="toc-headers-prefixes" class="nav-link" data-scroll-target="#headers-prefixes">Headers / Prefixes</a></li>
+  <li><a href="#sample-queries" id="toc-sample-queries" class="nav-link" data-scroll-target="#sample-queries">Sample Queries</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -146,14 +174,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Some SPARQL queries for nomisma.org</p>
-<section id="modified-from-r-networks-analysis-works" class="level3">
-<h3 class="anchored" data-anchor-id="modified-from-r-networks-analysis-works">Modified from R networks analysis / works</h3>
-<pre><code>PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-PREFIX nmo: &lt;http://nomisma.org/ontology#&gt; 
-PREFIX void: &lt;http://rdfs.org/ns/void#&gt; 
-
-SELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {
+<section id="endpoint" class="level1">
+<h1>Endpoint</h1>
+<p><a href="https://nomisma.org/sparql/">Nomisma SPARQL Endpoint</a></p>
+</section>
+<section id="headers-prefixes" class="level1">
+<h1>Headers / Prefixes</h1>
+<p>Remember to add all these <strong>PREFIX</strong> to the SPARQL queries.</p>
+<pre><code>PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+PREFIX dcmitype: &lt;http://purl.org/dc/dcmitype/&gt;
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+PREFIX nm: &lt;http://nomisma.org/id/&gt;
+PREFIX nmo: &lt;http://nomisma.org/ontology#&gt;
+PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
+</section>
+<section id="sample-queries" class="level1">
+<h1>Sample Queries</h1>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
+<p>Modified from R networks analysis / works</p>
+<pre><code>SELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {
 {
   ?hoard void:inDataset &lt;http://numismatics.org/chrr/&gt; ;
   dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint .
@@ -172,6 +218,7 @@ geo:long ?mintlong ] }
 }</code></pre>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
