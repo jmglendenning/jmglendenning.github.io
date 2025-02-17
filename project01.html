@@ -67,6 +67,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <meta name="robots" content="noindex, nofollow">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -151,6 +154,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./assignment02.html">
  <span class="dropdown-text">Assignment 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare04.pdf">
+ <span class="dropdown-text">Class 04 Presentation</span></a>
   </li>  
     </ul>
   </li>
@@ -264,6 +271,45 @@ H_1&amp;: \scriptsize  \text{Scholarship has changed.}
 <p>The first step in the process is to verify that the data can actually be collected. Given the size and time constraints, it may be necessary to limit the scope of data collection to a reasonable, but not exhaustive amount.</p>
 <p>The book <em>The Ancient Economy</em> has been obtained and OCRed.</p>
 <p>One paper has been downloaded for examination (Brock, Motta, and Terrenato 2021).</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+  A[Start] --&gt; B[Load Text Data]
+  B --&gt; C[Preprocessing]
+  C --&gt;|Convert to Lowercase| C1[Lowercasing]
+  C --&gt;|Remove Punctuation| C2[Remove Punctuation]
+  C --&gt;|Remove Stopwords| C3[Stopword Removal]
+  C --&gt;|Stemming/Lemmatization| C4[Stemming/Lemmatization]
+  C --&gt;|Tokenization| C5[Tokenization]
+  C1 --&gt; D[Create Corpus]
+  C2 --&gt; D
+  C3 --&gt; D
+  C4 --&gt; D
+  C5 --&gt; D
+  D --&gt; E[Feature Extraction]
+  E --&gt;|Bag-of-Words| E1[BoW Model]
+  E --&gt;|TF-IDF| E2[TF-IDF Model]
+  E --&gt;|Word Embeddings| E3[Word2Vec, FastText, GloVe]
+  E1 --&gt; F[Train NLP Model]
+  E2 --&gt; F
+  E3 --&gt; F
+  F --&gt;|Classification| G1[Sentiment Analysis, Spam Detection]
+  F --&gt;|Clustering| G2[Topic Modeling, Named Entity Recognition]
+  F --&gt;|Text Generation| G3[Chatbots, Machine Translation]
+  G1 --&gt; H[Evaluate Model]
+  G2 --&gt; H
+  G3 --&gt; H
+  H --&gt; I[Deploy Model]
+  I --&gt; J[End]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="alternative-projects-to-consider" class="level1">
 <h1>Alternative Projects to Consider</h1>

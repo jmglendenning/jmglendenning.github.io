@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="John Glendenning">
 
-<title>SPARQL – John Glendenning</title>
+<title>EPPS 6323: Lab01 R programming basics I – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,6 +67,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <meta name="robots" content="noindex, nofollow">
 
 
@@ -94,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./SPARQL.html" aria-current="page"> 
+    <a class="nav-link" href="./SPARQL.html"> 
 <span class="menu-text">SPARQL</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -154,32 +158,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#endpoint" id="toc-endpoint" class="nav-link active" data-scroll-target="#endpoint">Endpoint</a></li>
-  <li><a href="#headers-prefixes" id="toc-headers-prefixes" class="nav-link" data-scroll-target="#headers-prefixes">Headers / Prefixes</a></li>
-  <li><a href="#sample-queries" id="toc-sample-queries" class="nav-link" data-scroll-target="#sample-queries">Sample Queries</a>
-  <ul class="collapse">
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SPARQL</h1>
+<h1 class="title">EPPS 6323: Lab01 R programming basics I</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Glendenning </p>
+          </div>
+  </div>
     
   
     
@@ -190,52 +189,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="endpoint" class="level1">
-<h1>Endpoint</h1>
-<p><a href="https://nomisma.org/sparql/">Nomisma SPARQL Endpoint</a></p>
-</section>
-<section id="headers-prefixes" class="level1">
-<h1>Headers / Prefixes</h1>
-<p>Remember to add all these <strong>PREFIX</strong> to the SPARQL queries.</p>
-<pre><code>PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
-PREFIX dcmitype: &lt;http://purl.org/dc/dcmitype/&gt;
-PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
-PREFIX geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
-PREFIX nm: &lt;http://nomisma.org/id/&gt;
-PREFIX nmo: &lt;http://nomisma.org/ontology#&gt;
-PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
-PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
-</section>
-<section id="sample-queries" class="level1">
-<h1>Sample Queries</h1>
-<section id="example-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
-<p>Modified from R networks analysis / works</p>
-<pre><code>SELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {
-{
-  ?hoard void:inDataset &lt;http://numismatics.org/chrr/&gt; ;
-  dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint .
-}
-UNION
-{ ?hoard a nmo:Hoard ;
-dcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] .
-?tsi nmo:hasMint ?mint .
-}
-OPTIONAL { ?hoard nmo:hasFindspot [
-geo:lat ?hoardlat ;
-geo:long ?hoardlong ] }
-OPTIONAL { ?mint geo:location [
-geo:lat ?mintlat ;
-geo:long ?mintlong ] }
-}</code></pre>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Hard edge] --&gt; B(Round edge)
+  B --&gt; C{Decision}
+  C --&gt; D{Result one}
+  C --&gt; E[Result two]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
