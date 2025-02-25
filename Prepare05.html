@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="John Glendenning">
 
-<title>Shmueli v Breiman – John Glendenning</title>
+<title>Prepare for Class05 – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,6 +67,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <meta name="robots" content="noindex, nofollow">
 
 
@@ -162,21 +166,33 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#prepare-for-class" id="toc-prepare-for-class" class="nav-link active" data-scroll-target="#prepare-for-class">Prepare for Class</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Shmueli v Breiman</h1>
+<h1 class="title">Prepare for Class05</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Glendenning </p>
+          </div>
+  </div>
     
   
     
@@ -187,8 +203,64 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="prepare-for-class" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-for-class">Prepare for Class</h2>
+<ol type="1">
+<li><p>Assigned reading</p>
+<ol type="a">
+<li>Continue on: “Mining Scientific Papers, Volume II: Knowledge Discovery and Data Exploitation”</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
+<ol start="2" type="a">
+<li>Silge, Julia &amp; Robinson, David. 2019. Text mining with R: a tidy approach. Latest online edition (https://www.tidytextmining.com/)</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Reviewed</label></li>
+</ul></li>
+<li><p>Identify a topic with text data you like to analyze (e.g.&nbsp;YouTube, news data)</p>
+<p>Compare the language used in several original gothic novels:</p>
+<ol type="1">
+<li>The Vampyre (1819) – John Polidori</li>
+<li>Melmoth the Wanderer (1820) – Charles Maturin</li>
+<li>Zofloya, or The Moor (1806) – Charlotte Dacre</li>
+<li>The Monk (1796) – Matthew Lewis</li>
+<li>Frankenstein; or the Modern Prometheus (1818) - Mary Shelly</li>
+</ol>
+<ol type="a">
+<li><p>What data source?</p>
+<p>Project Gutenberg</p></li>
+<li><p>How to get the data?</p>
+<p>Using the text mining capabilities of TidyR, the data can be gathered and processed.</p></li>
+</ol></li>
+</ol>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+  B[Load Libraries: TidyR, gutenbergr, TidyText] 
+  B --&gt; C[Search for Book in gutenberg_metadata] 
+  C --&gt; D[Download Book Text Using gutenberg_download] 
+  D --&gt; E[Preprocess Text: Remove Stop Words, Tokenize] 
+  E --&gt; F[Perform NLP: Word Frequency, N-Grams] 
+  F --&gt; G[Conduct Sentiment Analysis Using tidytext] 
+  G --&gt; H[Visualize Results: Word Clouds, Sentiment Trends] 
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Reminder: Proposal due 2/25/2025 (Please read KM_Preparing Research Proposal.pdf)</li>
+</ol>
+<p><a href="https://jmglendenning.github.io/Proposal.pdf">Proposal</a></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
