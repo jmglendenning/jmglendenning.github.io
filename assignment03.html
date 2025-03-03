@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Assignment 03 – John Glendenning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a78bc22c21c5275f96438b53095d57b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">John Glendenning</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./SPARQL.html"> 
+<span class="menu-text">SPARQL</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Assignments</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-assignments">    
+        <li>
+    <a class="dropdown-item" href="./assignment01.html">
+ <span class="dropdown-text">Assignment 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./comparison01.html">
+ <span class="dropdown-text">Shmueli &amp; Breiman Comparison</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Lab01.html">
+ <span class="dropdown-text">Lab 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Lab02.html">
+ <span class="dropdown-text">Lab 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment02.html">
+ <span class="dropdown-text">Assignment 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare04.pdf">
+ <span class="dropdown-text">Class 04 Presentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare05.html">
+ <span class="dropdown-text">Prepare for Class 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare06.html">
+ <span class="dropdown-text">Prepare for Class 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment03.html">
+ <span class="dropdown-text">Assignment 03</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="./project01.html">
+ <span class="dropdown-text">Brainstorming</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project02.html">
+ <span class="dropdown-text">Proposal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project03.pdf">
+ <span class="dropdown-text">Proposal</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assignment-3-prompt-exercise" id="toc-assignment-3-prompt-exercise" class="nav-link active" data-scroll-target="#assignment-3-prompt-exercise">Assignment 3: Prompt exercise</a>
+  <ul class="collapse">
+  <li><a href="#step-1-initial-prompt-creation" id="toc-step-1-initial-prompt-creation" class="nav-link" data-scroll-target="#step-1-initial-prompt-creation">Step 1: Initial Prompt Creation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignment 03</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="assignment-3-prompt-exercise" class="level1">
+<h1>Assignment 3: Prompt exercise</h1>
+<p><strong>Objective:</strong> Design prompts to conduct a structured systematic literature review on data mining and machine learning using multiple AI models (e.g.&nbsp;ChatGPT, Gemini, and Llama) and analyze each model’s contribution and refining prompts for academic precision and depth.</p>
+<p>Exercise Steps:</p>
+<section id="step-1-initial-prompt-creation" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-initial-prompt-creation">Step 1: Initial Prompt Creation</h2>
+<ul>
+<li>Task: Write a baseline prompt to request a structured systematic literature review on data mining and machine learning applications.</li>
+<li>Example Prompt: “Conduct a 2,000-word structured systematic literature review on the applications of data mining and machine learning in real-world domains. Include a methodology section, synthesize key findings, identify trends and gaps, and propose one testable hypothesis. Use an academic tone and emulate systematic review standards.”</li>
+<li>Students submit this prompt to ChatGPT, Copilot, and Grok 3, collecting the raw outputs.</li>
+</ul>
+<div class="task heading" style="color: green;">
+<p>Please note that the rest of this document is a rainbow of colors to help keep inputs and responses, separate from the original questions and my answers to them.</p>
+<div class="task heading" style="color: DimGray;">
+<ul>
+<li>Grey - Original Assignment Text</li>
+</ul>
+<div class="task heading" style="color: green;">
+<ul>
+<li>Green - Answers to Original Assignment</li>
+</ul>
+<div class="task heading" style="color: DodgerBlue;">
+<ul>
+<li>Blue - Document Headings</li>
+</ul>
+<div class="task heading" style="color: MediumOrchid;">
+<ul>
+<li>Light Purple - Prompts</li>
+</ul>
+<div class="task heading" style="color: BlueViolet;">
+<ul>
+<li>Dark Purple - Model Output</li>
+</ul>
+<div class="task heading" style="color: green;">
+<p>Hopfully, this will make this document easier to digest.</p>
+<p>Note: Some of the raw outputs have been adjusted to remove some Markdown formatting because it conflicts with the formatting of this document.</p>
+<section id="starting-prompt" class="level3">
+<h3 class="anchored">Starting prompt</h3>
+<p>This is the original prompt</p>
+<div class="task heading" style="color: MediumOrchid;">
+<p>Create a structured, systematic literature review on the applications of data mining and machine learning.</p>
+<p>Include: Methodology Trends Gap analysis Supporting quotes Tables, Figures, Charts Future Outlook Conclusion One Testable Hypothesis</p>
+<p>Requirements: All statements must be real and true A comprehensive list of sources Organize by themes APSA format and academic tone</p>
+<section id="chatgpt" class="level3">
+<h3 class="anchored">ChatGPT</h3>
+<div class="task heading" style="color: BlueViolet;">
+<p>Methodology</p>
+<p>This systematic literature review examines the applications of data mining and machine learning across various domains. The methodology involved a comprehensive search of academic databases, including PubMed, MEDLINE, Google Scholar, and SpringerLink, to identify relevant studies. Keywords such as “data mining applications,” “machine learning applications,” and “systematic literature review” were utilized. Inclusion criteria encompassed peer-reviewed articles published in English that discussed practical applications of data mining and machine learning. Studies focusing solely on theoretical aspects without empirical validation were excluded. The selected articles were categorized based on application domains, methodologies employed, and outcomes achieved.</p>
+<p>Trends</p>
+<p>The analysis revealed several prominent trends in the application of data mining and machine learning: 1. Healthcare and Medicine: There is a significant increase in utilizing machine learning for predictive analytics in patient diagnosis, treatment planning, and personalized medicine. For instance, machine learning algorithms have been applied to predict patient outcomes and assist in clinical decision-making. 2. Environmental Science: Data mining techniques are increasingly used to analyze environmental data, such as air quality monitoring and pollution prediction. A systematic review highlighted the application of machine learning methods in air pollution epidemiology, aiding in forecasting and source apportionment. ￼ 3. Education: Educational data mining has emerged as a tool to analyze student performance and improve educational outcomes. A review discussed the use of data mining and machine learning algorithms to predict student success and identify areas needing intervention. ￼ 4. Finance: Predictive analytics and machine learning models are employed for credit scoring, fraud detection, and risk assessment, enhancing decision-making processes in financial institutions. ￼</p>
+<p>Gap Analysis</p>
+<p>Despite the advancements, certain gaps persist: 1. Data Quality and Integration: Many studies highlight challenges related to data quality, including missing values and inconsistencies, which hinder the effectiveness of machine learning models. Integrating heterogeneous data sources remains a significant obstacle. 2. Model Interpretability: Complex models, such as deep neural networks, often lack interpretability, making it difficult for practitioners to trust and adopt these models in critical applications like healthcare. 3. Ethical Considerations: There is a growing concern about the ethical implications of data mining and machine learning, particularly regarding privacy, bias, and fairness. Few studies address these issues comprehensively.</p>
+<p>Testable Hypothesis</p>
+<p>Implementing explainable AI models in healthcare diagnostics will lead to higher adoption rates among medical professionals compared to traditional black-box models.</p>
+<p>Supporting Quotes • “Appropriate application of Data Mining procedures can provide multiple indicators of student performance.” ￼ • “Data mining is becoming an increasingly common tool in environmental health.” ￼</p>
+<p>Tables, Figures, Charts</p>
+<p>Table 1: Applications of Data Mining and Machine Learning by Domain</p>
+<p>Domain Applications References Healthcare Patient diagnosis, treatment planning<br>
+Environmental Science Air quality monitoring, pollution prediction<br>
+Education Student performance analysis<br>
+Finance Credit scoring, fraud detection</p>
+<p>Figure 1: Trends in Machine Learning Applications Across Domains</p>
+<p>Chart 1: Challenges in Data Mining and Machine Learning Implementations</p>
+<p>Future Outlook</p>
+<p>The future of data mining and machine learning applications is promising, with anticipated advancements in the following areas: 1. Explainable AI: Developing models that provide transparent and interpretable results to address the trust and adoption issues in critical fields like healthcare. 2. Automated Machine Learning (AutoML): Simplifying the model development process to make machine learning accessible to non-experts, thereby broadening its application scope. 3. Integration with Big Data Technologies: Combining machine learning with big data platforms to efficiently process and analyze vast amounts of data, leading to more accurate and timely insights. 4. Ethical Frameworks: Establishing robust ethical guidelines to ensure the responsible use of data mining and machine learning, focusing on privacy, bias mitigation, and fairness.</p>
+<p>Conclusion</p>
+<p>Data mining and machine learning have become integral tools across various sectors, offering significant improvements in decision-making and efficiency. However, challenges related to data quality, model interpretability, and ethical considerations must be addressed to fully harness their potential. Future research should focus on developing transparent models, improving data integration techniques, and establishing ethical standards to guide the responsible application of these technologies.</p>
+<p>Comprehensive List of Sources • Tawde, Pallavi Devendra, and Yogesh Kumar Sharma. “Systematic Review on Data Mining and Machine Learning Algorithms for Analysing Student’s Performance.” Utkal Historical Research Journal 34, no. III (2021): 108-117. • Chen, Hsinchun, et al.&nbsp;“A Systematic Review of Data Mining and Machine Learning for Air Pollution Epidemiology.” BMC Public Health 17, no. 1 (2017): 1-19. • Katuwal, Gopal J., and Prasanna K. Kolhe. “Systematic Literature Review of Machine Learning Methods Used in Respiratory Sound Analysis.” BMC Medical Informatics and Decision Making 21, no. 1 (2021): 1-16. • Bellazzi, Riccardo, and Blaz Zupan. “Predictive Data Mining in Clinical Medicine: Current Issues and Guidelines.” International Journal of Medical Informatics 77, no. 2 (2008): 81-97. • Azeem, Ibraheem. *On the Evolution of Data Science and Machine Learning</p>
+<section id="deepseek" class="level3">
+<h3 class="anchored" data-anchor-id="deepseek">DeepSeek</h3>
+<p>Structured Systematic Literature Review: Applications of Data Mining and Machine Learning</p>
+<hr>
+<p><strong>1. Introduction</strong> Data mining and machine learning (ML) have emerged as transformative technologies across various domains, including healthcare, finance, education, and cybersecurity. This review systematically examines the applications, trends, and gaps in the literature, providing a structured analysis of the current state of research. The methodology, trends, and future outlook are discussed, supported by evidence from peer-reviewed studies.</p>
+<hr>
+<p><strong>2. Methodology</strong> This review follows the PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) framework to ensure a rigorous and transparent process.</p>
+<p><strong>2.1 Data Collection</strong> - <strong>Databases Searched</strong>: IEEE Xplore, PubMed, SpringerLink, ACM Digital Library, and Google Scholar. - <strong>Keywords</strong>: “data mining applications,” “machine learning applications,” “trends in data mining,” “machine learning in healthcare,” “data mining in finance.” - <strong>Inclusion Criteria</strong>: Peer-reviewed articles published between 2015 and 2023, focusing on real-world applications of data mining and ML. - <strong>Exclusion Criteria</strong>: Articles without empirical evidence, non-English publications, and theoretical papers without practical applications.</p>
+<p><strong>2.2 Data Analysis</strong> - Thematic analysis was conducted to identify recurring themes and trends. - Gap analysis was performed by comparing the stated objectives of studies with their outcomes. - Quantitative data were visualized using tables and charts.</p>
+<hr>
+<p><strong>3. Trends in Data Mining and Machine Learning Applications</strong></p>
+<p><strong>3.1 Healthcare</strong> - <strong>Applications</strong>: Predictive diagnostics, personalized medicine, and patient outcome prediction. - <strong>Trends</strong>: Increased use of deep learning for medical image analysis and natural language processing (NLP) for electronic health record (EHR) analysis. - <strong>Supporting Quote</strong>: “Machine learning models, particularly convolutional neural networks (CNNs), have achieved diagnostic accuracy comparable to human experts in radiology” (Esteva et al., 2017).</p>
+<p><strong>3.2 Finance</strong> - <strong>Applications</strong>: Fraud detection, algorithmic trading, and credit scoring. - <strong>Trends</strong>: Adoption of ensemble learning methods like XGBoost and Random Forests for improved predictive accuracy. - <strong>Supporting Quote</strong>: “Ensemble methods have reduced false positives in fraud detection by 20% compared to traditional statistical methods” (Dal Pozzolo et al., 2015).</p>
+<p><strong>3.3 Education</strong> - <strong>Applications</strong>: Learning analytics, student performance prediction, and adaptive learning systems. - <strong>Trends</strong>: Growth in the use of clustering algorithms to identify at-risk students and recommend interventions. - <strong>Supporting Quote</strong>: “K-means clustering has been effective in segmenting students based on learning behaviors, enabling targeted interventions” (Romero &amp; Ventura, 2020).</p>
+<p><strong>3.4 Cybersecurity</strong> - <strong>Applications</strong>: Intrusion detection, malware classification, and anomaly detection. - <strong>Trends</strong>: Shift towards unsupervised learning for detecting zero-day attacks and adversarial ML for robust systems. - <strong>Supporting Quote</strong>: “Unsupervised learning techniques like autoencoders have shown promise in identifying novel attack patterns” (Chandola et al., 2018).</p>
+<hr>
+<p><strong>4. Gap Analysis</strong> Despite advancements, several gaps persist in the literature:</p>
+<p><strong>4.1 Interpretability</strong> - Many ML models, especially deep learning, lack interpretability, limiting their adoption in critical fields like healthcare. - <strong>Supporting Quote</strong>: “The ‘black-box’ nature of deep learning models remains a significant barrier to their deployment in clinical settings” (Samek et al., 2019).</p>
+<p><strong>4.2 Data Quality</strong> - Poor data quality and lack of labeled datasets hinder the performance of supervised learning models. - <strong>Supporting Quote</strong>: “Insufficient and noisy data are the primary challenges in applying ML to real-world problems” (Provost &amp; Fawcett, 2013).</p>
+<p><strong>4.3 Scalability</strong> - Many algorithms struggle with scalability when applied to large datasets. - <strong>Supporting Quote</strong>: “Scalability issues in traditional ML algorithms have led to the development of distributed computing frameworks like Apache Spark” (Zaharia et al., 2016).</p>
+<hr>
+<p><strong>5. Visual Representation</strong></p>
+<p><strong>Table 1: Applications of Data Mining and Machine Learning by Domain</strong> | <strong>Domain</strong> | <strong>Applications</strong> | <strong>Common Algorithms</strong> | |——————|————————————–|——————————–| | Healthcare | Predictive diagnostics, EHR analysis | CNNs, SVM, NLP | | Finance | Fraud detection, credit scoring | XGBoost, Random Forests | | Education | Learning analytics, adaptive systems | K-means, Decision Trees | | Cybersecurity | Intrusion detection, malware analysis| Autoencoders, GANs |</p>
+<p><strong>Figure 1: Trends in ML Applications (2015-2023)</strong> <img src="https://via.placeholder.com/600x400.png" class="img-fluid" alt="Trends in ML Applications"><br>
+<em>Caption: Growth in deep learning and ensemble methods across domains.</em></p>
+<hr>
+<p><strong>6. Future Outlook</strong> - <strong>Explainable AI (XAI)</strong>: Development of interpretable models to enhance trust and adoption. - <strong>Federated Learning</strong>: Addressing data privacy concerns by enabling decentralized model training. - <strong>Quantum Machine Learning</strong>: Leveraging quantum computing for solving complex optimization problems. - <strong>Supporting Quote</strong>: “Federated learning is poised to revolutionize data privacy in ML applications” (Yang et al., 2019).</p>
+<hr>
+<p><strong>7. Conclusion</strong> This review highlights the transformative potential of data mining and ML across various domains while identifying critical gaps in interpretability, data quality, and scalability. Future research should focus on developing robust, scalable, and interpretable models to address these challenges.</p>
+<hr>
+<p><strong>8. References</strong> - Chandola, V., Banerjee, A., &amp; Kumar, V. (2018). Anomaly detection: A survey. <em>ACM Computing Surveys</em>, 41(3), 1-58. - Dal Pozzolo, A., Caelen, O., Le Borgne, Y. A., Waterschoot, S., &amp; Bontempi, G. (2015). Learned lessons in credit card fraud detection from a practitioner perspective. <em>Expert Systems with Applications</em>, 41(10), 4915-4928. - Esteva, A., Kuprel, B., Novoa, R. A., Ko, J., Swetter, S. M., Blau, H. M., &amp; Thrun, S. (2017). Dermatologist-level classification of skin cancer with deep neural networks. <em>Nature</em>, 542(7639), 115-118. - Provost, F., &amp; Fawcett, T. (2013). Data science for business: What you need to know about data mining and data-analytic thinking. <em>O’Reilly Media</em>. - Romero, C., &amp; Ventura, S. (2020). Educational data mining and learning analytics: An updated survey. <em>Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery</em>, 10(3), e1355. - Samek, W., Montavon, G., Vedaldi, A., Hansen, L. K., &amp; Müller, K. R. (2019). Explainable AI: Interpreting, explaining and visualizing deep learning. <em>Springer</em>. - Yang, Q., Liu, Y., Chen, T., &amp; Tong, Y. (2019). Federated machine learning: Concept and applications. <em>ACM Transactions on Intelligent Systems and Technology</em>, 10(2), 1-19. - Zaharia, M., Xin, R. S., Wendell, P., Das, T., Armbrust, M., Dave, A., … &amp; Stoica, I. (2016). Apache Spark: A unified engine for big data processing. <em>Communications of the ACM</em>, 59(11), 56-65.</p>
+<hr>
+<p>This review adheres to APSA formatting and maintains an academic tone, ensuring credibility and relevance for scholarly audiences.</p>
+</section>
+<section id="gemini" class="level3">
+<h3 class="anchored" data-anchor-id="gemini">Gemini</h3>
+<p>Applications of Data Mining and Machine Learning: A Systematic Literature Review Abstract:</p>
+<p>This review systematically examines the applications of data mining and machine learning (DM/ML) across diverse domains. Employing a structured methodology, it identifies prevailing trends, conducts a gap analysis, and outlines future research directions. By synthesizing findings from a comprehensive literature search, this review provides a nuanced understanding of the transformative impact of DM/ML.</p>
+<ol type="1">
+<li>Introduction:</li>
+</ol>
+<p>Data mining and machine learning have evolved into pivotal tools for extracting valuable insights and automating decision-making from vast datasets. Their application spans various sectors, including healthcare, finance, marketing, and environmental science. This review aims to systematically analyze the existing literature to identify key applications, trends, and research gaps.</p>
+<ol start="2" type="1">
+<li>Methodology:</li>
+</ol>
+<p>This review adheres to a systematic approach, encompassing the following stages:</p>
+<p>Search Strategy: A comprehensive search was conducted using databases such as IEEE Xplore, ACM Digital Library, ScienceDirect, PubMed, and Google Scholar. Keywords included “data mining,” “machine learning,” “applications,” “healthcare,” “finance,” “marketing,” “environmental science,” and related terms. Inclusion/Exclusion Criteria: Studies were included if they: Presented empirical applications of DM/ML. Were published in peer-reviewed journals or conference proceedings. Were written in English. Were published within the last decade (with exceptions for foundational works). Studies were excluded if they: Were theoretical papers without empirical applications. Were non-peer-reviewed or grey literature. Data Extraction: Relevant information was extracted from each study, including: Application domain. DM/ML techniques used. Dataset characteristics. Performance metrics. Key findings. Synthesis and Analysis: Extracted data were synthesized and analyzed to identify prevailing trends, research gaps, and future directions. 3. Themes and Trends:</p>
+<p>3.1. Healthcare:</p>
+<p>DM/ML algorithms are widely used for disease prediction, diagnosis, and treatment. Applications include medical image analysis, genomics, and electronic health record analysis. Trend: Increased use of deep learning for complex medical imaging tasks. “Machine learning algorithms have demonstrated significant potential in predicting disease progression and improving patient outcomes” (Obermeyer &amp; Emanuel, 2016). Table 1: Healthcare Applications of DM/ML | Application | DM/ML Technique | Example | | :——————- | :——————— | :————————————— | | Disease Prediction | Logistic Regression, SVM | Predicting cardiovascular disease risk | | Medical Image Analysis | Convolutional Neural Networks | Detecting tumors in MRI scans | | Genomics | Clustering, Classification | Identifying genetic markers for diseases | 3.2. Finance:</p>
+<p>DM/ML is employed for fraud detection, risk management, and algorithmic trading. Applications include credit scoring, stock market prediction, and customer churn analysis. Trend: Growing adoption of reinforcement learning for algorithmic trading. “The use of machine learning in financial fraud detection has significantly improved accuracy and reduced false positives” (Bolton &amp; Hand, 2002). Figure 1: Financial Applications of DM/ML (A pie chart could be used to show the distribution of DM/ML applications in finance, such as fraud detection, risk management, and algorithmic trading.) 3.3. Marketing:</p>
+<p>DM/ML enables personalized marketing, customer segmentation, and recommendation systems. Applications include sentiment analysis, social media analytics, and targeted advertising. Trend: Increasing focus on ethical considerations in personalized marketing. “Machine learning algorithms are increasingly used to personalize customer experiences and improve marketing campaign effectiveness” (Wedel &amp; Kannan, 2016). 3.4. Environmental Science:</p>
+<p>DM/ML is used for climate modeling, air quality prediction, and resource management. Applications include remote sensing data analysis and ecological modeling. Trend: Development of AI-powered solutions for environmental sustainability. “Data mining techniques are crucial for analyzing environmental data and extracting insights to support sustainable resource management” (Recknagel et al., 2001). 4. Gap Analysis:</p>
+<p>Data Quality and Availability: Many applications suffer from limited data availability or poor data quality. Interpretability and Explainability: Complex DM/ML models, particularly deep learning, often lack interpretability, hindering trust and adoption. Ethical Considerations: Bias in algorithms, privacy concerns, and the potential for misuse require careful attention. “The ‘black box’ nature of many machine learning models poses challenges for understanding and trusting their predictions” (Doshi-Velez &amp; Kim, 2017). Generalizability: Models trained on specific datasets may not generalize well to other populations or contexts. Integration: Integration of DM/ML into existing workflows and systems remains a significant challenge. 5. Future Outlook:</p>
+<p>Explainable AI (XAI): Research will focus on developing methods to make DM/ML models more transparent and interpretable. Federated Learning: This approach allows training models on decentralized data, addressing privacy concerns. Automated Machine Learning (AutoML): AutoML tools will simplify the process of developing and deploying DM/ML models. AI for Social Good: Increased focus on using DM/ML to address societal challenges, such as poverty, inequality, and climate change. Hybrid AI: Combining different AI methods, such as symbolic AI and machine learning, to create more robust and adaptable systems. Edge AI: Implementing machine learning directly on edge devices, enabling faster and more efficient data processing. 6. Conclusion:</p>
+<p>Data mining and machine learning have revolutionized numerous domains, offering powerful tools for extracting insights and automating decision-making. However, challenges related to data quality, interpretability, and ethical considerations remain. Future research should focus on addressing these gaps and developing more robust, transparent, and ethical DM/ML solutions. The integration of explainable AI, federated learning, and AutoML will play a crucial role in expanding the reach and impact of these technologies.</p>
+<ol start="7" type="1">
+<li>Testable Hypothesis:</li>
+</ol>
+<p>Hypothesis: Deep learning models trained on multimodal medical imaging data (e.g., combining MRI and PET scans) will demonstrate significantly higher accuracy in early-stage Alzheimer’s disease detection compared to models trained on single-modality data.</p>
+<ol start="8" type="1">
+<li>References:</li>
+</ol>
+<p>Bolton, R. J., &amp; Hand, D. J. (2002). Statistical fraud detection: A review. Statistical science, 17(3), 235-255. Doshi-Velez, F., &amp; Kim, B. (2017). Towards a rigorous science of interpretable machine learning. arXiv preprint arXiv:1702.08608. Obermeyer, Z., &amp; Emanuel, E. J. (2016). Predicting the future—big data, machine learning, and clinical medicine. New England Journal of Medicine, 375(13), 1216-1219. 1 &nbsp; 1. rsdjournal.org rsdjournal.org Recknagel, F., French, M., Harker, P., &amp; Yabunaka, K. I. (2001). Artificial neural network approach for modelling and prediction of algal blooms. Ecological modelling, 146(1-3), 81-91. Wedel, M., &amp; Kannan, P. K. (2016). Marketing analytics for data-rich environments. Journal of Marketing, 80(6), 97-121. Note: This is a structured outline. To create a fully realized review, further research and data extraction would be required. The tables and figures would be created based on the data collected.</p>
+</section>
+<section id="llama-3.1" class="level3">
+<h3 class="anchored" data-anchor-id="llama-3.1">Llama 3.1</h3>
+<p>Title: Unlocking Insights: A Systematic Review of Data Mining and Machine Learning Applications Abstract: This systematic literature review explores the applications of data mining and machine learning across various domains. A comprehensive analysis of 150 studies reveals emerging trends, gaps, and future directions. The review highlights the transformative potential of these technologies in driving decision-making, improving outcomes, and enhancing efficiency. Methodology: Database selection: Scopus, Web of Science, and IEEE Xplore. Search query: (“data mining” OR “machine learning”) AND (“application” OR “implementation”). Inclusion criteria: Peer-reviewed articles, conference papers, and book chapters published between 2015 and 2022. Exclusion criteria: Studies focusing solely on theoretical aspects, surveys, or reviews. Data extraction: Study characteristics, application domains, techniques used, and outcomes. Trends: Increasing adoption: Data mining and machine learning applications have grown exponentially across industries. Domain expansion: Emerging applications in healthcare, finance, and education. Technique diversification: Integration of deep learning, natural language processing, and transfer learning. Domain Number of Studies Prominent Techniques Healthcare 30 Random Forest, Support Vector Machines Finance 20 Deep Learning, Gradient Boosting Education 15 Clustering, Decision Trees Gap Analysis: Limited interpretability: Many studies lack transparent explanations of complex models. Data quality issues: Insufficient attention to data preprocessing and quality assessment. Scalability concerns: Few studies address the challenges of deploying models in large-scale environments. Supporting Quotes: “The application of machine learning in healthcare has the potential to revolutionize patient care and outcomes.” (Rajkomar et al., 2019) “Data mining techniques can help financial institutions detect fraudulent activities and improve risk management.” (Srivastava et al., 2018) Figures and Charts: Figure 1: Distribution of studies across domains Chart 1: Techniques used in data mining and machine learning applications Future Outlook: Explainable AI: Developing techniques for transparent and interpretable models. Edge AI: Deploying models on edge devices for real-time processing. Human-AI collaboration: Designing systems that facilitate human-AI interaction. Conclusion: This systematic review highlights the vast potential of data mining and machine learning applications across industries. While challenges persist, emerging trends and techniques offer promising solutions. Future research should focus on addressing gaps, improving interpretability, and developing human-AI collaborative systems.</p>
+<p>Title: Unlocking Insights: A Systematic Review of Data Mining and Machine Learning Applications Abstract: This systematic literature review explores the applications of data mining and machine learning across various domains. A comprehensive analysis of 150 studies reveals emerging trends, gaps, and future directions. The review highlights the transformative potential of these technologies in driving decision-making, improving outcomes, and enhancing efficiency. Methodology: Database selection: Scopus, Web of Science, and IEEE Xplore. Search query: (“data mining” OR “machine learning”) AND (“application” OR “implementation”). Inclusion criteria: Peer-reviewed articles, conference papers, and book chapters published between 2015 and 2022. Exclusion criteria: Studies focusing solely on theoretical aspects, surveys, or reviews. Data extraction: Study characteristics, application domains, techniques used, and outcomes. Trends: Increasing adoption: Data mining and machine learning applications have grown exponentially across industries (Kumar et al., 2020). Domain expansion: Emerging applications in healthcare, finance, and education (Sharma et al., 2019). Technique diversification: Integration of deep learning, natural language processing, and transfer learning (Rajkomar et al., 2019). Domain Number of Studies Prominent Techniques Healthcare 30 Random Forest, Support Vector Machines Finance 20 Deep Learning, Gradient Boosting Education 15 Clustering, Decision Trees Gap Analysis: Limited interpretability: Many studies lack transparent explanations of complex models (Gunning, 2017). Data quality issues: Insufficient attention to data preprocessing and quality assessment (Srivastava et al., 2018). Scalability concerns: Few studies address the challenges of deploying models in large-scale environments (Chen et al., 2019). Supporting Quotes: “The application of machine learning in healthcare has the potential to revolutionize patient care and outcomes.” (Rajkomar et al., 2019) “Data mining techniques can help financial institutions detect fraudulent activities and improve risk management.” (Srivastava et al., 2018) Figures and Charts: Figure 1: Distribution of studies across domains Chart 1: Techniques used in data mining and machine learning applications Future Outlook: Explainable AI: Developing techniques for transparent and interpretable models. Edge AI: Deploying models on edge devices for real-time processing. Human-AI collaboration: Designing systems that facilitate human-AI interaction. Testable Hypothesis: H1: The integration of data mining and machine learning techniques will lead to significant improvements in predictive accuracy and decision-making across various industries. References: Rajkomar, A., Oren, E., Chen, K., et al.&nbsp;(2019). Scalable and accurate deep learning for electronic health records. NPJ Digital Medicine, 2(1), 1-10. Srivastava, A., Singh, S. K., Tanwar, S., et al.&nbsp;(2018). Credit card fraud detection using data mining techniques. Journal of Intelligent Information Systems, 53(2), 257-275. Appendix: Comprehensive list of sources (150 studies) Note: The references provided are a selection of the studies reviewed and are not an exhaustive list.</p>
+</section>
+<section id="copilot" class="level3">
+<h3 class="anchored" data-anchor-id="copilot">Copilot</h3>
+<p>Systematic Literature Review on the Applications of Data Mining and Machine Learning Methodology The methodology for this literature review follows a systematic approach to identify, evaluate, and synthesize relevant research on the applications of data mining and machine learning. The steps include: Search for Relevant Literature: Conducted comprehensive searches in academic databases such as IEEE Xplore, SpringerLink, and Google Scholar using keywords like “data mining applications,” “machine learning applications,” “data mining trends,” and “machine learning trends.” Evaluate Sources: Selected peer-reviewed articles, conference papers, and reputable industry reports published between 2015 and 2025. Identify Themes, Debates, and Gaps: Analyzed the literature to identify common themes, ongoing debates, and gaps in the research. Outline Structure: Organized the review by themes, including methodology, trends, gap analysis, supporting quotes, tables, figures, charts, future outlook, conclusion, and a testable hypothesis. Write the Literature Review: Synthesized the findings and presented them in a structured format. Trends Several key trends have emerged in the applications of data mining and machine learning: AI and Machine Learning Integration: AI and machine learning are increasingly integrated into data mining processes, enhancing predictive accuracy and automating complex data analysis tasks. Real-Time Data Processing: The growth of IoT devices has driven the need for real-time data processing, enabling organizations to make instant decisions based on streaming data. Graph Analytics: Graph analytics is gaining traction for its ability to uncover complex relationships in networks, such as social media connections and supply chains. Privacy-Preserving Techniques: With stricter regulations like GDPR and CCPA, privacy-preserving techniques in data mining are becoming essential. Gap Analysis Despite significant advancements, several gaps remain in the research on data mining and machine learning: Data Quality and Preprocessing: Many studies highlight the challenges of dealing with noisy and incomplete data, which can affect the accuracy of machine learning models. Scalability: There is a need for more scalable algorithms that can handle the ever-increasing volume of data generated by modern applications. Interdisciplinary Approaches: Integrating insights from other scientific areas, such as statistics and domain-specific knowledge, remains underexplored. Supporting Quotes “The impact of AI and machine learning on data mining is transformative, enabling more accurate predictions and efficient data analysis” (Rey Ladaran, 2024). “Real-time data processing is now a must-have, especially with the explosive growth of IoT devices” (Gartner, 2023). Tables, Figures, Charts Below is a summary table of key trends in data mining and machine learning: Trend Description AI and Machine Learning Integration of AI and machine learning to enhance predictive accuracy Real-Time Data Processing Need for instant data analysis driven by IoT devices Graph Analytics Uncovering complex relationships in networks Privacy-Preserving Techniques Ensuring data privacy in compliance with regulations like GDPR and CCPA Future Outlook The future of data mining and machine learning is promising, with several emerging trends expected to shape the field: Increased Automation: Automation of data preprocessing and model building will allow data scientists to focus on higher-value tasks. Advanced AI Integration: AI algorithms will continue to evolve, providing more sophisticated tools for data analysis. Ethical Considerations: As data mining and machine learning become more pervasive, ethical considerations will play a crucial role in shaping their applications. Conclusion In conclusion, data mining and machine learning have revolutionized various industries by providing powerful tools for data analysis and decision-making. While significant progress has been made, challenges such as data quality, scalability, and interdisciplinary integration remain. Addressing these gaps will be crucial for the continued advancement of the field. One Testable Hypothesis Hypothesis: The integration of AI-driven automation in data preprocessing will significantly improve the accuracy and efficiency of machine learning models in real-time data analysis. Comprehensive List of Sources Intellspot Wiley Simplilearn Scribbr Unriddle Purdue OWL SPLACE MIT Sloan Management SpringerLink SRK DEI Essay Freelance Writers</p>
+</section>
+<section id="step-2-analyze-model-responses" class="level2 task heading" style="color: DimGray;">
+<h2 class="anchored" data-anchor-id="step-2-analyze-model-responses">Step 2: Analyze Model Responses</h2>
+<ul>
+<li>Task: Assess each model’s output based on:
+<ul>
+<li>Structure: Did it include a methodology section and follow a systematic review format?</li>
+<li>Synthesis: Were key findings from data mining and machine learning applications well-summarized?</li>
+<li>Trends and Gaps: Did it identify meaningful trends and research gaps?</li>
+<li>Hypothesis: Was the proposed hypothesis testable and relevant?</li>
+<li>References: Are the citations accurate (check using Google Scholar or Semantic Scholar)</li>
+<li>Students document strengths and weaknesses. For example, ChatGPT might provide broad coverage, Copilot might excel at concise structuring, and I (Grok 3) might offer a unique perspective on emerging trends.</li>
+</ul></li>
+</ul>
+<div class="task heading" style="color: green;">
+<section id="structure" class="level3">
+<h3 class="anchored" data-anchor-id="structure">Structure</h3>
+<p>No length requirement was give for the response, so each of the models must have used an internally defined length limit.</p>
+<p>Each of the models provided a general structure for their responses. ChatGPTs structure was weak and poorly implemented. Copilot was also weak in its structure. It seemed to be a bit more dumbed down than necessary. Meta AI was more professional and better structured. Gemini was produced in an outline form. It seemed more comprehensive than the average response. Llamas response was terse, and not really informative. Similar to Copilot. DeepSeek was also terse and written</p>
+<p>The focus of this exercise is a literature review, but it seems that these are very poorly structured and written. They are also generally all similar.</p>
+<p>A quick note. The cut and paste responses above do not reflect the output of each of the models. In general, they looked better. DeepSeek output Markdown when copied, which was very good. This had to be changed for the information above because it interfered with the formatting of this quarto document. Gemini had no copy function, requiring output be sent to Google Docs.</p>
+</section>
+<section id="synthesis" class="level3">
+<h3 class="anchored" data-anchor-id="synthesis">Synthesis</h3>
+<p>Given the length of all the responses, they appeared trite. All of the responses, except Llama and Copilot were broken down by groups, such as healthcare. This was not helpful and meant that many areas were not covered.</p>
+</section>
+<section id="trends-and-gaps" class="level3">
+<h3 class="anchored" data-anchor-id="trends-and-gaps">Trends and Gaps</h3>
+<p>The gap and trend analysis varied widely from model-to-model to the point that a more explicit request needs to be outlined for a new prompt to get the best results.</p>
+</section>
+<section id="hypothesis" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis">Hypothesis</h3>
+<p>All of the hypotheses that were returned appeared testable, but all were rather specific. All required some domain specific knowledge, and many would have been very expensive to test.</p>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>Not all the references were accurate or complete for any of the models, but the URL links were all live. Copilot only provided links, but no other sources.</p>
+</section>
+<section id="step-3-refine-the-prompt" class="level2 task heading" style="color: DimGray;">
+<h2 class="anchored" data-anchor-id="step-3-refine-the-prompt">Step 3: Refine the Prompt</h2>
+<ul>
+<li>Task: Revise the prompt to address deficiencies in each model’s response, creating three tailored prompts—one for ChatGPT, one for Copilot, and one for Grok 3.</li>
+<li>Example Refined Prompt for Grok 3: “Imagine you’re a data scientist conducting a 2,000-word systematic literature review on how data mining and machine learning are applied in domains like healthcare, finance, and education. Outline a clear methodology, synthesize key findings with fresh insights, highlight trends and gaps, and propose one bold, testable hypothesis. Maintain a rigorous academic tone.”</li>
+<li>Students test these refined prompts and compare the improved outputs.</li>
+</ul>
+<div class="task heading" style="color: green;">
+<p>Getting to Grok was incovenient and DeepSeek has provided better responses than most models, so DeepSeek was substituted.</p>
+<p>Below are the revised prompts for each of the models.</p>
+<div class="task heading" style="color: MediumOrchid;">
+<section id="chatgpt-1" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt-1">ChatGPT</h3>
+<p>Create a 2000 word systematic literature review on the applications of data mining and machine learning. make it like an academic paper</p>
+<p>Include: Methodology, Trends, Future Outlook, Conclusion and One easily Testable Hypothesis</p>
+<p>Requirements: All statements must be real and true, verified with google scholar A comprehensive list of sources, APSA format and academic tone</p>
+</section>
+<section id="deepseek-1" class="level3">
+<h3 class="anchored" data-anchor-id="deepseek-1">DeepSeek</h3>
+<p>Create a 2000 word systematic literature review on the applications of data mining and machine learning. make it like an academic paper, less outlined, more rigorous</p>
+<p>Include: Methodology, Trends, Future Outlook, Conclusion and One easily Testable Hypothesis</p>
+<p>Requirements: All statements must be real and true, verified with google scholar A comprehensive list of sources, APSA format and academic tone</p>
+</section>
+<section id="copilot-1" class="level3">
+<h3 class="anchored">Copilot</h3>
+<p>Create a 2000 word systematic literature review on the applications of data mining and machine learning. make it like an academic paper, less outlined, more rigorous</p>
+<p>Include: Methodology, Trends, Future Outlook, Conclusion and One easily Testable Hypothesis</p>
+<p>Requirements: All statements must be real and true, verified with google scholar A comprehensive list of sources, APSA format and academic tone</p>
+<div class="task heading" style="color: green;">
+<p>In general, the outputs were all improved. Even though the input prompts varied only a little from model-to-model the output was uniformily improved.</p>
+<section id="step-4-cross-model-collaboration" class="level2 task heading" style="color: DimGray;">
+<h2 class="anchored" data-anchor-id="step-4-cross-model-collaboration">Step 4: Cross-Model Collaboration</h2>
+<ul>
+<li>Task: Integrate the best elements from each model’s output into a final systematic review. Write a new prompt for the student’s preferred model (e.g., Grok 3) to synthesize the results.</li>
+<li>Example Synthesis Prompt: “Using these drafts from three AI models [paste outputs], produce a 2,000-word structured systematic literature review on data mining and machine learning applications. Combine the strongest methodology, findings, trends, gaps, and hypothesis into a cohesive, academically sound document.”</li>
+<li>Students submit their final review and justify their synthesis decisions.</li>
+</ul>
+<div class="task heading" style="color: green;">
+<p>I took the output from DeepSeek, ChatGPT and Copilot to create a 2,000 word written report from ChatGPT with the following prompt. ChatGPT was chosen because I have a paid account, and it does not give me busy errors. The actual text input was not included for brevity. The prompt is short but useful.</p>
+<div class="task heading" style="color: MediumOrchid;">
+<p>Using the included information create a 2000 word written report.</p>
+<div class="task heading" style="color: green;">
+<p>This is the final output from the prompt above. I have found with the latest models from ChatGPT, simple guidance such as above have produced acceptable outputs. Counterintuitively, more detail has produced stranger results. One thought is that the effort the model puts into following specific request works against the output process.</p>
+<div class="task heading" style="color: BlueViolet;">
+<p><strong>Applications of Data Mining and Machine Learning: A Systematic Literature Review</strong></p>
+<p>Abstract</p>
+<p>This systematic literature review explores the applications of data mining and machine learning across multiple domains, including healthcare, finance, education, and cybersecurity. By analyzing current trends and discussing future prospects, this review provides a comprehensive understanding of how these technologies are utilized and where opportunities for further research lie. Additionally, a testable hypothesis is proposed to guide future investigations in this rapidly evolving field.</p>
+<p>Introduction</p>
+<p>Data mining and machine learning (ML) have become indispensable tools in the modern era of big data, driving innovations across diverse fields. These technologies enable the extraction of meaningful patterns from large datasets, facilitating decision-making processes and predictive analytics. As the volume of data generated globally continues to grow exponentially, the applications of data mining and ML have expanded in scope and complexity. This paper presents a systematic literature review of the applications of data mining and ML, focusing on their methodologies, emerging trends, and future directions. The review also identifies gaps in the current research and proposes a testable hypothesis to guide future studies.</p>
+<p>Methodology</p>
+<p>This review adheres to the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines to ensure methodological rigor and transparency. The process involved the following steps:</p>
+<p>Data Collection</p>
+<p>A comprehensive search was conducted across several academic databases, including IEEE Xplore, PubMed, SpringerLink, ACM Digital Library, and Google Scholar. The search terms included “data mining applications,” “machine learning applications,” “trends in data mining,” “machine learning in healthcare,” and “data mining in finance.” The inclusion criteria were limited to peer-reviewed articles published between 2015 and 2023 that focused on real-world applications of data mining and ML. Articles without empirical evidence, non-English publications, and purely theoretical papers were excluded.</p>
+<p>Data Analysis</p>
+<p>The selected articles were analyzed thematically to identify recurring applications, methodologies, and trends. Quantitative data were extracted and synthesized to provide a comprehensive overview of the field. Gap analysis was performed by comparing the stated objectives of the studies with their outcomes, highlighting areas where further research is needed.</p>
+<p>Trends in Data Mining and Machine Learning Applications</p>
+<p>Healthcare</p>
+<p>Healthcare has been one of the most prominent domains for the application of data mining and ML. These technologies have been used for predictive diagnostics, personalized medicine, and patient outcome prediction. For instance, deep learning models, particularly convolutional neural networks (CNNs), have demonstrated diagnostic accuracy comparable to human experts in radiology. Similarly, natural language processing (NLP) techniques have been employed to analyze electronic health records (EHRs), enabling the extraction of valuable insights from unstructured text data.</p>
+<p>Despite these advancements, challenges remain. The interpretability of ML models, particularly deep learning, is a significant barrier to their widespread adoption in clinical settings. The “black-box” nature of deep learning models limits their utility in critical applications where transparency is essential.</p>
+<p>Finance</p>
+<p>In the financial sector, data mining and ML have been widely adopted for fraud detection, algorithmic trading, and credit scoring. Ensemble learning methods, such as XGBoost and Random Forests, have shown superior performance in detecting fraudulent transactions compared to traditional statistical methods. These methods have reduced false positives significantly, improving the efficiency of fraud detection systems.</p>
+<p>However, the financial domain also faces challenges related to data quality and scalability. Noisy and incomplete datasets can hinder the performance of ML models, while the increasing volume of financial data necessitates the development of scalable algorithms.</p>
+<p>Education</p>
+<p>Educational institutions have increasingly turned to data mining and ML to enhance learning outcomes and operational efficiency. Applications include learning analytics, student performance prediction, and adaptive learning systems. Clustering algorithms, such as K-means, have been used to segment students based on their learning behaviors, enabling targeted interventions.</p>
+<p>Despite these successes, the field of educational data mining faces challenges related to data privacy and ethical considerations. The use of student data for predictive analytics raises concerns about consent and the potential for bias in algorithmic decision-making.</p>
+<p>Cybersecurity</p>
+<p>Cybersecurity is another domain where data mining and ML have made significant contributions. These technologies have been used for intrusion detection, malware classification, and anomaly detection. Unsupervised learning techniques, such as autoencoders, have shown promise in identifying novel attack patterns that traditional rule-based systems might miss.</p>
+<p>However, the adversarial nature of cybersecurity presents unique challenges. Attackers can exploit vulnerabilities in ML models, leading to adversarial attacks that compromise system integrity. As a result, there is a growing need for robust and resilient ML systems in cybersecurity.</p>
+<p>Future Outlook</p>
+<p>The future of data mining and ML is shaped by several emerging trends and technologies. Explainable AI (XAI) is gaining traction as a means to address the interpretability challenges associated with deep learning models. XAI techniques aim to provide transparent and understandable explanations for model predictions, enhancing trust and adoption in critical applications.</p>
+<p>Federated learning is another promising area of research. This approach enables decentralized model training, allowing multiple parties to collaborate without sharing raw data. Federated learning has the potential to address data privacy concerns, particularly in domains such as healthcare and finance.</p>
+<p>Quantum machine learning is also on the horizon, leveraging the computational power of quantum computers to solve complex optimization problems. While still in its infancy, quantum machine learning holds the potential to revolutionize fields such as drug discovery and financial modeling.</p>
+<p>Conclusion</p>
+<p>This systematic literature review highlights the transformative impact of data mining and ML across various domains. While these technologies have enabled significant advancements, challenges related to interpretability, data quality, and scalability remain. Future research should focus on developing robust, scalable, and interpretable models to address these challenges. Additionally, ethical considerations, particularly in domains such as education and healthcare, must be carefully addressed to ensure the responsible use of data mining and ML.</p>
+<p>Testable Hypothesis</p>
+<p>One easily testable hypothesis emerging from this review is:</p>
+<p>“Ensemble learning methods, such as XGBoost and Random Forests, will outperform traditional statistical methods in fraud detection tasks, achieving at least a 20% reduction in false positives.”</p>
+<p>This hypothesis can be tested by comparing the performance of ensemble learning methods with traditional statistical methods on a standardized fraud detection dataset, such as the Credit Card Fraud Detection dataset available on Kaggle.</p>
+<p>References</p>
+<p>Chandola, V., Banerjee, A., &amp; Kumar, V. (2018). Anomaly detection: A survey. ACM Computing Surveys, 41(3), 1-58.</p>
+<p>Dal Pozzolo, A., Caelen, O., Le Borgne, Y. A., Waterschoot, S., &amp; Bontempi, G. (2015). Learned lessons in credit card fraud detection from a practitioner perspective. Expert Systems with Applications, 41(10), 4915-4928.</p>
+<p>Esteva, A., Kuprel, B., Novoa, R. A., Ko, J., Swetter, S. M., Blau, H. M., &amp; Thrun, S. (2017). Dermatologist-level classification of skin cancer with deep neural networks. Nature, 542(7639), 115-118.</p>
+<p>Yang, Q., Liu, Y., Chen, T., &amp; Tong, Y. (2019). Federated machine learning: Concept and applications. ACM Transactions on Intelligent Systems and Technology, 10(2), 1-19.</p>
+<section id="step-5-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-reflection">Step 5: Reflection</h2>
+<ul>
+<li>Task: Write a reflection answering:
+<ul>
+<li>How did each model approach the systematic review differently?</li>
+<li>Which prompt refinements yielded the best results for each model?</li>
+<li>What did you learn about leveraging AI for structured academic reviews?</li>
+</ul></li>
+</ul>
+<div class="task heading" style="color: green;">
+<p>The response from each model was slightly different. It seems that each model has set different priorities on the types of responses included. Some of the responses are more structured and less written. Some the opposite.</p>
+<p>ChatGPT: Perhaps a bit too structured when structure was requested. This might be great for outlining for a paper. The refinements required to remove the request for structure.</p>
+<p>Copilot seemed a bit dumbed-down. Although it included many words, it did not include much content. This required pushing the model for details.</p>
+<p>DeepSeek: This was my favorite model for this exercise. It had a good balance between structure and content. Model refinements were needed to get additional details. This model also seemed to produce valid sources.</p>
+<p>For structured academic reviews, like most things, good, targeted questions lead to the best answers.</p>
+
+
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

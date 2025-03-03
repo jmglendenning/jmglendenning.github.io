@@ -8,7 +8,7 @@
 
 <meta name="author" content="John Glendenning">
 
-<title>Project - Brainstorming – John Glendenning</title>
+<title>Prepare for Class06 – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,40 +67,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <meta name="robots" content="noindex, nofollow">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -212,13 +180,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
-  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link" data-scroll-target="#hypothesis">Hypothesis</a></li>
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
-  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start">Start</a></li>
-  <li><a href="#alternative-projects-to-consider" id="toc-alternative-projects-to-consider" class="nav-link" data-scroll-target="#alternative-projects-to-consider">Alternative Projects to Consider</a></li>
-  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  <li><a href="#prepare-for-class" id="toc-prepare-for-class" class="nav-link active" data-scroll-target="#prepare-for-class">Prepare for Class</a></li>
   </ul>
 </nav>
     </div>
@@ -227,7 +189,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project - Brainstorming</h1>
+<h1 class="title">Prepare for Class06</h1>
 </div>
 
 
@@ -250,102 +212,42 @@ window.Quarto = {
 </header>
 
 
-<section id="background" class="level1">
-<h1>Background</h1>
-<p>Moses Finley’s The Ancient Economy (1973) challenged traditional views of ancient economies, particularly those of Greece and Rome. Finley argued that ancient economies were fundamentally different from modern capitalist systems and should not be analyzed using modern economic concepts.</p>
-<p>Since publication, there have been some shifting thoughts on the inequalities of ancient Rome. This project will be designed to see if there has been a shift in scholarly publications on inequalities in the Roman economic system.</p>
-</section>
-<section id="hypothesis" class="level1">
-<h1>Hypothesis</h1>
-<p><span class="math display">\[
-\begin{flalign}
-\scriptsize
-H_0&amp;: \scriptsize  \text{Scholarship about inequality in ancient Rome has not changed.}\\
-\scriptsize
-H_1&amp;: \scriptsize  \text{Scholarship has changed.}
-\end{flalign}
-\]</span></p>
-</section>
-<section id="data-collection" class="level1">
-<h1>Data Collection</h1>
-<p>Initially, data collection will start with gathering access to scholarly journals related to the ancient Roman Empire. We will start with selected articles from JSTOR from publications such as <em>The Journal of Roman Studies</em>.</p>
-</section>
-<section id="methods" class="level1">
-<h1>Methods</h1>
+<section id="prepare-for-class" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-for-class">Prepare for Class</h2>
 <ol type="1">
-<li><p>Journal Acquisition</p>
-<ul>
-<li>Acquire a limited dataset of publications</li>
-<li>Preprocess the data including OCR, tokenization, stemming, etc.</li>
-</ul></li>
-<li><p>Conversion</p>
-<ul>
-<li>Convert text to numerical representations</li>
-</ul></li>
-<li><p>Model Selection &amp; Training</p></li>
-<li><p>Post-processing</p></li>
+<li>Proposal presentation:</li>
 </ol>
-</section>
-<section id="start" class="level1">
-<h1>Start</h1>
-<p>The first step in the process is to verify that the data can actually be collected. Given the size and time constraints, it may be necessary to limit the scope of data collection to a reasonable, but not exhaustive amount.</p>
-<p>The book <em>The Ancient Economy</em> has been obtained and OCRed.</p>
-<p>One paper has been downloaded for examination (Brock, Motta, and Terrenato 2021).</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start] --&gt; B[Load Text Data]
-  B --&gt; C[Preprocessing]
-  C --&gt;|Convert to Lowercase| C1[Lowercasing]
-  C --&gt;|Remove Punctuation| C2[Remove Punctuation]
-  C --&gt;|Remove Stopwords| C3[Stopword Removal]
-  C --&gt;|Stemming/Lemmatization| C4[Stemming/Lemmatization]
-  C --&gt;|Tokenization| C5[Tokenization]
-  C1 --&gt; D[Create Corpus]
-  C2 --&gt; D
-  C3 --&gt; D
-  C4 --&gt; D
-  C5 --&gt; D
-  D --&gt; E[Feature Extraction]
-  E --&gt;|Bag-of-Words| E1[BoW Model]
-  E --&gt;|TF-IDF| E2[TF-IDF Model]
-  E --&gt;|Word Embeddings| E3[Word2Vec, FastText, GloVe]
-  E1 --&gt; F[Train NLP Model]
-  E2 --&gt; F
-  E3 --&gt; F
-  F --&gt;|Classification| G1[Sentiment Analysis, Spam Detection]
-  F --&gt;|Clustering| G2[Topic Modeling, Named Entity Recognition]
-  F --&gt;|Text Generation| G3[Chatbots, Machine Translation]
-  G1 --&gt; H[Evaluate Model]
-  G2 --&gt; H
-  G3 --&gt; H
-  H --&gt; I[Deploy Model]
-  I --&gt; J[End]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="alternative-projects-to-consider" class="level1">
-<h1>Alternative Projects to Consider</h1>
-<p>Some other projects that could be considered:</p>
-<ol type="1">
-<li>Predictive Modeling of Archaeological Site Locations</li>
-<li>Automated Artifact Classification and Typology</li>
-<li>Temporal and Spatial Analysis of Settlement Patterns</li>
-<li>Text Mining and NLP for Archaeological Literature</li>
-<li>Reconstructing Ancient Trade Routes</li>
+<ol type="a">
+<li>Five minutes for presentation</li>
+<li>Each member will be assigned to discuss another member’s presentation</li>
+<li>One minute for discussion</li>
 </ol>
-</section>
-<section id="bibliography" class="level1">
-<h1>Bibliography</h1>
-<p><strong>Brock, Andrea L., Lorenzo Motta, and Nicola Terrenato.</strong> 2021. “On the Banks of the Tiber: Opportunity and Transformation in Early Rome.” <em>The Journal of Roman Studies</em> 111: 1–30. https://www.jstor.org/stable/27128849.</p>
-<p><strong>Finley, Moses I.</strong> 1973. <em>The Ancient Economy.</em> Berkeley: University of California Press.</p>
+<ol start="2" type="1">
+<li><p>Assignment 3</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul></li>
+<li><p>Assigned reading</p></li>
+</ol>
+<ol type="a">
+<li><p>Attewell, Paul, and David Monaghan. 2015. Data mining for the social sciences: An introduction. Univ of California Press. (AM) Chapters 1 - 4</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul></li>
+</ol>
+<ol start="4" type="1">
+<li>Research</li>
+</ol>
+<ul>
+<li>What is Association Rules?</li>
+</ul>
+<p>Association Rules are a set of if-then rules used in data mining to discover interesting relationships between variables in large datasets.</p>
+<p>For instance, in toy store, when a kid buys a teddy bear, they often also buy a blanket. This is like a special rule: “If a kid buys a teddy bear, they will probably buy a blanket too!”</p>
+<ul>
+<li>What is the difference between Data Mining and Unsupervised Learning?</li>
+</ul>
+<p>Data mining is a broad process that involves discovering patterns, correlations, or anomalies in large datasets to extract meaningful information.</p>
+<p>Unsupervised learning is a specific type of machine learning where the algorithm is trained on data without labeled responses. Unsupervised learning can be a component of data mining.</p>
 
 
 </section>
