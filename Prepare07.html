@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="John Glendenning">
 
-<title>About – John Glendenning</title>
+<title>Prepare for Class07 – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -164,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -178,21 +179,33 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#prepare-for-class-07" id="toc-prepare-for-class-07" class="nav-link active" data-scroll-target="#prepare-for-class-07">Prepare for Class 07</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Prepare for Class07</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Glendenning </p>
+          </div>
+  </div>
     
   
     
@@ -203,19 +216,92 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I am a Master’s student at the University of Texas at Dallas studying GIS.</p>
-<p>I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:</p>
+<section id="prepare-for-class-07" class="level1">
+<h1>Prepare for Class 07</h1>
+<ol type="1">
+<li><p>Assignment 4</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Not completed. No assignment available yet.</label></li>
+</ul></li>
+<li><p>Assigned reading</p>
+<ol type="a">
+<li><p>Attewell, Paul, and David Monaghan. 2015. Data mining for the social sciences: An introduction. Univ of California Press. (AM)</p>
+<ol type="i">
+<li><p>Review Chapters 3, 4</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul></li>
+<li><p>Read 5, 6</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul></li>
+</ol></li>
+</ol></li>
+<li><p>What is cross-validation?</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>From Gareth et al.&nbsp;in ILSR: Cross-validation “estimate[s] the test error rate by holding out a subset of the training observations from the fitting process, and then applying the statistical learning method to those held out observations.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Paraphrased from ChatGPT: Cross-validation is a resampling technique used to evaluate and improve the performance of a model by splitting the data into training and testing sets. This method helps ensure that the model generalizes well to unseen data and is not overfitting to a single training set.</p>
+</blockquote>
+<ol start="4" type="1">
+<li>How to sample big data? Why it is important? What are the difficulties? How to solve this problem?</li>
+</ol>
+<p>There are several ways to sample big data:</p>
 <ul>
-<li>Roman villa site location analysis and predictive modeling</li>
-<li>A Python implementation of Geomorphons</li>
-<li>Application of low-cost drones to disaster efforts</li>
-<li>Python-based DEM-based spatial statistics via WCS data-acquisition</li>
+<li>Random: randomly select a sample of the data</li>
+<li>Stratified: randomly sample from homogeneous subgroups</li>
+<li>Clusters: randomly select clusters and sample all points within</li>
+<li>Systematic: select every k-th element</li>
+<li>Reservoir: Keep a fixed-size reservoir, replacing as data streams</li>
+<li>Importance: sample points based on weights</li>
+<li>Bernoulli: sample each data point with probability p</li>
+<li>Adaptive: adjust sampling rates based on initial results</li>
+<li>Progressive: Start with a small sample and increase size</li>
+<li>Others</li>
 </ul>
-<p>I am currently working on analyzing Roman coin hoards.</p>
-<p>I have a strong interest in remote sensing and tools.</p>
-<p><a href="https://jmglendenning.github.io/John_Glendenning.pdf">Curriculum vitae</a></p>
+<p>These methods are useful because:</p>
+<ul>
+<li>Efficiency: Large datasets can be computationally expensive to process.</li>
+<li>Speed: Larger datasets take longer to process. Smaller datasets can be processed real-time.</li>
+<li>Cost: Data storage and compute power cost money. Smaller datasets need less.</li>
+<li>Practicality: We need the processing done in a reasonable amount of time</li>
+<li>Focus: Large datasets can be noisy. A reduced dataset can improve quality.</li>
+<li>Scale: Sampling will allow for larger data volumes</li>
+<li>Initial Analysis: Understanding the structure and patterns is easier through sampling</li>
+<li>Bias detection: Analyzing differences in sample sets allows for pattern detection</li>
+<li>Inference: Proper sampling gives confidence that predictions are accurate</li>
+</ul>
+<p>Difficulties (somewhat repetitive):</p>
+<ul>
+<li>Data Volume: Big data can be very big</li>
+<li>Storage Constraints: Some volume is so large that storing historical data is not possible</li>
+<li>Distribution: Data can be coming from disparate sources that are not co-located</li>
+<li>Data distributions imbalance: Some data sets are so large that anomolies may not appear in the sample</li>
+<li>Bias: The act of sampling could itself be a bias. For instance active versus inactive users.</li>
+<li>Streaming: real-time data such as media feeds or stock prices have continuous data streams</li>
+<li>Cost: The costs for processing the data can be high</li>
+<li>Privacy and security: personal or sensitive data are a challenge to sample properly</li>
+<li>Time issues: Data may only be valid for a specific time frame</li>
+<li>Unstructured data: Some data may be unstructured such as videos</li>
+</ul>
+<p>How can these problems be mitigated?</p>
+<ul>
+<li>Data Volume and Storage: use distributed frameworks for parallel processing with compression</li>
+<li>Data issues: Choose a proper sampling technique</li>
+<li>Distributed data: set presampled subsets</li>
+<li>Bias: use techniques like cross-validation</li>
+<li>Real-time data: use sampling techniques like sliding-window or resevoir sampling</li>
+<li>Computation costs: use approximate query processing and don’t load entire datasets</li>
+<li>Privacy and security: anonymize the data</li>
+<li>Time-based data: use windowed or adaptive sampling</li>
+<li>Bandwidth constraints: process samples before sending data</li>
+<li>Unstructured data: use cluster based sampling or apply pre-training</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
