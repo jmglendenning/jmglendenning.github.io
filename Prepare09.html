@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="John Glendenning">
 
-<title>About – John Glendenning</title>
+<title>Prepare for Class09 – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -176,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -198,13 +199,19 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Prepare for Class09</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Glendenning </p>
+          </div>
+  </div>
     
   
     
@@ -215,19 +222,130 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I am a Master’s student at the University of Texas at Dallas studying GIS.</p>
-<p>I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:</p>
-<ul>
-<li>Roman villa site location analysis and predictive modeling</li>
-<li>A Python implementation of Geomorphons</li>
-<li>Application of low-cost drones to disaster efforts</li>
-<li>Python-based DEM-based spatial statistics via WCS data-acquisition</li>
+<div class="task" style="color: grey;">
+<p>#Prepare for Class 09</p>
+<section id="install-anaconda" class="level2">
+<h2 class="anchored" data-anchor-id="install-anaconda">1. Install Anaconda</h2>
+<p>(https://www.anaconda.com/download)</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
 </ul>
-<p>I am currently working on analyzing Roman coin hoards.</p>
-<p>I have a strong interest in remote sensing and tools.</p>
-<p><a href="https://jmglendenning.github.io/John_Glendenning.pdf">Curriculum vitae</a></p>
+</section>
+<section id="assignment-4" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-4">2. Assignment 4</h2>
+<p>Refer to menu</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
+</section>
+<section id="march-madness-ncaa-mens-basketball-di" class="level2">
+<h2 class="anchored" data-anchor-id="march-madness-ncaa-mens-basketball-di">3. March Madness (NCAA Men’s Basketball DI)</h2>
+<section id="a.-if-you-build-a-predictive-model-how-would-you-plan-for-such-a-project" class="level3">
+<h3 class="anchored" data-anchor-id="a.-if-you-build-a-predictive-model-how-would-you-plan-for-such-a-project">a. If you build a predictive model, how would you plan for such a project?</h3>
+<p>To build a predictive model, I would follow these general steps:</p>
+<ol type="1">
+<li>Collect Data</li>
+<li>Preprocess Data</li>
+<li>Select Features &amp; Model Inputs</li>
+<li>Choose a Model</li>
+<li>Train the Model</li>
+<li>Refine the Model</li>
+<li>Generate Final Results</li>
+</ol>
+<p>Each of these steps would require additional work to accomplish, of course.</p>
+</section>
+<section id="b.-how-to-get-data" class="level3">
+<h3 class="anchored" data-anchor-id="b.-how-to-get-data">b. How to get data?</h3>
+<p>There are several ways to gather the data for a project like this including:</p>
+<ul>
+<li>Statistics from sources like KenPom, Sports-Reference, NCAA, etc.</li>
+<li>Past Results NCAA, newspapers</li>
+<li>Betting market data from various betting sites</li>
+<li>Other metric variables from sources like Barttorvik.com</li>
+<li>Injury Reports &amp; Team News from newspapers, Reddit, etc.</li>
+<li>Travel factorsctors (travel distance, neutral-site performance)</li>
+</ul>
+</section>
+<section id="c.-what-is-the-dependent-variable-models" class="level3">
+<h3 class="anchored" data-anchor-id="c.-what-is-the-dependent-variable-models">c.&nbsp;What is the dependent variable? Models?</h3>
+<p>There are several options for a dependent variable including:</p>
+<ul>
+<li>Win/Loss
+<ul>
+<li>Logistic Regression</li>
+<li>Classification with Neural Networks</li>
+</ul></li>
+<li>Point Spread
+<ul>
+<li>Linear Regression</li>
+<li>Random Forest Regression</li>
+</ul></li>
+<li>Highest Round Reached
+<ul>
+<li>Regression</li>
+</ul></li>
+<li>Upset Likelihood
+<ul>
+<li>Cox Proportional Hazards Model</li>
+<li>Tree-based Classifiers</li>
+</ul></li>
+<li>Championship Probability
+<ul>
+<li>Cox Proportional Hazards Model</li>
+<li>Tree-based Classifiers</li>
+</ul></li>
+</ul>
+</section>
+<section id="d.-what-variables-can-be-used-to-predict-the-outcome" class="level3">
+<h3 class="anchored" data-anchor-id="d.-what-variables-can-be-used-to-predict-the-outcome">d.&nbsp;What variables can be used to predict the outcome?</h3>
+<ol type="1">
+<li>Performance</li>
+</ol>
+<ul>
+<li>Adjusted Offensive Efficiency – Points scored per 100 possessions (accounts for opponent strength).</li>
+<li>Adjusted Defensive Efficiency (AdjDE) – Points allowed per 100 possessions.</li>
+<li>Net Efficiency – Offensive Efficiency minus Defensive Efficiency</li>
+<li>Effective Field Goal % – Adjusts for 3-pointers being more valuable.</li>
+<li>Turnover % (TOV%) – Can’t score if you don’t have the ball.</li>
+</ul>
+<ol start="2" type="1">
+<li>Tournament Factors</li>
+</ol>
+<ul>
+<li>Seed – 85% of champions since 1985 were a 1 or 2 seed.</li>
+<li>Percentage of minutes played by upperclassmen.</li>
+<li>Coach’s NCAA Tournament win percentage.</li>
+<li>Recent Performance in Last 10 Games.</li>
+<li>Free Throw % in Close Games.</li>
+</ul>
+<ol start="3" type="1">
+<li>Play Style</li>
+</ol>
+<ul>
+<li>3-Point Shooting &amp; Defense.</li>
+<li>Rebounding Margins – Offensive &amp; Defensive</li>
+<li>Assist-to-Turnover Ratio – Share the ball and limit mistakes.</li>
+</ul>
+<ol start="4" type="1">
+<li>Intangibles</li>
+</ol>
+<ul>
+<li>Strength of Schedule (SOS) – Teams tested against top competition fare better.</li>
+<li>Neutral-Site Performance – Championship games are on neutral courts.</li>
+<li>Injury Status – Missing key players are a problem.</li>
+</ul>
+<ol start="5" type="1">
+<li>Betting Market &amp; Consensus</li>
+</ol>
+<ul>
+<li>‘Vegas’ Odds – Sportsbooks can be efficient sentiment aggregators.</li>
+<li>Public Betting Trends – Reddit as a predictor variable?</li>
+</ul>
 
 
+</section>
+</section>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
