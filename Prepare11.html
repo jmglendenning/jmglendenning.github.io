@@ -310,15 +310,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="a.-read" class="level3">
 <h3 class="anchored" data-anchor-id="a.-read">a. Read:</h3>
-<pre><code>    i. [Using Python with the RStudio IDE](https://support.posit.co/hc/en-us/articles/1500007929061-Using-Python-with-the-RStudio-IDE)
-    ii. [Three ways to program in Python with RStudio](https://posit.co/blog/three-ways-to-program-in-python-with-rstudio/)</code></pre>
+<ol type="i">
+<li><p><a href="https://support.posit.co/hc/en-us/articles/1500007929061-Using-Python-with-the-RStudio-IDE">Using Python with the RStudio IDE</a></p></li>
+<li><p><a href="https://posit.co/blog/three-ways-to-program-in-python-with-rstudio/">Three ways to program in Python with RStudio</a></p></li>
+</ol>
 </section>
 <section id="b.-check-python-is-installed-via-anaconda" class="level3">
 <h3 class="anchored" data-anchor-id="b.-check-python-is-installed-via-anaconda">b. Check Python is installed via Anaconda</h3>
 <p><strong>Python Example</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>available_envs <span class="ot">&lt;-</span> <span class="fu">conda_list</span>()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(available_envs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>available_envs <span class="ot">&lt;-</span> <span class="fu">conda_list</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(available_envs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       name                               python
 1      base /Users/john/opt/anaconda3/bin/python
@@ -330,8 +332,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="c.-check-an-interpreter-is-available-in-r-project." class="level3">
 <h3 class="anchored" data-anchor-id="c.-check-an-interpreter-is-available-in-r-project.">c.&nbsp;Check an interpreter is available in R project.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the current Python configuration to confirm an interpreter is in use</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">py_config</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the current Python configuration to confirm an interpreter is in use</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">py_config</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>python:         /usr/bin/python3
 libpython:      /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/config-3.9-darwin/libpython3.9.dylib
