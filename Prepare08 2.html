@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="John Glendenning">
+
+<title>Prepare for Class08 – John Glendenning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a78bc22c21c5275f96438b53095d57b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">John Glendenning</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./SPARQL.html"> 
+<span class="menu-text">SPARQL</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Assignments</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-assignments">    
+        <li>
+    <a class="dropdown-item" href="./assignment01.html">
+ <span class="dropdown-text">Assignment 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./comparison01.html">
+ <span class="dropdown-text">Shmueli &amp; Breiman Comparison</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Lab01.html">
+ <span class="dropdown-text">Lab 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Lab02.html">
+ <span class="dropdown-text">Lab 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment02.html">
+ <span class="dropdown-text">Assignment 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare04.pdf">
+ <span class="dropdown-text">Class 04 Presentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare05.html">
+ <span class="dropdown-text">Prepare for Class 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare06.html">
+ <span class="dropdown-text">Prepare for Class 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment03.html">
+ <span class="dropdown-text">Assignment 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare07.html">
+ <span class="dropdown-text">Prepare for Class 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment04.html">
+ <span class="dropdown-text">Assignment 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare08.html">
+ <span class="dropdown-text">Prepare for Class 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare09.html">
+ <span class="dropdown-text">Prepare for Class 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment05.html">
+ <span class="dropdown-text">Assignment 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare10.html">
+ <span class="dropdown-text">Prepare for Class 10</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare11.html">
+ <span class="dropdown-text">Prepare for Class 11</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare12.html">
+ <span class="dropdown-text">Prepare for Class 12</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="./project01.html">
+ <span class="dropdown-text">Brainstorming</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project02.html">
+ <span class="dropdown-text">Proposal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project03.pdf">
+ <span class="dropdown-text">Presentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project04.html">
+ <span class="dropdown-text">Progress Report I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project05.html">
+ <span class="dropdown-text">Progress Report II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./current_code.html">
+ <span class="dropdown-text">Previous R Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Finley15.html">
+ <span class="dropdown-text">Current Project Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project06.html">
+ <span class="dropdown-text">Presentation</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#prepare-for-class-08" id="toc-prepare-for-class-08" class="nav-link active" data-scroll-target="#prepare-for-class-08">Prepare for Class 08</a>
+  <ul class="collapse">
+  <li><a href="#assigned-reading" id="toc-assigned-reading" class="nav-link" data-scroll-target="#assigned-reading">1. Assigned reading</a></li>
+  <li><a href="#quick-survey" id="toc-quick-survey" class="nav-link" data-scroll-target="#quick-survey">2. Quick survey</a></li>
+  <li><a href="#prepare-for-discussion" id="toc-prepare-for-discussion" class="nav-link" data-scroll-target="#prepare-for-discussion">3. Prepare for discussion:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Prepare for Class08</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Glendenning </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="prepare-for-class-08" class="level1 task" style="color: grey;">
+<h1>Prepare for Class 08</h1>
+<section id="assigned-reading" class="level2">
+<h2 class="anchored" data-anchor-id="assigned-reading">1. Assigned reading</h2>
+<ol type="a">
+<li>Zhao, Wayne Xin, Kun Zhou, Junyi Li, Tianyi Tang, Xiaolei Wang, Yupeng Hou, Yingqian Min et al.&nbsp;2023. “A survey of large language models.” arXiv preprint arXiv:2303.18223 1, no. 2.</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
+<ol start="2" type="a">
+<li>Chang, Yupeng, Xu Wang, Jindong Wang, Yuan Wu, Linyi Yang, Kaijie Zhu, Hao Chen et al.&nbsp;2024. “A survey on evaluation of large language models.” ACM transactions on intelligent systems and technology 15, no. 31-45.</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
+<ol start="3" type="a">
+<li>Min, Bonan, Hayley Ross, Elior Sulem, Amir Pouran Ben Veyseh, Thien Huu Nguyen, Oscar Sainz, Eneko Agirre, Ilana Heintz, and Dan Roth. 2023. “Recent advances in natural language processing via large pre-trained language models: A survey.” ACM Computing Surveys 56, no. 2: 1-40.</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
+</section>
+<section id="quick-survey" class="level2">
+<h2 class="anchored" data-anchor-id="quick-survey">2. Quick survey</h2>
+<p>Do a quick survey based on the readings how NLP and LLM have advanced Knowledge Mining as a field. You may use one to two AI models to help:</p>
+<div class="task" style="color: green;">
+<p>The following prompt, which was generated by DeepSeek, was used for the three documents to set a baseline using ChatGPT 4.5:</p>
+</div>
+<div class="task." style="color: purple">
+<p>“Write a concise review summarizing the advancements in Knowledge Mining, focusing on the impact of Natural Language Processing (NLP) and Large Language Models (LLMs). Highlight key developments, such as improved information extraction, enhanced semantic understanding, and the role of LLMs in automating knowledge discovery. Discuss how these advancements have transformed data analysis, decision-making, and knowledge representation across industries. Include examples of cutting-edge applications and their implications for the future of Knowledge Mining.”</p>
+</div>
+<div class="task" style="color: grey;">
+<ol type="a">
+<li>Summarize the findings</li>
+</ol>
+</div>
+<div class="task" style="color: green;">
+<p>The rapid advancements in Natural Language Processing (NLP) and the developments in Large Language Models (LLMs) have transformed Knowledge Mining. These technologies have improved our abilities to extract information from large numbers of documents.</p>
+<p>Part of this transformation has been the change from statistical language models (SLMs) to neural language models (NLMs), and more so to pre-trained language models (PLMs). This has improved our abilities to accurately interpret documents. With the subsequent rise of LLMs, such as GPT-series models, there has been a improvement of scaling techniques, significantly expanding model capacities.</p>
+<p>There are emergent capabilities in LLMs not previously found in other types of models.This has brought about new tools for text processing, including in-context learning, and chain-of-thought reasoning. This has allowed for the models to handle more complex tasks.</p>
+<p>Leveraging these developments are services such as automatic text classification, question-answer systems, etc., which all benefit from the new robust frameworks.</p>
+<p>Knowledge Mining, driven by ongoing research into NLP and LLMs, will develop deeper semantic insights, more accurate extraction techniques, and wider acceptance. Continuous development will be essential to address any limitations.</p>
+<p>A key development has been the dramatic improvement in information extraction capabilities. Modern LLMs can now reasonable identify complex entities, relationships, and context within large corpora, reducing reliance on manual curation, although text extraction from certain document types is still problematic. Enhanced semantic understanding through transformer-based architectures has enabled systems to better capture meanings and intent, finding insights into previously inaccessible data sources.</p>
+<p>LLMs like GPT-4, PaLM 2, and Claude have been instrumental in automating knowledge discovery. These models can synthesize widely varying information, generate human-sounding summaries, and recommend processes, which significantly accelerate workflows in many fields.</p>
+<p>The impact on data analysis and decision-making is huge. Organizations now deploy knowledge mining software that integrate LLMs to perform tasks like automated document classification, assess risks, and analyze customer feedback. Fine-tuning various models have allowed LLMs to be more transparent and domain-specific.</p>
+<p>LLMs are now working with other smart tools, like knowledge graphs and models that understand pictures and text together. This helps computers organize information in smarter ways, linking facts and ideas. This allows problems to be solved and new ideas developed faster. They are getting better at pulling out important details from books, articles, and other messy text. They can now spot connections between different pieces of information, making research and decision-making much easier.</p>
+</div>
+<div class="task" style="color: grey;">
+<ol start="2" type="a">
+<li>Identify the key concepts</li>
+</ol>
+</div>
+<div class="task" style="color: green;">
+<ol type="1">
+<li><p>“A Survey of Large Language Models”</p>
+<ul>
+<li>Evolution - Models are evolving through research and training.</li>
+<li>Emergence - New abilities are developing based on model size</li>
+<li>Scaling - Increasing model size improves existing capabilities</li>
+<li>Training Techniques - New training techniques and drawing from frameworks improves models</li>
+<li>Speed - Various methods are being tried to reduce the cost and lower time to build models</li>
+</ul></li>
+<li><p>“Recent advances in natural language processing via large pre-trained language models: A survey.”</p>
+<ul>
+<li>Paradigm 1: Pretrain then Fine-Tune Start with a general-purpose model and fine-tune it with task-specific datasets.</li>
+<li>Paradigm 2: Prompt-based learning Through instruction-based learning, template-based learning, or proxy-task-base learning to encourage PLMs to perform specific tasks.</li>
+<li>Paradigm 3: NLP as text generation This reformulates NLP problems as text-to-text attempting to generate the correct output in a string form that encodes the classification labels or structures.</li>
+</ul></li>
+<li><p>“A survey on evaluation of large language models.” Evaluation of LLMs is imperative to the development of AI models. Key points:</p>
+<ul>
+<li>Benchmarks are necessary</li>
+<li>Complete Behavioral Evaluation in an open environment</li>
+<li>Robustness Evaluation to check on a wide variety of inputs</li>
+<li>Dynamic and Evolving Evaluation so that evaluation methods mirror model capabilities</li>
+<li>Principled and Trustworthy Evaluation to maintain integrity</li>
+<li>Unified Evaluation to support a variety of tasks</li>
+</ul></li>
+</ol>
+</div>
+<div class="task" style="color: grey;">
+<ol start="3" type="a">
+<li>Draw knowledge map/graph to illustrate the advancements</li>
+</ol>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+
+%% Main Concept
+A[Knowledge Mining]
+
+%% Primary Branches
+A --&gt; B[NLP Evolution]
+A --&gt; C[LLM Capabilities]
+A --&gt; D[Applications]
+A --&gt; E[Evaluation &amp; Trends]
+
+%% NLP Evolution
+B --&gt; B1[Statistical Models]
+B1 --&gt; B2[Neural Models]
+B2 --&gt; B3[Pre-trained Models]
+B3 --&gt; B4[Large Models]
+
+%% LLM Capabilities
+C --&gt; C1[In-Context Learning]
+C1 --&gt; C2[Instruction Following]
+C2 --&gt; C3[Reasoning]
+
+%% Applications
+D --&gt; D1[Extraction]
+D1 --&gt; D2[Semantic Understanding]
+D2 --&gt; D3[Discovery]
+
+%% Knowledge Discovery Applications
+D3 --&gt; D3a[Research]
+D3a --&gt; D3b[Legal Automation]
+D3b --&gt; D3c[Search]
+D3c --&gt; D3d[Analysis]
+
+%% Evaluation &amp; Trends
+E --&gt; E1[Benchmarks]
+E1 --&gt; E2[Ethics &amp; Robustness]
+E2 --&gt; E3[Multimodal]
+E3 --&gt; E4[Human-AI Alignment]
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="prepare-for-discussion" class="level2 task" style="color: grey;">
+<h2 class="anchored" data-anchor-id="prepare-for-discussion">3. Prepare for discussion:</h2>
+<ol type="a">
+<li>How NLP and LLM can assist in your research and provide data/assistance for your project? Give specific examples.</li>
+</ol>
+</section>
+<div class="task" style="color: green;">
+<p>My project is based on NLP, so that technology and methodology is crucial to the work that I am doing. Where I have used LLMs:</p>
+<p><em>Code development</em>: It is signficantly faster to request code chunks from an LLM than to write them myself. I can put together code like LEGO bricks, which is significantly faster than writing it cold, myself.</p>
+<p><em>Text cleaning</em>: I have been able to use LLMs very occassionally to strip text from documents to create a corpus.</p>
+<p><em>Article summaries</em>: Summarizing articles helps me understand what words in a word cloud might mean. For instance lead the element versus lead the verb.</p>
+<p><em>Research</em>: I have used the LLMs instead of search engines to answer questions. They have been faster and more successful that nearly all web-search queries.</p>
+<div class="task heading" style="color: grey;">
+<ol start="2" type="a">
+<li>Name limitations and suggest solutions</li>
+</ol>
+<div class="task" style="color: green;">
+<p><em>Copyrights</em>: Oddly enough the models that were trained on other peoples work without attribution, seem to reject processing these same works for me. I have tried to use LLMs for text extraction, and I will get either an specific copyright error, or the process will fail without an informative warning. The solution to this is likely to run my own models where I have more control over them.</p>
+<p><em>Document Sizes</em>: Most unpaid models have document size limits. This means that I either have to use a paid model or break documents into smaller chunks, losing valuable connections in the process.</p>
+<p><em>Code problems</em>: Sometimes the code generated is bad or wrong. It may not perform as expected. Thorough review and testing is important.</p>
+<p><em>Hallucinations &amp; Errors</em>: The responses are not perfect, and in some domains, a websearch is still more accurate. These issues are expected to improve over time. Any research should always check the answers to any questions, whether LLMs are used or something else.</p>
+<div class="task" style="color: grey;">
+<ol start="3" type="a">
+<li>Write an AI for research guide (you can use bullet points) incorporating ethnical, technical and acaademic concerns that could lead to more problems than solutions (e.g.&nbsp;Hinton).</li>
+</ol>
+</div>
+<div class="task" style="color: green;">
+<p><strong><em>AI Research Guide</em></strong></p>
+<ol type="1">
+<li><p>Introduction</p>
+<ul>
+<li>What is AI and Why is it Important?</li>
+</ul>
+<p>Artificial Intelligence (AI) is a technology that enables machines to mimic human thinking, helping automate and simplify complex tasks. It can enhance efficiency, accuracy, and productivity across various areas, including research, but it is not without issues.</p>
+<ul>
+<li>Purpose of this Guide</li>
+</ul>
+<p>This guide explains the basic benefits and potential problems of using AI in research. It is designed to help you use AI responsibly and effectively.</p></li>
+<li><p>How AI Helps with Research</p>
+<ul>
+<li>What AI Can Do</li>
+</ul>
+<p>AI analyzes quickly analyzes large sets of data, making it easier for researchers to find patterns and insights. It can also automate repetitive tasks, saving time and effort.</p>
+<ul>
+<li>Examples of AI in Research</li>
+</ul>
+<p>AI is used to summarize writing, do predictive analysis, write software and many other useful tasks. Multimedia uses AI include creating podcasts or making images.</p></li>
+<li><p>Ethical Issues When Using AI</p>
+<ul>
+<li>Protect Privacy</li>
+</ul>
+<p>AI uses large amounts of data of dubious origin which raises concerns about privacy. The storage and useage of personal information is a very important issue that must be address. Protecting this type of data from misuse is of paramount concern. This requires careful attention to privacy laws, which are very limited in the United States, and adherence to ethical standards.</p>
+<ul>
+<li>Be Fair and Unbiased</li>
+</ul>
+<p>AI systems include biases from the data they are trained on. If a model is trained on a biased dataset, it too will be biased in the same way. For example, if a model does not know about a new version of a Python package, the code it writes may contain inaccuracies. AIs need to be checked for biases on a regular basis and adjusted to prevent biases.</p>
+<ul>
+<li>Understand How AI Makes Decisions</li>
+</ul>
+<p>To effectively use AI, it is important to understand how AI arrives at decisions. This transparency to validate the findings is the only way to trust an AI.</p></li>
+<li><p>Technical Problems to Be Careful About</p>
+<ul>
+<li>How Reliable is AI?</li>
+</ul>
+<p>AI tools will produce inaccurate results some of the times depending on how the model was trained. All answers, like any good research, should be checked for accuracy.</p>
+<ul>
+<li>Using AI Tools Correctly</li>
+</ul>
+<p>Proper training to use AI tools is required. An understanding of how to engineer prompts leads to better responses, and conversely poor prompts can lead to misleading results or ineffective research.</p>
+<ul>
+<li>Technology Needs and Sustainability</li>
+</ul></li>
+</ol>
+<p>AI uses significant compute power and energy which directly impacts sustainability. Using AI in the future will require considering energy-efficient solutions and how to use optimal technology resources.</p>
+<ol start="5" type="1">
+<li><p>Academic Integrity and AI</p>
+<ul>
+<li>Plagiarism</li>
+</ul>
+<p>Given that the sources of the text from AI-generated content are unknown, using AI can inadvertently lead to accusations of plagiarism. Using AI must be properly cited. Always give credit when using AI-generated information.</p>
+<ul>
+<li>Honest Research</li>
+</ul>
+<p>A researcher’s findings must genuinely reflect their efforts and contributions. Transparency about its use maintains trust.</p>
+<ul>
+<li>AI to Helps, Not Replaces, Your Work</li>
+</ul>
+<p>These tools should support your efforts, not replace them. As with using any tool, critical thinking and original insights are crucial to any research.</p></li>
+<li><p>Risks and Problems of Using AI</p>
+<ul>
+<li>Misuse of AI</li>
+</ul>
+<p>Poor or inattentive use of AI may lead to incorrect findings, misinformation, or even ethical violations. Responsible use will prevent this.</p>
+<ul>
+<li>Loss of Skills</li>
+</ul>
+<p>An over-reliance on AI may reduce critical thinking and analytical skills, dulling one’s research. Critical analysis remains an important skill.</p>
+<ul>
+<li>Who Gets to Use AI?</li>
+</ul>
+<p>As with every technology, access to it is not equal. Given the costs to train and run models, the best models will cost a significant amount of money, thus stratifying access. Without fair and equal access to this technology, much research may not be able to be peer reviewed properly.</p></li>
+<li><p>Tips for Using Responsibly</p>
+<ul>
+<li><p>Basic Rules, loosely based on Asimov’s Three Laws:</p>
+<ul>
+<li>Be transparent and explainable.</li>
+<li>Be aware of bias and discrimination.</li>
+<li>Priorize people and privacy over results.</li>
+</ul></li>
+<li><p>Learning About AI</p></li>
+</ul>
+<p>Know your tools and develop a basic understanding of how AI works. Regular training and learning is important.</p>
+<ul>
+<li>Transparency, Again</li>
+</ul>
+<p>Clear citation and documentation of AI processes allows others to evaluate and trust your research.</p></li>
+<li><p>The Future of AI in Research</p>
+<ul>
+<li>What’s Coming Next</li>
+</ul>
+<p>AI will be increasingly integrated into research with new applications and extended capabilities. Continuing education will be crucial.</p>
+<ul>
+<li>Important Discussions About AI</li>
+</ul>
+<p>The ethical, social, and technical implications of the technology will shape all future research practices.</p></li>
+<li><p>Conclusion</p></li>
+</ol>
+<p>Critical assessment of all AI-generated information, ethical use, and clear documentation of its use in your work are important factors to ensure integrity in you research.</p>
+<div class="task" style="color: grey;">
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
