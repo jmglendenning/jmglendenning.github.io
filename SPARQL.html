@@ -227,14 +227,106 @@ geo:long ?mintlong ] }
 </section>
 <section id="example-2" class="level2">
 <h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
-<p>```PREFIX crm: <a href="http://www.cidoc-crm.org/cidoc-crm/" class="uri">http://www.cidoc-crm.org/cidoc-crm/</a> PREFIX dcterms:<a href="http://purl.org/dc/terms/" class="uri">http://purl.org/dc/terms/</a> PREFIX foaf: <a href="http://xmlns.com/foaf/0.1/" class="uri">http://xmlns.com/foaf/0.1/</a> PREFIX geo: <a href="http://www.w3.org/2003/01/geo/wgs84_pos#" class="uri">http://www.w3.org/2003/01/geo/wgs84_pos#</a> PREFIX nm: <a href="http://nomisma.org/id/" class="uri">http://nomisma.org/id/</a> PREFIX nmo: <a href="http://nomisma.org/ontology#" class="uri">http://nomisma.org/ontology#</a> PREFIX rdfs: <a href="http://www.w3.org/2000/01/rdf-schema#" class="uri">http://www.w3.org/2000/01/rdf-schema#</a> PREFIX skos: <a href="http://www.w3.org/2004/02/skos/core#" class="uri">http://www.w3.org/2004/02/skos/core#</a></p>
-<p>SELECT DISTINCT ?hoard ?hoardID ?type (COALESCE(?tlabel, ?plabel, ?rlabel, ?flabel) AS ?typeLabel) (STR(?startDate) AS ?startYear) (STR(?endDate) AS ?endYear) ?denomination ?denominationLabel ?material ?materialLabel ?mint ?mintID ?hoardLat ?hoardLong ?mintLat ?mintLong WHERE { # — All CHRR hoards and their contents — ?hoard a nmo:Hoard ; dcterms:tableOfContents ?contents . FILTER(STRSTARTS(STR(?hoard), “http://numismatics.org/chrr/id/”)) BIND(REPLACE(STR(?hoard), “http://numismatics.org/chrr/id/”, ““) AS ?hoardID)</p>
-<p># — Mint (via type-series item or directly on contents) — { ?contents nmo:hasTypeSeriesItem ?type . ?type nmo:hasMint ?mint . } UNION { ?contents nmo:hasMint ?mint . OPTIONAL { ?contents nmo:hasTypeSeriesItem ?type } } BIND(REPLACE(STR(?mint), “http://nomisma.org/id/”, ““) AS ?mintID)</p>
-<p># — Type labels &amp; dates (from CRRO type, when present) — OPTIONAL { ?type dcterms:title ?tlabel FILTER(LANG(?tlabel) = “” || LANGMATCHES(LANG(?tlabel), “en”)) } OPTIONAL { ?type skos:prefLabel ?plabel FILTER(LANG(?plabel) = “” || LANGMATCHES(LANG(?plabel), “en”)) } OPTIONAL { ?type rdfs:label ?rlabel FILTER(LANG(?rlabel) = “” || LANGMATCHES(LANG(?rlabel), “en”)) } OPTIONAL { ?type foaf:name ?flabel FILTER(LANG(?flabel) = “” || LANGMATCHES(LANG(?flabel), “en”)) }</p>
-<p>OPTIONAL { ?type nmo:hasStartDate ?startDate } OPTIONAL { ?type nmo:hasEndDate ?endDate }</p>
-<p># — Denomination &amp; material (from type) — OPTIONAL { ?type nmo:hasDenomination ?denomination . OPTIONAL { ?denomination (skos:prefLabel|rdfs:label|foaf:name) ?denominationLabel . FILTER(LANG(?denominationLabel) = “” || LANGMATCHES(LANG(?denominationLabel), “en”)) } } OPTIONAL { ?type nmo:hasMaterial ?material . OPTIONAL { ?material (skos:prefLabel|rdfs:label|foaf:name) ?materialLabel . FILTER(LANG(?materialLabel) = “” || LANGMATCHES(LANG(?materialLabel), “en”)) } }</p>
-<p># — Mint geolocation (Nomisma places) — OPTIONAL { { ?mint geo:location [ geo:lat ?mintLat ; geo:long ?mintLong ] } UNION { ?mint geo:lat ?mintLat . ?mint geo:long ?mintLong } }</p>
-<p># — Hoard geolocation (several fallbacks common in CHRR) — OPTIONAL { # A) Direct findspot place with geo { ?hoard nmo:hasFindspot ?hPlace . { ?hPlace geo:location [ geo:lat ?hoardLat ; geo:long ?hoardLong ] } UNION { ?hPlace geo:lat ?hoardLat . ?hPlace geo:long ?hoardLong } } UNION # B) CRM region chain with geo { ?hoard nmo:hasFindspot [ crm:P7_took_place_at [ crm:P89_falls_within ?region ] ] . ?region geo:location ?spatialThing . ?spatialThing geo:lat ?hoardLat ; geo:long ?hoardLong . } UNION # C) dcterms:spatial to a place with geo { ?hoard dcterms:spatial ?hPlace2 . { ?hPlace2 geo:location [ geo:lat ?hoardLat ; geo:long ?hoardLong ] } UNION { ?hPlace2 geo:lat ?hoardLat . ?hPlace2 geo:long ?hoardLong } } } } ORDER BY ?hoardID ?typeLabel ?type ?mint ```</p>
+<pre><code>PREFIX crm:   &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+PREFIX dcterms:&lt;http://purl.org/dc/terms/&gt;
+PREFIX foaf:  &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX geo:   &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+PREFIX nm:    &lt;http://nomisma.org/id/&gt;
+PREFIX nmo:   &lt;http://nomisma.org/ontology#&gt;
+PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX skos:  &lt;http://www.w3.org/2004/02/skos/core#&gt;
+
+SELECT DISTINCT
+  ?hoard ?hoardID
+  ?type (COALESCE(?tlabel, ?plabel, ?rlabel, ?flabel) AS ?typeLabel)
+  (STR(?startDate) AS ?startYear)
+  (STR(?endDate)   AS ?endYear)
+  ?denomination ?denominationLabel
+  ?material     ?materialLabel
+  ?mint ?mintID
+  ?hoardLat ?hoardLong
+  ?mintLat  ?mintLong
+WHERE {
+  # --- All CHRR hoards and their contents ---
+  ?hoard a nmo:Hoard ;
+         dcterms:tableOfContents ?contents .
+  FILTER(STRSTARTS(STR(?hoard), "http://numismatics.org/chrr/id/"))
+  BIND(REPLACE(STR(?hoard), "http://numismatics.org/chrr/id/", "") AS ?hoardID)
+
+  # --- Mint (via type-series item or directly on contents) ---
+  {
+    ?contents nmo:hasTypeSeriesItem ?type .
+    ?type     nmo:hasMint ?mint .
+  }
+  UNION
+  {
+    ?contents nmo:hasMint ?mint .
+    OPTIONAL { ?contents nmo:hasTypeSeriesItem ?type }
+  }
+  BIND(REPLACE(STR(?mint), "http://nomisma.org/id/", "") AS ?mintID)
+
+  # --- Type labels &amp; dates (from CRRO type, when present) ---
+  OPTIONAL { ?type dcterms:title    ?tlabel  FILTER(LANG(?tlabel)  = "" || LANGMATCHES(LANG(?tlabel),  "en")) }
+  OPTIONAL { ?type skos:prefLabel   ?plabel  FILTER(LANG(?plabel) = "" || LANGMATCHES(LANG(?plabel), "en")) }
+  OPTIONAL { ?type rdfs:label       ?rlabel  FILTER(LANG(?rlabel)  = "" || LANGMATCHES(LANG(?rlabel),  "en")) }
+  OPTIONAL { ?type foaf:name        ?flabel  FILTER(LANG(?flabel)  = "" || LANGMATCHES(LANG(?flabel),  "en")) }
+
+  OPTIONAL { ?type nmo:hasStartDate ?startDate }
+  OPTIONAL { ?type nmo:hasEndDate   ?endDate }
+
+  # --- Denomination &amp; material (from type) ---
+  OPTIONAL {
+    ?type nmo:hasDenomination ?denomination .
+    OPTIONAL {
+      ?denomination (skos:prefLabel|rdfs:label|foaf:name) ?denominationLabel .
+      FILTER(LANG(?denominationLabel) = "" || LANGMATCHES(LANG(?denominationLabel), "en"))
+    }
+  }
+  OPTIONAL {
+    ?type nmo:hasMaterial ?material .
+    OPTIONAL {
+      ?material (skos:prefLabel|rdfs:label|foaf:name) ?materialLabel .
+      FILTER(LANG(?materialLabel) = "" || LANGMATCHES(LANG(?materialLabel), "en"))
+    }
+  }
+
+  # --- Mint geolocation (Nomisma places) ---
+  OPTIONAL {
+    { ?mint geo:location [ geo:lat ?mintLat ;  geo:long ?mintLong ] }
+    UNION
+    { ?mint geo:lat ?mintLat . ?mint geo:long ?mintLong }
+  }
+
+  # --- Hoard geolocation (several fallbacks common in CHRR) ---
+  OPTIONAL {
+    # A) Direct findspot place with geo
+    { ?hoard nmo:hasFindspot ?hPlace .
+      { ?hPlace geo:location [ geo:lat ?hoardLat ; geo:long ?hoardLong ] }
+      UNION
+      { ?hPlace geo:lat ?hoardLat . ?hPlace geo:long ?hoardLong }
+    }
+    UNION
+    # B) CRM region chain with geo
+    {
+      ?hoard nmo:hasFindspot [
+        crm:P7_took_place_at [
+          crm:P89_falls_within ?region
+        ]
+      ] .
+      ?region geo:location ?spatialThing .
+      ?spatialThing geo:lat ?hoardLat ; geo:long ?hoardLong .
+    }
+    UNION
+    # C) dcterms:spatial to a place with geo
+    {
+      ?hoard dcterms:spatial ?hPlace2 .
+      { ?hPlace2 geo:location [ geo:lat ?hoardLat ; geo:long ?hoardLong ] }
+      UNION
+      { ?hPlace2 geo:lat ?hoardLat . ?hPlace2 geo:long ?hoardLong }
+    }
+  }
+}
+ORDER BY ?hoardID ?typeLabel ?type ?mint</code></pre>
 
 
 </section>
