@@ -67,40 +67,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <meta name="robots" content="noindex, nofollow">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -191,13 +159,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
-  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link" data-scroll-target="#hypothesis">Hypothesis</a></li>
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
-  <li><a href="#graphics" id="toc-graphics" class="nav-link" data-scroll-target="#graphics">Graphics</a></li>
-  <li><a href="#alternative-projects-to-consider" id="toc-alternative-projects-to-consider" class="nav-link" data-scroll-target="#alternative-projects-to-consider">Alternative Projects to Consider</a></li>
+  <li><a href="#project-ideas-voting-education-and-health-data-visualization" id="toc-project-ideas-voting-education-and-health-data-visualization" class="nav-link active" data-scroll-target="#project-ideas-voting-education-and-health-data-visualization">Project Ideas: Voting, Education, and Health Data Visualization</a>
+  <ul class="collapse">
+  <li><a href="#civic-health-dashboard" id="toc-civic-health-dashboard" class="nav-link" data-scroll-target="#civic-health-dashboard">1. Civic Health Dashboard</a></li>
+  <li><a href="#the-social-gradient-in-democracy" id="toc-the-social-gradient-in-democracy" class="nav-link" data-scroll-target="#the-social-gradient-in-democracy">2. The Social Gradient in Democracy</a></li>
+  <li><a href="#education-health-and-the-vote-over-time" id="toc-education-health-and-the-vote-over-time" class="nav-link" data-scroll-target="#education-health-and-the-vote-over-time">3. Education, Health, and the Vote Over Time</a></li>
+  <li><a href="#education-health-as-predictors-of-swing-state-outcomes" id="toc-education-health-as-predictors-of-swing-state-outcomes" class="nav-link" data-scroll-target="#education-health-as-predictors-of-swing-state-outcomes">4. Education &amp; Health as Predictors of Swing State Outcomes</a></li>
+  <li><a href="#civic-deserts-and-civic-gardens" id="toc-civic-deserts-and-civic-gardens" class="nav-link" data-scroll-target="#civic-deserts-and-civic-gardens">5. Civic Deserts and Civic Gardens</a></li>
+  <li><a href="#life-expectancy-and-the-vote" id="toc-life-expectancy-and-the-vote" class="nav-link" data-scroll-target="#life-expectancy-and-the-vote">6. Life Expectancy and the Vote</a></li>
+  <li><a href="#design-twist" id="toc-design-twist" class="nav-link" data-scroll-target="#design-twist">✨ Design Twist</a></li>
+  </ul></li>
   <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul>
 </nav>
     </div>
@@ -229,84 +202,131 @@ window.Quarto = {
 </header>
 
 
-<section id="background" class="level1">
-<h1>Background</h1>
+<section id="project-ideas-voting-education-and-health-data-visualization" class="level1">
+<h1>Project Ideas: Voting, Education, and Health Data Visualization</h1>
+<p>Here are several project ideas that combine <strong>voting, education, and health data</strong>, and lend themselves to <strong>interactive visualization in R Shiny</strong> with artistic 2D charts.</p>
+<hr>
+<section id="civic-health-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="civic-health-dashboard">1. Civic Health Dashboard</h2>
+<ul>
+<li><strong>Concept:</strong> Explore the relationship between <strong>civic participation (voting turnout)</strong> and <strong>community well-being</strong> (educational attainment, health outcomes like obesity, life expectancy, or access to healthcare).<br>
+</li>
+<li><strong>Geospatial Component:</strong> County- or state-level choropleth maps showing turnout vs.&nbsp;health/education indices.<br>
+</li>
+<li><strong>Sophisticated 2D Visualizations:</strong>
+<ul>
+<li>Chord diagrams linking regions with high turnout to health and education performance.<br>
+</li>
+<li>Radar charts comparing regions across civic health indicators.<br>
+</li>
+<li>Interactive beeswarm plots showing how counties cluster by turnout and well-being.</li>
+</ul></li>
+</ul>
+<hr>
 </section>
-<section id="hypothesis" class="level1">
-<h1>Hypothesis</h1>
-<p><span class="math display">\[
-\begin{flalign}
-\scriptsize
-H_0&amp;: \scriptsize  \text{Scholarship about inequality in ancient Rome has not changed.}\\
-\scriptsize
-H_1&amp;: \scriptsize  \text{Scholarship has changed.}
-\end{flalign}
-\]</span></p>
+<section id="the-social-gradient-in-democracy" class="level2">
+<h2 class="anchored" data-anchor-id="the-social-gradient-in-democracy">2. The Social Gradient in Democracy</h2>
+<ul>
+<li><strong>Concept:</strong> Visualize how <strong>educational inequality and health disparities</strong> predict or correlate with <strong>voter participation</strong>.<br>
+</li>
+<li><strong>Geospatial Component:</strong> Optional hexbin maps to avoid irregular geographic shapes.<br>
+</li>
+<li><strong>Sophisticated Visualizations:</strong>
+<ul>
+<li>Ridgeline plots comparing turnout distributions across education or health quintiles.<br>
+</li>
+<li>Sankey diagrams connecting educational attainment → health outcomes → turnout.<br>
+</li>
+<li>Animated scatter plots over time (2000–2024) showing shifting relationships.</li>
+</ul></li>
+</ul>
+<hr>
 </section>
-<section id="data-collection" class="level1">
-<h1>Data Collection</h1>
-<p>Data was gathered from …</p>
+<section id="education-health-and-the-vote-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="education-health-and-the-vote-over-time">3. Education, Health, and the Vote Over Time</h2>
+<ul>
+<li><strong>Concept:</strong> Focus on <strong>temporal change</strong>. How have turnout rates, graduation rates, and public health measures shifted together over the past decades?<br>
+</li>
+<li><strong>Geospatial Component:</strong> Time-lapse choropleths or animated small multiples by state.<br>
+</li>
+<li><strong>Sophisticated Visualizations:</strong>
+<ul>
+<li>Streamgraphs to show trends of participation vs.&nbsp;education vs.&nbsp;health.<br>
+</li>
+<li>Alluvial plots tracking states moving between “low ed/low health/low vote” categories.<br>
+</li>
+<li>Circular barplots for an artistic, unconventional style.</li>
+</ul></li>
+</ul>
+<hr>
 </section>
-<section id="methods" class="level1">
-<h1>Methods</h1>
-<p>This is what we did…</p>
+<section id="education-health-as-predictors-of-swing-state-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="education-health-as-predictors-of-swing-state-outcomes">4. Education &amp; Health as Predictors of Swing State Outcomes</h2>
+<ul>
+<li><strong>Concept:</strong> Examine whether educational attainment and health outcomes correlate with <strong>swing state behavior in elections</strong> (close margins, shifts between parties).<br>
+</li>
+<li><strong>Geospatial Component:</strong> State-level cartograms emphasizing electoral votes rather than land area.<br>
+</li>
+<li><strong>Sophisticated Visualizations:</strong>
+<ul>
+<li>Hexbin scatterplots of turnout vs.&nbsp;education/health metrics with party overlays.<br>
+</li>
+<li>Density contour plots emphasizing clusters of swing vs.&nbsp;safe states.<br>
+</li>
+<li>Interactive ternary plots (education, health, voting as vertices).</li>
+</ul></li>
+</ul>
+<hr>
 </section>
-<section id="graphics" class="level1">
-<h1>Graphics</h1>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start] --&gt; B[Load Text Data]
-  B --&gt; C[Preprocessing]
-  C --&gt;|Convert to Lowercase| C1[Lowercasing]
-  C --&gt;|Remove Punctuation| C2[Remove Punctuation]
-  C --&gt;|Remove Stopwords| C3[Stopword Removal]
-  C --&gt;|Stemming/Lemmatization| C4[Stemming/Lemmatization]
-  C --&gt;|Tokenization| C5[Tokenization]
-  C1 --&gt; D[Create Corpus]
-  C2 --&gt; D
-  C3 --&gt; D
-  C4 --&gt; D
-  C5 --&gt; D
-  D --&gt; E[Feature Extraction]
-  E --&gt;|Bag-of-Words| E1[BoW Model]
-  E --&gt;|TF-IDF| E2[TF-IDF Model]
-  E --&gt;|Word Embeddings| E3[Word2Vec, FastText, GloVe]
-  E1 --&gt; F[Train NLP Model]
-  E2 --&gt; F
-  E3 --&gt; F
-  F --&gt;|Classification| G1[Sentiment Analysis, Spam Detection]
-  F --&gt;|Clustering| G2[Topic Modeling, Named Entity Recognition]
-  F --&gt;|Text Generation| G3[Chatbots, Machine Translation]
-  G1 --&gt; H[Evaluate Model]
-  G2 --&gt; H
-  G3 --&gt; H
-  H --&gt; I[Deploy Model]
-  I --&gt; J[End]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="civic-deserts-and-civic-gardens" class="level2">
+<h2 class="anchored" data-anchor-id="civic-deserts-and-civic-gardens">5. Civic Deserts and Civic Gardens</h2>
+<ul>
+<li><strong>Concept:</strong> Identify areas where <strong>low education, poor health, and low turnout overlap</strong> (“civic deserts”) vs.&nbsp;areas with <strong>high values on all three</strong> (“civic gardens”).<br>
+</li>
+<li><strong>Geospatial Component:</strong> Interactive maps highlighting these clusters.<br>
+</li>
+<li><strong>Sophisticated Visualizations:</strong>
+<ul>
+<li>Voronoi diagrams to map “civic desert” zones without strict boundaries.<br>
+</li>
+<li>Treemaps or sunbursts showing nested categories (education → health → turnout).<br>
+</li>
+<li>Polar coordinate plots for community comparisons.</li>
+</ul></li>
+</ul>
+<hr>
 </section>
-<section id="alternative-projects-to-consider" class="level1">
-<h1>Alternative Projects to Consider</h1>
-<p>Some other projects that could be considered:</p>
-<ol type="1">
-<li>Predictive Modeling of Archaeological Site Locations</li>
-<li>Automated Artifact Classification and Typology</li>
-<li>Temporal and Spatial Analysis of Settlement Patterns</li>
-<li>Text Mining and NLP for Archaeological Literature</li>
-<li>Reconstructing Ancient Trade Routes</li>
-</ol>
+<section id="life-expectancy-and-the-vote" class="level2">
+<h2 class="anchored" data-anchor-id="life-expectancy-and-the-vote">6. Life Expectancy and the Vote</h2>
+<ul>
+<li><strong>Concept:</strong> Investigate whether counties/states with higher or lower <strong>life expectancy</strong> tend to vote differently and whether <strong>education mediates</strong> this effect.<br>
+</li>
+<li><strong>Geospatial Component:</strong> Interactive choropleths by county with linked scatterplots.<br>
+</li>
+<li><strong>Sophisticated Visualizations:</strong>
+<ul>
+<li>Bubble plots in polar coordinates to highlight clustering.<br>
+</li>
+<li>Heatmaps with dendrograms showing cross-indicator correlations.<br>
+</li>
+<li>Interactive slopegraphs showing turnout and life expectancy changes.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="design-twist" class="level2">
+<h2 class="anchored" data-anchor-id="design-twist">✨ Design Twist</h2>
+<p>To make the visualizations <strong>sophisticated, artistic, and attractive</strong>: - Use <strong>custom color palettes</strong> (viridis, wesanderson, scientific palettes).<br>
+- Explore <strong>non-traditional layouts</strong> (circular, radial, layered).<br>
+- Add <strong>interactive storytelling</strong>: clicking on a region brings up linked health/education/voting histories.</p>
+</section>
 </section>
 <section id="bibliography" class="level1">
 <h1>Bibliography</h1>
-<p><strong>Brock, Andrea L., Lorenzo Motta, and Nicola Terrenato.</strong> 2021. “On the Banks of the Tiber: Opportunity and Transformation in Early Rome.” <em>The Journal of Roman Studies</em> 111: 1–30. https://www.jstor.org/stable/27128849.</p>
+</section>
+<section id="notes" class="level1">
+<h1>Notes</h1>
+<p>Generated with help from an LLM</p>
 
 
 </section>
