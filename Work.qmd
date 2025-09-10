@@ -1,7 +1,0 @@
----
-title: "Work"
----
-
-Work samples will go here.
-
-![Princess Donut](donut.jpeg)
