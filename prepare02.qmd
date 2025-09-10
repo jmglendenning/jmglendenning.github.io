@@ -1,0 +1,205 @@
+---
+title: "Prepare for Class 02"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+author: "John Glendenning"
+format: 
+  html:
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    theme: readable
+    toc-float: 
+      collapsed: false
+    math: latex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Set CRAN mirror (using RStudio's mirror as an example)
+options(repos = c(CRAN = "https://cran.rstudio.com/"))
+
+# List of required packages
+packages <- c("devtools", "dplyr", "ggplot2", "readr", "tidyr", "sf", 
+              "ggrepel", "rnaturalearth", "rnaturalearthdata", "knitr", "spdep",
+              "tmap", "cols4all")
+
+# Install any that are missing
+missing <- packages[!(packages %in% installed.packages()[, "Package"])]
+if (length(missing)) install.packages(missing)
+
+# Load all packages
+invisible(lapply(packages, library, character.only = TRUE))
+
+```
+
+# Reading
+NY (2024): 1, 2 ($\cdot$), PM ($\cdot\cdot\cdot$)
+
+*Note:* $\cdot$ technical difficulty low; $\cdot\cdot\cdot$ technical difficulty high
+
+  - [x] Completed 
+
+# Watch
+
+## Inge Druckrey
+
+[Teaching to see](https://player.vimeo.com/video/45232468?title=0&byline=0&portrait=0&color=ffffff) by Andrei Severny and Edward Tufte (~ 37 minutes)
+
+  - [x] Completed 
+
+### Write a one-page review:
+* Learn thin/thick and curve/linearity from Druckrey
+* How did Holmes describe and contrast the eye and the hand in
+writing?
+* Why calligraphy is important to Steve Jobs and the design of Mac
+computers?
+* Differentiate geometric accuracy and optical accuracy
+
+***Review: Teaching to See – Lessons from Inge Druckrey and Beyond***
+
+In the documentary Teaching to See, we learned about Inge Druckrey, a design teacher who changed how students look at the world around them. Her teaching method was strict but eye-opening. One of her biggest lessons was about understanding contrasts, the use of negative and positive.  Contrasts between thin and thick lines, between curved and straight shapes, and different textures were prominent in her teaching. When students practiced brush lettering and Roman capital letters, they learned how these visual elements work together to create rhythm and balance. Making an 'R' or a 'S' wasn't just about making something pretty or functional, it was about mastering the basic contrasts that make letters work and communicate clearly. She pushed students to make small improvements to enhance their work.  Make a curve deeper.  Adjust a line thickness.  She taught them to see the shape, not merely copy it.
+
+One student, Holmes, shared an interesting idea about the eye versus the hand in writing. The eye is conservative and wants everything to look neat, orderly, and easy to read. However, the hand is radical, and wants to write fast and show personality. This tension between what the eye wants and what the hand does is the story of handwriting and fonts. The eye demands that we can read something easily, while the hand wants to add personal style. When these two contrasting ideas work together, the world of typography and calligraphy opens up. Holmes's comparison captured the main challenge of typography.  Follow the rules, but do it expressively and with purpose.
+
+This balanced contrast had a huge impact on Steve Jobs.  Jobs, known for his design sense, was thoughtfully affected by her tutelage.  Jobs said that this class, taken when he was not even a student at Reed, shaped his approach to design.  Many years later as he was envisioning the successor to the Apple II, he incorporated advanced computer typography to the interface.  The first Macintosh computer included properly spaced fonts and multiple typefaces, which was something completely different from the terminals of the time.  Jobs believed that beauty and function should go together, and that computers should have the aesthetic and care found in handwritten letters. 
+
+An important lessons from her teaching was about the difference between geometric and optical accuracy. Two letters could measure the same size, but they can look different to your eyes. Using a reducing glass, Druckrey would look at student work essentially from far away, spotting visual problems that careful measuring alone couldn't find. Students learned that our eyes see weight, proportion, and alignment as a whole, not piece by piece.  Design is not about mathematical perfection but about visual truth. She taught students to trust their eyes and keep improving their work until it looked right.
+
+*Teaching to See* examined the importance of observing carefully, and working patiently to improve. Students were invited into a lifelong practice of noticing the world around them more clearly and more beautifully.
+
+
+
+# Build 
+
+Build a personal website on GitHub using Quarto
+
+* Consult [Creating a Quarto Website](https://quarto.org/docs/websites/) and Deploying on GitHub Pages
+
+    - [x] Completed 
+
+* Visit <https://quarto.org/docs/websites/> then select RStudio button under Quick Start, and follow the steps
+
+    - [x] Completed 
+
+* Once website is built, notifying TA the web address via email.
+
+    - [x] Completed 
+
+* The website will be used for posting assignments
+
+# Quartz Bad Data Guide
+
+Read [Quartz Bad Data Guide](https://github.com/Quartz/bad-data-guide) and prepare a personalized checklist for yourself (e.g. Name’s Data Guide).
+
+
+## John Glendenning’s Data Quality Checklist
+_A customized guide for Roman Coinage based on the Quartz Bad Data Guide_
+
+**1. Structural Cleanliness**
+
+- [ ] Headers are correct (no shifted cells, multi-row headers, or misaligned labels)
+- [ ] Every column has a consistent type (no mixed datatypes in a single column)
+- [ ] No blank rows or columns (especially dangerous in CSVs and spreadsheets)
+- [ ] No merged cells (common in XLS/XLSX files—flatten before use)
+- [ ] Consistent encoding (UTF-8 preferred for Python/R compatibility)
+
+**2. Column-Level Validation**
+
+- [ ] All dates are parsable and timezone-aware if needed
+- [ ] String fields are stripped of whitespace (`"Rome "` → `"Rome"`)
+- [ ] No rogue delimiters in text fields (e.g., commas in CSVs without proper quoting)
+- [ ] Numerical fields are clean (no currency symbols, commas, or locale-specific formatting like `1.000.000`)
+
+**3. Semantic Accuracy**
+
+- [ ] Check for mislabeled columns (e.g., `latitude`/`longitude` swaps)
+- [ ] Verify units (e.g., km vs miles, BCE vs CE)
+- [ ] Decimal vs percentage (e.g., `0.07` vs `7%`)
+
+**4. Consistency Over Time**
+
+- [ ] Historical changes tracked (e.g., column schema, CRS, projection systems)
+- [ ] Decade or time-period tagging consistent (e.g., `-90` to `-81` BCE)
+- [ ] Audit trail/logs for any manual cleaning (especially footnote/bibliography removal in PDFs)
+
+**5. Missing or Placeholder Data**
+
+- [ ] All forms of NA/NULL recognized (`NA`, `NaN`, `null`, `""`, `-99`, etc.)
+- [ ] Missing values logged by column and count
+- [ ] Don’t treat 0 as missing unless contextually appropriate
+
+**6. Duplicate Detection**
+
+- [ ] Check for duplicate rows (especially when scraping or merging)
+- [ ] Check for near-duplicates (e.g., `Roma`, `Rome`, `ROME`)
+- [ ] Check for duplicate IDs (e.g., coin ID, hoard ID, document IDs)
+
+**7. Geospatial Sanity**
+
+- [ ] Latitude between -90 and 90; longitude between -180 and 180
+- [ ] CRS consistent (e.g., EPSG:3035 for European LAEA)
+- [ ] No flipped coordinates (common error: lat/lon reversed)
+- [ ] Hoard and mint points lie on land (not sea) if appropriate
+
+**8. Textual Consistency**
+
+- [ ] Ligatures and hyphens cleaned (e.g., `ﬁ` → `fi`, `eco-\nnomic` → `economic`)
+- [ ] Spellchecked output, especially OCR text
+- [ ] Entity redactions logged (`[REDACTED_PERSON]`, etc.)
+- [ ] Bibliographic references stripped only after saving original
+
+**9. File-Level Integrity**
+
+- [ ] Avoid Excel-specific features (e.g., macros, pivot tables, styles)
+- [ ] All outputs saved in open formats (`.csv`, `.txt`, `.geojson`, `.rds`)
+- [ ] Folder names consistent and informative (`data/raw/`, `output/cleaned/`)
+- [ ] File naming conventions follow: `source_var_cleaned_YYYYMMDD.csv`
+
+**10. Reproducibility and Logging**
+
+- [ ] Every cleaning step is logged (`log_cleaning_YYYY-MM-DD.csv`)
+- [ ] Every script is version-controlled (e.g., Git, Quarto render logs)
+- [ ] Pipeline can skip existing files
+- [ ] Warnings and anomalies are caught and reported
+
+**11. Statistical Sanity Checks**
+
+- [ ] Expected distribution of values? (e.g., coin counts by year)
+- [ ] Look for spikes and dips (e.g., all hoards dated -87 BCE?)
+- [ ] Correlated fields make sense (e.g., coin start ≤ end year)
+- [ ] Geometric vs optical accuracy assessed for visualizations
+
+**12. Common Traps from Quartz Guide**
+
+- [ ] Dates as integers in Excel turn into nonsense
+- [ ] Excel corrupts CSVs with large numbers or `1-1` turning into `Jan 1`
+- [ ] Invisible Unicode characters (zero-width space, BOM)
+- [ ] Trailing commas or missing headers in CSVs
+- [ ] “Totals” or “Notes” rows left in
+
+# Team building
+
+Build a team by end of day (9/3/2025)
+
+- [x] Completed (Adiline, Elise, John)
+
+Coordinators, please notify the TA (Mr. Kelvin Chan KelvinChunMan.Chan@UTDallas.edu) members in your team with “Subject: EPPS 6356 Doe team members” (where Doe is coordinator last name)
+
+- [x] Completed
+
+## Meetings
+
+Schedule regular meetings to discuss on team project (proposal and presentation due on schedule.
+
+# Proposal due: 10/15
+
+# Bibliography
+
+Murrell, Paul. 2016. *R graphics.* CRC Press. (PM)
+
+Yau, Nathan. 2011. *Visualize This: The Flowingdata Guide To Design, Visualization, And Statistics.* John Wiley & Sons. (NY)
+
+# Notes
+
+*Note:*  some work was checked or enhanced with LLMs

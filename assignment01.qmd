@@ -1,0 +1,79 @@
+---
+title: "Assignment 01"
+---
+1. Review/refresh R programming:
+
+  * Resources:
+    1. [Introduction to R (University of Southern California)](https://www.uscspec.org/introduction-to-r)
+    <p style="color:green">Completed, no exercises.</p>
+    
+    2. [EPPS Math and Coding Camp (Start from Module 3)](https://eppsmathcodingcamp.github.io/modules/)
+    <p style="color:green">See below for exercises.</p>
+    
+2. Project
+    <p style="color:green">Please refer to [Project Brainstorming](https://jmglendenning.github.io/project01.html "EPPS 6323 Project") for information on the project for EPPS 6323.  
+    </p>
+  * Brainstorm:
+    1. Propose a hypothesis
+    2. How data can be collected?
+    3. What methods could be considered?
+    4. How to start the data project
+
+# Exercises - Review / Refresh R Skills
+
+These exercises are from Day 3 & 4 of [EPPS Math Coding Camp](https://eppsmathcodingcamp.github.io/modules/ "Summer Math and Coding Camp")
+
+A few lines of code were generated with an LLM. For instance, I had forgotten how to 'paste' in R. They were also used to generate names and for help functions.
+
+# Getting Started with R and RStudio
+
+## Exercise 1
+
+After installation, type R.version. What version of R did you install? What is the nickname of that particular software build?
+
+```{r}
+
+R.version
+
+```
+
+## Exercise 2
+
+Open RStudio. In the console pane (usually at the bottom-left), type 1 + 1 and press Enter. What result do you get?
+
+```{r}
+
+1+1
+
+```
+
+## Exercise 3
+
+Create a new R script (File \> New File \> R Script). Type print("Hello, Data Science!") and run the code. What output do you see in the console?
+
+```{r}
+
+print("Hello, Data Science!")
+
+```
+
+## Exercise 4
+
+Use pacman to install and load the tidyr package. Then, use p_functions() to list all functions in the tidyr package.
+
+```{r}
+library(pacman)
+p_functions(tidyr)
+```
+
+## Exercise 5
+
+Create a new folder on your computer called “DataScience”. Set this as your working directory in RStudio. Then, use getwd() to confirm it’s set correctly.
+
+Note: This was done, but running this in Quarto is problematic, so this output is copied from the Console.
+
+```         
+> getwd()
+[1] "/Users/john/DataScience"
+```
+

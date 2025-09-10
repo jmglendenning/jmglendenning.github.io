@@ -1,0 +1,18 @@
+---
+title: "About"
+---
+
+I am a Master's student at the University of Texas at Dallas studying GIS.
+
+I am interested in applying GIS tools and techniques to historical questions.  Projects that I have worked on include:
+
+  * Roman villa site location analysis and predictive modeling
+  * A Python implementation of Geomorphons
+  * Application of low-cost drones to disaster efforts
+  * Python-based DEM-based spatial statistics via WCS data-acquisition
+  
+I am currently working on analyzing Roman coin hoards.
+
+I have a strong interest in remote sensing and tools.  
+
+[Curriculum vitae](https://jmglendenning.github.io/John_Glendenning.pdf)

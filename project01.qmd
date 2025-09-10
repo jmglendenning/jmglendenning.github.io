@@ -1,0 +1,87 @@
+---
+title: "Project - Brainstorming"
+author: "John Glendenning"
+output: 
+  html:
+    documentclass: "article"
+    options: [fleqn]
+    math: latex
+---
+# Project Ideas: Voting, Education, and Health Data Visualization
+
+Here are several project ideas that combine **voting, education, and health data**, and lend themselves to **interactive visualization in R Shiny** with artistic 2D charts.
+
+---
+
+## 1. Civic Health Dashboard
+- **Concept:** Explore the relationship between **civic participation (voting turnout)** and **community well-being** (educational attainment, health outcomes like obesity, life expectancy, or access to healthcare).  
+- **Geospatial Component:** County- or state-level choropleth maps showing turnout vs. health/education indices.  
+- **Sophisticated 2D Visualizations:**  
+  - Chord diagrams linking regions with high turnout to health and education performance.  
+  - Radar charts comparing regions across civic health indicators.  
+  - Interactive beeswarm plots showing how counties cluster by turnout and well-being.
+
+---
+
+## 2. The Social Gradient in Democracy
+- **Concept:** Visualize how **educational inequality and health disparities** predict or correlate with **voter participation**.  
+- **Geospatial Component:** Optional hexbin maps to avoid irregular geographic shapes.  
+- **Sophisticated Visualizations:**  
+  - Ridgeline plots comparing turnout distributions across education or health quintiles.  
+  - Sankey diagrams connecting educational attainment → health outcomes → turnout.  
+  - Animated scatter plots over time (2000–2024) showing shifting relationships.
+
+---
+
+## 3. Education, Health, and the Vote Over Time
+- **Concept:** Focus on **temporal change**. How have turnout rates, graduation rates, and public health measures shifted together over the past decades?  
+- **Geospatial Component:** Time-lapse choropleths or animated small multiples by state.  
+- **Sophisticated Visualizations:**  
+  - Streamgraphs to show trends of participation vs. education vs. health.  
+  - Alluvial plots tracking states moving between “low ed/low health/low vote” categories.  
+  - Circular barplots for an artistic, unconventional style.
+
+---
+
+## 4. Education & Health as Predictors of Swing State Outcomes
+- **Concept:** Examine whether educational attainment and health outcomes correlate with **swing state behavior in elections** (close margins, shifts between parties).  
+- **Geospatial Component:** State-level cartograms emphasizing electoral votes rather than land area.  
+- **Sophisticated Visualizations:**  
+  - Hexbin scatterplots of turnout vs. education/health metrics with party overlays.  
+  - Density contour plots emphasizing clusters of swing vs. safe states.  
+  - Interactive ternary plots (education, health, voting as vertices).
+
+---
+
+## 5. Civic Deserts and Civic Gardens
+- **Concept:** Identify areas where **low education, poor health, and low turnout overlap** ("civic deserts") vs. areas with **high values on all three** ("civic gardens").  
+- **Geospatial Component:** Interactive maps highlighting these clusters.  
+- **Sophisticated Visualizations:**  
+  - Voronoi diagrams to map "civic desert" zones without strict boundaries.  
+  - Treemaps or sunbursts showing nested categories (education → health → turnout).  
+  - Polar coordinate plots for community comparisons.
+
+---
+
+## 6. Life Expectancy and the Vote
+- **Concept:** Investigate whether counties/states with higher or lower **life expectancy** tend to vote differently and whether **education mediates** this effect.  
+- **Geospatial Component:** Interactive choropleths by county with linked scatterplots.  
+- **Sophisticated Visualizations:**  
+  - Bubble plots in polar coordinates to highlight clustering.  
+  - Heatmaps with dendrograms showing cross-indicator correlations.  
+  - Interactive slopegraphs showing turnout and life expectancy changes.
+
+---
+
+## Additions
+To make the visualizations **sophisticated, artistic, and attractive**:
+- Use **custom color palettes** (viridis, wesanderson, scientific palettes).  
+- Explore **non-traditional layouts** (circular, radial, layered).  
+- Add **interactive storytelling**: clicking on a region brings up linked health/education/voting histories.
+
+# Bibliography
+
+# Notes
+
+Generated with help from an LLM
+
