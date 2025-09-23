@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <meta name="robots" content="noindex, nofollow">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -95,6 +124,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./SPARQL.html"> 
 <span class="menu-text">SPARQL</span></a>
   </li>  
@@ -110,6 +143,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./prepare02.html">
  <span class="dropdown-text">Prepare for Class 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./prepare03.html">
+ <span class="dropdown-text">Prepare for Class 03</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./assignment01.html">
@@ -168,6 +205,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#civic-deserts-and-civic-gardens" id="toc-civic-deserts-and-civic-gardens" class="nav-link" data-scroll-target="#civic-deserts-and-civic-gardens">5. Civic Deserts and Civic Gardens</a></li>
   <li><a href="#life-expectancy-and-the-vote" id="toc-life-expectancy-and-the-vote" class="nav-link" data-scroll-target="#life-expectancy-and-the-vote">6. Life Expectancy and the Vote</a></li>
   <li><a href="#additions" id="toc-additions" class="nav-link" data-scroll-target="#additions">Additions</a></li>
+  <li><a href="#datasets-for-option-5" id="toc-datasets-for-option-5" class="nav-link" data-scroll-target="#datasets-for-option-5">Datasets for Option 5</a></li>
   </ul></li>
   <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
@@ -320,6 +358,42 @@ ul.task-list li input[type="checkbox"] {
 - Explore <strong>non-traditional layouts</strong> (circular, radial, layered).<br>
 - Add <strong>interactive storytelling</strong>: clicking on a region brings up linked health/education/voting histories.</p>
 </section>
+<section id="datasets-for-option-5" class="level2">
+<h2 class="anchored" data-anchor-id="datasets-for-option-5">Datasets for Option 5</h2>
+<p>Here is a curated table list from IPUMS NHGIS that aligns with your project’s goals for identifying civic deserts and civic gardens at the county level, using the domains of education, health, and voter turnout (via external source).</p>
+<p>⸻</p>
+<p>🧾 IPUMS NHGIS Table List</p>
+<p>These tables are from ACS 5-Year Estimates, which provide the most detailed and stable county-level data.</p>
+<ol type="1">
+<li>Education</li>
+</ol>
+<p>Table ID Table Title Key Columns B15003 Educational Attainment for the Population 25 Years and Over Count of individuals by highest level of education completed C15002 Sex by Educational Attainment for the Population 25 Years and Over Gender comparison (optional) S1501 Educational Attainment Summary Table Percent with &lt; HS, HS, Some College, BA+, etc.</p>
+<p>⸻</p>
+<ol start="2" type="1">
+<li>Health (Proxies)</li>
+</ol>
+<p>Table ID Table Title Key Columns S1810 Disability Characteristics % with hearing, vision, cognitive, ambulatory, self-care, independent living difficulties B27010 Types of Health Insurance Coverage by Age % uninsured, private, public insurance S2701 Health Insurance Coverage Summary Coverage breakdowns by age and gender</p>
+<p>💡 Note: If needed, supplement with CDC PLACES or County Health Rankings for obesity, diabetes, poor health days, etc.</p>
+<p>⸻</p>
+<ol start="3" type="1">
+<li>Turnout</li>
+</ol>
+<p>No direct IPUMS NHGIS table provides turnout, so use external data and join by FIPS:</p>
+<p>Source Metric Notes MIT Election Lab Total votes / Voting-age population (VAP) County-level turnout in general elections Harvard Election Data Archive Voter turnout Also includes registration and vote choice by county State Election Offices For state-specific turnout rates Check Secretary of State or elections board</p>
+<p>⸻</p>
+<ol start="4" type="1">
+<li>Geographic Identifiers &amp; Population</li>
+</ol>
+<p>Table ID Table Title Key Columns B01001 Sex by Age Use total count for denominator in rates (e.g., % uninsured) — County shapefiles Download with “NHGIS Boundary Files” (match via GISJOIN or FIPS)</p>
+<p>⸻</p>
+<p>Optional Enhancements</p>
+<p>Domain Table Use Poverty S1701 Correlate with civic deserts Employment S2301 Add context (e.g., joblessness and civic disengagement) Language B16004 Language isolation may correlate with civic participation</p>
+<p>⸻</p>
+<p>Final Package</p>
+<p>When ordering from IPUMS NHGIS: • Use the Data Finder tool • Select ACS 5-Year Estimates • Filter by County geographic level • Include tables: • B15003, S1501, S1810, B27010, S2701, B01001, plus any others above • Include 2020 boundaries (or consistent year across tables)</p>
+<p>⸻</p>
+<p>Would you like me to generate a pre-filled download script for NHGIS or help prep these for use in a Shiny app or Quarto dashboard?</p>
+</section>
 </section>
 <section id="bibliography" class="level1">
 <h1>Bibliography</h1>
@@ -327,6 +401,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="notes" class="level1">
 <h1>Notes</h1>
 <p>Generated with help from an LLM</p>
+
 
 
 </section>
