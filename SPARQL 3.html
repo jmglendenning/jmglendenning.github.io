@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Example Blog – John Glendenning</title>
+<title>SPARQL – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a78bc22c21c5275f96438b53095d57b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a78bc22c21c5275f96438b53095d57b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,35 +66,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <meta name="robots" content="noindex, nofollow">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -129,17 +98,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">John Glendenning</span>
     </a>
   </div>
@@ -150,15 +119,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../posts/index.html" aria-current="page"> 
+    <a class="nav-link" href="./posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../SPARQL.html"> 
+    <a class="nav-link active" href="./SPARQL.html" aria-current="page"> 
 <span class="menu-text">SPARQL</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -167,44 +136,36 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-epps6356">    
         <li>
-    <a class="dropdown-item" href="../prepare01.html">
+    <a class="dropdown-item" href="./prepare01.html">
  <span class="dropdown-text">Prepare for Class 01</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../prepare02.html">
+    <a class="dropdown-item" href="./prepare02.html">
  <span class="dropdown-text">Prepare for Class 02</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../prepare03.html">
+    <a class="dropdown-item" href="./prepare03.html">
  <span class="dropdown-text">Prepare for Class 03</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../prepare04.html">
+    <a class="dropdown-item" href="./prepare04.html">
  <span class="dropdown-text">Prepare for Class 04</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../prepare05.html">
+    <a class="dropdown-item" href="./prepare05.html">
  <span class="dropdown-text">Prepare for Class 05</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../prepare06.html">
- <span class="dropdown-text">Prepare for Class 06</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../assignment01.html">
+    <a class="dropdown-item" href="./assignment01.html">
  <span class="dropdown-text">Assignment 01</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../assignment02.html">
+    <a class="dropdown-item" href="./assignment02.html">
  <span class="dropdown-text">Assignment 02</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../assignment03.html">
+    <a class="dropdown-item" href="./assignment03.html">
  <span class="dropdown-text">Assignment 03</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../assignment04.html">
- <span class="dropdown-text">Assignment 04</span></a>
   </li>  
     </ul>
   </li>
@@ -214,12 +175,12 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-project">    
         <li>
-    <a class="dropdown-item" href="../project01.html">
+    <a class="dropdown-item" href="./project01.html">
  <span class="dropdown-text">Brainstorming</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../project02.html">
- <span class="dropdown-text">Proposal</span></a>
+    <a class="dropdown-item" href="./test.html">
+ <span class="dropdown-text">Test</span></a>
   </li>  
     </ul>
   </li>
@@ -229,13 +190,13 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-coins">    
         <li>
-    <a class="dropdown-item" href="../coins01.html">
+    <a class="dropdown-item" href="./coins01.html">
  <span class="dropdown-text">Brainstorming</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -246,196 +207,206 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Example Blog</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UXVhcnRv">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJ0aWNsZQ==">article <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFw">map <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmV2aWV3">review <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cm9hZA==">road <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2lsaw==">silk <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#endpoint" id="toc-endpoint" class="nav-link active" data-scroll-target="#endpoint">Endpoint</a></li>
+  <li><a href="#headers-prefixes" id="toc-headers-prefixes" class="nav-link" data-scroll-target="#headers-prefixes">Headers / Prefixes</a></li>
+  <li><a href="#sample-queries" id="toc-sample-queries" class="nav-link" data-scroll-target="#sample-queries">Sample Queries</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  <li><a href="#mint-data-only" id="toc-mint-data-only" class="nav-link" data-scroll-target="#mint-data-only">Mint Data Only</a></li>
+  <li><a href="#coins-in-hoard" id="toc-coins-in-hoard" class="nav-link" data-scroll-target="#coins-in-hoard">Coins in Hoard</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">SPARQL</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="endpoint" class="level1">
+<h1>Endpoint</h1>
+<p><a href="https://nomisma.org/sparql/">Nomisma SPARQL Endpoint</a></p>
+</section>
+<section id="headers-prefixes" class="level1">
+<h1>Headers / Prefixes</h1>
+<p>Remember to add all these <strong>PREFIX</strong> to the SPARQL queries.</p>
+<pre><code>PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+PREFIX dcmitype: &lt;http://purl.org/dc/dcmitype/&gt;
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+PREFIX nm: &lt;http://nomisma.org/id/&gt;
+PREFIX nmo: &lt;http://nomisma.org/ontology#&gt;
+PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
+</section>
+<section id="sample-queries" class="level1">
+<h1>Sample Queries</h1>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
+<p>Modified from R networks analysis / works</p>
+<pre><code>SELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {
+{
+  ?hoard void:inDataset &lt;http://numismatics.org/chrr/&gt; ;
+  dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint .
+}
+UNION
+{ ?hoard a nmo:Hoard ;
+dcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] .
+?tsi nmo:hasMint ?mint .
+}
+OPTIONAL { ?hoard nmo:hasFindspot [
+geo:lat ?hoardlat ;
+geo:long ?hoardlong ] }
+OPTIONAL { ?mint geo:location [
+geo:lat ?mintlat ;
+geo:long ?mintlong ] }
+}</code></pre>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
+<pre><code>PREFIX crm:   &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+PREFIX dcterms:&lt;http://purl.org/dc/terms/&gt;
+PREFIX foaf:  &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX geo:   &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+PREFIX nm:    &lt;http://nomisma.org/id/&gt;
+PREFIX nmo:   &lt;http://nomisma.org/ontology#&gt;
+PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX skos:  &lt;http://www.w3.org/2004/02/skos/core#&gt;
+
+SELECT DISTINCT
+  ?hoard ?hoardID
+  ?type (COALESCE(?tlabel, ?plabel, ?rlabel, ?flabel) AS ?typeLabel)
+  (STR(?startDate) AS ?startYear)
+  (STR(?endDate)   AS ?endYear)
+  ?denomination ?denominationLabel
+  ?material     ?materialLabel
+  ?mint ?mintID
+  ?hoardLat ?hoardLong
+  ?mintLat  ?mintLong
+WHERE {
+  # --- All CHRR hoards and their contents ---
+  ?hoard a nmo:Hoard ;
+         dcterms:tableOfContents ?contents .
+  FILTER(STRSTARTS(STR(?hoard), "http://numismatics.org/chrr/id/"))
+  BIND(REPLACE(STR(?hoard), "http://numismatics.org/chrr/id/", "") AS ?hoardID)
+
+  # --- Mint (via type-series item or directly on contents) ---
+  {
+    ?contents nmo:hasTypeSeriesItem ?type .
+    ?type     nmo:hasMint ?mint .
+  }
+  UNION
+  {
+    ?contents nmo:hasMint ?mint .
+    OPTIONAL { ?contents nmo:hasTypeSeriesItem ?type }
+  }
+  BIND(REPLACE(STR(?mint), "http://nomisma.org/id/", "") AS ?mintID)
+
+  # --- Type labels &amp; dates (from CRRO type, when present) ---
+  OPTIONAL { ?type dcterms:title    ?tlabel  FILTER(LANG(?tlabel)  = "" || LANGMATCHES(LANG(?tlabel),  "en")) }
+  OPTIONAL { ?type skos:prefLabel   ?plabel  FILTER(LANG(?plabel) = "" || LANGMATCHES(LANG(?plabel), "en")) }
+  OPTIONAL { ?type rdfs:label       ?rlabel  FILTER(LANG(?rlabel)  = "" || LANGMATCHES(LANG(?rlabel),  "en")) }
+  OPTIONAL { ?type foaf:name        ?flabel  FILTER(LANG(?flabel)  = "" || LANGMATCHES(LANG(?flabel),  "en")) }
+
+  OPTIONAL { ?type nmo:hasStartDate ?startDate }
+  OPTIONAL { ?type nmo:hasEndDate   ?endDate }
+
+  # --- Denomination &amp; material (from type) ---
+  OPTIONAL {
+    ?type nmo:hasDenomination ?denomination .
+    OPTIONAL {
+      ?denomination (skos:prefLabel|rdfs:label|foaf:name) ?denominationLabel .
+      FILTER(LANG(?denominationLabel) = "" || LANGMATCHES(LANG(?denominationLabel), "en"))
+    }
+  }
+  OPTIONAL {
+    ?type nmo:hasMaterial ?material .
+    OPTIONAL {
+      ?material (skos:prefLabel|rdfs:label|foaf:name) ?materialLabel .
+      FILTER(LANG(?materialLabel) = "" || LANGMATCHES(LANG(?materialLabel), "en"))
+    }
+  }
+
+  # --- Mint geolocation (Nomisma places) ---
+  OPTIONAL {
+    { ?mint geo:location [ geo:lat ?mintLat ;  geo:long ?mintLong ] }
+    UNION
+    { ?mint geo:lat ?mintLat . ?mint geo:long ?mintLong }
+  }
+
+  # --- Hoard geolocation (several fallbacks common in CHRR) ---
+  OPTIONAL {
+    # A) Direct findspot place with geo
+    { ?hoard nmo:hasFindspot ?hPlace .
+      { ?hPlace geo:location [ geo:lat ?hoardLat ; geo:long ?hoardLong ] }
+      UNION
+      { ?hPlace geo:lat ?hoardLat . ?hPlace geo:long ?hoardLong }
+    }
+    UNION
+    # B) CRM region chain with geo
+    {
+      ?hoard nmo:hasFindspot [
+        crm:P7_took_place_at [
+          crm:P89_falls_within ?region
+        ]
+      ] .
+      ?region geo:location ?spatialThing .
+      ?spatialThing geo:lat ?hoardLat ; geo:long ?hoardLong .
+    }
+    UNION
+    # C) dcterms:spatial to a place with geo
+    {
+      ?hoard dcterms:spatial ?hPlace2 .
+      { ?hPlace2 geo:location [ geo:lat ?hoardLat ; geo:long ?hoardLong ] }
+      UNION
+      { ?hPlace2 geo:lat ?hoardLat . ?hPlace2 geo:long ?hoardLong }
+    }
+  }
+}
+ORDER BY ?hoardID ?typeLabel ?type ?mint</code></pre>
+</section>
+<section id="mint-data-only" class="level2">
+<h2 class="anchored" data-anchor-id="mint-data-only">Mint Data Only</h2>
+</section>
+<section id="coins-in-hoard" class="level2">
+<h2 class="anchored" data-anchor-id="coins-in-hoard">Coins in Hoard</h2>
 
 
 
+</section>
+</section>
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="YXJ0aWNsZSUyQ3Jldmlldw==" data-listing-date-sort="1759554000000" data-listing-file-modified-sort="1759588942287" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="298">
-<div class="thumbnail">
-<p><a href="../posts/2025-10-04-Articles/index.html" class="no-external"></a></p><a href="../posts/2025-10-04-Articles/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../posts/2025-10-04-Articles/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/2025-10-04-Articles/index.html" class="no-external">Article Review</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../posts/2025-10-04-Articles/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('YXJ0aWNsZQ=='); return false;">
-article
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmV2aWV3'); return false;">
-review
-</div>
-</div>
-<div class="listing-description">
-<a href="../posts/2025-10-04-Articles/index.html" class="no-external">This is my standard routine for doing a literature search, which has been used in the past. This review for methodologies, not for studies like health outcomes, some…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../posts/2025-10-04-Articles/index.html" class="no-external">
-<div class="listing-date">
-Oct 4, 2025
-</div>
-<div class="listing-author">
-John Glendenning
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="c2lsayUyQ3JvYWQlMkNtYXA=" data-listing-date-sort="1758862800000" data-listing-file-modified-sort="1759581312106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="358">
-<div class="thumbnail">
-<p><a href="../posts/post-with-code/index.html" class="no-external"></a></p><a href="../posts/post-with-code/index.html" class="no-external">
-<p class="card-img-top"><img src="post-with-code/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../posts/post-with-code/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/post-with-code/index.html" class="no-external">Silk Road Cities</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../posts/post-with-code/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c2lsaw=='); return false;">
-silk
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cm9hZA=='); return false;">
-road
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWFw'); return false;">
-map
-</div>
-</div>
-<div class="listing-description">
-<a href="../posts/post-with-code/index.html" class="no-external">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p></p>
-</figure>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../posts/post-with-code/index.html" class="no-external">
-<div class="listing-date">
-Sep 26, 2025
-</div>
-<div class="listing-author">
-John Glendenning
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="bmV3cw==" data-listing-date-sort="1758344400000" data-listing-file-modified-sort="1758993002041" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
-<div class="thumbnail">
-<p><a href="../posts/welcome/index.html" class="no-external"></a></p><a href="../posts/welcome/index.html" class="no-external">
-<p class="card-img-top"><img src="welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../posts/welcome/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/welcome/index.html" class="no-external">Welcome To My Blog</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../posts/welcome/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">
-news
-</div>
-</div>
-<div class="listing-description">
-<a href="../posts/welcome/index.html" class="no-external">This is the first post in a Quarto blog. Welcome!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../posts/welcome/index.html" class="no-external">
-<div class="listing-date">
-Sep 20, 2025
-</div>
-<div class="listing-author">
-John Glendenning
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UXVhcnRvJTJDUg==" data-listing-date-sort="1755493200000" data-listing-file-modified-sort="1758251010877" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8">
-<div class="thumbnail">
-<p><a href="../posts/2025-08-18-First-Post/index.html" class="no-external"></a></p><a href="../posts/2025-08-18-First-Post/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../posts/2025-08-18-First-Post/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/2025-08-18-First-Post/index.html" class="no-external">First Post</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../posts/2025-08-18-First-Post/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhcnRv'); return false;">
-Quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-</div>
-<div class="listing-description">
-<a href="../posts/2025-08-18-First-Post/index.html" class="no-external">Let’s see if this works.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../posts/2025-08-18-First-Post/index.html" class="no-external">
-<div class="listing-date">
-Aug 18, 2025
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
