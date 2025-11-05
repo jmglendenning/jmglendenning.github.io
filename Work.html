@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="John Glendenning">
 
-<title>Prepare for Class 09 – John Glendenning</title>
+<title>Work – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -243,46 +242,22 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#data-analytics-colloquim" id="toc-data-analytics-colloquim" class="nav-link active" data-scroll-target="#data-analytics-colloquim"><span class="header-section-number">1</span> Data Analytics Colloquim</a></li>
-  <li><a href="#assigned-reading" id="toc-assigned-reading" class="nav-link" data-scroll-target="#assigned-reading"><span class="header-section-number">2</span> Assigned Reading</a></li>
-  <li><a href="#about-dependency" id="toc-about-dependency" class="nav-link" data-scroll-target="#about-dependency"><span class="header-section-number">3</span> About dependency</a></li>
-  <li><a href="#some-time-series-concepts" id="toc-some-time-series-concepts" class="nav-link" data-scroll-target="#some-time-series-concepts"><span class="header-section-number">4</span> Some time series concepts</a></li>
-  <li><a href="#charts" id="toc-charts" class="nav-link" data-scroll-target="#charts"><span class="header-section-number">5</span> Charts?</a></li>
-  <li><a href="#in-class-competition" id="toc-in-class-competition" class="nav-link" data-scroll-target="#in-class-competition"><span class="header-section-number">6</span> In Class Competition</a></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">7</span> Notes</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prepare for Class 09</h1>
+<h1 class="title">Work</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>John Glendenning </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
-    </div>
-  </div>
   
     
   </div>
@@ -292,124 +267,16 @@ window.Quarto = {
 </header>
 
 
-<section id="data-analytics-colloquim" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Data Analytics Colloquim</h1>
-<p>Join Data Analytics Colloquium <a href="https://dacolloquium.com">https://dacolloquium.com</a></p>
-<ol type="a">
-<li>Register at upcoming webinar by Dr.&nbsp;Ethan Busby on 10/30/2025. Topic: Arti- ‘fickle’ Intelligence: Using LLMs as a Tool for Inference in the Political and Social Sciences <a href="https://utd.link/DAC20251030">https://utd.link/DAC20251030</a></li>
-</ol>
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">Attended</label></li>
-</ul>
-</section>
-<section id="assigned-reading" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Assigned Reading</h1>
-<ol type="a">
-<li>Shinylive
-<ol type="i">
-<li><a href="https://shinylive.io/r/examples/">https://shinylive.io/r/examples/</a></li>
-</ol></li>
-</ol>
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">Completed</label></li>
-</ul>
-<ol start="2" type="a">
-<li><p>Time series data</p>
-<ol type="i">
-<li>NY: 4; GW: 3, 4 (Optional)</li>
-</ol></li>
-</ol>
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">Completed</label></li>
-</ul>
-</section>
-<section id="about-dependency" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> About dependency</h1>
-<ol type="a">
-<li>What is temporal dependency?</li>
-</ol>
-<p>Temporal dependency refers to the relationship of data across sequential time increments. Temporal data is often autocorrelated, has sequential patterns, and has lag effects. Because of this, temporal data needs special treatment.</p>
-<ol start="2" type="a">
-<li>How about spatial dependency?</li>
-</ol>
-<p>Spatial dependency refers to the relationships between different locations. As state by Waldo Tobler, The First Law of Geography is “Everything is related to everything else, but near things are more related than distant things.” Spatial data often has co-occurrence patterns, autocorrelation, and network effects that must be addressed.</p>
-<p>Combined spatio-semporal data combines all the features of both types of data. Special care needs to be taken to address both issues in these datasets.</p>
-</section>
-<section id="some-time-series-concepts" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Some time series concepts</h1>
-<ol type="a">
-<li>ARIMA</li>
-</ol>
-<p>ARIMA stands for AutoRegressive Integrated Moving Average, a family of statistical models used to analyze and forecast time series data by combining:</p>
-<p>AR (AutoRegressive) — uses past values of the series to predict current values. I (Integrated) — uses differencing to make a non-stationary series stationary. MA (Moving Average) — uses past forecast errors to adjust current predictions.</p>
-<ol type="i">
-<li><p>Pdq</p>
-<p>The three model parameters of ARIMA -&gt; ARIMA(p, d, q)</p></li>
-</ol>
-<ul>
-<li>p (autoregressive order) — how many lagged observations are used (e.g., AR(1) uses 1 lag).</li>
-<li>d (degree of differencing) — how many times the data are differenced to remove trends and achieve stationarity.</li>
-<li>q (moving average order) — how many lagged forecast errors are used in the prediction equation.</li>
-</ul>
-<ol start="2" type="a">
-<li>Stationarity</li>
-</ol>
-<p>A stationary time series has statistical properties such as mean, variance, etc. that do not change over time. Most time series models require the series to be stationary before fitting.</p>
-<ol start="3" type="a">
-<li>First difference</li>
-</ol>
-<p>The first difference of a time series is the change between consecutive observations. This removes linear trends and makes the series stationary.</p>
-<ol start="4" type="a">
-<li>First order autocorrelation</li>
-</ol>
-<p>The first-order autocorrelation measures how much each observation is related to the immediately before it.</p>
-</section>
-<section id="charts" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Charts?</h1>
-<p>What charts can be used for plotting time? Name three (hint: stock examples).</p>
-<p>Focusing on stock prices, types of charts that are often used include:</p>
-<ul>
-<li><p>Simple Line Chart: This is the simplest time series visualization, which connects data points by lines on a linear time scale. For stocks this is often the closing price. It can show overall trends.</p></li>
-<li><p>Candlestick Chart:</p></li>
-</ul>
-<p>This chart contains more information than the line chart, representing several pieces of information for each time period: open, closing, high and low prices for instance.</p>
-<ul>
-<li>Open-High-Low-Close:</li>
-</ul>
-<p>Similar to candlestick charts but uses vertical lines with horizontal ticks instead of filled/hollow bodies. The left tick shows the opening price, the right tick shows the closing price, and the vertical line spans from the low to the high price. Bonus mentions:</p>
-<ul>
-<li>Mountain Chart</li>
-</ul>
-<p>This is a variation of the area chart, commonly used in stock charting. The area below the curve is filled to emphasize the volume over time.</p>
-</section>
-<section id="in-class-competition" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> In Class Competition</h1>
-<style>
-.responsive-iframe {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 70%;  /* adjust aspect ratio */
-}
-.responsive-iframe iframe {
-  position: absolute;
-  width: 100%;
-  height: 200%;
-  border: 0;
-}
-</style>
-
-<div class="responsive-iframe">
-  <iframe src="https://john-glendenning.shinyapps.io/shiny_test/"></iframe>
+<p>Work samples will go here.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="donut.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Princess Donut</figcaption>
+</figure>
 </div>
-</section>
-<section id="notes" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Notes</h1>
-<p>All charts, coding, comments, etc. were enhanced by AI.</p>
 
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
