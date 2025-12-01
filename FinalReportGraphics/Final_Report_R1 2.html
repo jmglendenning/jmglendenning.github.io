@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>final_report_r1 – John Glendenning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a78bc22c21c5275f96438b53095d57b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="robots" content="noindex, nofollow">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">John Glendenning</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../SPARQL.html"> 
+<span class="menu-text">SPARQL</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-epps6356" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">EPPS6356</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-epps6356">    
+        <li>
+    <a class="dropdown-item" href="../prepare01.html">
+ <span class="dropdown-text">Prepare for Class 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare02.html">
+ <span class="dropdown-text">Prepare for Class 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare03.html">
+ <span class="dropdown-text">Prepare for Class 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare04.html">
+ <span class="dropdown-text">Prepare for Class 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare05.html">
+ <span class="dropdown-text">Prepare for Class 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare06.html">
+ <span class="dropdown-text">Prepare for Class 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare07.html">
+ <span class="dropdown-text">Prepare for Class 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare08.html">
+ <span class="dropdown-text">Prepare for Class 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare09.html">
+ <span class="dropdown-text">Prepare for Class 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../prepare10.html">
+ <span class="dropdown-text">Prepare for Class 10</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignment01.html">
+ <span class="dropdown-text">Assignment 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignment02.html">
+ <span class="dropdown-text">Assignment 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignment03.html">
+ <span class="dropdown-text">Assignment 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignment04.html">
+ <span class="dropdown-text">Assignment 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignment05.html">
+ <span class="dropdown-text">Assignment 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignment06.html">
+ <span class="dropdown-text">Assignment 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../in-class03.html">
+ <span class="dropdown-text">In-Class Competition 03</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../final_epps6356.html">
+ <span class="dropdown-text">Final Report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://john-glendenning.shinyapps.io/FinalReportGraphics/">
+ <span class="dropdown-text">Texas Civic Vitality Explorer</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project01.html">
+ <span class="dropdown-text">Brainstorming</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project02.html">
+ <span class="dropdown-text">Proposal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project03.html">
+ <span class="dropdown-text">Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project04.html">
+ <span class="dropdown-text">Additional</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project05.html">
+ <span class="dropdown-text">Rethink</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-coins" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Coins</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-coins">    
+        <li>
+    <a class="dropdown-item" href="../coins01.html">
+ <span class="dropdown-text">Brainstorming</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#theoretical-framework-the-civic-triangle" id="toc-theoretical-framework-the-civic-triangle" class="nav-link" data-scroll-target="#theoretical-framework-the-civic-triangle">Theoretical Framework: The Civic Triangle</a></li>
+  <li><a href="#data-and-methodology" id="toc-data-and-methodology" class="nav-link" data-scroll-target="#data-and-methodology">Data and Methodology</a>
+  <ul class="collapse">
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a>
+  <ul class="collapse">
+  <li><a href="#american-community-survey-acs" id="toc-american-community-survey-acs" class="nav-link" data-scroll-target="#american-community-survey-acs">American Community Survey (ACS)</a></li>
+  <li><a href="#cdc-places-health-indicators" id="toc-cdc-places-health-indicators" class="nav-link" data-scroll-target="#cdc-places-health-indicators">CDC PLACES Health Indicators</a></li>
+  <li><a href="#election-data" id="toc-election-data" class="nav-link" data-scroll-target="#election-data">Election Data</a></li>
+  </ul></li>
+  <li><a href="#data-harmonization-and-cleaning" id="toc-data-harmonization-and-cleaning" class="nav-link" data-scroll-target="#data-harmonization-and-cleaning">Data Harmonization and Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#county-name-alignment" id="toc-county-name-alignment" class="nav-link" data-scroll-target="#county-name-alignment">County Name Alignment</a></li>
+  <li><a href="#geospatial-standardization" id="toc-geospatial-standardization" class="nav-link" data-scroll-target="#geospatial-standardization">Geospatial Standardization</a></li>
+  <li><a href="#handling-missing-values" id="toc-handling-missing-values" class="nav-link" data-scroll-target="#handling-missing-values">Handling Missing Values</a></li>
+  <li><a href="#normalization-of-indicators" id="toc-normalization-of-indicators" class="nav-link" data-scroll-target="#normalization-of-indicators">Normalization of Indicators</a></li>
+  <li><a href="#education-indicators" id="toc-education-indicators" class="nav-link" data-scroll-target="#education-indicators">Education Indicators</a></li>
+  <li><a href="#standardization-of-health-indicators" id="toc-standardization-of-health-indicators" class="nav-link" data-scroll-target="#standardization-of-health-indicators">Standardization of Health Indicators</a></li>
+  <li><a href="#turnout-calculation" id="toc-turnout-calculation" class="nav-link" data-scroll-target="#turnout-calculation">Turnout Calculation</a></li>
+  <li><a href="#civic-vitality-index" id="toc-civic-vitality-index" class="nav-link" data-scroll-target="#civic-vitality-index">Civic Vitality Index</a></li>
+  </ul></li>
+  <li><a href="#analytic-approach" id="toc-analytic-approach" class="nav-link" data-scroll-target="#analytic-approach">Analytic Approach</a>
+  <ul class="collapse">
+  <li><a href="#choropleth-maps-education-health-and-voter-turnout" id="toc-choropleth-maps-education-health-and-voter-turnout" class="nav-link" data-scroll-target="#choropleth-maps-education-health-and-voter-turnout">Choropleth Maps: Education, Health, and Voter Turnout</a></li>
+  <li><a href="#a-map-of-texas-state-with-different-states-ai-generated-content-may-be-incorrect." id="toc-a-map-of-texas-state-with-different-states-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-map-of-texas-state-with-different-states-ai-generated-content-may-be-incorrect."><img src="media/image10.png" style="width:2.848in;height:2.492in" alt="A map of texas state with different states AI-generated content may be incorrect."></a></li>
+  <li><a href="#a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect." id="toc-a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect."><img src="media/image11.png" style="width:2.808in;height:2.457in" alt="A map of the state of texas AI-generated content may be incorrect."></a></li>
+  <li><a href="#a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect.-1" id="toc-a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect.-1" class="nav-link" data-scroll-target="#a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect.-1"><img src="media/image12.png" style="width:2.688in;height:2.352in" alt="A map of the state of texas AI-generated content may be incorrect."></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#tri-variable-scatterplots" id="toc-tri-variable-scatterplots" class="nav-link" data-scroll-target="#tri-variable-scatterplots">Tri-Variable Scatterplots</a></li>
+  <li><a href="#comparison-choropleth-maps-education-index-vs.-voter-turnout" id="toc-comparison-choropleth-maps-education-index-vs.-voter-turnout" class="nav-link" data-scroll-target="#comparison-choropleth-maps-education-index-vs.-voter-turnout">Comparison Choropleth Maps: Education Index vs.&nbsp;Voter Turnout</a></li>
+  <li><a href="#correlation-matrix" id="toc-correlation-matrix" class="nav-link" data-scroll-target="#correlation-matrix">Correlation Matrix</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#distribution-of-civic-vitality-metrics-ridge-plot" id="toc-distribution-of-civic-vitality-metrics-ridge-plot" class="nav-link" data-scroll-target="#distribution-of-civic-vitality-metrics-ridge-plot">Distribution of Civic Vitality Metrics (Ridge Plot)</a></li>
+  <li><a href="#composite-civic-vitality-index-map" id="toc-composite-civic-vitality-index-map" class="nav-link" data-scroll-target="#composite-civic-vitality-index-map">Composite Civic Vitality Index Map</a></li>
+  <li><a href="#healthturnout-quadrant-analysis" id="toc-healthturnout-quadrant-analysis" class="nav-link" data-scroll-target="#healthturnout-quadrant-analysis">Health–Turnout Quadrant Analysis</a></li>
+  <li><a href="#educationturnout-quadrant-analysis" id="toc-educationturnout-quadrant-analysis" class="nav-link" data-scroll-target="#educationturnout-quadrant-analysis">Education–Turnout Quadrant Analysis</a></li>
+  <li><a href="#a-diagram-of-health-and-high-tumour-analysis-ai-generated-content-may-be-incorrect." id="toc-a-diagram-of-health-and-high-tumour-analysis-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-diagram-of-health-and-high-tumour-analysis-ai-generated-content-may-be-incorrect."><img src="media/image20.png" style="width:3.792in;height:3.44724in" alt="A diagram of health and high tumour analysis AI-generated content may be incorrect."></a></li>
+  <li><a href="#civic-indexturnout-quadrant-analysis" id="toc-civic-indexturnout-quadrant-analysis" class="nav-link" data-scroll-target="#civic-indexturnout-quadrant-analysis">Civic Index–Turnout Quadrant Analysis</a></li>
+  <li><a href="#a-graph-with-blue-dots-ai-generated-content-may-be-incorrect." id="toc-a-graph-with-blue-dots-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-with-blue-dots-ai-generated-content-may-be-incorrect."><img src="media/image21.png" style="width:4.144in;height:3.76723in" alt="A graph with blue dots AI-generated content may be incorrect."></a></li>
+  <li><a href="#healthturnout-relationship-by-county-type" id="toc-healthturnout-relationship-by-county-type" class="nav-link" data-scroll-target="#healthturnout-relationship-by-county-type">Health–Turnout Relationship by County Type</a></li>
+  <li><a href="#a-graph-of-a-number-of-people-ai-generated-content-may-be-incorrect." id="toc-a-graph-of-a-number-of-people-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-of-a-number-of-people-ai-generated-content-may-be-incorrect."><img src="media/image22.png" style="width:4.184in;height:2.39105in" alt="A graph of a number of people AI-generated content may be incorrect."></a></li>
+  <li><a href="#educationturnout-relationship-by-county-type" id="toc-educationturnout-relationship-by-county-type" class="nav-link" data-scroll-target="#educationturnout-relationship-by-county-type">Education–Turnout Relationship by County Type</a></li>
+  <li><a href="#a-graph-of-a-relationship-between-a-couple-of-dots-ai-generated-content-may-be-incorrect." id="toc-a-graph-of-a-relationship-between-a-couple-of-dots-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-of-a-relationship-between-a-couple-of-dots-ai-generated-content-may-be-incorrect."><img src="media/image23.png" style="width:4.38165in;height:2.504in" alt="A graph of a relationship between a couple of dots AI-generated content may be incorrect."></a></li>
+  <li><a href="#county-profiles-across-civic-vitality-dimensions-parallel-coordinates-plot" id="toc-county-profiles-across-civic-vitality-dimensions-parallel-coordinates-plot" class="nav-link" data-scroll-target="#county-profiles-across-civic-vitality-dimensions-parallel-coordinates-plot">County Profiles Across Civic Vitality Dimensions (Parallel Coordinates Plot)</a></li>
+  <li><a href="#a-graph-showing-different-colored-lines-ai-generated-content-may-be-incorrect." id="toc-a-graph-showing-different-colored-lines-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-showing-different-colored-lines-ai-generated-content-may-be-incorrect."><img src="media/image24.png" style="width:4.536in;height:3.024in" alt="A graph showing different colored lines AI-generated content may be incorrect."></a></li>
+  <li><a href="#turnout-rate-residuals-vs.-education-partial-regression-controlling-for-health" id="toc-turnout-rate-residuals-vs.-education-partial-regression-controlling-for-health" class="nav-link" data-scroll-target="#turnout-rate-residuals-vs.-education-partial-regression-controlling-for-health">Turnout Rate Residuals vs.&nbsp;Education (Partial Regression: Controlling for Health)</a></li>
+  <li><a href="#a-graph-showing-the-number-of-people-in-the-same-direction-ai-generated-content-may-be-incorrect." id="toc-a-graph-showing-the-number-of-people-in-the-same-direction-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-showing-the-number-of-people-in-the-same-direction-ai-generated-content-may-be-incorrect."><img src="media/image25.png" style="width:4.808in;height:3.74058in" alt="A graph showing the number of people in the same direction AI-generated content may be incorrect."></a></li>
+  <li><a href="#turnout-rate-residuals-vs.-health-partial-regression-controlling-for-education" id="toc-turnout-rate-residuals-vs.-health-partial-regression-controlling-for-education" class="nav-link" data-scroll-target="#turnout-rate-residuals-vs.-health-partial-regression-controlling-for-education">Turnout Rate Residuals vs.&nbsp;Health (Partial Regression: Controlling for Education)</a></li>
+  <li><a href="#a-graph-with-dots-and-lines-ai-generated-content-may-be-incorrect." id="toc-a-graph-with-dots-and-lines-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-with-dots-and-lines-ai-generated-content-may-be-incorrect."><img src="media/image26.png" style="width:4.496in;height:3.49785in" alt="A graph with dots and lines AI-generated content may be incorrect."></a></li>
+  <li><a href="#regression-diagnostics-for-the-health-turnout-model" id="toc-regression-diagnostics-for-the-health-turnout-model" class="nav-link" data-scroll-target="#regression-diagnostics-for-the-health-turnout-model">Regression Diagnostics for the Health → Turnout Model</a></li>
+  <li><a href="#a-collage-of-graphs-ai-generated-content-may-be-incorrect." id="toc-a-collage-of-graphs-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-collage-of-graphs-ai-generated-content-may-be-incorrect."><img src="media/image27.png" style="width:4.7232in;height:3.936in" alt="A collage of graphs AI-generated content may be incorrect."></a></li>
+  <li><a href="#turnout-deviates-from-expectations-residual-map" id="toc-turnout-deviates-from-expectations-residual-map" class="nav-link" data-scroll-target="#turnout-deviates-from-expectations-residual-map">Turnout Deviates from Expectations: Residual Map</a></li>
+  <li><a href="#a-map-of-texas-with-different-colored-squares-ai-generated-content-may-be-incorrect." id="toc-a-map-of-texas-with-different-colored-squares-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-map-of-texas-with-different-colored-squares-ai-generated-content-may-be-incorrect."><img src="media/image28.png" style="width:4.5595in;height:3.992in" alt="A map of texas with different colored squares AI-generated content may be incorrect."></a></li>
+  <li><a href="#actual-vs.-predicted-turnout-slopegraphs-for-three-county-groups" id="toc-actual-vs.-predicted-turnout-slopegraphs-for-three-county-groups" class="nav-link" data-scroll-target="#actual-vs.-predicted-turnout-slopegraphs-for-three-county-groups">Actual vs.&nbsp;Predicted Turnout: Slopegraphs for Three County Groups</a></li>
+  <li><a href="#a-graph-of-different-lines-ai-generated-content-may-be-incorrect." id="toc-a-graph-of-different-lines-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-of-different-lines-ai-generated-content-may-be-incorrect."><img src="media/image29.png" style="width:3.08in;height:2.39556in" alt="A graph of different lines AI-generated content may be incorrect."></a></li>
+  <li><a href="#a-graph-with-red-lines-and-white-text-ai-generated-content-may-be-incorrect." id="toc-a-graph-with-red-lines-and-white-text-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-with-red-lines-and-white-text-ai-generated-content-may-be-incorrect."><img src="media/image30.png" style="width:3.12in;height:2.42667in" alt="A graph with red lines and white text AI-generated content may be incorrect."></a></li>
+  <li><a href="#a-graph-of-different-colored-lines-ai-generated-content-may-be-incorrect." id="toc-a-graph-of-different-colored-lines-ai-generated-content-may-be-incorrect." class="nav-link" data-scroll-target="#a-graph-of-different-colored-lines-ai-generated-content-may-be-incorrect."><img src="media/image31.png" style="width:3.216in;height:2.50133in" alt="A graph of different colored lines AI-generated content may be incorrect."></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI Disclosure</a></li>
+  <li><a href="#appendix-a-list-of-variables" id="toc-appendix-a-list-of-variables" class="nav-link" data-scroll-target="#appendix-a-list-of-variables">Appendix A – List of Variables</a>
+  <ul class="collapse">
+  <li><a href="#from-acs" id="toc-from-acs" class="nav-link" data-scroll-target="#from-acs">From ACS</a></li>
+  <li><a href="#from-cdc-places" id="toc-from-cdc-places" class="nav-link" data-scroll-target="#from-cdc-places">From CDC Places:</a></li>
+  <li><a href="#from-texas-secretary-of-state" id="toc-from-texas-secretary-of-state" class="nav-link" data-scroll-target="#from-texas-secretary-of-state">From Texas Secretary of State</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="section" class="level1">
+<h1></h1>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The rights to civic participation in the United States has generally expanded over the past century, but the actual practice of democratic engagement remains uneven. Some communities sustain strong voter turnout. Others do not. Some have more stable educational systems, and more favorable health conditions, while others do not. These differences accumulate, shaping civic life. In this report, we have developed a framework to discuss communities with robust participation and supportive institutions as <em>civic gardens</em>, and to those with weak engagement and limited opportunity as <em>civic deserts</em>.</p>
+<p>This project builds on the <em>civic desert</em> framework introduced by Tufts University’s CIRCLE, which describes places with few opportunities for political or civic involvement and limited institutional support for engagement. We extend that idea by arguing that civic inequality cannot be understood through political participation alone. Instead, civic life operates as an interconnected ecosystem. Education, health, and participation reinforce one another. Weakness in any one element can undermine the whole system.</p>
+<figure class="figure">
+<img src="media/image1.png" style="width:3.942in;height:3.504in" alt="A diagram of a triangle AI-generated content may be incorrect." class="figure-img">
+<figcaption>
+<p>
+Figure 1
+</p>
+</figcaption>
+</figure>
+<p>Our claim is that these three domains form what we call the <em>Civic Triangle</em>. Education shapes political knowledge, civic skills, and lifelong engagement. Health influences an individual’s ability or desire, since poor physical or mental health limits civic activity. Political participation, in turn, directly affects the allocation of resources toward schools, health systems, and other public goods. These relationships form feedback loops, creating conditions for communities to either sustain civic vitality or fall into patterns of persistent disadvantage.</p>
+<p>Despite research linking each pair of these factors, it is unclear if there are any studies examining them as a single, interactive system. In Texas, where demographic diversity and geographic disparities are exaggerated, the interaction of these variables offers a valuable case for understanding how civic inequality develops and persists. County-level variation should provide insight into the interaction of these factors.</p>
+<p>To analyze these patterns, we introduce the Civic Garden Index (CGI), a composite measure that integrates normalized indicators of voter turnout, education, and health. The index provides a single metric to classify counties as civic gardens to civic deserts. This approach allowed us to capture the structure in a way that any single variable cannot. Relying on data visualization including choropleth maps, regression plots and other tools, we have revealed the patterns in the interaction of these three important factors.</p>
+<p>By treating education, health, and civic participation as a linked system, this project aims to clarify how civic gardens grow, why civic deserts persist, and what levers would be most effective in improving participation.</p>
+</section>
+<section id="theoretical-framework-the-civic-triangle" class="level1">
+<h1>Theoretical Framework: The Civic Triangle</h1>
+<table class="caption-top table">
+<caption>Figure 2</caption>
+<colgroup>
+<col style="width: 21%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: left;"><strong>Expected Relationship</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Education → Voting</strong> </td>
+<td style="text-align: left;">Education increases political involvement, civic knowledge, and voter participation.</td>
+</tr>
+<tr class="even">
+<td><strong>Health → Voting</strong> </td>
+<td style="text-align: left;">Healthier individuals are more likely to vote and engage. Poor health reduces civic participation.</td>
+</tr>
+<tr class="odd">
+<td><strong>Education → Health</strong></td>
+<td style="text-align: left;">Education predicts life expectancy, preventive care use, and health literacy.</td>
+</tr>
+<tr class="even">
+<td><strong>Voting → Health Policy</strong></td>
+<td style="text-align: left;">Communities with higher turnout have more influence on health and education policy outcomes.</td>
+</tr>
+<tr class="odd">
+<td><strong>Health → Education</strong></td>
+<td style="text-align: left;">Healthy people perform better academically; adult wellness supports lifelong learning.</td>
+</tr>
+<tr class="even">
+<td><strong>Voting → Education</strong></td>
+<td style="text-align: left;">Participatory democracies sustain educational investment; educated voters support public health policy.</td>
+</tr>
+</tbody>
+</table>
+<p>The table captures the core ideas: each domain influences the others. Education shapes political participation and long-term health. Health affects a person’s ability to learn and to take part in civic life. Participation feeds back into the policy environment, shaping the resources available for both schools and public health. When these relationships reinforce one another in positive ways, communities sustain what we call <em>civic gardens</em>. When they reinforce one another in negative ways, they form <em>civic deserts</em>.</p>
+<p>In this framework, no single dimension stands alone. A county with strong schools but weak health outcomes may struggle to translate educational advantages into civic engagement. A place with high turnout but poor educational or health conditions may not sustain civic participation over time. The triangle works as a system, not a set of isolated factors.</p>
+<p>This integrated view guides the construction of the Civic Garden Index. By measuring education, health, and turnout together, we can observe whether counties exhibit balance across the triangle or show strain along one or more of its sides. The framework helps interpret the visualizations that follow, especially when we identify counties that perform well in one dimension but lag in others. In that sense, the Civic Triangle provides the conceptual structure for both the index and the empirical analysis that underpins the rest of this report.</p>
+</section>
+<section id="data-and-methodology" class="level1">
+<h1>Data and Methodology</h1>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<p>This project draws on county-level data from three primary sources: the American Community Survey (Schroeder et al.&nbsp;2025), the CDC PLACES health indicators (Centers for Disease Control and Prevention [CDC] 2022), and administrative election records from the Texas Secretary of State (Texas Secretary of State 2024). Together, these datasets provide measures of education, health, and voter participation for all 254 counties in Texas.</p>
+<section id="american-community-survey-acs" class="level3">
+<h3 class="anchored" data-anchor-id="american-community-survey-acs">American Community Survey (ACS)</h3>
+<p>Educational attainment data come from the ACS 5-year estimates, specifically Table B15003, which reports detailed categories for education among adults aged 25 and older. The table includes 25 distinct levels of schooling, ranging from no formal education to doctoral degrees. These categories allow for the construction of a continuous, population-weighted measure of years of schooling for each county. The resulting values serve as the basis for the Education Index.</p>
+</section>
+<section id="cdc-places-health-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="cdc-places-health-indicators">CDC PLACES Health Indicators</h3>
+<p>County health conditions are measured using the CDC PLACES dataset, which provides estimates for key indicators of physical, mental, and general health. Four indicators are used in this analysis:</p>
+<ul>
+<li><p>lack of health insurance,</p></li>
+<li><p>fair or poor general health,</p></li>
+<li><p>frequent mental distress, and</p></li>
+<li><p>frequent physical distress.</p></li>
+</ul>
+<p>Each indicator represents a different dimension of community health or access. Together, they form the inputs for the Health Index.</p>
+</section>
+<section id="election-data" class="level3">
+<h3 class="anchored" data-anchor-id="election-data">Election Data</h3>
+<p>Voter participation is measured using official county-level results from the Texas Secretary of State. Two figures are used: the number of registered voters and the total ballots cast in the 2020 general election. These values are used to calculate turnout as the share of registered voters who cast a ballot.</p>
+<p><img src="media/image2.emf" style="width:3.22169in;height:0.41097in"></p>
+<p>Turnout serves as the primary behavioral indicator of civic participation.</p>
+</section>
+</section>
+<section id="data-harmonization-and-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-harmonization-and-cleaning">Data Harmonization and Cleaning</h2>
+<p>The data used in this project come from separate sources with different structures, naming conventions, and measurement scales. The QMD files accompanying this report contain the full code used to align and merge these datasets. This section summarizes the steps in that process.</p>
+<section id="county-name-alignment" class="level3">
+<h3 class="anchored" data-anchor-id="county-name-alignment">County Name Alignment</h3>
+<p>County identifiers appear in different formats across the ACS, CDC PLACES, and Texas election data, which required standard practices to ensure data alignment. This produced a uniform county identifier used throughout the analysis. Since we are only working in Texas and counties are uniquely named, county names were used as the key identifiers.</p>
+</section>
+<section id="geospatial-standardization" class="level3">
+<h3 class="anchored" data-anchor-id="geospatial-standardization">Geospatial Standardization</h3>
+<p>Texas county geometries were imported from the TIGER/Line. All boundaries were projected into a consistent coordinate system and checked for geometric validity. A simplified layer was generated for visualization, while full-detail geometries were retained for spatial analysis.</p>
+</section>
+<section id="handling-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="handling-missing-values">Handling Missing Values</h3>
+<p>Some counties lack complete estimates in the CDC PLACES dataset, largely due to small sample sizes. Rather than discard these counties, missing values were excluded at the component level. For each index, only the available elements were averaged, with the denominator adjusted accordingly.</p>
+</section>
+<section id="normalization-of-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="normalization-of-indicators">Normalization of Indicators</h3>
+<p>To place education and health measures on a common scale, each index was normalized to the unit interval. This allows direct comparison across counties and simplifies the construction of composite measures.</p>
+<p><img src="media/image3.emf" style="width:2.84189in;height:0.57385in"></p>
+</section>
+<section id="education-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="education-indicators">Education Indicators</h3>
+<p>The Education Index was constructed from a population-weighted years-of-schooling variable.</p>
+<p><img src="media/image4.emf" style="width:4.76776in;height:0.90465in"></p>
+<p>This value was then normalized using the formula above.</p>
+</section>
+<section id="standardization-of-health-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="standardization-of-health-indicators">Standardization of Health Indicators</h3>
+<p>Each of the four health indicators, poor general health, poor mental health, poor physical health, and lack of insurance, were standardized before aggregation:</p>
+<p><img src="media/image5.emf" style="width:1.00104in;height:0.37117in"></p>
+<p>The Health Index is the mean of these four standardized components:</p>
+<p><img src="media/image6.emf" style="width:2.04225in;height:0.57308in"></p>
+<p>Higher values represent worse overall health or more limited access. To make the better outcomes, the higher value, the inversed was used in many calculations.</p>
+<p><img src="media/image7.emf" style="width:2.5291in;height:0.23387in"></p>
+</section>
+<section id="turnout-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="turnout-calculation">Turnout Calculation</h3>
+<p>Turnout is computed from the Secretary of State’s data as:</p>
+<p><img src="media/image8.emf" style="width:2.15218in;height:0.36743in"></p>
+<p>Turnout enters the composite index directly.</p>
+</section>
+<section id="civic-vitality-index" class="level3">
+<h3 class="anchored" data-anchor-id="civic-vitality-index">Civic Vitality Index</h3>
+<p>To examine the intersection of civic, health, and educational conditions, we constructed a composite index:</p>
+<p><img src="media/image9.png" style="width:4.32686in;height:0.38784in"></p>
+<p>This distills the three primary indexes into a single index number for simple and easy comparisons.</p>
+</section>
+</section>
+<section id="analytic-approach" class="level2">
+<h2 class="anchored" data-anchor-id="analytic-approach">Analytic Approach</h2>
+<p>The analysis had three stages. First, the county-level data was cleaned and harmonized to ensure that education, health, and turnout measures operate on comparable scales. This was noted above. This step also prepared each dataset for integration with Texas county geometries. Next, the results were visualized through a set of maps and graphics that revealed both expected and surprising patterns in civic vitality. Finally, each theoretical relationship within the Civic Triangle was evaluated via a combination of visual analysis, correlation analysis, partial regression, and spatial diagnostics.</p>
+<p>As noted, we began by standardizing the components that form the Civic Vitality Index. A simple mean of the three components. This index served as a compact summary of civic conditions across Texas. With these analyses completed, we examined how each component relates to the others.</p>
+<p>Various plots such as scatterplots with fitted lines, partial regression plots, and bivariate correlations tested the interactions between the three points of the triangle. A correlation matrix, ridge plots, and small-multiples graphics further analyzed the patterns.</p>
+<p>Additional geographic analysis enhanced our findings. Choropleth maps displayed the spatial distribution of each component and the combined Civic Index. A comparison of maps demonstrated spatial interaction patterns while quadrant plots identified outliers counties that deviated from expectations. Regression diagnostics and the Morans I test evaluated the underlying linear model and assessed whether unexplained residuals display spatial clustering. Together, these procedures provided a structured assessment of how civic conditions varied across Texas.</p>
+<p><mark>[LLMs from here to Bibliography]</mark><br>
+<mark>These are descriptions of the analysis from ChatGPT so that we can write about what the graphics are telling us. Some of it is very obvious. Some is not correct. This text should only be used for reference and comprehension. I believe that this order of the maps tells our story, but we can rework any of this.</mark></p>
+<p>Results &amp; Visualizations</p>
+<section id="choropleth-maps-education-health-and-voter-turnout" class="level3">
+<h3 class="anchored" data-anchor-id="choropleth-maps-education-health-and-voter-turnout">Choropleth Maps: Education, Health, and Voter Turnout</h3>
+<p>The first group of choropleth maps presented the geographic distribution of the three core components of the civic model: the education index, the inverted health index, and the county-level voter turnout rate. Each map used the same county boundaries and a consistent blue–grey palette, so that differences across maps reflected differences in the underlying data rather than styling or scale. The education index was derived from a weighted average of ACS educational attainment categories and normalized to the 0–1 range, the health index was built from selected CDC PLACES crude prevalence measures and then inverted so that darker shading indicated better health, and the turnout measure was calculated as total votes cast divided by registered voters for the 2020 general election.</p>
+<p>The education map showed how strongly educational attainment clustered spatially across the state. Counties with higher education index values tended to appear in more densely populated and economically developed areas, while large portions of the state displayed comparatively lower average years of schooling. Because the education index was normalized and mapped with a continuous gradient, it was possible to see not only extremes but also subtle transitions between adjacent counties rather than sharp categorical breaks. This visualization reinforced that education was unequally distributed across Texas, but it already suggested that these patterns alone were not sufficient to visually predict where civic engagement would be strongest.</p>
+<p>The second map displayed the inverted health index, in which higher values corresponded to better health outcomes (for example, lower prevalence of poor physical, mental, or general health and better access to care). By reversing and then mapping the index in the same color space as education, the figure made it straightforward to compare “better health” counties to “higher education” counties. The health map revealed a somewhat different pattern than the education map: while there was some overlap with more advantaged counties, the health index highlighted additional areas where health outcomes were relatively strong despite only moderate educational attainment, as well as counties where poor health stood out even when education levels were not especially low.</p>
+<p>The third map plotted voter turnout rates as percentages of registered voters. This visualization allowed a direct comparison between actual electoral behavior and the two structural indices. When read alongside the first two maps, the turnout map did not visually align with the education map in the way the standard “education → turnout” hypothesis would have predicted. Counties with relatively high education index values did not consistently correspond to the darkest turnout shading, and some counties with modest education levels still showed comparatively strong turnout. In contrast, the overall pattern of turnout appeared more visually consistent with the inverted health map: areas with better health profiles more often coincided with higher turnout, while clusters of poorer health were more frequently associated with lower participation.</p>
+<p>Taken together, this trio of choropleths provided the first visual indication that the conventional story—education as the dominant structural driver of turnout—did not hold cleanly at the county level in Texas. Instead, the side-by-side maps suggested that health conditions were at least as plausible, and in many places a more convincing, geographic correlate of civic participation than educational attainment alone.</p>
+</section>
+<section id="a-map-of-texas-state-with-different-states-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-map-of-texas-state-with-different-states-ai-generated-content-may-be-incorrect."><img src="media/image10.png" style="width:2.848in;height:2.492in" alt="A map of texas state with different states AI-generated content may be incorrect."></h3>
+</section>
+<section id="a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect."><img src="media/image11.png" style="width:2.808in;height:2.457in" alt="A map of the state of texas AI-generated content may be incorrect."></h3>
+</section>
+<section id="a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect.-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-map-of-the-state-of-texas-ai-generated-content-may-be-incorrect.-1"><img src="media/image12.png" style="width:2.688in;height:2.352in" alt="A map of the state of texas AI-generated content may be incorrect."></h3>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1"></h3>
+</section>
+<section id="tri-variable-scatterplots" class="level3">
+<h3 class="anchored" data-anchor-id="tri-variable-scatterplots">Tri-Variable Scatterplots</h3>
+<p>The next set of graphics consisted of three bivariate scatterplots, each corresponding to one side of the Civic Triangle. These plots were designed to show the empirical relationships between counties on each pair of variables. Each figure used consistent point styling, fitted lines, and axes scaled to reflect the underlying measurement of the indices. Because all three indices were normalized to the 0–1 range (with turnout converted from percentages), the comparisons were visually straightforward and allowed for direct interpretation.</p>
+<p><strong>Education and Voter Turnout</strong></p>
+<p>The first scatterplot compared the Education Index to voter turnout. Based on canonical political participation research, the expectation was a positive linear association: counties with higher educational attainment should have shown higher turnout rates. The plot did not support that assumption. The fitted line was nearly flat, and the cloud of points showed no meaningful linear trend. Higher-education counties did not cluster toward higher turnout, and several counties with moderate or even modest educational levels displayed turnout levels comparable to or greater than the most highly educated counties.</p>
+<p>There was also substantial dispersion around the line, suggesting that education explained very little of the variation in turnout across Texas counties. A few counties with relatively high education stood out with unexpectedly low turnout, and others with low or middling education nonetheless recorded turnout levels near the top of the distribution. This pattern indicated that education, at least at the county level and using 2020 data, was not a reliable structural predictor of civic participation. This finding contradicted the conventional expectation and set the stage for the more strongly patterned relationships that followed.</p>
+<p><strong>Health and Voter Turnout</strong></p>
+<p>The second scatterplot compared the inverted Health Index to voter turnout. Because the health index was reversed so that higher values reflected better health, a positive relationship was expected: counties with better health conditions should have shown higher turnout. The plot supported this relationship strikingly. The fitted line showed a clear upward slope, and the points were far more tightly clustered around the line than in the education–turnout plot. Counties with strong health profiles tended to cluster in the upper-right portion of the figure, while counties with poorer health consistently appeared toward the lower-left.</p>
+<p>The reduced dispersion and stronger linear trend suggested that health conditions captured something essential about the local capacity for political participation. Counties that performed well on physical health, mental health, and access-to-care indicators also tended to be more civically engaged. Conversely, counties with the highest prevalence of poor health outcomes recorded some of the lowest turnout rates in the state. This plot, more than any other in the tri-variable set, visually demonstrated the practical importance of health as a determinant of civic behavior.</p>
+<p><strong>Education and Health</strong></p>
+<p>The third scatterplot examined the relationship between the Education Index and the inverted Health Index. A positive association was expected: education should support better health outcomes through higher health literacy, improved economic conditions, and greater access to preventive care. The observed pattern aligned with that expectation. The fitted line rose steadily, and the cloud of points showed a consistent upward trend. Although the relationship was not as tight as the health–turnout association, it was stronger and more coherent than the education–turnout relationship.</p>
+<p>The plot suggested that counties with higher educational attainment generally enjoyed better health outcomes, though with meaningful variation. A few counties with relatively low education levels nevertheless showed solid health scores, and a handful of higher-education counties exhibited weaker health than expected. These exceptions hinted at regional dynamics—such as health care infrastructure, environmental exposures, or demographic composition—that may have influenced county-level health independent of education alone.</p>
+<p><strong>Summary of the Scatterplot Group</strong></p>
+<p>Across the three scatterplots, a clear and somewhat surprising pattern emerged. Education was strongly associated with health. Health, in turn, was strongly associated with turnout. But education itself showed no meaningful direct association with turnout. The tri-variable scatterplots, taken together, suggested a mediated relationship rather than a direct one: education shaped health, and health shaped turnout. This relational structure differed from the standard political science expectation and provided the first strong indication that civic capacity in Texas might be better understood through the health–turnout pathway than through an education-driven model.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/image13.png" style="width:4.064in;height:2.4384in" class="figure-img"></p>
+<figcaption>A graph with blue dots AI-generated content may be incorrect.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/image14.png" style="width:4.256in;height:2.5536in" class="figure-img"></p>
+<figcaption>A graph with a line and dots AI-generated content may be incorrect.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/image15.png" style="width:4.16in;height:2.496in" class="figure-img"></p>
+<figcaption>A graph showing a line of dots AI-generated content may be incorrect.</figcaption>
+</figure>
+</div>
+</section>
+<section id="comparison-choropleth-maps-education-index-vs.-voter-turnout" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-choropleth-maps-education-index-vs.-voter-turnout">Comparison Choropleth Maps: Education Index vs.&nbsp;Voter Turnout</h3>
+<p>This pair of choropleth maps provided a direct visual test of the relationship between education and turnout. If the standard assumption held—namely, that educational attainment was a major structural driver of civic participation—then the two maps should have displayed broadly similar geographic patterns. High-education counties should have aligned spatially with high-turnout counties, and lower-education counties should have mirrored lower levels of participation. The side-by-side presentation allowed this comparison to be made immediately, without the need for statistical calculation.</p>
+<p>The left map displayed the Education Index by county. Darker shading indicated higher average years of schooling, normalized to the 0–1 scale. The geographic contours were familiar: higher values clustered around major metropolitan areas, some Central Texas counties, and portions of the Hill Country. Conversely, large areas in South, West, and East Texas showed lighter shading, indicating substantially lower educational attainment.</p>
+<p>The right map showed the county-level voter turnout rate in the 2020 general election. Although the color scheme matched the education map, the pattern did not. High-turnout counties appeared in a wide and somewhat irregular distribution across the state. Several high-turnout counties were located in areas with only moderate education levels, and many counties with relatively high education failed to show correspondingly strong turnout. The areas of strongest turnout did not align with the darker regions of the education map in any systematic way.</p>
+<p>Read together, the maps offered visual confirmation of the null relationship observed in the scatterplot. The education–turnout association was not simply weak—it was spatially disjointed. Counties that performed well on the Education Index did not, as a group, show the civic participation levels that theory predicted. Instead, the turnout map displayed its own structure, one that did not track educational attainment. The mismatch between the two maps reinforced the earlier conclusion that education, at the county level, was an ineffective predictor of turnout in Texas.</p>
+<p>The side-by-side comparison therefore served as a powerful graphical counterpart to the statistical findings. It showed, at a glance, that the presumed direct pathway between education and political participation did not materialize in the data. This divergence laid the groundwork for the subsequent focus on health, which displayed much clearer and more consistent associations with turnout across both scatterplots and maps.<img src="media/image16.png" style="width:6.5in;height:2.78542in" alt="A map of texas with blue squares AI-generated content may be incorrect."></p>
+</section>
+<section id="correlation-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-matrix">Correlation Matrix</h3>
+<p>The correlation matrix provided a compact numerical summary of the relationships among the three primary components of the Civic Triangle—education, health, and turnout—as well as several intermediate or transformed variables used throughout the analysis. Because each pairwise correlation was calculated using complete county-level observations, the matrix allowed the earlier visual impressions from the scatterplots and maps to be evaluated in a more systematic way. The matrix also included the inverted health index, which ensured that higher values for all components reflected more favorable civic conditions.</p>
+<p>The most striking result in the matrix was the lack of association between the Education Index and voter turnout. The correlation coefficient between these two measures was near zero and not meaningfully different from random noise. This numerical result aligned closely with the flat slope in the education–turnout scatterplot and the geographic divergence observed in the side-by-side maps. Together, these outputs made it clear that across Texas counties, higher educational attainment did not correspond to higher electoral participation. The correlation matrix quantified this null result in the simplest possible form.</p>
+<p>In contrast, the relationship between health and turnout was considerably stronger. The inverted Health Index displayed a solid and positive correlation with voter turnout, confirming the clear pattern visible in the corresponding scatterplot. Counties with healthier populations tended to show higher turnout, and this association held despite the wide variation in population size, region, and baseline socioeconomic conditions. The matrix offered a precise estimate of the strength of that association and reinforced the idea that health conditions substantially influenced the capacity for civic engagement.</p>
+<p>The third key relationship—education and health—also aligned with theoretical expectations. The Education Index showed a meaningful positive correlation with the inverted Health Index, indicating that counties with more years of schooling tended to experience better health outcomes. This result, while not surprising, provided an important structural anchor for interpreting the other two relationships. Education may not have shaped turnout directly, but it did appear to influence health, which in turn was strongly related to political participation.</p>
+<p>Taken as a whole, the correlation matrix distilled the empirical structure of the dataset into a set of clear numerical statements. Education correlated with health; health correlated with turnout; but education did not correlate with turnout. These patterns echoed the earlier graphics and suggested that the Civic Triangle operated through a mediated pathway rather than through the direct relationship often assumed in studies of political participation. The matrix therefore served as a bridge between the exploratory visuals and the more formal modeling that followed.</p>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2"></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/image17.png" style="width:4.43939in;height:4.43939in" class="figure-img"></p>
+<figcaption>A diagram of a graph AI-generated content may be incorrect.</figcaption>
+</figure>
+</div>
+</section>
+<section id="distribution-of-civic-vitality-metrics-ridge-plot" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-civic-vitality-metrics-ridge-plot">Distribution of Civic Vitality Metrics (Ridge Plot)</h3>
+<p>The ridge plot depicting the distributions of the four primary civic metrics—Civic Index, Voter Turnout, Education Index, and Health Index (inverted)—provided a comparative view of how these measures were spread across Texas counties. Because all variables were normalized to a 0–1 scale prior to plotting, differences in shape and dispersion could be evaluated directly without the influence of differing units or natural ranges. The distributions thus offered insight into how unevenly civic conditions were distributed across the state and which components exhibited the greatest or least variability.</p>
+<p>The Civic Index displayed the narrowest distribution, clustering tightly around the middle of the scale. This indicated that despite differences across health, education, and turnout, most counties ended up with moderately similar overall civic vitality scores. The index’s construction—averaging multiple components—naturally compressed extremes, but the visual tightness of the ridge still emphasized that only a small number of counties were true outliers at either end of the civic spectrum. The Civic Index therefore captured broad patterns but did not reflect the full spread of individual indicators.</p>
+<p>The Education Index exhibited the most pronounced skew among the variables. Its distribution showed a long tail toward higher values, with a substantial concentration of counties in the lower-middle portion of the scale. This pattern reflected persistent educational disparities across rural Texas, where smaller and more remote counties had lower average years of schooling. Only a limited set of metropolitan or suburban counties reached the upper end of the education scale. The skewed distribution was consistent with the cautionary findings from the scatterplots: education differed substantially across the state, yet these differences did not meaningfully predict voter turnout.</p>
+<p>The Health Index (inverted so higher values indicated better outcomes) showed a more symmetric distribution, though with noticeable clustering above the midpoint. Many counties achieved moderate to moderately high health levels, while truly low-health counties formed a smaller group. This pattern again aligned with the strong correlation between health and turnout—counties with weaker health outcomes were fewer but significantly disadvantaged, pulling down turnout disproportionately relative to their number. The distribution’s shape suggested that health disparities, while not universal, were impactful where they existed.</p>
+<p>Voter turnout had the flattest and broadest distribution, spanning almost the full normalized range. Turnout varied widely across Texas, with no strong central concentration, indicating that counties diverged sharply in their levels of political participation. This wide dispersion provided the visual foundation for several earlier findings: turnout was highly sensitive to local conditions, was only weakly related to education, and was strongly related to health. The breadth of the turnout distribution reinforced the idea that civic engagement was the most unevenly distributed of the four metrics.</p>
+<p>Taken together, the ridge plots highlighted substantial variation in turnout and education, moderate variation in health, and compressed variation in the combined Civic Index. These patterns helped explain why some relationships appeared strong while others remained weak: the underlying indicators themselves differed in how unevenly they were distributed across counties. The distributional structure thus played an important role in shaping the correlations, scatterplots, and ultimately the modeling results that followed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/image18.png" style="width:3.848in;height:3.0784in" class="figure-img"></p>
+<figcaption>A graph of a number of blue and white lines AI-generated content may be incorrect.</figcaption>
+</figure>
+</div>
+</section>
+<section id="composite-civic-vitality-index-map" class="level3">
+<h3 class="anchored" data-anchor-id="composite-civic-vitality-index-map">Composite Civic Vitality Index Map</h3>
+<p>The choropleth map of the Composite Civic Vitality Index provided a synthesized view of overall civic conditions across Texas counties by integrating three underlying components: voter turnout, education, and (inverted) health. Because the Civic Index averaged these elements, the resulting spatial pattern reflected a balanced measure of structural civic capacity rather than the dominance of any single variable. The map allowed for an immediate visual assessment of which counties exhibited consistently strong civic conditions and which faced cumulative disadvantages.</p>
+<p>The geographic distribution of the composite index revealed a clear regional structure. Counties with the highest civic vitality scores tended to cluster around major metropolitan regions, particularly in Central Texas, North Texas, and certain suburban counties surrounding Houston and Austin. These counties benefited from strong health outcomes and relatively high turnout, even when education levels varied. Their darker shading on the map underscored how strongly health and turnout interacted to elevate overall civic conditions. The identification and labeling of the top five counties further highlighted how metropolitan or suburban proximity played a defining role in fostering civic vitality.</p>
+<p>Conversely, counties with the lowest composite scores appeared largely in South Texas, West Texas, and portions of the Panhandle. These areas showed consistently lighter shading, indicating cumulative disadvantage across multiple indicators. Poorer health outcomes were especially concentrated in these regions, and because health exerted a strong influence on turnout, the combined effect pulled these counties downward in the composite metric. The bottom five labeled counties illustrated this pattern: almost all were rural, lower-income, and geographically distant from major health infrastructure or civic institutions.</p>
+<p>Unlike the earlier univariate maps, the composite index smoothed out some of the visual noise associated with the individual education and turnout layers. Counties that had strong metrics in one domain but weak metrics in another moved toward the middle of the distribution. The index therefore highlighted counties that demonstrated <em>consistent</em> civic advantage or disadvantage across multiple dimensions, rather than those driven by a single strong value. This smoothing effect was evident in the reduced geographic variability compared to the turnout map, as well as the tighter clustering of values noted in the distributional analysis.</p>
+<p>One striking feature of the composite map was the near absence of counties that combined high health, high turnout, and high education simultaneously. Only a small segment of affluent suburban counties achieved this trifecta, and these appeared as the darkest regions on the map. The scarcity of such counties reinforced the broader conclusion that strong civic vitality was concentrated in a limited set of areas with favorable socioeconomic and health infrastructure.</p>
+<p>The composite index map also helped contextualize the earlier finding that education at the county level did not meaningfully predict turnout. Large parts of Texas exhibited moderate-to-high education but only midrange civic vitality scores because health and turnout were the dominant drivers. Meanwhile, some counties with lower education still scored relatively well when strong health outcomes and turnout compensated. This spatial evidence reinforced the quantitative conclusion that education contributed less to civic vitality than health and voting behavior did.</p>
+<p>Overall, the composite Civic Vitality Index map provided a coherent spatial summary of county-level civic conditions in Texas. It highlighted clear regional disparities, underscored the primacy of health and turnout in shaping civic outcomes, and identified both the strongest and weakest counties with respect to cumulative civic capacity. As a synthesis of multiple indicators, it served as a bridge between earlier descriptive plots and the later analytical modeling, tightening the narrative that civic vitality is unevenly distributed and structurally patterned across Texas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/image19.png" style="width:3.744in;height:3.12in" class="figure-img"></p>
+<figcaption>A map of the state of texas AI-generated content may be incorrect.</figcaption>
+</figure>
+</div>
+</section>
+<section id="healthturnout-quadrant-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="healthturnout-quadrant-analysis">Health–Turnout Quadrant Analysis</h3>
+<p>The health–turnout quadrant analysis provided a structured way to examine how counties positioned themselves along two dimensions that, based on earlier findings, shared a strong and statistically significant relationship. By plotting counties using the inverted health index on the horizontal axis (so that higher values represented better health) and voter turnout on the vertical axis, the figure divided the space into four quadrants anchored by the median values of each variable. This approach enabled a direct comparison of county positioning relative to statewide norms and revealed clusters and exceptions that were not immediately obvious from scatterplots or maps alone.</p>
+<p>The resulting distribution confirmed the earlier observation that healthier counties tended to vote at higher rates. A large concentration of counties fell in the upper-right quadrant—the segment characterized by above-median health and above-median turnout. These counties were shaded by the Civic Triangle color scheme and appeared as a dense cluster that reinforced the strength of the positive association between health outcomes and civic participation. Many of these counties were suburban or semi-urban, located near metropolitan health care networks, and displayed demographic profiles consistent with stronger health access and engagement.</p>
+<p>In contrast, the lower-left quadrant—counties with both poor health and low turnout—also contained a substantial share of observations. These counties were predominantly rural, sparsely populated, and often located in regions where access to health services was limited. Their concentration in this quadrant suggested that structural disadvantages tended to compound: counties facing persistent health burdens also struggled with civic participation. This pattern aligned closely with the spatial distribution identified earlier in the choropleth maps, particularly the concentration of low-health counties across South and West Texas.</p>
+<p>The remaining two quadrants, representing mismatched combinations of health and turnout, contained far fewer counties. The upper-left quadrant (poor health, high turnout) included only a small number of cases and generally represented anomalous counties that, despite facing substantial health challenges, maintained strong turnout. These counties often had either unusual demographic compositions or localized mobilization dynamics—such as competitive elections, strong civic organizations, or longstanding participation norms—that elevated turnout independent of structural health conditions.</p>
+<p>The lower-right quadrant (good health, low turnout) held similarly few observations. These counties were exceptions to the broader pattern and signaled areas where, despite favorable health outcomes, civic engagement lagged. Several of these counties were rapidly growing suburbs or exurban areas where high population churn, shifting political dynamics, or demographic transitions may have dampened overall participation. The quadrant labels in the figure highlighted this unexpected pattern and helped distinguish these cases from the dominant health–turnout trajectory.</p>
+<p>The outlier labeling further clarified the distribution. Counties farthest from the medians—whether unusually high in turnout despite poor health or unusually low in turnout despite good health—were flagged with text labels, drawing attention to places that deviated most sharply from the expected pattern. These labeled outliers provided potential case studies for deeper qualitative inquiry, as they pointed to counties where standard structural predictors failed to explain civic behavior.</p>
+<p>Overall, the quadrant analysis reinforced the core empirical conclusion that health played a decisive role in shaping county-level turnout in Texas. The symmetry between the upper-right and lower-left quadrants demonstrated a consistent state-wide structure: civic participation tracked closely with health conditions. The scarcity of cases in the off-diagonal quadrants underscored the strength of this relationship, while the outliers offered insight into the limited conditions under which the pattern might break. As a visualization, the quadrant analysis made the relationship between health and turnout both interpretable and intuitively clear, providing a valuable complement to the scatterplots and regression results presented earlier.</p>
+</section>
+<section id="educationturnout-quadrant-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="educationturnout-quadrant-analysis">Education–Turnout Quadrant Analysis</h3>
+<p>The education–turnout quadrant analysis provided a direct graphical test of the long-standing theoretical expectation that educational attainment should predict civic participation. By plotting counties according to their education index on the horizontal axis and voter turnout on the vertical axis, and then dividing the space using the median values of both variables, the visualization revealed how counties situated themselves relative to this assumed relationship. The result challenged the classic education-drives-turnout hypothesis in a clear, empirical, and somewhat unexpected way.</p>
+<p>The overall distribution of counties showed no consistent upward trajectory linking higher education to higher turnout. Instead, the quadrants appeared more evenly populated than would be expected if education were a primary structural predictor of civic engagement. A large number of counties fell into the lower-left quadrant—those with below-median education and below-median turnout. These counties were mostly rural, lower-income, and geographically dispersed across the Panhandle, West Texas, and parts of East Texas. Their presence in this quadrant was not surprising, given that structural disadvantages often align across multiple dimensions.</p>
+<p>The upper-right quadrant, representing counties with both higher education and higher turnout, also contained a meaningful number of observations. These tended to be suburban counties adjacent to major metropolitan areas, and they corresponded with the state’s highest socio-economic profiles. But the quadrant was not nearly as dominant as the theoretical literature would predict. In fact, educated counties were as likely to deviate from the expected pattern as they were to follow it.</p>
+<p>The two off-diagonal quadrants—where education and turnout differed in direction—were central to the analysis. These quadrants contained the “puzzle counties,” which violated the classic education model:</p>
+<blockquote class="blockquote">
+<p><strong>High education + low turnout (upper-left quadrant)</strong></p>
+<p>These counties contradicted the most widely accepted civic engagement theory. Despite ranking high on educational attainment, their participation rates lagged well below the state median. Many of these counties were rapidly growing suburbs or near-metro areas characterized by high population mobility, shifting political competition, or demographic changes that disrupted traditional participation patterns. Their placement suggested that structural education advantages were insufficient to guarantee civic engagement when other countervailing forces were present.</p>
+<p><strong>Low education + high turnout (lower-right quadrant)</strong></p>
+<p>These cases were equally revealing. Counties with relatively low average educational attainment nevertheless voted at high rates. These were often small counties with cohesive political cultures, strong partisan mobilization, or long-standing turnout traditions that superseded structural educational levels. Their placement demonstrated that civic engagement can persist independently of formal educational attainment, sustained instead by local institutions or community norms.</p>
+</blockquote>
+<p>The visualization highlighted these puzzle counties by labeling the most extreme cases—those that sat farthest from their expected quadrant locations. These labels enabled a quick identification of the counties that contributed most to the failure of education as a predictor. The scatter of these outliers suggested no discernible geographic pattern; instead, the deviations were scattered across the state. This dispersion reinforced the conclusion that the breakdown of the education–turnout relationship was not driven by a specific regional dynamic but by diverse local conditions.</p>
+<p>Coloring the points by health (inverted) added further insight. The puzzle counties did not form a health-based pattern either. High-education/low-turnout counties did not cluster in poor-health areas, and low-education/high-turnout counties did not reside exclusively in healthier regions. This supported earlier findings that education and health were largely orthogonal at the county level, making it unlikely that education failed as a predictor simply because of confounding from health variables.</p>
+<p>Taken together, the education–turnout quadrant analysis provided a crucial diagnostic tool. It visually demonstrated that the education index—constructed from detailed ACS category data—did not predict turnout across Texas counties. The even distribution across quadrants, the presence of significant off-diagonal cases, and the lack of clustering among puzzle counties all pointed to a structural decoupling between education and civic participation at the county scale. This result aligned with the null findings from the scatterplots, regression analysis, and correlation matrix, and it reinforced the broader conclusion that health, not education, was the primary driver of turnout variation in Texas during the 2020 election.</p>
+</section>
+<section id="a-diagram-of-health-and-high-tumour-analysis-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-diagram-of-health-and-high-tumour-analysis-ai-generated-content-may-be-incorrect."><img src="media/image20.png" style="width:3.792in;height:3.44724in" alt="A diagram of health and high tumour analysis AI-generated content may be incorrect."></h3>
+</section>
+<section id="civic-indexturnout-quadrant-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="civic-indexturnout-quadrant-analysis">Civic Index–Turnout Quadrant Analysis</h3>
+<p>The quadrant analysis comparing the composite civic vitality index to voter turnout offered a broader, integrated perspective on how structural conditions aligned with electoral participation. Unlike the earlier bivariate analyses, this figure used the composite civic index—which combined normalized measures of education, health (inverted so higher values indicated better health), and turnout itself—to position counties along a single horizontal “civic capacity” continuum. Plotting this against actual turnout provided a way to observe whether counties with stronger civic conditions tended to follow the expected participation patterns, and whether the index meaningfully distinguished between different types of counties.</p>
+<p>The distribution revealed a pronounced concentration of counties in the upper-right quadrant, which represented high civic vitality and high turnout. Many of these counties were suburban, economically stable, and characterized by relatively strong public health outcomes. Their placement was consistent with earlier findings: low disease burden and stronger community conditions aligned with higher turnout. These counties anchored the expected relationship and demonstrated that, when education and health were viewed together, the overall composite measure tracked turnout well at the upper end of the distribution.</p>
+<p>The lower-left quadrant—counties with low civic vitality and low turnout—also contained a substantial number of cases. These counties were geographically concentrated in parts of South, West, and rural East Texas, aligning closely with earlier choropleth patterns where persistent health challenges and limited local capacity were evident. The quadrant boundaries, drawn at the medians of both variables, made the symmetry between high-civic/high-turnout and low-civic/low-turnout counties immediately apparent. This mirrored the earlier health–turnout pattern, reinforcing the conclusion that community conditions played a central role in shaping participation.</p>
+<p>The off-diagonal quadrants offered more nuance. A small but meaningful set of counties fell in the upper-left quadrant, representing high civic vitality yet low turnout. These counties deviated from the expected pattern and suggested areas where structural advantages—whether educational, health-related, or demographic—were insufficient to produce high turnout. Several of these counties were in rapidly suburbanizing regions where growth and demographic turnover often depress participation. Such transitional counties sometimes lagged in turnout despite favorable socio-economic indicators.</p>
+<p>Conversely, a few counties appeared in the lower-right quadrant, exhibiting low civic vitality but high turnout. These cases resembled the “puzzle counties” identified earlier in the education–turnout quadrant analysis, but here their deviation took on a broader meaning. These counties turned out to vote despite facing structural challenges across multiple dimensions. They often had strong mobilization networks, cohesive local cultures, or longstanding civic norms that compensated for structural deficits.</p>
+<p>Labeling the most extreme outliers in each quadrant provided clarity about which counties drove these patterns. These counties were those farthest from the medians and thus made disproportionate contributions to the overall quadrant structure. The labeled outliers highlighted where the civic index and turnout diverged most significantly and pointed to directions for future qualitative inquiry. Understanding why some counties exceeded expectations while others lagged could provide insight into localized mobilization dynamics or institutional differences.</p>
+<p>Despite the complexity of combining three indicators into a single index, the civic index–turnout analysis revealed that the composite measure captured meaningful variation in civic capacity across Texas. The visualization showed that counties with stronger civic conditions tended to vote at higher rates, and those with weaker conditions generally voted at lower rates. While exceptions existed in both directions, the overall quadrant structure was more aligned than in the education–turnout comparison. This reaffirmed that health played a central role within the index and that education contributed only modestly.</p>
+<p>In sum, the civic index–turnout quadrant analysis demonstrated that the composite civic measure behaved as intended: it identified counties with strong civic foundations, distinguished those facing persistent challenges, and highlighted places where local dynamics disrupted the broader structural pattern. The visualization offered a coherent link between the county-level indicators and electoral behavior, reinforcing the overarching conclusion that health—more than education—underpinned turnout variation across Texas counties.</p>
+</section>
+<section id="a-graph-with-blue-dots-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-with-blue-dots-ai-generated-content-may-be-incorrect."><img src="media/image21.png" style="width:4.144in;height:3.76723in" alt="A graph with blue dots AI-generated content may be incorrect."></h3>
+</section>
+<section id="healthturnout-relationship-by-county-type" class="level3">
+<h3 class="anchored" data-anchor-id="healthturnout-relationship-by-county-type">Health–Turnout Relationship by County Type</h3>
+<p>The set of faceted scatterplots that compared the health–turnout relationship across county types provided a more granular view of how this relationship varied across different structural contexts. Counties were grouped into three categories—major metro, mid-size, and rural/small—using quartiles of total votes cast as a proxy for population scale. Plotting the inverted health index (where higher values indicated better health) against turnout for each group allowed the analysis to determine whether the strong health–turnout association observed statewide held consistently across geographies or whether the relationship differed by county type.</p>
+<p>Across all three panels, the positive association between health and turnout persisted, but its strength and clarity varied considerably. In <strong>major metropolitan counties</strong>, the relationship appeared relatively tight. Counties with better health outcomes tended to vote at noticeably higher rates, and the fitted regression line showed a clear upward slope. However, metropolitan counties also displayed greater heterogeneity, with some densely populated counties exhibiting surprisingly low turnout despite favorable health conditions. These exceptions often corresponded with demographically diverse counties experiencing population churn or rapidly changing political conditions.</p>
+<p>The <strong>mid-size counties</strong> displayed the strongest and most linear relationship of the three groups. These counties tended to fall along a pronounced upward trajectory, with relatively little dispersion around the regression line. The mid-size category includes many stable regional centers—places large enough to sustain robust health infrastructure and civic institutions but small enough that participation patterns are more cohesive. Their positioning suggested that the health–turnout relationship was especially reliable in counties where socioeconomic characteristics were neither extreme nor heavily influenced by the complexity of major metro areas.</p>
+<p>In contrast, <strong>rural and small counties</strong> showed a more scattered pattern. The overall upward direction of the fitted line remained, but the spread of points was wider and the relationship weaker than in the other two groups. Several rural counties exhibited high turnout despite relatively poor health outcomes, consistent with earlier findings showing that rural political culture often drives high levels of electoral participation independent of structural health conditions. At the same time, some rural counties with relatively better health ranked lower in turnout, suggesting that local mobilization dynamics, population aging, or long-standing partisan habits may override the structural effects of health.</p>
+<p>Despite these differences, the faceted plots made clear that health was positively associated with turnout in <em>every</em> county group. The relationship did not disappear or reverse when examined within metropolitan, mid-size, or rural contexts. Instead, its strength varied, with the tightest fit observed in mid-size counties and the loosest in rural areas. This pattern reinforced an earlier conclusion: although health outcomes strongly predicted turnout overall, the mechanisms behind this association were not uniform across county types. Metropolitan complexity and rural political norms produced local deviations, while mid-size counties exhibited the clearest structural alignment between health and civic participation.</p>
+<p>The decision to facet the relationship by county size was justified by these differences. It allowed the analysis to distinguish between the statewide pattern—which might otherwise appear overly homogeneous—and the local variability that shaped civic engagement differently across Texas. The faceted plots supported the overarching conclusion that health was the most reliable structural predictor of turnout but also suggested that contextual factors—urban density, demographic stability, and community mobilization—mediated the strength of this relationship in important ways.</p>
+<p>Overall, the county-type comparison provided a nuanced extension of the main health–turnout finding. It showed that while the positive association held across all geographies, its expression varied across metropolitan, mid-size, and rural settings. This helped clarify both the robustness of health as a predictor and the limitations of applying a single statewide model without accounting for local context.</p>
+</section>
+<section id="a-graph-of-a-number-of-people-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-of-a-number-of-people-ai-generated-content-may-be-incorrect."><img src="media/image22.png" style="width:4.184in;height:2.39105in" alt="A graph of a number of people AI-generated content may be incorrect."></h3>
+</section>
+<section id="educationturnout-relationship-by-county-type" class="level3">
+<h3 class="anchored" data-anchor-id="educationturnout-relationship-by-county-type">Education–Turnout Relationship by County Type</h3>
+<p>The faceted scatterplots comparing education and turnout across major metro, mid-size, and rural/small counties offered a more detailed assessment of whether the null relationship observed statewide held consistently within different types of communities. By dividing counties using quartiles of total votes cast—a practical proxy for population scale and urbanization—the analysis was able to test whether education predicted turnout in some contexts even if it failed at the statewide level.</p>
+<p>Across all three panels, the central conclusion remained unchanged: <strong>education did not meaningfully predict voter turnout at the county level</strong>, regardless of county type. The slope of the fitted line in each facet was shallow and often near zero, and the scatter of points showed no clear upward trend. This consistency across different county environments strengthened the earlier conclusion that educational attainment, as measured in aggregate at the county scale, did not translate into higher participation in the 2020 Texas general election.</p>
+<p>In <strong>major metropolitan counties</strong>, the scatter was wide and flat. Highly educated counties often displayed middling turnout, while a few moderately educated metro counties achieved higher turnout rates. The fitted line captured none of the strong upward slope that would be expected if education were a primary driver. This pattern suggested that in large counties—where demographic diversity, population churn, and complex political environments shape behavior—education alone was insufficient to explain variation in turnout. Other factors, including mobilization, partisan competition, and institutional access, likely played larger roles.</p>
+<p>The <strong>mid-size counties</strong> showed a similar pattern. Although the points were slightly more clustered than in the metro panel, the distribution still lacked any meaningful upward progression. Counties with above-average education levels did not systematically achieve higher turnout, and several mid-size counties with relatively lower education levels nevertheless displayed relatively strong participation. As with metro counties, the fitted regression line was nearly horizontal, indicating that education offered no predictive leverage even in more demographically stable environments.</p>
+<p>The <strong>rural and small counties</strong> displayed the clearest disconnect between education and turnout. This panel included numerous counties with low educational attainment but turnout levels well above the state median. Many small counties in Texas have strong civic traditions, dense local social networks, and high-stakes partisan environments that produce consistently high turnout regardless of structural characteristics. Conversely, several rural counties with relatively higher education values still exhibited modest turnout. The fitted slope again remained close to zero. In rural areas especially, long-standing participation norms appeared to overshadow structural advantages associated with education.</p>
+<p>Across all three county types, the absence of any systematic relationship between education and turnout confirmed that the null finding was not an artifact of aggregation. The relationship did not strengthen when counties were grouped more narrowly, nor did it surface in urban, suburban, or rural subsamples. The education index—built from detailed ACS category weights and normalized to a common scale—simply did not align with turnout in any consistent way within the Texas county system.</p>
+<p>The faceted design made this result especially clear. If education influenced turnout only in certain contexts, the slopes of the fitted lines would have differed in direction or magnitude across the panels. This did not occur. Instead, the lines in each facet were nearly identical: shallow, flat, and statistically uninformative. The stability of the result across county types supported the broader conclusion that education, as a structural county-level characteristic, did not explain variation in turnout in Texas in 2020.</p>
+<p>Taken together, the faceted plots provided strong visual evidence that the education–turnout relationship broke down across all three contexts. This reinforced earlier scatterplot findings and aligned with the quadrant analysis, which identified numerous “puzzle counties” that violated theoretical expectations. Despite its prominent place in political behavior theory at the individual level, education did not function as a structural predictor when measured at the county scale in this setting.</p>
+</section>
+<section id="a-graph-of-a-relationship-between-a-couple-of-dots-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-of-a-relationship-between-a-couple-of-dots-ai-generated-content-may-be-incorrect."><img src="media/image23.png" style="width:4.38165in;height:2.504in" alt="A graph of a relationship between a couple of dots AI-generated content may be incorrect."></h3>
+</section>
+<section id="county-profiles-across-civic-vitality-dimensions-parallel-coordinates-plot" class="level3">
+<h3 class="anchored" data-anchor-id="county-profiles-across-civic-vitality-dimensions-parallel-coordinates-plot">County Profiles Across Civic Vitality Dimensions (Parallel Coordinates Plot)</h3>
+<p>The parallel coordinates plot offered a multidimensional view of how Texas counties aligned across the four major components of civic vitality: voter turnout, educational attainment, health (inverted so higher values indicated better health), and the composite civic index. Unlike the earlier bivariate or trivariate visualizations, this figure allowed all counties to be seen simultaneously across all dimensions, revealing patterns of consistency, divergence, and clustering that were not visible in simpler scatterplots.</p>
+<p>All variables were standardized to a common z-score scale, which placed them on comparable vertical ranges and ensured that differences in measurement units or variance did not distort the interpretation. Each county appeared as a single polyline drawn across the four axes, with the color of the line indicating its placement within the lower, middle, or upper third of the civic index distribution. This design enabled the analysis to identify whether counties that scored high on the composite index also tended to score high on its component variables, and to spot cases where a county’s strengths in one area were offset by weaknesses in others.</p>
+<p>Several clear structural patterns emerged. Counties in the <strong>upper third of the civic index distribution</strong> tended to display relatively consistent profiles: their lines clustered in the higher regions of the turnout, education, and health axes. These counties generally formed a band of smooth, rising or level polylines moving from left to right across the figure. Their visual coherence indicated that the composite civic index was functioning as intended—identifying counties with consistently strong structural indicators. Many of these counties were affluent suburban counties around major metropolitan areas, where health outcomes were strong and civic participation high.</p>
+<p>The <strong>middle third counties</strong> exhibited much more varied profiles. Their lines frequently crossed one another, reflecting combinations of moderate strengths and weaknesses across the three dimensions. Some counties scored moderately on turnout but relatively low on education, or vice versa. Others displayed decent health outcomes but lagged on turnout. This group appeared the most heterogeneous, suggesting that their overall civic vitality was shaped by a mixture of balancing factors rather than a unified structural profile.</p>
+<p>Counties in the <strong>lower third</strong> were more consistent, though in the opposite direction. Their polylines clustered in the lower regions of the axes, especially on health and turnout. Many of these counties showed parallel downward trajectories, indicating that poor health and low turnout tended to coincide. Education values also tended to fall in lower regions, though with more variation than the other two variables. This pattern reinforced earlier findings that education contributed only weakly to the civic index compared to the much stronger predictive role of health. Counties in this category were often located in rural West Texas, the Rio Grande Valley, and other regions facing structural disadvantages.</p>
+<p>One of the clearest advantages of the parallel coordinates design was its ability to highlight mismatched profiles—counties that diverged from the general patterns. A few counties displayed high values on one axis but low values on others, producing sharply angled or zig-zagging lines. For example, some counties with relatively high education scores nevertheless had low turnout, echoing the “puzzle counties” identified earlier in the quadrant analysis. Likewise, a handful of counties exhibited low health values but comparatively higher turnout, aligning with the small set of health–turnout outliers. These sharply crossing lines visually underscored how unusual such counties were within the statewide distribution.</p>
+<p>Overall, the plot demonstrated that the composite civic index captured meaningful differences among counties and aligned closely with turnout and health, but less so with education. Counties with strong civic foundations generally scored well across multiple dimensions, while low-performing counties tended to struggle across the board. The multidimensional profile revealed by the parallel coordinates plot validated the construction of the composite index and provided an intuitive visual summary of each county’s civic structure. The figure also exposed important exceptions that did not conform to the broader statewide patterns and whose distinct profiles pointed toward more localized political, cultural, or institutional influences shaping civic engagement.</p>
+</section>
+<section id="a-graph-showing-different-colored-lines-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-showing-different-colored-lines-ai-generated-content-may-be-incorrect."><img src="media/image24.png" style="width:4.536in;height:3.024in" alt="A graph showing different colored lines AI-generated content may be incorrect."></h3>
+</section>
+<section id="turnout-rate-residuals-vs.-education-partial-regression-controlling-for-health" class="level3">
+<h3 class="anchored" data-anchor-id="turnout-rate-residuals-vs.-education-partial-regression-controlling-for-health">Turnout Rate Residuals vs.&nbsp;Education (Partial Regression: Controlling for Health)</h3>
+<p>The partial regression plot comparing turnout rate residuals to the education index offered a direct test of whether education contributed any explanatory power <strong>after accounting for health</strong>, the strongest structural predictor identified in the analysis. This diagnostic visualization isolated the unique portion of turnout variation attributable to education by first removing (or <em>residualizing out</em>) the influence of health from both turnout and the education index. The resulting scatterplot displayed these residuals against one another, with a fitted regression line indicating whether any linear relationship remained.</p>
+<p>The analysis showed that <strong>education contributed essentially no independent predictive value</strong> once health was included in the model. The cloud of points was diffuse, unstructured, and centered near the origin, with no upward or downward pattern. The fitted line was nearly flat, reflecting a slope close to zero. This confirmed the earlier conclusion from the correlation matrix, bivariate scatterplots, and county-type analyses: educational attainment, when aggregated at the county level, did not explain variation in turnout.</p>
+<p>One of the strengths of the partial regression approach is that it clarifies whether a variable that appears null in a bivariate setting is simply correlated with a stronger predictor. If education’s bivariate relationship with turnout had been masked by its correlation with health, residualizing health should have revealed a positive slope. That did not occur. Instead, the residualized plot showed the same lack of structure observed throughout the analysis. Education’s weak predictive role was not the result of confounding; education itself did not independently contribute to turnout once county-level health was taken into account.</p>
+<p>The labeled outliers in the plot added further insight. These counties were those with the largest absolute residuals—places where turnout departed most from expectations based on health. If education played an indirect or latent role, these outliers might have clustered at high or low education values. Instead, they appeared scattered across the range of education index values, reinforcing the conclusion that counties deviating from predicted turnout levels did so for reasons unrelated to educational attainment. These counties likely reflected local political dynamics, demographic turnover, competitive elections, or mobilization patterns not captured by structural indicators.</p>
+<p>The distribution of points also highlighted an important conceptual point: <strong>education and health were not strongly correlated at the county level</strong>. Earlier plots showed that education and health shared no meaningful linear relationship, and the flat residual scatter confirmed this independence. Because the two structural indicators moved largely independently, the failure of education to predict turnout could not be attributed to overlapping effects or multicollinearity.</p>
+<p>Taken together, the residuals-versus-education plot provided one of the clearest demonstrations of the null effect. By stripping away the influence of the strongest predictor and examining what remained, the visualization showed that education offered no additional explanatory leverage. In fields where education is often assumed to be a universal driver of civic behavior, this finding was both striking and consistent across every methodological approach in the project.</p>
+</section>
+<section id="a-graph-showing-the-number-of-people-in-the-same-direction-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-showing-the-number-of-people-in-the-same-direction-ai-generated-content-may-be-incorrect."><img src="media/image25.png" style="width:4.808in;height:3.74058in" alt="A graph showing the number of people in the same direction AI-generated content may be incorrect."></h3>
+</section>
+<section id="turnout-rate-residuals-vs.-health-partial-regression-controlling-for-education" class="level3">
+<h3 class="anchored" data-anchor-id="turnout-rate-residuals-vs.-health-partial-regression-controlling-for-education">Turnout Rate Residuals vs.&nbsp;Health (Partial Regression: Controlling for Education)</h3>
+<p>The partial regression plot comparing turnout rate residuals to the inverted health index provided a precise test of whether health continued to predict voter turnout <strong>after accounting for education</strong>, the variable that failed to show predictive power throughout the earlier analyses. This visualization isolated the component of turnout that was <em>not</em> explained by education and plotted it against the portion of the health index that remained after removing any linear association with education. The figure therefore tested whether health independently contributed to explaining turnout variation at the county level.</p>
+<p>The pattern in the plot strongly affirmed the central conclusion of the project: <strong>health remained a robust predictor of turnout even when education was controlled for.</strong> In contrast to the flat, unstructured cloud seen in the residuals-versus-education plot, this visualization displayed a clear upward trend. The fitted regression line showed a positive slope, indicating that counties with better health outcomes tended to have higher-than-expected turnout levels even after accounting for their education levels.</p>
+<p>The clustering of points supported this interpretation. Counties with above-average health residuals (i.e., counties that were healthier than their education levels would predict) overwhelmingly displayed positive turnout residuals, meaning they voted at higher rates than a model based solely on education would expect. Conversely, counties with below-average health residuals tended to fall below the horizontal axis, indicating that their turnout was lower than predicted once education was taken into account.</p>
+<p>This structure was visually striking and sharply distinguished from the null pattern seen in the partial regression for education. The cloud of points tilted upward in a consistent direction, with relatively little dispersion around the fitted line. This demonstrated that the health index captured meaningful variation in civic participation that education did not.</p>
+<p>The outlier labels added further clarity. Counties farthest from the regression line—those whose turnout substantially exceeded or fell short of expectations based on their health residuals—were highlighted. These outliers were relatively few in number, underscoring the strength of the general pattern. Most counties fell close to the trajectory defined by better health and higher turnout. The labeled outlier counties were helpful for identifying unusual cases worthy of future qualitative exploration, such as counties with strong local mobilization efforts that overcame health disadvantages or counties with structural barriers that depressed turnout despite relatively strong health indicators.</p>
+<p>The partial regression also confirmed that <strong>education and health were largely independent structural dimensions</strong>. Since the health residuals maintained a coherent relationship with the turnout residuals even after controlling for education, the linear independence of these variables strengthened the conclusion that education’s null effect was not the result of collinearity or confounding. Instead, health provided unique explanatory power that persisted across models and visualizations.</p>
+<p>Taken together, the residuals-versus-health plot offered robust evidence that health was the dominant structural predictor of turnout at the county level in Texas. By removing education from the equation and isolating what remained, the visualization demonstrated that health retained a strong, positive, and independent influence. This finding tied together the earlier scatterplots, quadrant analyses, and correlation matrices and reinforced the overarching conclusion that variation in county-level civic participation was fundamentally linked to health conditions.</p>
+</section>
+<section id="a-graph-with-dots-and-lines-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-with-dots-and-lines-ai-generated-content-may-be-incorrect."><img src="media/image26.png" style="width:4.496in;height:3.49785in" alt="A graph with dots and lines AI-generated content may be incorrect."></h3>
+</section>
+<section id="regression-diagnostics-for-the-health-turnout-model" class="level3">
+<h3 class="anchored" data-anchor-id="regression-diagnostics-for-the-health-turnout-model">Regression Diagnostics for the Health → Turnout Model</h3>
+<p>The regression diagnostics provided a comprehensive assessment of the linear model that used the inverted health index to predict county-level voter turnout. Because health had emerged as the most consistent and statistically meaningful structural predictor in earlier analyses, it was important to evaluate whether the linear model met the standard assumptions of ordinary least squares (OLS) regression and whether any counties exerted undue influence on the fitted relationship.</p>
+<p>The four diagnostic panels—Residuals vs.&nbsp;Fitted, Normal Q–Q, Scale–Location, and Residuals vs.&nbsp;Leverage—together offered a clear view of the model’s performance. Overall, the diagnostics indicated that the health–turnout model behaved reasonably well for cross-sectional county-level data, though it exhibited mild deviations from ideal OLS conditions that are common in ecological datasets.</p>
+<section id="residuals-vs.-fitted." class="level4">
+<h4 class="anchored" data-anchor-id="residuals-vs.-fitted.">Residuals vs.&nbsp;Fitted.</h4>
+<p>This plot assessed whether the residuals were centered around zero across the range of predicted turnout values. The points formed a broad horizontal band with no pronounced curvature or systematic pattern. The residuals were slightly more dispersed at the extremes of the fitted range, which is typical when a predictor such as health has stronger effects for some counties than others. Importantly, the plot showed no evidence of a nonlinear relationship—no U-shaped, S-shaped, or other pattern that would suggest misspecification. This supported the use of a linear model for the health–turnout relationship.</p>
+</section>
+<section id="normal-qq-plot." class="level4">
+<h4 class="anchored" data-anchor-id="normal-qq-plot.">Normal Q–Q Plot.</h4>
+<p>The Q–Q plot allowed assessment of whether the standardized residuals approximated a normal distribution, as OLS assumes for inference. The points generally followed the diagonal reference line, with only modest deviations in the tails. A small number of counties showed heavier-than-normal residuals on both ends of the distribution, but these deviations were limited and not severe. For county-level electoral and health data—which rarely produce perfectly normal residuals—the model’s performance was acceptable. The approximate normality supported the validity of inference drawn from the regression.</p>
+</section>
+<section id="scalelocation-plot." class="level4">
+<h4 class="anchored" data-anchor-id="scalelocation-plot.">Scale–Location Plot.</h4>
+<p>This plot evaluated homoscedasticity, or the assumption that the variance of the residuals remains constant across fitted values. The line in the plot showed a mild upward slope, indicating slightly greater residual spread at higher fitted turnout levels. This pattern suggested a modest degree of heteroskedasticity. Higher-turnout counties exhibited more variability in how they deviated from model predictions. In practical terms, this indicated that the model’s predictions were less precise for counties at the higher end of the turnout distribution. Such heteroskedasticity is common in ecological and demographic analyses, especially when structural disparities play a role. It did not undermine the central finding that health strongly predicted turnout, but it did suggest that model-based confidence intervals around predictions should be interpreted with care.</p>
+</section>
+<section id="residuals-vs.-leverage." class="level4">
+<h4 class="anchored" data-anchor-id="residuals-vs.-leverage.">Residuals vs.&nbsp;Leverage.</h4>
+<p>The final plot assessed whether any counties exerted disproportionate influence on the model’s coefficients. Most observations clustered in a low-leverage region, with standardized residuals near zero, reflecting a stable and well-behaved model. A small number of counties appeared as moderate outliers, showing either unusual health–turnout combinations or greater leverage due to distinct structural profiles. However, none of these observations approached the influence thresholds that would indicate problematic leverage or Cook’s distance concerns. The model was not being driven by a handful of unusual counties; instead, the health–turnout relationship reflected a broad, statewide pattern.</p>
+<p>Taken together, the diagnostic panels supported the validity of the linear health–turnout model. The residuals exhibited no major violations of linearity, normality, or influence. The only mild concern was minor heteroskedasticity at higher turnout levels, which did not affect the model’s central conclusions. The diagnostics confirmed that health was a strong, consistent predictor of turnout across Texas counties and that the model’s findings were not artifacts of model misspecification, unusual observations, or violations of major OLS assumptions.</p>
+</section>
+</section>
+<section id="a-collage-of-graphs-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-collage-of-graphs-ai-generated-content-may-be-incorrect."><img src="media/image27.png" style="width:4.7232in;height:3.936in" alt="A collage of graphs AI-generated content may be incorrect."></h3>
+</section>
+<section id="turnout-deviates-from-expectations-residual-map" class="level3">
+<h3 class="anchored" data-anchor-id="turnout-deviates-from-expectations-residual-map">Turnout Deviates from Expectations: Residual Map</h3>
+<p>The residual map offered a spatial perspective on where counties’ actual turnout diverged most from the levels predicted by the health–turnout model. Because health had emerged as the strongest structural predictor in the county-level analysis, the residuals served as clear indicators of places where civic participation was either substantially higher or lower than the model anticipated. Mapping these deviations allowed the analysis to identify regional patterns, localized anomalies, and potential mechanisms not captured by structural indicators alone.</p>
+<p>Each county was shaded according to its position in the residual distribution, divided into quintiles ranging from “much lower than expected” to “much higher than expected.” This choice of quantile classification ensured a balanced comparison across the full distribution and allowed both subtle and extreme deviations to be seen clearly. The resulting map revealed several noteworthy spatial patterns.</p>
+<p>The counties that voted at <strong>much lower levels than the model predicted</strong> were concentrated primarily in South Texas and parts of the border region. These counties tended to have relatively better health scores than their turnout levels would suggest, which produced strongly negative residuals. Their clustering indicated the presence of regional dynamics unrelated to structural health conditions. Factors such as local political mobilization, demographic turnover, linguistic diversity, or institutional barriers may help explain why these counties underperformed relative to their structural profiles. The clustering also aligned with long-standing geographic turnout disparities observed in statewide elections.</p>
+<p>Conversely, the counties with <strong>much higher turnout than expected</strong> appeared most often in small rural counties spread across the Panhandle, North Texas, and parts of Central Texas. These counties tended to vote at rates substantially above what their health indicators would predict. Many of these places were characterized by cohesive political cultures, small population sizes, and strong community mobilization networks. Their overperformance was consistent with earlier observations that rural political norms can sustain high turnout even when structural disadvantages—such as lower health scores—suggest otherwise.</p>
+<p>A third group of counties, shaded near the midpoint, reflected turnout levels close to expectations. These included many suburban counties near major metropolitan areas, where health indicators were strong and turnout patterns aligned closely with the statewide structural model. Their positioning lent further support to the idea that the health–turnout relationship was robust in many parts of the state, particularly in counties with stable population dynamics and consistent access to health services.</p>
+<p>The map also highlighted scattered anomalies—counties whose deviations did not follow the broader regional patterns. These isolated cases were instructive because they suggested highly localized influences. For example, a county with unexpectedly high turnout despite poor health conditions might reflect strong partisan mobilization in a competitive race. Conversely, a county with unexpectedly low turnout despite strong structural conditions might indicate weak local institutional capacity or unusually low engagement in a specific election cycle.</p>
+<p>By translating residuals into geographic patterns, the map provided additional evidence that health explained a large share of turnout variation, but not all of it. Structural health conditions exerted a strong statewide influence, yet local political environments, community norms, and demographic factors produced meaningful deviations. The spatial distribution of residuals made it clear that these local effects were not random. Instead, they followed recognizable regional patterns consistent with Texas’s electoral geography.</p>
+<p>In sum, the residual map sharpened the analysis by revealing where civic participation diverged from structural expectations. It confirmed that the health–turnout model captured substantial statewide variation while also showing that structural predictors could be amplified, dampened, or overridden by local context. This visualization provided a crucial bridge between statistical modeling and spatial interpretation, emphasizing that civic engagement is shaped both by structural conditions and by the lived political realities within specific communities.</p>
+</section>
+<section id="a-map-of-texas-with-different-colored-squares-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-map-of-texas-with-different-colored-squares-ai-generated-content-may-be-incorrect."><img src="media/image28.png" style="width:4.5595in;height:3.992in" alt="A map of texas with different colored squares AI-generated content may be incorrect."></h3>
+</section>
+<section id="actual-vs.-predicted-turnout-slopegraphs-for-three-county-groups" class="level3">
+<h3 class="anchored" data-anchor-id="actual-vs.-predicted-turnout-slopegraphs-for-three-county-groups">Actual vs.&nbsp;Predicted Turnout: Slopegraphs for Three County Groups</h3>
+<p>The series of slopegraphs comparing actual turnout to model-predicted turnout provided a close look at where counties aligned with, exceeded, or fell short of expectations based on the health–turnout regression model. Because the model relied primarily on the inverted health index—the strongest structural predictor identified in the analysis—these visualizations helped clarify not only how well the model performed but also where structural predictors were amplified or overridden by local political dynamics.</p>
+<p>Each slopegraph followed the same design: counties were arrayed vertically, with predicted turnout on the left and actual turnout on the right. Lines connecting the two values indicated the direction and magnitude of deviation. Counties were sorted by the size of the prediction error, and those with the largest deviations were labeled using a repelling algorithm to avoid overlap. The use of color drew attention to counties in the top quartile of absolute deviations, making structural overperformers and underperformers immediately visible.</p>
+<p><strong>Largest 10 Counties (by Registered Voters)</strong></p>
+<p>The slopegraph for the state’s ten largest counties revealed a pattern dominated by modest deviations rather than dramatic outliers. Most of these counties—primarily major metropolitan areas—clustered close to the model’s predictions. Their lines ran nearly horizontal, indicating that health outcomes tracked turnout reasonably well even in highly complex, demographically diverse urban settings.</p>
+<p>However, the exceptions were instructive. A few large counties—most notably those with rapidly changing demographics or lower engagement among younger or transient populations—fell below predicted turnout. Others slightly exceeded expectations, often counties with strong mobilization infrastructure or stable suburban populations. While these deviations were not large enough to undermine the model, they showed how metropolitan dynamics could nudge turnout above or below structural expectations.</p>
+<p><strong>Top 10 Counties Where Actual Turnout Exceeded Predictions</strong></p>
+<p>This slopegraph highlighted counties that significantly <strong>overperformed</strong> relative to what the health model forecasted. Many of the counties in this group were small or mid-size, geographically dispersed across the Panhandle, North Texas, and parts of Central Texas. Their lines sloped sharply upward, indicating actual turnout levels well above predicted values.</p>
+<p>Several of these counties exhibited relatively modest health scores yet consistently high civic participation, reflecting strong political traditions, cohesive social networks, or competitive local political environments. In many cases, the overperformance aligned with long-standing rural patterns in Texas elections: even when structural conditions suggested moderate turnout, political culture and mobilization elevated participation beyond expectations.</p>
+<p>This group demonstrated that health, while a powerful predictor, could be effectively counterbalanced by local civic norms. These counties pointed to a pathway of engagement driven more by community identity and political habit than by structural advantages.</p>
+<p><strong>Top 10 Counties Where Actual Turnout Fell Below Predictions</strong></p>
+<p>The final slopegraph identified counties that <strong>underperformed</strong> relative to expectations. Many of these counties were in South Texas and regions along the border, mirroring patterns already seen in the residual map. Their lines slanted sharply downward, revealing turnout levels well below those predicted by the model.</p>
+<p>These counties tended to have relatively favorable health scores, which should have produced higher turnout, but the actual results lagged. This mismatch suggested the presence of local factors that depressed participation despite structurally supportive conditions. Possible explanations included lower levels of political competition, weaker mobilization networks, language barriers, or demographic characteristics—such as younger populations or high residential turnover—that diluted turnout.</p>
+<p>The underperformance pattern underscored one of the key findings from spatial analysis: structural health conditions provided a strong baseline predictor, but regional political dynamics could sharply reduce participation. The slopegraph made these cases visually explicit, showing where the model’s expectations diverged most sharply from electoral behavior.</p>
+<p><strong>Summary of Insights</strong></p>
+<p>Taken together, the three slopegraphs provided a nuanced view of the model’s performance:</p>
+<ul>
+<li><p><strong>The model fit well for large, urban counties</strong>, where deviations were modest and predictable.</p></li>
+<li><p><strong>Overperforming counties were mostly rural</strong>, with strong turnout traditions overwhelming structural disadvantages.</p></li>
+<li><p><strong>Underperforming counties were regionally concentrated</strong>, pointing to localized barriers to participation.</p></li>
+<li><p><strong>The health model captured broad statewide patterns</strong>, but local political culture, mobilization, and demographics produced consistent deviations in both directions.</p></li>
+</ul>
+<p>By showing the magnitude and direction of these deviations in a clear, county-specific form, the slopegraphs bridged the statistical and geographic components of the analysis. They demonstrated where the structural model succeeded, where it faltered, and which counties offered the most valuable case studies for understanding civic engagement beyond health-based predictors.</p>
+</section>
+<section id="a-graph-of-different-lines-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-of-different-lines-ai-generated-content-may-be-incorrect."><img src="media/image29.png" style="width:3.08in;height:2.39556in" alt="A graph of different lines AI-generated content may be incorrect."></h3>
+</section>
+<section id="a-graph-with-red-lines-and-white-text-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-with-red-lines-and-white-text-ai-generated-content-may-be-incorrect."><img src="media/image30.png" style="width:3.12in;height:2.42667in" alt="A graph with red lines and white text AI-generated content may be incorrect."></h3>
+</section>
+<section id="a-graph-of-different-colored-lines-ai-generated-content-may-be-incorrect." class="level3">
+<h3 class="anchored" data-anchor-id="a-graph-of-different-colored-lines-ai-generated-content-may-be-incorrect."><img src="media/image31.png" style="width:3.216in;height:2.50133in" alt="A graph of different colored lines AI-generated content may be incorrect."></h3>
+<p>Discussion</p>
+<p>The analysis revealed a civic landscape in Texas that is uneven, structurally patterned, and often counterintuitive. By examining education, health, and voter turnout as an interconnected system, rather than isolated variables, the project uncovered relationships that challenge standard assumptions about civic participation. The Civic Triangle framework—our organizing lens—proved useful in making sense of these patterns. Education, health, and participation are deeply intertwined, but their interactions do not follow the familiar, linear pathways often assumed in political behavior research. Instead, the county-level evidence in Texas suggests a more complex, mediated system in which health plays a central role in shaping civic life.</p>
+<p><strong>Education as a Weak or Absent Predictor of Turnout</strong></p>
+<p>One of the clearest and most unexpected findings was the near absence of a direct relationship between educational attainment and voter turnout. The education–turnout scatterplot showed no linear trend, and the correlation coefficient was nearly zero. The quadrant analysis further confirmed that counties did not sort into the “expected” combinations of high education and high turnout. Highly educated counties routinely failed to achieve high participation, while some of the strongest turnout occurred in counties with comparatively low educational attainment.</p>
+<p>The partial regression controlling for health reinforced this conclusion. Once health was accounted for, education contributed no additional explanatory power. The residuals formed an unstructured cloud around zero. This suggests that, at least at the county scale, education does not operate as a structural determinant of turnout in Texas. Local political environments, mobilization networks, demographic churn, and regional cultures appear to play far more decisive roles than aggregate schooling levels.</p>
+<p>This finding does not contradict the substantial literature demonstrating education’s influence at the individual level. Instead, it indicates that the <strong>ecological level of analysis</strong> adopted here tells a different story—one in which educational attainment does not aggregate into a structural advantage in civic participation. For Texas counties in 2020, education simply was not the lever that distinguished high- and low-engagement communities.</p>
+<p><strong>Health as the Central Structural Predictor of Civic Participation</strong></p>
+<p>In contrast, health emerged as the most powerful and consistent predictor of voter turnout. The health–turnout scatterplot showed a strong positive relationship, and the correlation matrix reinforced this pattern numerically. The relationship persisted within every county subgroup—metro, mid-sized, and rural—and remained robust even in the presence of substantial demographic and geographic diversity. The partial regression residual plot demonstrated that health retained substantial explanatory power even after removing the influence of education, further indicating that health effects were not the result of confounding or multicollinearity.</p>
+<p>The health–turnout quadrant analysis reinforced this result, with the majority of counties falling into the expected combinations of high health/high turnout and low health/low turnout. Only a handful of counties deviated from the structural pattern, and these exceptions were instructive: some rural counties overperformed despite poor health, likely reflecting strong civic norms, while a small set of suburban counties underperformed despite good health, possibly due to population turnover or weaker mobilization.</p>
+<p>These findings collectively point to a structural reality: <strong>communities with stronger health conditions have greater civic capacity</strong>. Physical, mental, and general health—along with access to care—shape the ability and willingness of residents to vote. Poor health constrains civic life not only through physical limitations, but also through time scarcity, financial stress, and reduced bandwidth for participation. Conversely, healthier communities benefit from broader social infrastructure and more stable environments, conditions that foster reliable turnout.</p>
+<p><strong>The Mediated Structure of the Civic Triangle</strong></p>
+<p>The third major finding concerned the relationship between education and health. As expected, counties with higher educational attainment tended to have better health outcomes. This relationship was clear in the scatterplot and confirmed by the positive correlation. However, when connected to the other findings, the structure of the Civic Triangle becomes clearer.</p>
+<blockquote class="blockquote">
+<p>Education → Health → Turnout</p>
+<p>not</p>
+<p>Education → Turnout</p>
+</blockquote>
+<p>The data pointed toward a <strong>mediated pathway</strong>, in which educational attainment shapes long-term health conditions, and those health conditions, in turn, influence civic engagement. Education had structural importance, but its influence on civic participation was indirect and filtered through health. This mediated structure helps reconcile the strong education–health relationship with the absence of an education–turnout relationship.</p>
+<p><strong>Spatial Patterns and Geographic Inequality</strong></p>
+<p>Several maps in the analysis showed that civic conditions are not geographically random. The choropleth maps and the residual analysis revealed distinct regional patterns:</p>
+<ul>
+<li><p><strong>South Texas and the border counties</strong> consistently underperformed relative to expectations based on health, suggesting region-specific barriers to participation.</p></li>
+<li><p><strong>Rural Panhandle and North Texas counties</strong> routinely exceeded predicted turnout, indicating strong local mobilization or community norms.</p></li>
+<li><p><strong>Major metropolitan counties</strong> displayed high health and education, but not uniformly high turnout.</p></li>
+<li><p><strong>West Texas and Rio Grande Valley counties</strong> exhibited persistent structural disadvantage across health and turnout, contributing to low composite civic vitality.</p></li>
+</ul>
+<p>These spatial patterns suggest that civic inequality in Texas is shaped by both structural indicators and local context. Health conditions predict turnout well in most counties, but political culture, demographic change, and local institutions produce deviations in specific regions.</p>
+<p><strong>The Role and Limitations of the Composite Civic Index</strong></p>
+<p>The composite civic vitality index provided a useful summary of county conditions, yet its distribution was compressed compared to individual indicators. This compression reflected the fact that few counties were strong or weak across all three dimensions. Many had mixed profiles—moderate health, moderate education, and moderate turnout—resulting in mid-range composite scores. The index, however, effectively highlighted counties with cumulative advantages and those with persistent deficits.</p>
+<p>The parallel coordinates plot helped unpack this. High-index counties displayed consistently strong values across indicators, while low-index counties exhibited compounded disadvantage, particularly in health and turnout. Education varied more widely, again reinforcing its weaker role. The composite index did not replace the individual metrics but offered a way to understand how they aligned—or failed to align—within specific places.</p>
+<p><strong>Local Deviations and the Limits of Structural Models</strong></p>
+<p>Finally, the residual map and slopegraphs highlighted where the model’s predictions did not fully capture county-level behavior. These deviations were meaningful. Counties that voted more or less than expected pointed to local political dynamics that a structural model could not explain. Competitive elections, turnout drives, partisan alignment, longstanding civic habits, institutional barriers, and demographic change all likely influenced participation in these counties.</p>
+<p>Structural predictors explain a large share of turnout variation across Texas, but they do not substitute for understanding local political environments. The model fits broadly but not perfectly—and those imperfections are substantively informative.</p>
+<p>Conclusion</p>
+<p>This project examined Texas counties through the lens of the Civic Triangle, evaluating how education, health, and civic participation interact at a structural level. The analysis revealed a civic environment shaped far more by health conditions than by educational attainment, challenging common assumptions about the drivers of engagement. Although education and health were strongly related, education did not translate into higher turnout at the county level. Instead, health exerted the primary influence, serving as the structural foundation for civic participation across most of the state.</p>
+<p>The central finding is clear: <strong>healthy communities vote more</strong>. Counties with better physical and mental health outcomes displayed consistently higher turnout, regardless of county type, geographic region, or demographic context. Education showed no independent predictive power once health was considered. The Civic Triangle thus operates in a mediated fashion—education influences health, and health shapes civic engagement.</p>
+<p>The spatial analyses reinforced this interpretation. While the health–turnout relationship held statewide, consistent deviations occurred in specific regions. South Texas and border counties underperformed relative to their health profiles, suggesting localized barriers to participation. Rural counties in North and West Texas often exceeded expectations, reflecting strong mobilization traditions or cultural norms. These patterns demonstrated that structural models capture broad tendencies but cannot fully explain the political behavior of individual communities.</p>
+<p>The composite civic index provided an integrated perspective on these dynamics. Counties with cumulative advantages—high health, moderate-to-high education, and strong turnout—clustered cleanly in the upper range. Counties with persistent disadvantage fell in the lower range. Many counties, however, occupied the middle ground, with mixed profiles that reflected the complexity of civic life in a diverse state.</p>
+<p><strong>Next Steps</strong></p>
+<p>Several avenues for future analysis emerged from this work:</p>
+<ol type="1">
+<li><strong>Incorporate Additional Structural Variables.</strong></li>
+</ol>
+<p>The model focused intentionally on the Civic Triangle. Adding economic indicators, racial/ethnic composition, age structure, mobility, and partisan competition could reveal how other structural forces interact with health to influence turnout.</p>
+<ol start="2" type="1">
+<li><strong>Examine Temporal Dynamics.</strong></li>
+</ol>
+<p>Extending the analysis to multiple election cycles would show whether the health–turnout relationship persists over time, strengthens, or varies during high-salience versus low-salience elections.</p>
+<ol start="3" type="1">
+<li><strong>Explore Local Political Contexts.</strong></li>
+</ol>
+<p>Case studies of overperforming and underperforming counties could clarify how mobilization efforts, campaign intensity, competitive elections, or institutional barriers shape turnout beyond structural conditions.</p>
+<ol start="4" type="1">
+<li><strong>Assess Causal Pathways.</strong></li>
+</ol>
+<p>The mediated relationship from education to health to turnout warrants deeper causal modeling. Structural equation models or hierarchical models may clarify how these pathways operate across communities.</p>
+<ol start="5" type="1">
+<li><strong>Integrate Individual-Level Data.</strong></li>
+</ol>
+<p>Merging county-level findings with survey or voter-file data would allow testing whether the structural patterns observed here mirror individual-level behavior or diverge in important ways.</p>
+<ol start="6" type="1">
+<li><strong>Improve Measurement of Civic Capacity.</strong></li>
+</ol>
+<p>Additional metrics—volunteering, organizational membership, local governance activity—could enrich the composite civic index and offer a more complete view of the civic ecosystem.</p>
+<p>Together, these steps would deepen the understanding of civic inequality and strengthen the Civic Triangle as a framework for diagnosing community conditions. This project demonstrated that health is a foundational predictor of civic participation in Texas, but also that structural conditions alone cannot fully explain civic life. Local histories, political cultures, and institutional environments remain central. Future work will benefit from bringing these dimensions together, producing a more comprehensive view of how communities sustain, or struggle to sustain, civic vitality.</p>
+</section>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>Association of American Medical Colleges Center for Health Justice. 2022.&nbsp;"Civic Engagement: A Vital Sign of Health and Democracy." Washington, DC: AAMC.&nbsp;<a href="https://www.aamchealthjustice.org/news/polling/civic-engagement" class="uri">https://www.aamchealthjustice.org/news/polling/civic-engagement</a></p>
+<p>Centers for Disease Control and Prevention (CDC). 2022. "PLACES: Local Data for Better Health, Place Data 2022 Release." Centers for Disease Control and Prevention. Accessed [Your Access Date].&nbsp;<a href="https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-Place-Data-202/epbn-9bv3" class="uri">https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-Place-Data-202/epbn-9bv3</a>.</p>
+<p>Center for Information and Research on Civic Learning and Engagement. 2017. "Civic Deserts: America's Civic Health and the Role of Place." Medford, MA: Tufts University. <a href="https://circle.tufts.edu/latest-research/civic-deserts-60-rural-millennials-lack-access-political-life" class="uri">https://circle.tufts.edu/latest-research/civic-deserts-60-rural-millennials-lack-access-political-life</a></p>
+<p>Campbell, David E. 2006. "What Is Education's Impact on Civic and Social Engagement?" In Measuring the Effects of Education on Health and Civic Engagement: Proceedings of the Copenhagen Symposium, edited by Richard Desjardins and Tom Schuller, 25-126. Paris: OECD.</p>
+<p>Cutler, David M., and Adriana Lleras-Muney. 2008. "Education and Health:&nbsp;Evaluating Theories and Evidence." In Making Americans Healthier: Social and&nbsp;Economic Policy as Health Policy, ed.&nbsp;Robert F. Schoeni, James S. House,&nbsp;George A. Kaplan, and Harold Pollack, 29-60. New York: Russell Sage Foundation.</p>
+<p>Nelson, Christopher, Jennifer Sloan, and Anita Chandra. 2019. "Examining Civic&nbsp;Engagement Links to Health: Findings from the Literature and Implications for&nbsp;a Culture of Health." Research Report RR-3163-RWJF. Santa Monica, CA: RAND&nbsp;Corporation. <a href="https://www.rand.org/pubs/research_reports/RR3163.html" class="uri">https://www.rand.org/pubs/research_reports/RR3163.html</a></p>
+<p>Nie, Norman H., Jane Junn, and Kenneth Stehlik-Barry. 1996.&nbsp;<em>Education and Democratic Citizenship in America.</em> Chicago: University of Chicago Press.</p>
+<p>Schroeder, Jonathan, David Van Riper, Steven Manson, Katherine Knowles, Tracy Kugler, Finn Roberts, and Steven Ruggles. 2025.&nbsp;<em>IPUMS National Historical Geographic Information System: 2020 American Community Survey 5-Year Data [2016-2020], County Level.</em>&nbsp;Version 20.0 [dataset]. Minneapolis: IPUMS.&nbsp;<a href="http://doi.org/10.18128/D050.V20.0" class="uri">http://doi.org/10.18128/D050.V20.0</a>.</p>
+<p>Sutter, Jessica, and Audra Watson. 2025. "The State of Youth Civic Engagement." National Association of State Boards of Education. <a href="https://www.nasbe.org/the-state-of-youth-civic-engagement/" class="uri">https://www.nasbe.org/the-state-of-youth-civic-engagement/</a>.</p>
+<p>Texas Secretary of State. 2024. "County Election Results." Accessed November 1, 2025.&nbsp;<a href="https://results.texas-election.com/county" class="uri">https://results.texas-election.com/county</a>.</p>
+<p>U.S. Census Bureau. 2020.&nbsp;<em>TIGER/Line Shapefiles</em>. Washington, DC: U.S. Department of Commerce, Geography Division.</p>
+<p>World Health Organization and United Nations Educational, Scientific and&nbsp;Cultural Organization. 2021. Making Every School a Health-Promoting School:&nbsp;Global Standards and Indicators. Geneva: WHO.&nbsp;<a href="https://www.who.int/publications/i/item/9789240025073" class="uri">https://www.who.int/publications/i/item/9789240025073</a></p>
+</section>
+<section id="ai-disclosure" class="level1">
+<h1>AI Disclosure</h1>
+<p>Portions of this work, including code development, analytical procedures, and report structure, were generated with the assistance of AI language models. Any AI-generated content was reviewed, verified, and edited by the authors to ensure accuracy and appropriateness.</p>
+</section>
+<section id="appendix-a-list-of-variables" class="level1">
+<h1>Appendix A – List of Variables</h1>
+<section id="from-acs" class="level2">
+<h2 class="anchored" data-anchor-id="from-acs">From ACS</h2>
+<blockquote class="blockquote">
+<p>Table 9: Educational Attainment for the Population 25 Years and Over</p>
+<p>Universe: Population 25 years and over</p>
+<p>Source code: B15003</p>
+<p>NHGIS code: AMRZ</p>
+<p>AMRZM001: Total</p>
+<p>AMRZM002: No schooling completed</p>
+<p>AMRZM003: Nursery school</p>
+<p>AMRZM004: Kindergarten</p>
+<p>AMRZM005: 1st grade</p>
+<p>AMRZM006: 2nd grade</p>
+<p>AMRZM007: 3rd grade</p>
+<p>AMRZM008: 4th grade</p>
+<p>AMRZM009: 5th grade</p>
+<p>AMRZM010: 6th grade</p>
+<p>AMRZM011: 7th grade</p>
+<p>AMRZM012: 8th grade</p>
+<p>AMRZM013: 9th grade</p>
+<p>AMRZM014: 10th grade</p>
+<p>AMRZM015: 11th grade</p>
+<p>AMRZM016: 12th grade, no diploma</p>
+<p>AMRZM017: Regular high school diploma</p>
+<p>AMRZM018: GED or alternative credential</p>
+<p>AMRZM019: Some college, less than 1 year</p>
+<p>AMRZM020: Some college, 1 or more years, no degree</p>
+<p>AMRZM021: Associate's degree</p>
+<p>AMRZM022: Bachelor's degree</p>
+<p>AMRZM023: Master's degree</p>
+<p>AMRZM024: Professional school degree</p>
+<p>AMRZM025: Doctorate degree</p>
+</blockquote>
+</section>
+<section id="from-cdc-places" class="level2">
+<h2 class="anchored" data-anchor-id="from-cdc-places">From CDC Places:</h2>
+<blockquote class="blockquote">
+<p>GHLTH_CrudePrev</p>
+<p>General Health</p>
+<p>Percentage of adults reporting fair or poor general health.</p>
+<p>MHLTH_CrudePrev</p>
+<p>Poor Mental Health</p>
+<p>Percentage of adults reporting 14 or more days of poor mental health</p>
+<p>in the past 30 days.</p>
+<p>ACCESS2_CrudePrev</p>
+<p>Lack of Health Insurance</p>
+<p>Percentage of adults aged 18–64 without health insurance coverage.</p>
+<p>PHLTH_CrudePrev</p>
+<p>Poor Physical Health</p>
+<p>Percentage of adults reporting 14 or more days of poor physical health</p>
+<p>in the past 30 days.</p>
+</blockquote>
+</section>
+<section id="from-texas-secretary-of-state" class="level2">
+<h2 class="anchored" data-anchor-id="from-texas-secretary-of-state">From Texas Secretary of State</h2>
+<p>Total Votes Cast by county 2024</p>
+<p>Registered Voters by county 2024</p>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
