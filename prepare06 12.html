@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="John Glendenning">
-<meta name="dcterms.date" content="2025-12-03">
 
-<title>Assignment 06 – John Glendenning</title>
+<title>Prepare for Class 06 – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -276,8 +275,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#shiny-app" id="toc-shiny-app" class="nav-link active" data-scroll-target="#shiny-app"><span class="header-section-number">1</span> Shiny App</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">2</span> Code</a></li>
+  <li><a href="#reading" id="toc-reading" class="nav-link active" data-scroll-target="#reading"><span class="header-section-number">1</span> Reading:</a></li>
+  <li><a href="#mckinseys-charts" id="toc-mckinseys-charts" class="nav-link" data-scroll-target="#mckinseys-charts"><span class="header-section-number">2</span> McKinsey’s Charts</a></li>
+  <li><a href="#data-visualization-guides" id="toc-data-visualization-guides" class="nav-link" data-scroll-target="#data-visualization-guides"><span class="header-section-number">3</span> Data Visualization Guides</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">4</span> Notes</a></li>
   </ul>
 </nav>
 </nav>
@@ -290,7 +291,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 06</h1>
+<h1 class="title">Prepare for Class 06</h1>
 </div>
 
 
@@ -307,7 +308,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 3, 2025</p>
+      <p class="date">Invalid Date</p>
     </div>
   </div>
   
@@ -319,210 +320,76 @@ window.Quarto = {
 </header>
 
 
+<section id="reading" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Reading:</h1>
 <ol type="a">
-<li>Run the sample Shiny programs in Teams folder
-<ol type="i">
-<li>Can you change to your personal font?</li>
-<li>Hint: Append the following to the ui part of the program</li>
-</ol></li>
+<li>Cleveland, W.S. and McGill, R., 1984. Graphical perception: Theory, experimentation, and application to the development of graphical methods. <em>Journal of the American Statistical Association</em>, 79(387), pp.531-554.</li>
 </ol>
-<pre><code>tags$style(HTML("
-body {
-background-color: white;
-color: black;
-}
-h1 {
-font-family: 'Palatino', sans-serif;
-}
-.shiny-input-container {
-color: #000000;
-}"))</code></pre>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
 <ol start="2" type="a">
-<li>Build a Shiny app using the following datasets (in datasets library):
-<ol type="i">
-<li>mtcars</li>
-<li>USArrests</li>
-<li>uspop</li>
-</ol></li>
-<li>Publish the App to https://www.shinyapps.io account</li>
-<li>Build a Shiny app loaded with your own data sets</li>
-<li>Insert an iframe to your GitHub website/page to showcase your data and charts</li>
+<li>(Optional) Cleveland, William. 1993. <em>Visualizing Data</em></li>
 </ol>
-<p>Example:</p>
-<pre><code>&lt;iframe width="800" height="600"
-src="https://karlho.shinyapps.io/AnimationShiny/?_ga=
-2.2022769.1730630911.1603142774-249013827.1603142774"
-frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
-<section id="shiny-app" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Shiny App</h1>
-<iframe width="120%" height="700" src="https://john-glendenning.shinyapps.io/assignment06/" frameborder="0" allowfullscreen="">
-</iframe>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
+<ol start="3" type="a">
+<li>(Optional) KH: Chapters 2, 3, 4</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
 </section>
-<section id="code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Code</h1>
-<pre><code># app.R
-
-library(shiny)
-library(datasets)
-library(ggplot2)
-library(dplyr)
-library(readr)
-
-# ---------------------------------------------------------
-# Load Texas dataset (Part D)
-# ---------------------------------------------------------
-tx_data &lt;- read_csv(
-  "tx_county_voting_data_2020.csv",
-  show_col_types = FALSE
-)
-
-# ---------------------------------------------------------
-# Convert uspop to data frame (FIXES sliderInput error)
-# ---------------------------------------------------------
-uspop_df &lt;- data.frame(
-  Year = as.numeric(time(uspop)),
-  Population = as.numeric(uspop)
-)
-
-# ---------------------------------------------------------
-# UI
-# ---------------------------------------------------------
-ui &lt;- fluidPage(
-  
-  # ---- Custom Font Styling ----
-  tags$style(HTML("
-    body {
-      background-color: white;
-      color: black;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    h1, h2, h3 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      color: #000000;
-    }
-    .shiny-input-container {
-      color: #000000;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-  ")),
-  
-  titlePanel("Shiny Assignment — Multi-Dataset Dashboard"),
-  
-  tabsetPanel(
-    
-    # ------------------------- TAB 1 -------------------------
-    tabPanel("mtcars",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("mt_var", "Variable to Plot vs mpg",
-                             choices = names(mtcars),
-                             selected = "hp")
-               ),
-               mainPanel(
-                 plotOutput("mtcarsPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 2 -------------------------
-    tabPanel("USArrests",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("arrest_var", "Choose a variable",
-                             choices = names(USArrests),
-                             selected = "Murder")
-               ),
-               mainPanel(
-                 plotOutput("arrestsPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 3 -------------------------
-    tabPanel("uspop",
-             sidebarLayout(
-               sidebarPanel(
-                 sliderInput("pop_years", "Number of years to show:",
-                             min = 5,
-                             max = nrow(uspop_df),
-                             value = 10)
-               ),
-               mainPanel(
-                 plotOutput("popPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 4 -------------------------
-    tabPanel("Texas County Voting Data",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("tx_var", "Variable to Plot",
-                             choices = names(tx_data),
-                             selected = names(tx_data)[2])
-               ),
-               mainPanel(
-                 plotOutput("txPlot")
-               )
-             )
-    )
-  )
-)
-
-# ---------------------------------------------------------
-# SERVER
-# ---------------------------------------------------------
-server &lt;- function(input, output) {
-  
-  # ---- mtcars plot ----
-  output$mtcarsPlot &lt;- renderPlot({
-    ggplot(mtcars, aes_string(x = input$mt_var, y = "mpg")) +
-      geom_point(color = "#2f3b44") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = paste("mpg vs", input$mt_var),
-           x = input$mt_var,
-           y = "Miles per Gallon")
-  })
-  
-  # ---- USArrests plot ----
-  output$arrestsPlot &lt;- renderPlot({
-    ggplot(USArrests, aes_string(x = "UrbanPop", y = input$arrest_var)) +
-      geom_point(color = "#536cae") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = paste(input$arrest_var, "vs UrbanPop"),
-           x = "Urban Population (%)",
-           y = input$arrest_var)
-  })
-  
-  # ---- uspop time series plot ----
-  output$popPlot &lt;- renderPlot({
-    d &lt;- head(uspop_df, input$pop_years)
-    
-    ggplot(d, aes(x = Year, y = Population)) +
-      geom_line(linewidth = 1.1, color = "#3a5f7d") +
-      geom_point(size = 2, color = "#3a5f7d") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = "US Population Over Time",
-           x = "Year",
-           y = "Population")
-  })
-  
-  # ---- Texas voting plot ----
-  output$txPlot &lt;- renderPlot({
-    ggplot(tx_data, aes_string(x = "County", y = input$tx_var)) +
-      geom_col(fill = "#3a5f7d") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-      labs(title = paste("Texas Counties —", input$tx_var),
-           x = "County",
-           y = input$tx_var)
-  })
-}
-
-# ---------------------------------------------------------
-# Run App
-# ---------------------------------------------------------
-shinyApp(ui = ui, server = server)</code></pre>
+<section id="mckinseys-charts" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> McKinsey’s Charts</h1>
+<p>Review McKinsey’s <a href="https://www.mckinsey.com/featured-insights/week-in-charts">The Week in Charts</a> series and <a href="https://www.mckinsey.com/featured-insights/year-in-review/year-in-charts">2024 The year in charts</a></p>
+<ol type="a">
+<li>Comment and compare data visualization in each.</li>
+</ol>
+<p><em>The Week in Charts</em> is essentially a teaser with minimal context, minimal interactivity, and very much a <em>click-to-read-more</em> enticement. It is like a LinkedIn feed dressed in consultant gray. Each entry gestures toward insight, but full meaning is buried behind paywalled reports or vague executive summaries whose methodology is extremely suspect.</p>
+<p><em>2024: The Year in Charts</em>, on the other hand, is a retrospective with animated charts wrapped neatly into themes like AI, talent, resilience, and equity. The visuals are clean and varied such as Voronoi diagrams, treemaps, proportional circles, etc., and each chart is wrapped in polished prose that gently nudges a C-suite audience toward McKinsey’s consulting services. Every chart says: <em>Here’s a big problem. You’ll probably need help with it.</em></p>
+<p>Both are visually appealing, professionally produced, and focused more on narrative polish than exploratory depth.</p>
+<ol start="2" type="a">
+<li>What can be better innovated?</li>
+</ol>
+<p>The Year in Charts includes great storytelling with accessibility including screen reader descriptions), but the visuals themselves are static GIFs, bog standard and not interactive. There’s no data download, no tooltips, no filtering, and absolutely no what-if sliders. It is purely presentation over exploration.</p>
+<p>If they want to elevate the work beyond sales collateral:</p>
+<pre><code>•   Interactivity: Replace GIFs with dynamic dashboards. Let users filter by industry or region, scrub timelines, or export views.
+•   Transparency: Link to source data, show methodologies, and make assumptions visible, if this is truly about insight, not only influence.
+•   Comparative Tools: Let users benchmark or compare across sectors rather than passively consume the gently curated visuals.
+•   Live Updates: Include real-time metrics or trend alerts so content is fresh, unlike the 2023 forecast of Metaverse growth.</code></pre>
+<p>Final Word</p>
+<p>These charts as a group are presenting data and more about signaling thought leadership to corporate decision-makers. Sleek, safe, and softly persuasive. McKinsey doesn’t want you playing with the data. They want you calling them to solve it.</p>
+</section>
+<section id="data-visualization-guides" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Data Visualization Guides</h1>
+<p>Review these university libraries’ data visualization guides:</p>
+<ol type="a">
+<li><a href="https://guides.library.duke.edu/datavis">Duke University Library</a></li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
+<ol start="2" type="a">
+<li><a href="https://guides.lib.berkeley.edu/data-visualization">University of California Berkeley</a></li>
+</ol>
+<ul class="task-list">
+<li><p><label><input type="checkbox" checked="">Completed</label></p>
+<ol type="i">
+<li>What are the Four Pillars of Visualization?</li>
+</ol>
+<ul>
+<li>Purpose - why</li>
+<li>Content - what</li>
+<li>Structure - how</li>
+<li>Formatting - everything else</li>
+</ul></li>
+</ul>
+</section>
+<section id="notes" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Notes</h1>
+<p>Certain elements of this preparation were enhanced with an LLM including but not limited to code restructuring, commenting, and information layout.</p>
 
 
 

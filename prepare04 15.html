@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="John Glendenning">
-<meta name="dcterms.date" content="2025-12-03">
+<meta name="dcterms.date" content="2025-10-01">
 
-<title>Assignment 06 – John Glendenning</title>
+<title>Prepare for Class 04 – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -276,8 +310,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#shiny-app" id="toc-shiny-app" class="nav-link active" data-scroll-target="#shiny-app"><span class="header-section-number">1</span> Shiny App</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">2</span> Code</a></li>
+  <li><a href="#reading" id="toc-reading" class="nav-link active" data-scroll-target="#reading"><span class="header-section-number">1</span> Reading:</a></li>
+  <li><a href="#watch-the-following-video-and-write-a-one-page-note-and-review" id="toc-watch-the-following-video-and-write-a-one-page-note-and-review" class="nav-link" data-scroll-target="#watch-the-following-video-and-write-a-one-page-note-and-review"><span class="header-section-number">2</span> Watch the following video and write a one-page note and review:</a>
+  <ul>
+  <li><a href="#note-and-review" id="toc-note-and-review" class="nav-link" data-scroll-target="#note-and-review"><span class="header-section-number">2.1</span> Note and Review</a></li>
+  </ul></li>
+  <li><a href="#review-of-edward-tuftes-keynote-the-thinking-eye-and-the-future-of-data-analysis" id="toc-review-of-edward-tuftes-keynote-the-thinking-eye-and-the-future-of-data-analysis" class="nav-link" data-scroll-target="#review-of-edward-tuftes-keynote-the-thinking-eye-and-the-future-of-data-analysis"><span class="header-section-number">3</span> Review of Edward Tufte’s Keynote: <em>The Thinking Eye and the Future of Data Analysis</em></a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">4</span> Data</a></li>
+  <li><a href="#more-about-quarto" id="toc-more-about-quarto" class="nav-link" data-scroll-target="#more-about-quarto"><span class="header-section-number">5</span> More about Quarto:</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">6</span> Notes</a></li>
   </ul>
 </nav>
 </nav>
@@ -290,7 +331,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 06</h1>
+<h1 class="title">Prepare for Class 04</h1>
 </div>
 
 
@@ -307,7 +348,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 3, 2025</p>
+      <p class="date">October 1, 2025</p>
     </div>
   </div>
   
@@ -319,210 +360,239 @@ window.Quarto = {
 </header>
 
 
-<ol type="a">
-<li>Run the sample Shiny programs in Teams folder
-<ol type="i">
-<li>Can you change to your personal font?</li>
-<li>Hint: Append the following to the ui part of the program</li>
-</ol></li>
-</ol>
-<pre><code>tags$style(HTML("
-body {
-background-color: white;
-color: black;
-}
-h1 {
-font-family: 'Palatino', sans-serif;
-}
-.shiny-input-container {
-color: #000000;
-}"))</code></pre>
-<ol start="2" type="a">
-<li>Build a Shiny app using the following datasets (in datasets library):
-<ol type="i">
-<li>mtcars</li>
-<li>USArrests</li>
-<li>uspop</li>
-</ol></li>
-<li>Publish the App to https://www.shinyapps.io account</li>
-<li>Build a Shiny app loaded with your own data sets</li>
-<li>Insert an iframe to your GitHub website/page to showcase your data and charts</li>
-</ol>
-<p>Example:</p>
-<pre><code>&lt;iframe width="800" height="600"
-src="https://karlho.shinyapps.io/AnimationShiny/?_ga=
-2.2022769.1730630911.1603142774-249013827.1603142774"
-frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
-<section id="shiny-app" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Shiny App</h1>
-<iframe width="120%" height="700" src="https://john-glendenning.shinyapps.io/assignment06/" frameborder="0" allowfullscreen="">
-</iframe>
+<section id="reading" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Reading:</h1>
+<p>NY: 3, Cairo, Alberto. 2012. <em>The Functional Art: An introduction to information graphics and visualization.</em> New Riders.</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
 </section>
-<section id="code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Code</h1>
-<pre><code># app.R
+<section id="watch-the-following-video-and-write-a-one-page-note-and-review" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Watch the following video and write a one-page note and review:</h1>
+<p>Tufte, Edward. 2016. <a href="https://www.youtube.com/watch?v=rHUDJ8RyseQ">The Future of Data Analysis</a></p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed</label></li>
+</ul>
+<section id="note-and-review" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="note-and-review"><span class="header-section-number">2.1</span> Note and Review</h2>
+</section>
+</section>
+<section id="review-of-edward-tuftes-keynote-the-thinking-eye-and-the-future-of-data-analysis" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Review of Edward Tufte’s Keynote: <em>The Thinking Eye and the Future of Data Analysis</em></h1>
+<p>In the keynote at the Microsoft Machine Learning and Data Science Summit, Edward Tufte offered a reflection on data visualization. From his early days consulting with medical researchers at Stanford to his critiques of contemporary analytical failures, Tufte’s through-line was clear: data analysis must serve truth, not aesthetics, sponsors, or convenience.</p>
+<p>Tufte began with a story about Galileo, who changed astronomy from speculation to visible certainty. For Tufte, Galileo was the archetype of the thinking eye: one who sees, reasons, and communicates with clarity. He saw visualization as not just a method of presentation but as a cognitive act, where design and reasoning became inseparable. “The purpose of a data display is to assist reasoning about its content,” he stated, laying the groundwork for his critique of modern data practices. Unfortunately, “The distribution of excellence is fiercely lognormal, skewed, long-tailed.”, so we must have “an open mind, but not an empty head.”</p>
+<p>The heart of the keynote contained a warning that most published research findings are false, plagued by overfitting, p-hacking, and post hoc storytelling. He cited examples from medicine (fMRI false positives, Google Flu collapse), economics (the Phillips Curve), and even health tracking apps—pointing to a systemic inability to guard against bias. Tufte praised recent efforts by the FDA and academic journals to require pre-specified analytical plans, separating exploratory “detective work” from confirmatory research.</p>
+<p>But the talk was not just a cautionary tale. Tufte’s optimism came through his admiration of Swiss mountain maps, Pixar’s high-throughput visualizations, and even Google Maps. These were shown as examples of information-rich design. He emphasized data forensics, and open-source validation, while encouraging analysts to “go into the field to witness actual data collection.</p>
+<p>The talk closed on a productivity note. Tufte urged everyone to “start the day with your own work,” to avoid addictive time vampires like social media, and to repeatedly ask: “How do I know that?” In an age of false signals and noisy dashboards, he offers a model of analytical integrity, rooted in clarity, rigor, and quality.</p>
+</section>
+<section id="data" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Data</h1>
+<ul>
+<li>Check out the <a href="http://happyplanetindex.org">happy planet data set</a></li>
+<li>Download the data in Excel format <a href="https://happyplanetindex.org/HPI_2024_public_dataset.xlsx">link</a> and import data into RStudio.</li>
+<li>Plot hpindex using multiple charts of your choice (e.g.&nbsp;boxplot, barchart, scatterplot, etc.) Compare each by components (e.g.&nbsp;dot, line, bar, area, color).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"HPI_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 149 Columns: 11
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): Country, ISO
+dbl (9): HPI_rank, Continent, Population, Life_exp, Ladder, Carbon, HPI, CO2...
 
-library(shiny)
-library(datasets)
-library(ggplot2)
-library(dplyr)
-library(readr)
-
-# ---------------------------------------------------------
-# Load Texas dataset (Part D)
-# ---------------------------------------------------------
-tx_data &lt;- read_csv(
-  "tx_county_voting_data_2020.csv",
-  show_col_types = FALSE
-)
-
-# ---------------------------------------------------------
-# Convert uspop to data frame (FIXES sliderInput error)
-# ---------------------------------------------------------
-uspop_df &lt;- data.frame(
-  Year = as.numeric(time(uspop)),
-  Population = as.numeric(uspop)
-)
-
-# ---------------------------------------------------------
-# UI
-# ---------------------------------------------------------
-ui &lt;- fluidPage(
-  
-  # ---- Custom Font Styling ----
-  tags$style(HTML("
-    body {
-      background-color: white;
-      color: black;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    h1, h2, h3 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      color: #000000;
-    }
-    .shiny-input-container {
-      color: #000000;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-  ")),
-  
-  titlePanel("Shiny Assignment — Multi-Dataset Dashboard"),
-  
-  tabsetPanel(
-    
-    # ------------------------- TAB 1 -------------------------
-    tabPanel("mtcars",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("mt_var", "Variable to Plot vs mpg",
-                             choices = names(mtcars),
-                             selected = "hp")
-               ),
-               mainPanel(
-                 plotOutput("mtcarsPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 2 -------------------------
-    tabPanel("USArrests",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("arrest_var", "Choose a variable",
-                             choices = names(USArrests),
-                             selected = "Murder")
-               ),
-               mainPanel(
-                 plotOutput("arrestsPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 3 -------------------------
-    tabPanel("uspop",
-             sidebarLayout(
-               sidebarPanel(
-                 sliderInput("pop_years", "Number of years to show:",
-                             min = 5,
-                             max = nrow(uspop_df),
-                             value = 10)
-               ),
-               mainPanel(
-                 plotOutput("popPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 4 -------------------------
-    tabPanel("Texas County Voting Data",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("tx_var", "Variable to Plot",
-                             choices = names(tx_data),
-                             selected = names(tx_data)[2])
-               ),
-               mainPanel(
-                 plotOutput("txPlot")
-               )
-             )
-    )
-  )
-)
-
-# ---------------------------------------------------------
-# SERVER
-# ---------------------------------------------------------
-server &lt;- function(input, output) {
-  
-  # ---- mtcars plot ----
-  output$mtcarsPlot &lt;- renderPlot({
-    ggplot(mtcars, aes_string(x = input$mt_var, y = "mpg")) +
-      geom_point(color = "#2f3b44") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = paste("mpg vs", input$mt_var),
-           x = input$mt_var,
-           y = "Miles per Gallon")
-  })
-  
-  # ---- USArrests plot ----
-  output$arrestsPlot &lt;- renderPlot({
-    ggplot(USArrests, aes_string(x = "UrbanPop", y = input$arrest_var)) +
-      geom_point(color = "#536cae") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = paste(input$arrest_var, "vs UrbanPop"),
-           x = "Urban Population (%)",
-           y = input$arrest_var)
-  })
-  
-  # ---- uspop time series plot ----
-  output$popPlot &lt;- renderPlot({
-    d &lt;- head(uspop_df, input$pop_years)
-    
-    ggplot(d, aes(x = Year, y = Population)) +
-      geom_line(linewidth = 1.1, color = "#3a5f7d") +
-      geom_point(size = 2, color = "#3a5f7d") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = "US Population Over Time",
-           x = "Year",
-           y = "Population")
-  })
-  
-  # ---- Texas voting plot ----
-  output$txPlot &lt;- renderPlot({
-    ggplot(tx_data, aes_string(x = "County", y = input$tx_var)) +
-      geom_col(fill = "#3a5f7d") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-      labs(title = paste("Texas Counties —", input$tx_var),
-           x = "County",
-           y = input$tx_var)
-  })
-}
-
-# ---------------------------------------------------------
-# Run App
-# ---------------------------------------------------------
-shinyApp(ui = ui, server = server)</code></pre>
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with missing HPI</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_hpi <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>(HPI)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># === 1. Boxplot of HPI by Continent ===</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_hpi, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Continent), <span class="at">y =</span> HPI, <span class="at">fill =</span> <span class="fu">factor</span>(Continent))) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot of HPI by Continent"</span>, <span class="at">x =</span> <span class="st">"Continent"</span>, <span class="at">y =</span> <span class="st">"HPI"</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="prepare04_files/figure-html/plot_comp-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === 2. Bar chart: average HPI by Continent ===</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_hpi, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Continent), <span class="at">y =</span> HPI, <span class="at">fill =</span> <span class="fu">factor</span>(Continent))) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"bar"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average HPI by Continent"</span>, <span class="at">x =</span> <span class="st">"Continent"</span>, <span class="at">y =</span> <span class="st">"Average HPI"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="prepare04_files/figure-html/plot_comp-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === 3. Scatterplot: HPI vs Life Expectancy ===</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_hpi, <span class="fu">aes</span>(<span class="at">x =</span> Life_exp, <span class="at">y =</span> HPI, <span class="at">color =</span> <span class="fu">factor</span>(Continent))) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of HPI vs Life Expectancy"</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Life Expectancy"</span>, <span class="at">y =</span> <span class="st">"HPI"</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="prepare04_files/figure-html/plot_comp-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === 4. Line chart: Top 30 Countries by HPI ===</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_hpi <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(HPI)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Country, <span class="sc">-</span>HPI), <span class="at">y =</span> HPI, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top 30 Countries by HPI"</span>, <span class="at">x =</span> <span class="st">"Country"</span>, <span class="at">y =</span> <span class="st">"HPI"</span>) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="prepare04_files/figure-html/plot_comp-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === 5. KDE Area Plot: Distribution of HPI ===</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_hpi, <span class="fu">aes</span>(<span class="at">x =</span> HPI)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of HPI (KDE Area Plot)"</span>, <span class="at">x =</span> <span class="st">"HPI"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="prepare04_files/figure-html/plot_comp-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === 6 Histogram with Normal Curve Overlay ===</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_hpi, <span class="fu">aes</span>(<span class="at">x =</span> HPI)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(df_hpi<span class="sc">$</span>HPI), <span class="at">sd =</span> <span class="fu">sd</span>(df_hpi<span class="sc">$</span>HPI)),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of HPI with Normal Curve"</span>, <span class="at">x =</span> <span class="st">"HPI"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="prepare04_files/figure-html/plot_comp-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 14%">
+<col style="width: 5%">
+<col style="width: 15%">
+<col style="width: 9%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Plot</th>
+<th style="text-align: center;">Dot</th>
+<th style="text-align: center;">Line</th>
+<th style="text-align: center;">Bar</th>
+<th style="text-align: center;">Area</th>
+<th style="text-align: center;">Color Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. Boxplot of HPI by Continent</td>
+<td style="text-align: center;">Yes (outliers)</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes (box width)</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Continent (fill)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2. Average HPI by Continent</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes (mean)</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Continent (fill)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. Scatterplot of HPI vs Life Expectancy</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Continent (color)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4. Line Chart: Top 30 Countries by HPI</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">None (static)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5. KDE Area Plot: Distribution of HPI</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">None (static)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6. Histogram with Curve Overlay</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes (bins)</td>
+<td style="text-align: center;">Optional</td>
+<td style="text-align: center;">None (static)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="more-about-quarto" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> More about Quarto:</h1>
+<ol type="a">
+<li>Learn | improve your knowledge about Quarto from Tom Mock (RStudio) in two- hour workshop: <a href="https://jthomasmock.github.io/quarto-2hr-webinar/">slides</a> | <a href="https://www.youtube.com/watch?v=yvi5uXQMvu4">YouTube</a></li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Completed (2:22)</label></li>
+</ul>
+</section>
+<section id="notes" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Notes</h1>
+<p>Certain elements of this preparation were enhanced with an LLM including code restructuring, commenting, and information layout.</p>
 
 
 

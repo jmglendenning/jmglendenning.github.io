@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="John Glendenning">
-<meta name="dcterms.date" content="2025-12-03">
 
-<title>Assignment 06 – John Glendenning</title>
+<title>SPARQL – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,7 +127,7 @@ window.Quarto = {
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./SPARQL.html"> 
+    <a class="nav-link active" href="./SPARQL.html" aria-current="page"> 
 <span class="menu-text">SPARQL</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -276,8 +274,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#shiny-app" id="toc-shiny-app" class="nav-link active" data-scroll-target="#shiny-app"><span class="header-section-number">1</span> Shiny App</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">2</span> Code</a></li>
+  <li><a href="#endpoint" id="toc-endpoint" class="nav-link active" data-scroll-target="#endpoint">Endpoint</a></li>
+  <li><a href="#headers-prefixes" id="toc-headers-prefixes" class="nav-link" data-scroll-target="#headers-prefixes">Headers / Prefixes</a></li>
+  <li><a href="#sample-queries" id="toc-sample-queries" class="nav-link" data-scroll-target="#sample-queries">Sample Queries</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  <li><a href="#mint-data-only" id="toc-mint-data-only" class="nav-link" data-scroll-target="#mint-data-only">Mint Data Only</a></li>
+  <li><a href="#coins-in-hoard" id="toc-coins-in-hoard" class="nav-link" data-scroll-target="#coins-in-hoard">Coins in Hoard</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -290,26 +295,14 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 06</h1>
+<h1 class="title">SPARQL</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>John Glendenning </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 3, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -319,213 +312,161 @@ window.Quarto = {
 </header>
 
 
-<ol type="a">
-<li>Run the sample Shiny programs in Teams folder
-<ol type="i">
-<li>Can you change to your personal font?</li>
-<li>Hint: Append the following to the ui part of the program</li>
-</ol></li>
-</ol>
-<pre><code>tags$style(HTML("
-body {
-background-color: white;
-color: black;
-}
-h1 {
-font-family: 'Palatino', sans-serif;
-}
-.shiny-input-container {
-color: #000000;
-}"))</code></pre>
-<ol start="2" type="a">
-<li>Build a Shiny app using the following datasets (in datasets library):
-<ol type="i">
-<li>mtcars</li>
-<li>USArrests</li>
-<li>uspop</li>
-</ol></li>
-<li>Publish the App to https://www.shinyapps.io account</li>
-<li>Build a Shiny app loaded with your own data sets</li>
-<li>Insert an iframe to your GitHub website/page to showcase your data and charts</li>
-</ol>
-<p>Example:</p>
-<pre><code>&lt;iframe width="800" height="600"
-src="https://karlho.shinyapps.io/AnimationShiny/?_ga=
-2.2022769.1730630911.1603142774-249013827.1603142774"
-frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
-<section id="shiny-app" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Shiny App</h1>
-<iframe width="120%" height="700" src="https://john-glendenning.shinyapps.io/assignment06/" frameborder="0" allowfullscreen="">
-</iframe>
+<section id="endpoint" class="level1">
+<h1>Endpoint</h1>
+<p><a href="https://nomisma.org/sparql/">Nomisma SPARQL Endpoint</a></p>
 </section>
-<section id="code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Code</h1>
-<pre><code># app.R
-
-library(shiny)
-library(datasets)
-library(ggplot2)
-library(dplyr)
-library(readr)
-
-# ---------------------------------------------------------
-# Load Texas dataset (Part D)
-# ---------------------------------------------------------
-tx_data &lt;- read_csv(
-  "tx_county_voting_data_2020.csv",
-  show_col_types = FALSE
-)
-
-# ---------------------------------------------------------
-# Convert uspop to data frame (FIXES sliderInput error)
-# ---------------------------------------------------------
-uspop_df &lt;- data.frame(
-  Year = as.numeric(time(uspop)),
-  Population = as.numeric(uspop)
-)
-
-# ---------------------------------------------------------
-# UI
-# ---------------------------------------------------------
-ui &lt;- fluidPage(
-  
-  # ---- Custom Font Styling ----
-  tags$style(HTML("
-    body {
-      background-color: white;
-      color: black;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    h1, h2, h3 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      color: #000000;
-    }
-    .shiny-input-container {
-      color: #000000;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-  ")),
-  
-  titlePanel("Shiny Assignment — Multi-Dataset Dashboard"),
-  
-  tabsetPanel(
-    
-    # ------------------------- TAB 1 -------------------------
-    tabPanel("mtcars",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("mt_var", "Variable to Plot vs mpg",
-                             choices = names(mtcars),
-                             selected = "hp")
-               ),
-               mainPanel(
-                 plotOutput("mtcarsPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 2 -------------------------
-    tabPanel("USArrests",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("arrest_var", "Choose a variable",
-                             choices = names(USArrests),
-                             selected = "Murder")
-               ),
-               mainPanel(
-                 plotOutput("arrestsPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 3 -------------------------
-    tabPanel("uspop",
-             sidebarLayout(
-               sidebarPanel(
-                 sliderInput("pop_years", "Number of years to show:",
-                             min = 5,
-                             max = nrow(uspop_df),
-                             value = 10)
-               ),
-               mainPanel(
-                 plotOutput("popPlot")
-               )
-             )
-    ),
-    
-    # ------------------------- TAB 4 -------------------------
-    tabPanel("Texas County Voting Data",
-             sidebarLayout(
-               sidebarPanel(
-                 selectInput("tx_var", "Variable to Plot",
-                             choices = names(tx_data),
-                             selected = names(tx_data)[2])
-               ),
-               mainPanel(
-                 plotOutput("txPlot")
-               )
-             )
-    )
-  )
-)
-
-# ---------------------------------------------------------
-# SERVER
-# ---------------------------------------------------------
-server &lt;- function(input, output) {
-  
-  # ---- mtcars plot ----
-  output$mtcarsPlot &lt;- renderPlot({
-    ggplot(mtcars, aes_string(x = input$mt_var, y = "mpg")) +
-      geom_point(color = "#2f3b44") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = paste("mpg vs", input$mt_var),
-           x = input$mt_var,
-           y = "Miles per Gallon")
-  })
-  
-  # ---- USArrests plot ----
-  output$arrestsPlot &lt;- renderPlot({
-    ggplot(USArrests, aes_string(x = "UrbanPop", y = input$arrest_var)) +
-      geom_point(color = "#536cae") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = paste(input$arrest_var, "vs UrbanPop"),
-           x = "Urban Population (%)",
-           y = input$arrest_var)
-  })
-  
-  # ---- uspop time series plot ----
-  output$popPlot &lt;- renderPlot({
-    d &lt;- head(uspop_df, input$pop_years)
-    
-    ggplot(d, aes(x = Year, y = Population)) +
-      geom_line(linewidth = 1.1, color = "#3a5f7d") +
-      geom_point(size = 2, color = "#3a5f7d") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      labs(title = "US Population Over Time",
-           x = "Year",
-           y = "Population")
-  })
-  
-  # ---- Texas voting plot ----
-  output$txPlot &lt;- renderPlot({
-    ggplot(tx_data, aes_string(x = "County", y = input$tx_var)) +
-      geom_col(fill = "#3a5f7d") +
-      theme_minimal(base_family = "Helvetica Neue") +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-      labs(title = paste("Texas Counties —", input$tx_var),
-           x = "County",
-           y = input$tx_var)
-  })
+<section id="headers-prefixes" class="level1">
+<h1>Headers / Prefixes</h1>
+<p>Remember to add all these <strong>PREFIX</strong> to the SPARQL queries.</p>
+<pre><code>PREFIX crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+PREFIX dcmitype: &lt;http://purl.org/dc/dcmitype/&gt;
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+PREFIX nm: &lt;http://nomisma.org/id/&gt;
+PREFIX nmo: &lt;http://nomisma.org/ontology#&gt;
+PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
+</section>
+<section id="sample-queries" class="level1">
+<h1>Sample Queries</h1>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
+<p>Modified from R networks analysis / works</p>
+<pre><code>SELECT DISTINCT ?hoard ?mint ?mintlat ?mintlong WHERE {
+{
+  ?hoard void:inDataset &lt;http://numismatics.org/chrr/&gt; ;
+  dcterms:tableOfContents/nmo:hasTypeSeriesItem/nmo:hasMint ?mint .
 }
+UNION
+{ ?hoard a nmo:Hoard ;
+dcterms:tableOfContents [ nmo:hasTypeSeriesItem ?tsi ] .
+?tsi nmo:hasMint ?mint .
+}
+OPTIONAL { ?hoard nmo:hasFindspot [
+geo:lat ?hoardlat ;
+geo:long ?hoardlong ] }
+OPTIONAL { ?mint geo:location [
+geo:lat ?mintlat ;
+geo:long ?mintlong ] }
+}</code></pre>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
+<pre><code>PREFIX crm:   &lt;http://www.cidoc-crm.org/cidoc-crm/&gt;
+PREFIX dcterms:&lt;http://purl.org/dc/terms/&gt;
+PREFIX foaf:  &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX geo:   &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+PREFIX nm:    &lt;http://nomisma.org/id/&gt;
+PREFIX nmo:   &lt;http://nomisma.org/ontology#&gt;
+PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX skos:  &lt;http://www.w3.org/2004/02/skos/core#&gt;
 
-# ---------------------------------------------------------
-# Run App
-# ---------------------------------------------------------
-shinyApp(ui = ui, server = server)</code></pre>
+SELECT DISTINCT
+  ?hoard ?hoardID
+  ?type (COALESCE(?tlabel, ?plabel, ?rlabel, ?flabel) AS ?typeLabel)
+  (STR(?startDate) AS ?startYear)
+  (STR(?endDate)   AS ?endYear)
+  ?denomination ?denominationLabel
+  ?material     ?materialLabel
+  ?mint ?mintID
+  ?hoardLat ?hoardLong
+  ?mintLat  ?mintLong
+WHERE {
+  # --- All CHRR hoards and their contents ---
+  ?hoard a nmo:Hoard ;
+         dcterms:tableOfContents ?contents .
+  FILTER(STRSTARTS(STR(?hoard), "http://numismatics.org/chrr/id/"))
+  BIND(REPLACE(STR(?hoard), "http://numismatics.org/chrr/id/", "") AS ?hoardID)
+
+  # --- Mint (via type-series item or directly on contents) ---
+  {
+    ?contents nmo:hasTypeSeriesItem ?type .
+    ?type     nmo:hasMint ?mint .
+  }
+  UNION
+  {
+    ?contents nmo:hasMint ?mint .
+    OPTIONAL { ?contents nmo:hasTypeSeriesItem ?type }
+  }
+  BIND(REPLACE(STR(?mint), "http://nomisma.org/id/", "") AS ?mintID)
+
+  # --- Type labels &amp; dates (from CRRO type, when present) ---
+  OPTIONAL { ?type dcterms:title    ?tlabel  FILTER(LANG(?tlabel)  = "" || LANGMATCHES(LANG(?tlabel),  "en")) }
+  OPTIONAL { ?type skos:prefLabel   ?plabel  FILTER(LANG(?plabel) = "" || LANGMATCHES(LANG(?plabel), "en")) }
+  OPTIONAL { ?type rdfs:label       ?rlabel  FILTER(LANG(?rlabel)  = "" || LANGMATCHES(LANG(?rlabel),  "en")) }
+  OPTIONAL { ?type foaf:name        ?flabel  FILTER(LANG(?flabel)  = "" || LANGMATCHES(LANG(?flabel),  "en")) }
+
+  OPTIONAL { ?type nmo:hasStartDate ?startDate }
+  OPTIONAL { ?type nmo:hasEndDate   ?endDate }
+
+  # --- Denomination &amp; material (from type) ---
+  OPTIONAL {
+    ?type nmo:hasDenomination ?denomination .
+    OPTIONAL {
+      ?denomination (skos:prefLabel|rdfs:label|foaf:name) ?denominationLabel .
+      FILTER(LANG(?denominationLabel) = "" || LANGMATCHES(LANG(?denominationLabel), "en"))
+    }
+  }
+  OPTIONAL {
+    ?type nmo:hasMaterial ?material .
+    OPTIONAL {
+      ?material (skos:prefLabel|rdfs:label|foaf:name) ?materialLabel .
+      FILTER(LANG(?materialLabel) = "" || LANGMATCHES(LANG(?materialLabel), "en"))
+    }
+  }
+
+  # --- Mint geolocation (Nomisma places) ---
+  OPTIONAL {
+    { ?mint geo:location [ geo:lat ?mintLat ;  geo:long ?mintLong ] }
+    UNION
+    { ?mint geo:lat ?mintLat . ?mint geo:long ?mintLong }
+  }
+
+  # --- Hoard geolocation (several fallbacks common in CHRR) ---
+  OPTIONAL {
+    # A) Direct findspot place with geo
+    { ?hoard nmo:hasFindspot ?hPlace .
+      { ?hPlace geo:location [ geo:lat ?hoardLat ; geo:long ?hoardLong ] }
+      UNION
+      { ?hPlace geo:lat ?hoardLat . ?hPlace geo:long ?hoardLong }
+    }
+    UNION
+    # B) CRM region chain with geo
+    {
+      ?hoard nmo:hasFindspot [
+        crm:P7_took_place_at [
+          crm:P89_falls_within ?region
+        ]
+      ] .
+      ?region geo:location ?spatialThing .
+      ?spatialThing geo:lat ?hoardLat ; geo:long ?hoardLong .
+    }
+    UNION
+    # C) dcterms:spatial to a place with geo
+    {
+      ?hoard dcterms:spatial ?hPlace2 .
+      { ?hPlace2 geo:location [ geo:lat ?hoardLat ; geo:long ?hoardLong ] }
+      UNION
+      { ?hPlace2 geo:lat ?hoardLat . ?hPlace2 geo:long ?hoardLong }
+    }
+  }
+}
+ORDER BY ?hoardID ?typeLabel ?type ?mint</code></pre>
+</section>
+<section id="mint-data-only" class="level2">
+<h2 class="anchored" data-anchor-id="mint-data-only">Mint Data Only</h2>
+</section>
+<section id="coins-in-hoard" class="level2">
+<h2 class="anchored" data-anchor-id="coins-in-hoard">Coins in Hoard</h2>
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
