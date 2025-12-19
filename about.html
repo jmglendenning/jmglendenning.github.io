@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -118,147 +152,45 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./posts/index.html"> 
-<span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./SPARQL.html"> 
-<span class="menu-text">SPARQL</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-epps6356" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">EPPS6356</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-epps6356">    
-        <li>
-    <a class="dropdown-item" href="./prepare01.html">
- <span class="dropdown-text">Prepare for Class 01</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare02.html">
- <span class="dropdown-text">Prepare for Class 02</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare03.html">
- <span class="dropdown-text">Prepare for Class 03</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare04.html">
- <span class="dropdown-text">Prepare for Class 04</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare05.html">
- <span class="dropdown-text">Prepare for Class 05</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare06.html">
- <span class="dropdown-text">Prepare for Class 06</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare07.html">
- <span class="dropdown-text">Prepare for Class 07</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare08.html">
- <span class="dropdown-text">Prepare for Class 08</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare09.html">
- <span class="dropdown-text">Prepare for Class 09</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./prepare10.html">
- <span class="dropdown-text">Prepare for Class 10</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment01.html">
- <span class="dropdown-text">Assignment 01</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment02.html">
- <span class="dropdown-text">Assignment 02</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment03.html">
- <span class="dropdown-text">Assignment 03</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment04.html">
- <span class="dropdown-text">Assignment 04</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment05.html">
- <span class="dropdown-text">Assignment 05</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment06.html">
- <span class="dropdown-text">Assignment 06</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./in-class03.html">
- <span class="dropdown-text">In-Class Competition 03</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Project</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-project">    
-        <li>
-    <a class="dropdown-item" href="./final_epps6356.html">
- <span class="dropdown-text">Final Report</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://john-glendenning.shinyapps.io/FinalReportGraphics/">
- <span class="dropdown-text">Texas Civic Vitality Explorer</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./project01.html">
- <span class="dropdown-text">Brainstorming</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./project02.html">
- <span class="dropdown-text">Proposal</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./project03.html">
- <span class="dropdown-text">Visualizations</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./project04.html">
- <span class="dropdown-text">Additional</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./project05.html">
- <span class="dropdown-text">Rethink</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./project06.html">
- <span class="dropdown-text">Final</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-coins" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Coins</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-coins">    
         <li>
-    <a class="dropdown-item" href="./coins01.html">
- <span class="dropdown-text">Brainstorming</span></a>
+    <a class="dropdown-item" href="./master_proposal.html">
+ <span class="dropdown-text">Proposal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./circulation_age.html">
+ <span class="dropdown-text">Circulation Age</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./circulation_model.html">
+ <span class="dropdown-text">Circulation Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./directional_flow.html">
+ <span class="dropdown-text">Directional Flow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hmm_analysis.html">
+ <span class="dropdown-text">HMM Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lrr_compositional.html">
+ <span class="dropdown-text">LRR Compositional</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lrr_mint_date.html">
+ <span class="dropdown-text">LRR Mint Date</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lrr_temporal.html">
+ <span class="dropdown-text">LRR Temporal</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -298,17 +230,13 @@ window.Quarto = {
 </header>
 
 
-<p>I am a Master’s student at the University of Texas at Dallas studying GIS.</p>
-<p>I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:</p>
-<ul>
-<li>Roman villa site location analysis and predictive modeling</li>
-<li>A Python implementation of Geomorphons</li>
-<li>Application of low-cost drones to disaster efforts</li>
-<li>Python-based DEM-based spatial statistics via WCS data-acquisition</li>
-</ul>
-<p>I am currently working on analyzing Roman coin hoards.</p>
-<p>I have a strong interest in remote sensing and tools.</p>
-<p><a href="https://jmglendenning.github.io/John_Glendenning.pdf">Curriculum vitae</a></p>
+<p>About this site</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
 
 
 

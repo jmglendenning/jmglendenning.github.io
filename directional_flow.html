@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="John Glendenning">
+<meta name="dcterms.date" content="2025-12-18">
+
+<title>Directional Flow Analysis: Anisotropic Monetary Reach – John Glendenning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-139cbef34d804e98ad06db27d9e59963.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="robots" content="noindex, nofollow">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">John Glendenning</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-coins" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Coins</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-coins">    
+        <li>
+    <a class="dropdown-item" href="./master_proposal.html">
+ <span class="dropdown-text">Proposal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./circulation_age.html">
+ <span class="dropdown-text">Circulation Age</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./circulation_model.html">
+ <span class="dropdown-text">Circulation Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./directional_flow.html">
+ <span class="dropdown-text">Directional Flow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hmm_analysis.html">
+ <span class="dropdown-text">HMM Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lrr_compositional.html">
+ <span class="dropdown-text">LRR Compositional</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lrr_mint_date.html">
+ <span class="dropdown-text">LRR Mint Date</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lrr_temporal.html">
+ <span class="dropdown-text">LRR Temporal</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rationale" id="toc-rationale" class="nav-link active" data-scroll-target="#rationale"><span class="header-section-number">1</span> Rationale</a>
+  <ul class="collapse">
+  <li><a href="#beyond-radial-distance" id="toc-beyond-radial-distance" class="nav-link" data-scroll-target="#beyond-radial-distance"><span class="header-section-number">1.1</span> Beyond Radial Distance</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions"><span class="header-section-number">1.2</span> Research Questions</a></li>
+  <li><a href="#analytical-approach" id="toc-analytical-approach" class="nav-link" data-scroll-target="#analytical-approach"><span class="header-section-number">1.3</span> Analytical Approach</a></li>
+  </ul></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">2</span> Setup</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data"><span class="header-section-number">3</span> Load Data</a></li>
+  <li><a href="#prepare-spatial-data-with-polar-coordinates" id="toc-prepare-spatial-data-with-polar-coordinates" class="nav-link" data-scroll-target="#prepare-spatial-data-with-polar-coordinates"><span class="header-section-number">4</span> Prepare Spatial Data with Polar Coordinates</a>
+  <ul class="collapse">
+  <li><a href="#add-regime-assignment" id="toc-add-regime-assignment" class="nav-link" data-scroll-target="#add-regime-assignment"><span class="header-section-number">4.1</span> Add Regime Assignment</a></li>
+  </ul></li>
+  <li><a href="#visualize-spatial-distribution" id="toc-visualize-spatial-distribution" class="nav-link" data-scroll-target="#visualize-spatial-distribution"><span class="header-section-number">5</span> Visualize Spatial Distribution</a>
+  <ul class="collapse">
+  <li><a href="#polar-plot-hoards-by-bearing-and-distance" id="toc-polar-plot-hoards-by-bearing-and-distance" class="nav-link" data-scroll-target="#polar-plot-hoards-by-bearing-and-distance"><span class="header-section-number">5.1</span> Polar Plot: Hoards by Bearing and Distance</a></li>
+  <li><a href="#sector-distribution" id="toc-sector-distribution" class="nav-link" data-scroll-target="#sector-distribution"><span class="header-section-number">5.2</span> Sector Distribution</a></li>
+  </ul></li>
+  <li><a href="#test-for-anisotropy" id="toc-test-for-anisotropy" class="nav-link" data-scroll-target="#test-for-anisotropy"><span class="header-section-number">6</span> Test for Anisotropy</a>
+  <ul class="collapse">
+  <li><a href="#model-1-isotropic-distance-only" id="toc-model-1-isotropic-distance-only" class="nav-link" data-scroll-target="#model-1-isotropic-distance-only"><span class="header-section-number">6.1</span> Model 1: Isotropic (Distance Only)</a></li>
+  <li><a href="#model-2-anisotropic-distance-direction" id="toc-model-2-anisotropic-distance-direction" class="nav-link" data-scroll-target="#model-2-anisotropic-distance-direction"><span class="header-section-number">6.2</span> Model 2: Anisotropic (Distance + Direction)</a></li>
+  <li><a href="#model-3-full-interaction-direction-dependent-distance-effect" id="toc-model-3-full-interaction-direction-dependent-distance-effect" class="nav-link" data-scroll-target="#model-3-full-interaction-direction-dependent-distance-effect"><span class="header-section-number">6.3</span> Model 3: Full Interaction (Direction-Dependent Distance Effect)</a></li>
+  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison"><span class="header-section-number">6.4</span> Model Comparison</a></li>
+  </ul></li>
+  <li><a href="#directional-distance-decay-by-sector" id="toc-directional-distance-decay-by-sector" class="nav-link" data-scroll-target="#directional-distance-decay-by-sector"><span class="header-section-number">7</span> Directional Distance-Decay by Sector</a>
+  <ul class="collapse">
+  <li><a href="#fit-separate-models-per-sector" id="toc-fit-separate-models-per-sector" class="nav-link" data-scroll-target="#fit-separate-models-per-sector"><span class="header-section-number">7.1</span> Fit Separate Models per Sector</a></li>
+  <li><a href="#visualize-sector-specific-distance-effects" id="toc-visualize-sector-specific-distance-effects" class="nav-link" data-scroll-target="#visualize-sector-specific-distance-effects"><span class="header-section-number">7.2</span> Visualize Sector-Specific Distance Effects</a></li>
+  </ul></li>
+  <li><a href="#rose-diagram-rome-proportion-by-bearing" id="toc-rose-diagram-rome-proportion-by-bearing" class="nav-link" data-scroll-target="#rose-diagram-rome-proportion-by-bearing"><span class="header-section-number">8</span> Rose Diagram: Rome Proportion by Bearing</a></li>
+  <li><a href="#regime-specific-directional-analysis" id="toc-regime-specific-directional-analysis" class="nav-link" data-scroll-target="#regime-specific-directional-analysis"><span class="header-section-number">9</span> Regime-Specific Directional Analysis</a>
+  <ul class="collapse">
+  <li><a href="#does-anisotropy-differ-by-regime" id="toc-does-anisotropy-differ-by-regime" class="nav-link" data-scroll-target="#does-anisotropy-differ-by-regime"><span class="header-section-number">9.1</span> Does Anisotropy Differ by Regime?</a></li>
+  <li><a href="#sector-effects-by-regime" id="toc-sector-effects-by-regime" class="nav-link" data-scroll-target="#sector-effects-by-regime"><span class="header-section-number">9.2</span> Sector Effects by Regime</a></li>
+  <li><a href="#distance-decay-by-sector-and-regime" id="toc-distance-decay-by-sector-and-regime" class="nav-link" data-scroll-target="#distance-decay-by-sector-and-regime"><span class="header-section-number">9.3</span> Distance-Decay by Sector AND Regime</a></li>
+  </ul></li>
+  <li><a href="#visualize-directional-patterns" id="toc-visualize-directional-patterns" class="nav-link" data-scroll-target="#visualize-directional-patterns"><span class="header-section-number">10</span> Visualize Directional Patterns</a>
+  <ul class="collapse">
+  <li><a href="#map-sectors-with-rome-proportion" id="toc-map-sectors-with-rome-proportion" class="nav-link" data-scroll-target="#map-sectors-with-rome-proportion"><span class="header-section-number">10.1</span> Map: Sectors with Rome Proportion</a></li>
+  <li><a href="#polar-heatmap-rome-by-distance-and-bearing" id="toc-polar-heatmap-rome-by-distance-and-bearing" class="nav-link" data-scroll-target="#polar-heatmap-rome-by-distance-and-bearing"><span class="header-section-number">10.2</span> Polar Heatmap: Rome % by Distance and Bearing</a></li>
+  </ul></li>
+  <li><a href="#summary-directional-patterns" id="toc-summary-directional-patterns" class="nav-link" data-scroll-target="#summary-directional-patterns"><span class="header-section-number">11</span> Summary: Directional Patterns</a></li>
+  <li><a href="#export" id="toc-export" class="nav-link" data-scroll-target="#export"><span class="header-section-number">12</span> Export</a></li>
+  <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info"><span class="header-section-number">13</span> Session Info</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Directional Flow Analysis: Anisotropic Monetary Reach</h1>
+<p class="subtitle lead">Testing Whether Rome’s Influence Varied by Direction</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Glendenning </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 18, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="rationale" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Rationale</h1>
+<section id="beyond-radial-distance" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="beyond-radial-distance"><span class="header-section-number">1.1</span> Beyond Radial Distance</h2>
+<p>Previous analyses tested whether Rome’s monetary penetration declined with distance. But distance alone assumes <strong>isotropic diffusion</strong>—equal spread in all directions.</p>
+<p>Real monetary circulation likely followed:</p>
+<ul>
+<li><strong>Trade routes</strong> (coastal, river valleys)</li>
+<li><strong>Military roads</strong> (Via Appia, Via Egnatia)</li>
+<li><strong>Geographic barriers</strong> (Alps, sea crossings)</li>
+</ul>
+</section>
+<section id="research-questions" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="research-questions"><span class="header-section-number">1.2</span> Research Questions</h2>
+<ol type="1">
+<li><strong>Was Rome’s reach isotropic?</strong> Or did coins flow preferentially in certain directions?</li>
+<li><strong>Which directions showed strongest Rome penetration?</strong></li>
+<li><strong>Did directional patterns change across monetary regimes?</strong></li>
+<li><strong>Can we identify likely circulation corridors?</strong></li>
+</ol>
+</section>
+<section id="analytical-approach" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="analytical-approach"><span class="header-section-number">1.3</span> Analytical Approach</h2>
+<ol type="1">
+<li><strong>Polar decomposition</strong>: Convert hex positions to (distance, bearing) from Rome</li>
+<li><strong>Directional regression</strong>: Test <code>Rome % ~ distance * direction</code> interactions</li>
+<li><strong>Sector analysis</strong>: Compare Rome penetration across geographic sectors</li>
+<li><strong>Regime comparison</strong>: Test whether anisotropy differs pre/post transition</li>
+</ol>
+</section>
+</section>
+<section id="setup" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Setup</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="load-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Load Data</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>chrr_file <span class="ot">&lt;-</span> <span class="st">"/Users/john/Library/Mobile Documents/com~apple~CloudDocs/Home/John/GIS/Roman Italy GIS/Coin Project/data/chrr_data.csv"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data_loaded <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(chrr_file)) {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  chrr_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(chrr_file, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  data_loaded <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"✓ Loaded"</span>, <span class="fu">nrow</span>(chrr_raw), <span class="st">"rows</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  alt_paths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"/mnt/user-data/uploads/chrr_data.csv"</span>, <span class="st">"~/chrr_data.csv"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (alt <span class="cf">in</span> alt_paths) {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">file.exists</span>(alt)) {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      chrr_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(alt, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      data_loaded <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>✓ Loaded 31951 rows</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>data_loaded) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"⚠ Data not found</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">knit_exit</span>()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="prepare-spatial-data-with-polar-coordinates" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Prepare Spatial Data with Polar Coordinates</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Flag Rome and parse dates</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>chrr_prep <span class="ot">&lt;-</span> chrr_raw <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">is_rome =</span> mint_id <span class="sc">==</span> <span class="st">"rome"</span> <span class="sc">|</span> <span class="fu">str_detect</span>(mint_uri, <span class="st">"/id/rome$"</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">is_rome =</span> <span class="fu">replace_na</span>(is_rome, <span class="cn">FALSE</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tpq_year =</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(<span class="fu">as.character</span>(hoard_tpq))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(hoard_lat), <span class="sc">!</span><span class="fu">is.na</span>(hoard_long))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Rome coordinates</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>rome_lon <span class="ot">&lt;-</span> <span class="fl">12.4964</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>rome_lat <span class="ot">&lt;-</span> <span class="fl">41.9028</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate to hoard level with polar coordinates</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>hoard_polar <span class="ot">&lt;-</span> chrr_prep <span class="sc">%&gt;%</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(hoard_id, hoard_lat, hoard_long, tpq_year) <span class="sc">%&gt;%</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_types =</span> <span class="fu">n</span>(),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_rome =</span> <span class="fu">sum</span>(is_rome),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_rome =</span> n_rome <span class="sc">/</span> n_types,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Distance (approximate km using degree conversion)</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">delta_lon =</span> hoard_long <span class="sc">-</span> rome_lon,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">delta_lat =</span> hoard_lat <span class="sc">-</span> rome_lat,</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">dist_km =</span> <span class="fu">sqrt</span>((delta_lon <span class="sc">*</span> <span class="dv">111</span> <span class="sc">*</span> <span class="fu">cos</span>(rome_lat <span class="sc">*</span> pi<span class="sc">/</span><span class="dv">180</span>))<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>                   (delta_lat <span class="sc">*</span> <span class="dv">111</span>)<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Bearing from Rome (0 = North, 90 = East, etc.)</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">bearing_rad =</span> <span class="fu">atan2</span>(delta_lon <span class="sc">*</span> <span class="fu">cos</span>(rome_lat <span class="sc">*</span> pi<span class="sc">/</span><span class="dv">180</span>), delta_lat),</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">bearing_deg =</span> (bearing_rad <span class="sc">*</span> <span class="dv">180</span> <span class="sc">/</span> pi <span class="sc">+</span> <span class="dv">360</span>) <span class="sc">%%</span> <span class="dv">360</span>,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Trigonometric components for regression</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">cos_bearing =</span> <span class="fu">cos</span>(bearing_rad),</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">sin_bearing =</span> <span class="fu">sin</span>(bearing_rad),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Quadrant sectors</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">sector =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="dv">315</span> <span class="sc">|</span> bearing_deg <span class="sc">&lt;</span> <span class="dv">45</span> <span class="sc">~</span> <span class="st">"N: Gaul/Alps"</span>,</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="dv">135</span> <span class="sc">~</span> <span class="st">"E: Balkans/East"</span>,</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="dv">135</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="dv">225</span> <span class="sc">~</span> <span class="st">"S: Africa/Sicily"</span>,</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="dv">225</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="dv">315</span> <span class="sc">~</span> <span class="st">"W: Iberia/Sardinia"</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Finer sectors (8 directions)</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">sector_8 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="fl">337.5</span> <span class="sc">|</span> bearing_deg <span class="sc">&lt;</span> <span class="fl">22.5</span> <span class="sc">~</span> <span class="st">"N"</span>,</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="fl">22.5</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="fl">67.5</span> <span class="sc">~</span> <span class="st">"NE"</span>,</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="fl">67.5</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="fl">112.5</span> <span class="sc">~</span> <span class="st">"E"</span>,</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="fl">112.5</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="fl">157.5</span> <span class="sc">~</span> <span class="st">"SE"</span>,</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="fl">157.5</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="fl">202.5</span> <span class="sc">~</span> <span class="st">"S"</span>,</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="fl">202.5</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="fl">247.5</span> <span class="sc">~</span> <span class="st">"SW"</span>,</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="fl">247.5</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="fl">292.5</span> <span class="sc">~</span> <span class="st">"W"</span>,</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>      bearing_deg <span class="sc">&gt;=</span> <span class="fl">292.5</span> <span class="sc">&amp;</span> bearing_deg <span class="sc">&lt;</span> <span class="fl">337.5</span> <span class="sc">~</span> <span class="st">"NW"</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Hoards with polar coordinates:"</span>, <span class="fu">nrow</span>(hoard_polar), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hoards with polar coordinates: 466 </code></pre>
+</div>
+</div>
+<section id="add-regime-assignment" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="add-regime-assignment"><span class="header-section-number">4.1</span> Add Regime Assignment</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>period_breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="dv">150</span>, <span class="sc">-</span><span class="dv">100</span>, <span class="sc">-</span><span class="dv">50</span>, <span class="dv">14</span>, <span class="cn">Inf</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>hoard_polar <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tpq_period =</span> <span class="fu">cut</span>(tpq_year, <span class="at">breaks =</span> period_breaks,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1: Early Republic"</span>, <span class="st">"2: Late Republic I"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"3: Late Republic II"</span>, <span class="st">"4: Triumviral/Augustan"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"5: Early Imperial"</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">right =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">regime =</span> <span class="fu">case_when</span>(</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      tpq_year <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">100</span> <span class="sc">~</span> <span class="st">"Pre-transition"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      tpq_year <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">100</span> <span class="sc">&amp;</span> tpq_year <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">50</span> <span class="sc">~</span> <span class="st">"Transition"</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>      tpq_year <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">50</span> <span class="sc">~</span> <span class="st">"Post-transition"</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(tpq_period))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="visualize-spatial-distribution" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Visualize Spatial Distribution</h1>
+<section id="polar-plot-hoards-by-bearing-and-distance" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="polar-plot-hoards-by-bearing-and-distance"><span class="header-section-number">5.1</span> Polar Plot: Hoards by Bearing and Distance</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hoard_polar, <span class="fu">aes</span>(<span class="at">x =</span> bearing_deg, <span class="at">y =</span> dist_km)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> p_rome, <span class="at">size =</span> n_types), <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">name =</span> <span class="st">"Rome %"</span>, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">option =</span> <span class="st">"plasma"</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">name =</span> <span class="st">"N types"</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>, <span class="at">start =</span> <span class="sc">-</span>pi<span class="sc">/</span><span class="dv">2</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">315</span>, <span class="dv">45</span>),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span>, <span class="st">"NE"</span>, <span class="st">"E"</span>, <span class="st">"SE"</span>, <span class="st">"S"</span>, <span class="st">"SW"</span>, <span class="st">"W"</span>, <span class="st">"NW"</span>)) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Hoard Distribution: Polar View from Rome"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Distance (km) from center; bearing around circumference"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bearing from Rome"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Distance (km)"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="directional_flow_files/figure-html/polar-distribution-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sector-distribution" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sector-distribution"><span class="header-section-number">5.2</span> Sector Distribution</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sector_summary <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sector) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_hoards =</span> <span class="fu">n</span>(),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_dist =</span> <span class="fu">mean</span>(dist_km),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_rome_pct =</span> <span class="fu">weighted.mean</span>(p_rome, n_types) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_rome_pct =</span> <span class="fu">median</span>(p_rome) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_types =</span> <span class="fu">sum</span>(n_types),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_rome_pct))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(sector_summary, <span class="at">digits =</span> <span class="dv">1</span>, </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sector"</span>, <span class="st">"N Hoards"</span>, <span class="st">"Mean Dist (km)"</span>, </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Mean Rome %"</span>, <span class="st">"Median Rome %"</span>, <span class="st">"Total Types"</span>),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Rome penetration by geographic sector"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Rome penetration by geographic sector</caption>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 11%">
+<col style="width: 18%">
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sector</th>
+<th style="text-align: right;">N Hoards</th>
+<th style="text-align: right;">Mean Dist (km)</th>
+<th style="text-align: right;">Mean Rome %</th>
+<th style="text-align: right;">Median Rome %</th>
+<th style="text-align: right;">Total Types</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">E: Balkans/East</td>
+<td style="text-align: right;">222</td>
+<td style="text-align: right;">818.8</td>
+<td style="text-align: right;">89.4</td>
+<td style="text-align: right;">93.6</td>
+<td style="text-align: right;">12777</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S: Africa/Sicily</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">506.1</td>
+<td style="text-align: right;">89.1</td>
+<td style="text-align: right;">94.4</td>
+<td style="text-align: right;">1499</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W: Iberia/Sardinia</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">1223.5</td>
+<td style="text-align: right;">87.4</td>
+<td style="text-align: right;">93.6</td>
+<td style="text-align: right;">6653</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N: Gaul/Alps</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: right;">414.7</td>
+<td style="text-align: right;">86.6</td>
+<td style="text-align: right;">91.6</td>
+<td style="text-align: right;">9503</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="test-for-anisotropy" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Test for Anisotropy</h1>
+<section id="model-1-isotropic-distance-only" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="model-1-isotropic-distance-only"><span class="header-section-number">6.1</span> Model 1: Isotropic (Distance Only)</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Baseline: distance only</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>model_iso <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(n_rome, n_types <span class="sc">-</span> n_rome) <span class="sc">~</span> dist_km,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> hoard_polar</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_iso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = cbind(n_rome, n_types - n_rome) ~ dist_km, family = binomial(link = "logit"), 
+    data = hoard_polar)
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  2.055e+00  3.072e-02  66.883   &lt;2e-16 ***
+dist_km     -8.031e-05  3.568e-05  -2.251   0.0244 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 3220.1  on 462  degrees of freedom
+Residual deviance: 3215.1  on 461  degrees of freedom
+AIC: 4455.4
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">AIC (isotropic):"</span>, <span class="fu">AIC</span>(model_iso), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+AIC (isotropic): 4455.434 </code></pre>
+</div>
+</div>
+</section>
+<section id="model-2-anisotropic-distance-direction" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="model-2-anisotropic-distance-direction"><span class="header-section-number">6.2</span> Model 2: Anisotropic (Distance + Direction)</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add directional components</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>model_aniso <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(n_rome, n_types <span class="sc">-</span> n_rome) <span class="sc">~</span> dist_km <span class="sc">+</span> cos_bearing <span class="sc">+</span> sin_bearing,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> hoard_polar</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_aniso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = cbind(n_rome, n_types - n_rome) ~ dist_km + cos_bearing + 
+    sin_bearing, family = binomial(link = "logit"), data = hoard_polar)
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  2.063e+00  3.610e-02  57.151  &lt; 2e-16 ***
+dist_km     -6.487e-05  3.853e-05  -1.684 0.092255 .  
+cos_bearing -1.158e-01  3.333e-02  -3.474 0.000513 ***
+sin_bearing  1.238e-01  2.417e-02   5.121 3.03e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 3220.1  on 462  degrees of freedom
+Residual deviance: 3164.7  on 459  degrees of freedom
+AIC: 4409
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">AIC (anisotropic):"</span>, <span class="fu">AIC</span>(model_aniso), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+AIC (anisotropic): 4409.009 </code></pre>
+</div>
+</div>
+</section>
+<section id="model-3-full-interaction-direction-dependent-distance-effect" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="model-3-full-interaction-direction-dependent-distance-effect"><span class="header-section-number">6.3</span> Model 3: Full Interaction (Direction-Dependent Distance Effect)</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance effect varies by direction</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model_interact <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(n_rome, n_types <span class="sc">-</span> n_rome) <span class="sc">~</span> dist_km <span class="sc">*</span> cos_bearing <span class="sc">+</span> dist_km <span class="sc">*</span> sin_bearing,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> hoard_polar</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_interact)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = cbind(n_rome, n_types - n_rome) ~ dist_km * cos_bearing + 
+    dist_km * sin_bearing, family = binomial(link = "logit"), 
+    data = hoard_polar)
+
+Coefficients:
+                      Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)          1.994e+00  3.713e-02  53.697  &lt; 2e-16 ***
+dist_km              2.913e-05  4.035e-05   0.722 0.470313    
+cos_bearing          3.010e-01  6.233e-02   4.829 1.37e-06 ***
+sin_bearing          1.883e-01  5.455e-02   3.452 0.000556 ***
+dist_km:cos_bearing -8.818e-04  1.081e-04  -8.154 3.52e-16 ***
+dist_km:sin_bearing  5.032e-05  5.501e-05   0.915 0.360355    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 3220.1  on 462  degrees of freedom
+Residual deviance: 3098.3  on 457  degrees of freedom
+AIC: 4346.7
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">AIC (interaction):"</span>, <span class="fu">AIC</span>(model_interact), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+AIC (interaction): 4346.673 </code></pre>
+</div>
+</div>
+</section>
+<section id="model-comparison" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="model-comparison"><span class="header-section-number">6.4</span> Model Comparison</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare models</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>model_comp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">c</span>(<span class="st">"Isotropic (distance only)"</span>, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Anisotropic (distance + direction)"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Interaction (direction-dependent distance)"</span>),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">AIC =</span> <span class="fu">c</span>(<span class="fu">AIC</span>(model_iso), <span class="fu">AIC</span>(model_aniso), <span class="fu">AIC</span>(model_interact)),</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">df =</span> <span class="fu">c</span>(<span class="fu">df.residual</span>(model_iso), <span class="fu">df.residual</span>(model_aniso), <span class="fu">df.residual</span>(model_interact))</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delta_AIC =</span> AIC <span class="sc">-</span> <span class="fu">min</span>(AIC))</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(model_comp, <span class="at">digits =</span> <span class="dv">1</span>, <span class="at">caption =</span> <span class="st">"Model comparison (lower AIC = better fit)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Model comparison (lower AIC = better fit)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">AIC</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">delta_AIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Isotropic (distance only)</td>
+<td style="text-align: right;">4455.4</td>
+<td style="text-align: right;">461</td>
+<td style="text-align: right;">108.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anisotropic (distance + direction)</td>
+<td style="text-align: right;">4409.0</td>
+<td style="text-align: right;">459</td>
+<td style="text-align: right;">62.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Interaction (direction-dependent distance)</td>
+<td style="text-align: right;">4346.7</td>
+<td style="text-align: right;">457</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Likelihood ratio test</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Likelihood ratio test: Isotropic vs Anisotropic</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Likelihood ratio test: Isotropic vs Anisotropic</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_iso, model_aniso, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table
+
+Model 1: cbind(n_rome, n_types - n_rome) ~ dist_km
+Model 2: cbind(n_rome, n_types - n_rome) ~ dist_km + cos_bearing + sin_bearing
+  Resid. Df Resid. Dev Df Deviance  Pr(&gt;Chi)    
+1       461     3215.1                          
+2       459     3164.7  2   50.425 1.123e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Likelihood ratio test: Anisotropic vs Interaction</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Likelihood ratio test: Anisotropic vs Interaction</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_aniso, model_interact, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table
+
+Model 1: cbind(n_rome, n_types - n_rome) ~ dist_km + cos_bearing + sin_bearing
+Model 2: cbind(n_rome, n_types - n_rome) ~ dist_km * cos_bearing + dist_km * 
+    sin_bearing
+  Resid. Df Resid. Dev Df Deviance  Pr(&gt;Chi)    
+1       459     3164.7                          
+2       457     3098.3  2   66.336 3.938e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="directional-distance-decay-by-sector" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Directional Distance-Decay by Sector</h1>
+<section id="fit-separate-models-per-sector" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="fit-separate-models-per-sector"><span class="header-section-number">7.1</span> Fit Separate Models per Sector</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sector_models <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sector)) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sector) <span class="sc">%&gt;%</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">glm</span>(</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cbind</span>(n_rome, n_types <span class="sc">-</span> n_rome) <span class="sc">~</span> dist_km,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> .x</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    )),</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">tidy =</span> <span class="fu">map</span>(model, tidy)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tidy) <span class="sc">%&gt;%</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"dist_km"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sector, estimate, std.error, p.value) <span class="sc">%&gt;%</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">or_100km =</span> <span class="fu">exp</span>(estimate <span class="sc">*</span> <span class="dv">100</span>),</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">sig =</span> <span class="fu">ifelse</span>(p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">"*"</span>, <span class="st">""</span>)</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(sector_models, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">0</span>),</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sector"</span>, <span class="st">"Coefficient"</span>, <span class="st">"SE"</span>, <span class="st">"p-value"</span>, <span class="st">"OR/100km"</span>, <span class="st">"Sig"</span>),</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Distance effect by sector (* = p &lt; 0.05)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Distance effect by sector (* = p &lt; 0.05)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sector</th>
+<th style="text-align: right;">Coefficient</th>
+<th style="text-align: right;">SE</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: right;">OR/100km</th>
+<th style="text-align: left;">Sig</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">E: Balkans/East</td>
+<td style="text-align: right;">-0.00008</td>
+<td style="text-align: right;">0.00007</td>
+<td style="text-align: right;">0.2204</td>
+<td style="text-align: right;">0.9918</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">W: Iberia/Sardinia</td>
+<td style="text-align: right;">-0.00009</td>
+<td style="text-align: right;">0.00007</td>
+<td style="text-align: right;">0.2264</td>
+<td style="text-align: right;">0.9912</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N: Gaul/Alps</td>
+<td style="text-align: right;">-0.00127</td>
+<td style="text-align: right;">0.00015</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">0.8807</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S: Africa/Sicily</td>
+<td style="text-align: right;">-0.00014</td>
+<td style="text-align: right;">0.00045</td>
+<td style="text-align: right;">0.7616</td>
+<td style="text-align: right;">0.9864</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="visualize-sector-specific-distance-effects" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="visualize-sector-specific-distance-effects"><span class="header-section-number">7.2</span> Visualize Sector-Specific Distance Effects</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hoard_polar, <span class="fu">aes</span>(<span class="at">x =</span> dist_km, <span class="at">y =</span> p_rome)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> n_types), <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"glm"</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">"binomial"</span>),</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sector, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">name =</span> <span class="st">"N types"</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distance-Decay by Sector"</span>,</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Does Rome's reach decline equally in all directions?"</span>,</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance from Rome (km)"</span>,</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Rome proportion"</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="directional_flow_files/figure-html/sector-distance-plots-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="rose-diagram-rome-proportion-by-bearing" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Rose Diagram: Rome Proportion by Bearing</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin by bearing</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>bearing_bins <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bearing_bin =</span> <span class="fu">cut</span>(bearing_deg, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dv">30</span>),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">include.lowest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">15</span>, <span class="dv">345</span>, <span class="dv">30</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bearing_bin) <span class="sc">%&gt;%</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_hoards =</span> <span class="fu">n</span>(),</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_rome =</span> <span class="fu">weighted.mean</span>(p_rome, n_types),</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_types =</span> <span class="fu">sum</span>(n_types),</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bearing_mid =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(bearing_bin)))</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bearing_bins, <span class="fu">aes</span>(<span class="at">x =</span> bearing_mid, <span class="at">y =</span> mean_rome)) <span class="sc">+</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> mean_rome), <span class="at">width =</span> <span class="dv">25</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(hoard_polar<span class="sc">$</span>p_rome, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey30"</span>) <span class="sc">+</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>, <span class="at">start =</span> <span class="sc">-</span>pi<span class="sc">/</span><span class="dv">2</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">330</span>, <span class="dv">30</span>),</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span>, <span class="st">"NNE"</span>, <span class="st">"NE"</span>, <span class="st">"ENE"</span>, <span class="st">"E"</span>, <span class="st">"ESE"</span>, </span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"SE"</span>, <span class="st">"SSE"</span>, <span class="st">"S"</span>, <span class="st">"SSW"</span>, <span class="st">"SW"</span>, <span class="st">"WSW"</span>)) <span class="sc">+</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"plasma"</span>, <span class="at">name =</span> <span class="st">"Rome %"</span>) <span class="sc">+</span></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Rose Diagram: Rome Proportion by Bearing"</span>,</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dashed line = overall mean; longer bars = higher Rome %"</span>,</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Rome proportion"</span></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="directional_flow_files/figure-html/rose-diagram-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="regime-specific-directional-analysis" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Regime-Specific Directional Analysis</h1>
+<section id="does-anisotropy-differ-by-regime" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="does-anisotropy-differ-by-regime"><span class="header-section-number">9.1</span> Does Anisotropy Differ by Regime?</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>regime_direction <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(regime)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(regime) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Isotropic model</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_iso =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">glm</span>(</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cbind</span>(n_rome, n_types <span class="sc">-</span> n_rome) <span class="sc">~</span> dist_km,</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> binomial, <span class="at">data =</span> .x</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    )),</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Anisotropic model</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_aniso =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">glm</span>(</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cbind</span>(n_rome, n_types <span class="sc">-</span> n_rome) <span class="sc">~</span> dist_km <span class="sc">+</span> cos_bearing <span class="sc">+</span> sin_bearing,</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> binomial, <span class="at">data =</span> .x</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    )),</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compare</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">aic_iso =</span> <span class="fu">map_dbl</span>(model_iso, AIC),</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">aic_aniso =</span> <span class="fu">map_dbl</span>(model_aniso, AIC),</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">aic_diff =</span> aic_iso <span class="sc">-</span> aic_aniso,  <span class="co"># Positive = anisotropic better</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># LRT p-value</span></span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">lrt_p =</span> <span class="fu">map2_dbl</span>(model_iso, model_aniso, <span class="sc">~</span>{</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>      test <span class="ot">&lt;-</span> <span class="fu">anova</span>(.x, .y, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>      test<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;Chi)</span><span class="st">`</span>[<span class="dv">2</span>]</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(regime, aic_iso, aic_aniso, aic_diff, lrt_p) <span class="sc">%&gt;%</span></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">aniso_sig =</span> <span class="fu">ifelse</span>(lrt_p <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">"Yes*"</span>, <span class="st">"No"</span>)</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(regime_direction, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">0</span>),</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Regime"</span>, <span class="st">"AIC (iso)"</span>, <span class="st">"AIC (aniso)"</span>, <span class="st">"ΔAIC"</span>, <span class="st">"LRT p"</span>, <span class="st">"Aniso Sig?"</span>),</span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Does adding direction improve model fit? (by regime)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Does adding direction improve model fit? (by regime)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Regime</th>
+<th style="text-align: right;">AIC (iso)</th>
+<th style="text-align: right;">AIC (aniso)</th>
+<th style="text-align: right;">ΔAIC</th>
+<th style="text-align: right;">LRT p</th>
+<th style="text-align: left;">Aniso Sig?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Post-transition</td>
+<td style="text-align: right;">2363.2</td>
+<td style="text-align: right;">2249.7</td>
+<td style="text-align: right;">113.4</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: left;">Yes*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Transition</td>
+<td style="text-align: right;">588.3</td>
+<td style="text-align: right;">588.3</td>
+<td style="text-align: right;">-0.1</td>
+<td style="text-align: right;">0.1420</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pre-transition</td>
+<td style="text-align: right;">507.1</td>
+<td style="text-align: right;">495.1</td>
+<td style="text-align: right;">11.9</td>
+<td style="text-align: right;">0.0003</td>
+<td style="text-align: left;">Yes*</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sector-effects-by-regime" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="sector-effects-by-regime"><span class="header-section-number">9.2</span> Sector Effects by Regime</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sector_regime <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(regime), <span class="sc">!</span><span class="fu">is.na</span>(sector)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(regime, sector) <span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_hoards =</span> <span class="fu">n</span>(),</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_rome =</span> <span class="fu">weighted.mean</span>(p_rome, n_types) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_types =</span> <span class="fu">sum</span>(n_types),</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sector_regime, <span class="fu">aes</span>(<span class="at">x =</span> sector, <span class="at">y =</span> mean_rome, <span class="at">fill =</span> regime)) <span class="sc">+</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Pre-transition"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Transition"</span> <span class="ot">=</span> <span class="st">"gold"</span>,</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Post-transition"</span> <span class="ot">=</span> <span class="st">"darkred"</span>)) <span class="sc">+</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Rome Proportion by Sector and Regime"</span>,</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"How did directional patterns change across the transition?"</span>,</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean Rome %"</span>,</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Regime"</span></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">30</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="directional_flow_files/figure-html/sector-by-regime-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="distance-decay-by-sector-and-regime" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="distance-decay-by-sector-and-regime"><span class="header-section-number">9.3</span> Distance-Decay by Sector AND Regime</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sector_regime_models <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(regime), <span class="sc">!</span><span class="fu">is.na</span>(sector)) <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(regime, sector) <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span>  <span class="co"># Need minimum sample</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">tryCatch</span>(</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">glm</span>(<span class="fu">cbind</span>(n_rome, n_types <span class="sc">-</span> n_rome) <span class="sc">~</span> dist_km,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">family =</span> binomial, <span class="at">data =</span> .x),</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    )),</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">tidy =</span> <span class="fu">map</span>(model, <span class="sc">~</span><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(.x)) <span class="fu">tidy</span>(.x) <span class="cf">else</span> <span class="cn">NULL</span>)</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">map_lgl</span>(tidy, is.null)) <span class="sc">%&gt;%</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tidy) <span class="sc">%&gt;%</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"dist_km"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(regime, sector, estimate, std.error, p.value) <span class="sc">%&gt;%</span></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">or_100km =</span> <span class="fu">exp</span>(estimate <span class="sc">*</span> <span class="dv">100</span>),</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">sig =</span> <span class="fu">ifelse</span>(p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">"*"</span>, <span class="st">""</span>)</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(sector_regime_models, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">0</span>),</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Regime"</span>, <span class="st">"Sector"</span>, <span class="st">"Coef"</span>, <span class="st">"SE"</span>, <span class="st">"p"</span>, <span class="st">"OR/100km"</span>, <span class="st">""</span>),</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Distance effect by sector and regime"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Distance effect by sector and regime</caption>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 26%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Regime</th>
+<th style="text-align: left;">Sector</th>
+<th style="text-align: right;">Coef</th>
+<th style="text-align: right;">SE</th>
+<th style="text-align: right;">p</th>
+<th style="text-align: right;">OR/100km</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Post-transition</td>
+<td style="text-align: left;">E: Balkans/East</td>
+<td style="text-align: right;">0.00028</td>
+<td style="text-align: right;">0.00009</td>
+<td style="text-align: right;">0.0012</td>
+<td style="text-align: right;">1.0282</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Post-transition</td>
+<td style="text-align: left;">W: Iberia/Sardinia</td>
+<td style="text-align: right;">-0.00027</td>
+<td style="text-align: right;">0.00009</td>
+<td style="text-align: right;">0.0042</td>
+<td style="text-align: right;">0.9732</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Transition</td>
+<td style="text-align: left;">E: Balkans/East</td>
+<td style="text-align: right;">0.00022</td>
+<td style="text-align: right;">0.00015</td>
+<td style="text-align: right;">0.1269</td>
+<td style="text-align: right;">1.0225</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pre-transition</td>
+<td style="text-align: left;">W: Iberia/Sardinia</td>
+<td style="text-align: right;">0.00075</td>
+<td style="text-align: right;">0.00037</td>
+<td style="text-align: right;">0.0422</td>
+<td style="text-align: right;">1.0781</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Post-transition</td>
+<td style="text-align: left;">N: Gaul/Alps</td>
+<td style="text-align: right;">-0.00067</td>
+<td style="text-align: right;">0.00017</td>
+<td style="text-align: right;">0.0001</td>
+<td style="text-align: right;">0.9350</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Transition</td>
+<td style="text-align: left;">W: Iberia/Sardinia</td>
+<td style="text-align: right;">0.00028</td>
+<td style="text-align: right;">0.00014</td>
+<td style="text-align: right;">0.0482</td>
+<td style="text-align: right;">1.0286</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pre-transition</td>
+<td style="text-align: left;">S: Africa/Sicily</td>
+<td style="text-align: right;">-0.00195</td>
+<td style="text-align: right;">0.00254</td>
+<td style="text-align: right;">0.4413</td>
+<td style="text-align: right;">0.8225</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Transition</td>
+<td style="text-align: left;">N: Gaul/Alps</td>
+<td style="text-align: right;">-0.00001</td>
+<td style="text-align: right;">0.00063</td>
+<td style="text-align: right;">0.9847</td>
+<td style="text-align: right;">0.9988</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pre-transition</td>
+<td style="text-align: left;">E: Balkans/East</td>
+<td style="text-align: right;">0.00035</td>
+<td style="text-align: right;">0.00055</td>
+<td style="text-align: right;">0.5287</td>
+<td style="text-align: right;">1.0354</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pre-transition</td>
+<td style="text-align: left;">N: Gaul/Alps</td>
+<td style="text-align: right;">-0.00126</td>
+<td style="text-align: right;">0.00059</td>
+<td style="text-align: right;">0.0337</td>
+<td style="text-align: right;">0.8819</td>
+<td style="text-align: left;">*</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="visualize-directional-patterns" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Visualize Directional Patterns</h1>
+<section id="map-sectors-with-rome-proportion" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="map-sectors-with-rome-proportion"><span class="header-section-number">10.1</span> Map: Sectors with Rome Proportion</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthdata)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get land</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>land <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>) <span class="sc">%&gt;%</span> <span class="fu">st_union</span>()</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create sf from hoards</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>hoard_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(hoard_polar, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"hoard_long"</span>, <span class="st">"hoard_lat"</span>), </span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">crs =</span> <span class="dv">4326</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>hoard_bbox <span class="ot">&lt;-</span> <span class="fu">st_bbox</span>(hoard_sf)</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Rome point</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>rome_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(<span class="fu">tibble</span>(<span class="at">lon =</span> rome_lon, <span class="at">lat =</span> rome_lat),</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> land, <span class="at">fill =</span> <span class="st">"grey95"</span>, <span class="at">color =</span> <span class="st">"grey80"</span>) <span class="sc">+</span></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> hoard_sf, <span class="fu">aes</span>(<span class="at">color =</span> p_rome, <span class="at">shape =</span> sector), </span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rome_sf, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">shape =</span> <span class="dv">8</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">stroke =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">name =</span> <span class="st">"Rome %"</span>, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(),</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>                        <span class="at">option =</span> <span class="st">"plasma"</span>) <span class="sc">+</span></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"N: Gaul/Alps"</span> <span class="ot">=</span> <span class="dv">16</span>, <span class="st">"E: Balkans/East"</span> <span class="ot">=</span> <span class="dv">17</span>,</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"S: Africa/Sicily"</span> <span class="ot">=</span> <span class="dv">15</span>, <span class="st">"W: Iberia/Sardinia"</span> <span class="ot">=</span> <span class="dv">18</span>)) <span class="sc">+</span></span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(hoard_bbox[<span class="st">"xmin"</span>] <span class="sc">-</span> <span class="dv">2</span>, hoard_bbox[<span class="st">"xmax"</span>] <span class="sc">+</span> <span class="dv">2</span>),</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">ylim =</span> <span class="fu">c</span>(hoard_bbox[<span class="st">"ymin"</span>] <span class="sc">-</span> <span class="dv">2</span>, hoard_bbox[<span class="st">"ymax"</span>] <span class="sc">+</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Hoard Locations by Sector and Rome Proportion"</span>,</span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Star = Rome mint"</span>,</span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">"Sector"</span></span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(), <span class="at">axis.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="directional_flow_files/figure-html/map-sectors-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="polar-heatmap-rome-by-distance-and-bearing" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="polar-heatmap-rome-by-distance-and-bearing"><span class="header-section-number">10.2</span> Polar Heatmap: Rome % by Distance and Bearing</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin by distance and bearing</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>polar_bins <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">dist_bin =</span> <span class="fu">cut</span>(dist_km, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">3000</span>, <span class="dv">300</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">bearing_bin =</span> <span class="fu">cut</span>(bearing_deg, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dv">45</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dist_bin, bearing_bin) <span class="sc">%&gt;%</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_rome =</span> <span class="fu">weighted.mean</span>(p_rome, n_types),</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">3</span>)  <span class="co"># Minimum sample</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract bin midpoints</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>polar_bins <span class="ot">&lt;-</span> polar_bins <span class="sc">%&gt;%</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">dist_mid =</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(<span class="fu">as.character</span>(dist_bin), <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)) <span class="sc">+</span> <span class="dv">150</span>,</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">bearing_mid =</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(<span class="fu">as.character</span>(bearing_bin), <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)) <span class="sc">+</span> <span class="fl">22.5</span></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(polar_bins, <span class="fu">aes</span>(<span class="at">x =</span> bearing_mid, <span class="at">y =</span> dist_mid, <span class="at">fill =</span> mean_rome)) <span class="sc">+</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="dv">45</span>, <span class="at">height =</span> <span class="dv">300</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(mean_rome <span class="sc">*</span> <span class="dv">100</span>)), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>, <span class="at">start =</span> <span class="sc">-</span>pi<span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">name =</span> <span class="st">"Rome %"</span>, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(),</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>                       <span class="at">option =</span> <span class="st">"plasma"</span>) <span class="sc">+</span></span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">22.5</span>, <span class="fl">337.5</span>, <span class="dv">45</span>),</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span>, <span class="st">"NE"</span>, <span class="st">"E"</span>, <span class="st">"SE"</span>, <span class="st">"S"</span>, <span class="st">"SW"</span>, <span class="st">"W"</span>, <span class="st">"NW"</span>)) <span class="sc">+</span></span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Polar Heatmap: Rome Proportion"</span>,</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"By distance (rings) and bearing (sectors) from Rome"</span>,</span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Distance (km)"</span></span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="directional_flow_files/figure-html/polar-heatmap-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="summary-directional-patterns" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Summary: Directional Patterns</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Best model</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> model_comp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(delta_AIC <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(Model)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Strongest/weakest sectors</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>strongest <span class="ot">&lt;-</span> sector_summary <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(mean_rome_pct, <span class="at">n =</span> <span class="dv">1</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>weakest <span class="ot">&lt;-</span> sector_summary <span class="sc">%&gt;%</span> <span class="fu">slice_min</span>(mean_rome_pct, <span class="at">n =</span> <span class="dv">1</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="st">================================================================</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="st">DIRECTIONAL FLOW ANALYSIS: KEY FINDINGS</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="st">================================================================</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="st">1. ANISOTROPY TEST</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+================================================================
+DIRECTIONAL FLOW ANALYSIS: KEY FINDINGS
+================================================================
+
+1. ANISOTROPY TEST</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"   Best fitting model:"</span>, best_model, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Best fitting model: Interaction (direction-dependent distance) </code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"   Interpretation: Rome's reach"</span>, </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"Isotropic"</span>, best_model), <span class="st">"was roughly equal in all directions"</span>,</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">"varied significantly by direction"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Interpretation: Rome's reach varied significantly by direction </code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="st">2. SECTOR COMPARISON</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+2. SECTOR COMPARISON</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"   Highest Rome %:"</span>, strongest<span class="sc">$</span>sector, <span class="st">"("</span>, <span class="fu">round</span>(strongest<span class="sc">$</span>mean_rome_pct, <span class="dv">1</span>), <span class="st">"%)</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Highest Rome %: E: Balkans/East ( 89.4 %)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"   Lowest Rome %:"</span>, weakest<span class="sc">$</span>sector, <span class="st">"("</span>, <span class="fu">round</span>(weakest<span class="sc">$</span>mean_rome_pct, <span class="dv">1</span>), <span class="st">"%)</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Lowest Rome %: N: Gaul/Alps ( 86.6 %)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="st">3. REGIME-SPECIFIC PATTERNS</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+3. REGIME-SPECIFIC PATTERNS</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (r <span class="cf">in</span> <span class="fu">unique</span>(regime_direction<span class="sc">$</span>regime)) {</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  row <span class="ot">&lt;-</span> regime_direction <span class="sc">%&gt;%</span> <span class="fu">filter</span>(regime <span class="sc">==</span> r)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"  "</span>, r, <span class="st">": Anisotropy"</span>, row<span class="sc">$</span>aniso_sig, </span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">"(ΔAIC ="</span>, <span class="fu">round</span>(row<span class="sc">$</span>aic_diff, <span class="dv">1</span>), <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Post-transition : Anisotropy Yes* (ΔAIC = 113.4 )
+   Transition : Anisotropy No (ΔAIC = -0.1 )
+   Pre-transition : Anisotropy Yes* (ΔAIC = 11.9 )</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="st">4. IMPLICATIONS FOR CIRCULATION</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="st">   - Directional patterns suggest non-uniform diffusion</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="st">   - Trade routes and geographic barriers shaped coin flow</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="st">   - Anisotropy may increase in post-transition regime</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="st">     (regional monetary zones with directional bias)</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="st">================================================================</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+4. IMPLICATIONS FOR CIRCULATION
+   - Directional patterns suggest non-uniform diffusion
+   - Trade routes and geographic barriers shaped coin flow
+   - Anisotropy may increase in post-transition regime
+     (regional monetary zones with directional bias)
+================================================================</code></pre>
+</div>
+</div>
+</section>
+<section id="export" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Export</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>export_data <span class="ot">&lt;-</span> hoard_polar <span class="sc">%&gt;%</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(hoard_id, hoard_lat, hoard_long, dist_km, bearing_deg,</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>         sector, sector_8, regime, p_rome, n_types, n_rome)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(export_data, <span class="st">"hoard_directional_data.csv"</span>)</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Exported:"</span>, <span class="fu">nrow</span>(export_data), <span class="st">"hoards with directional data</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Exported: 463 hoards with directional data</code></pre>
+</div>
+</div>
+</section>
+<section id="session-info" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Session Info</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.5.1 (2025-06-13)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.7.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/Chicago
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] rnaturalearthdata_1.0.0 rnaturalearth_1.1.0     broom_1.0.11           
+ [4] patchwork_1.3.2         knitr_1.50              sf_1.0-23              
+ [7] lubridate_1.9.4         forcats_1.0.1           stringr_1.6.0          
+[10] dplyr_1.1.4             purrr_1.2.0             readr_2.1.6            
+[13] tidyr_1.3.1             tibble_3.3.0            ggplot2_4.0.1          
+[16] tidyverse_2.0.0        
+
+loaded via a namespace (and not attached):
+ [1] gtable_0.3.6       xfun_0.55          htmlwidgets_1.6.4  lattice_0.22-7    
+ [5] tzdb_0.5.0         vctrs_0.6.5        tools_4.5.1        generics_0.1.4    
+ [9] parallel_4.5.1     proxy_0.4-28       pkgconfig_2.0.3    Matrix_1.7-4      
+[13] KernSmooth_2.23-26 RColorBrewer_1.1-3 S7_0.2.1           lifecycle_1.0.4   
+[17] compiler_4.5.1     farver_2.1.2       htmltools_0.5.9    class_7.3-23      
+[21] yaml_2.3.12        pillar_1.11.1      crayon_1.5.3       classInt_0.4-11   
+[25] wk_0.9.4           nlme_3.1-168       tidyselect_1.2.1   digest_0.6.39     
+[29] stringi_1.8.7      labeling_0.4.3     splines_4.5.1      fastmap_1.2.0     
+[33] grid_4.5.1         cli_3.6.5          magrittr_2.0.4     e1071_1.7-16      
+[37] withr_3.0.2        scales_1.4.0       backports_1.5.0    bit64_4.6.0-1     
+[41] timechange_0.3.0   rmarkdown_2.30     bit_4.6.0          hms_1.1.4         
+[45] evaluate_1.0.5     viridisLite_0.4.2  s2_1.1.9           mgcv_1.9-4        
+[49] rlang_1.1.6        Rcpp_1.1.0         glue_1.8.0         DBI_1.2.3         
+[53] rstudioapi_0.17.1  vroom_1.6.7        jsonlite_2.0.0     R6_2.6.1          
+[57] units_1.0-0       </code></pre>
+</div>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
