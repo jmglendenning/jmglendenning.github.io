@@ -417,238 +417,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "master_proposal.html",
-    "href": "master_proposal.html",
-    "title": "Proposal",
-    "section": "",
-    "text": "1 Introduction\nEvidence for the circulation in Roman coinage is inherently incomplete and spatially inconsistent, but it has long been used in the discussions of economic connectivity. Unfortunately, direct observations of coin movement do not survive, and any evidence that does survive is shaped by depositional and recovery biases.\n\nCan probabilistic spatial models identify latent circulation regimes in ancient monetary systems from incomplete archaeological evidence?"
-  },
-  {
-    "objectID": "lrr_compositional.html",
-    "href": "lrr_compositional.html",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "",
-    "text": "The initial diagnostic analysis revealed:\n\n\n\nMetric\nValue\n\n\n\n\nHoards containing Rome coins\n99.4%\n\n\nHoards without ANY Rome coins\n3\n\n\n\nWith only 3 hoards lacking Rome coins, the binary contrast (Rome-containing vs. all hoards) collapsed—numerator ≈ denominator everywhere, producing LRR ≈ 0.\n\n\n\nHowever, the diagnostics also revealed exploitable variation:\n\nRome share within hoards varies from 0% to 100% (mean 88%, SD ~15%)\nDistance-decay signal: Rome proportion declines beyond 2000 km\n80% of hoards contain non-Rome coins: compositional diversity exists\n\nThe compositional approach asks: Where is the proportion of Rome-minted coins higher or lower than the global average?\n\\[\\text{LRR}_{\\text{comp}}(s) = \\log \\left( \\frac{p_{\\text{Rome}}(s)}{p_{\\text{Rome}}^{\\text{global}}} \\right)\\]\nwhere \\(p_{\\text{Rome}}(s)\\) is the proportion of Rome coins in spatial unit \\(s\\)."
-  },
-  {
-    "objectID": "lrr_compositional.html#why-binary-lrr-failed",
-    "href": "lrr_compositional.html#why-binary-lrr-failed",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "",
-    "text": "The initial diagnostic analysis revealed:\n\n\n\nMetric\nValue\n\n\n\n\nHoards containing Rome coins\n99.4%\n\n\nHoards without ANY Rome coins\n3\n\n\n\nWith only 3 hoards lacking Rome coins, the binary contrast (Rome-containing vs. all hoards) collapsed—numerator ≈ denominator everywhere, producing LRR ≈ 0."
-  },
-  {
-    "objectID": "lrr_compositional.html#what-compositional-lrr-captures",
-    "href": "lrr_compositional.html#what-compositional-lrr-captures",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "",
-    "text": "However, the diagnostics also revealed exploitable variation:\n\nRome share within hoards varies from 0% to 100% (mean 88%, SD ~15%)\nDistance-decay signal: Rome proportion declines beyond 2000 km\n80% of hoards contain non-Rome coins: compositional diversity exists\n\nThe compositional approach asks: Where is the proportion of Rome-minted coins higher or lower than the global average?\n\\[\\text{LRR}_{\\text{comp}}(s) = \\log \\left( \\frac{p_{\\text{Rome}}(s)}{p_{\\text{Rome}}^{\\text{global}}} \\right)\\]\nwhere \\(p_{\\text{Rome}}(s)\\) is the proportion of Rome coins in spatial unit \\(s\\)."
-  },
-  {
-    "objectID": "lrr_compositional.html#flag-rome-vs.-non-rome-at-row-level",
-    "href": "lrr_compositional.html#flag-rome-vs.-non-rome-at-row-level",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "4.1 Flag Rome vs. Non-Rome at Row Level",
-    "text": "4.1 Flag Rome vs. Non-Rome at Row Level\n\n\nCode\nchrr_flagged &lt;- chrr_raw %&gt;%\n  mutate(\n    is_rome = mint_id == \"rome\" | str_detect(mint_uri, \"/id/rome$\"),\n    is_rome = replace_na(is_rome, FALSE)\n  )\n\n# Global composition\nglobal_comp &lt;- chrr_flagged %&gt;%\n  summarise(\n    total_rows = n(),\n    rome_rows = sum(is_rome),\n    non_rome_rows = sum(!is_rome),\n    p_rome_global = rome_rows / total_rows\n  )\n\nkable(global_comp, \n      digits = c(0, 0, 0, 4),\n      caption = \"Global composition (row-level)\")\n\n\n\nGlobal composition (row-level)\n\n\ntotal_rows\nrome_rows\nnon_rome_rows\np_rome_global\n\n\n\n\n31951\n28177\n3774\n0.8819\n\n\n\n\n\nCode\np_global &lt;- global_comp$p_rome_global\ncat(\"\\nGlobal Rome proportion:\", round(p_global * 100, 2), \"%\\n\")\n\n\n\nGlobal Rome proportion: 88.19 %"
-  },
-  {
-    "objectID": "lrr_compositional.html#aggregate-to-hoard-level",
-    "href": "lrr_compositional.html#aggregate-to-hoard-level",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "4.2 Aggregate to Hoard Level",
-    "text": "4.2 Aggregate to Hoard Level\n\n\nCode\nhoard_comp &lt;- chrr_flagged %&gt;%\n  group_by(hoard_id, hoard_lat, hoard_long) %&gt;%\n  summarise(\n    n_types = n(),\n    n_rome = sum(is_rome),\n    n_non_rome = sum(!is_rome),\n    p_rome = n_rome / n_types,\n    .groups = \"drop\"\n  ) %&gt;%\n  filter(!is.na(hoard_lat), !is.na(hoard_long))\n\ncat(\"Hoards with valid coordinates:\", nrow(hoard_comp), \"\\n\")\n\n\nHoards with valid coordinates: 466 \n\n\nCode\n# Summary of hoard-level Rome proportions\nhoard_summary &lt;- hoard_comp %&gt;%\n  summarise(\n    n_hoards = n(),\n    mean_p_rome = mean(p_rome),\n    sd_p_rome = sd(p_rome),\n    min_p_rome = min(p_rome),\n    q25_p_rome = quantile(p_rome, 0.25),\n    median_p_rome = median(p_rome),\n    q75_p_rome = quantile(p_rome, 0.75),\n    max_p_rome = max(p_rome)\n  )\n\nkable(hoard_summary, \n      digits = 3,\n      caption = \"Rome proportion within hoards: summary statistics\")\n\n\n\nRome proportion within hoards: summary statistics\n\n\n\n\n\n\n\n\n\n\n\n\nn_hoards\nmean_p_rome\nsd_p_rome\nmin_p_rome\nq25_p_rome\nmedian_p_rome\nq75_p_rome\nmax_p_rome\n\n\n\n\n466\n0.881\n0.154\n0\n0.857\n0.932\n0.97\n1"
-  },
-  {
-    "objectID": "lrr_compositional.html#convert-to-spatial-object",
-    "href": "lrr_compositional.html#convert-to-spatial-object",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "4.3 Convert to Spatial Object",
-    "text": "4.3 Convert to Spatial Object\n\n\nCode\nhoard_sf &lt;- st_as_sf(\n\n  hoard_comp,\n  coords = c(\"hoard_long\", \"hoard_lat\"),\n  crs = 4326,\n  remove = FALSE\n)\n\ncat(\"Spatial object created with\", nrow(hoard_sf), \"hoards\\n\")\n\n\nSpatial object created with 466 hoards"
-  },
-  {
-    "objectID": "lrr_compositional.html#define-study-window",
-    "href": "lrr_compositional.html#define-study-window",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "5.1 Define Study Window",
-    "text": "5.1 Define Study Window\n\n\nCode\nlibrary(rnaturalearth)\nlibrary(rnaturalearthdata)\n\n# Get land polygons\nland &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\") %&gt;%\n  st_union()\n\n# Filter valid geometries\nhoard_sf_valid &lt;- hoard_sf %&gt;%\n  filter(!st_is_empty(geometry))\n\n# Bounding box\nhoard_bbox &lt;- st_bbox(hoard_sf_valid)\n\nif (any(is.na(hoard_bbox))) {\n  hoard_bbox &lt;- c(xmin = -10, ymin = 30, xmax = 45, ymax = 55)\n  names(hoard_bbox) &lt;- c(\"xmin\", \"ymin\", \"xmax\", \"ymax\")\n}\n\npad &lt;- 2\n\n# Create study extent\nstudy_extent &lt;- st_polygon(list(rbind(\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymin\"] - pad),\n  c(hoard_bbox[\"xmax\"] + pad, hoard_bbox[\"ymin\"] - pad),\n  c(hoard_bbox[\"xmax\"] + pad, hoard_bbox[\"ymax\"] + pad),\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymax\"] + pad),\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymin\"] - pad)\n))) %&gt;%\n  st_sfc(crs = 4326)\n\nstudy_land &lt;- st_intersection(land, study_extent)\n\ncat(\"Study window: [\", \n    round(hoard_bbox[\"xmin\"] - pad, 1), \",\", \n    round(hoard_bbox[\"xmax\"] + pad, 1), \"] x [\",\n    round(hoard_bbox[\"ymin\"] - pad, 1), \",\",\n    round(hoard_bbox[\"ymax\"] + pad, 1), \"]\\n\")\n\n\nStudy window: [ -11.1 , 49.1 ] x [ 33.3 , 54.9 ]\n\n\nCode\nhoard_sf &lt;- hoard_sf_valid"
-  },
-  {
-    "objectID": "lrr_compositional.html#project-to-equal-area-crs",
-    "href": "lrr_compositional.html#project-to-equal-area-crs",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "5.2 Project to Equal-Area CRS",
-    "text": "5.2 Project to Equal-Area CRS\n\n\nCode\ntarget_crs &lt;- 3035  # ETRS89-extended / LAEA Europe\n\nhoard_sf_proj &lt;- st_transform(hoard_sf, target_crs)\nstudy_land_proj &lt;- st_transform(study_land, target_crs)\n\nrome_mint &lt;- st_as_sf(\n  tibble(name = \"Rome\", lon = 12.4964, lat = 41.9028),\n  coords = c(\"lon\", \"lat\"),\n  crs = 4326\n) %&gt;%\n  st_transform(target_crs)\n\ncat(\"Projected to EPSG:\", target_crs, \"\\n\")\n\n\nProjected to EPSG: 3035"
-  },
-  {
-    "objectID": "lrr_compositional.html#construct-hexagonal-grid-100-km",
-    "href": "lrr_compositional.html#construct-hexagonal-grid-100-km",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "5.3 Construct Hexagonal Grid (100 km)",
-    "text": "5.3 Construct Hexagonal Grid (100 km)\n\n\nCode\nhex_size &lt;- 100000  # 100 km in meters\n\nhex_grid &lt;- st_make_grid(\n  study_land_proj,\n  cellsize = hex_size,\n  square = FALSE\n) %&gt;%\n  st_sf(hex_id = seq_along(.), geometry = .) %&gt;%\n  st_set_crs(target_crs)\n\n# Filter to land hexes\nhex_land &lt;- hex_grid %&gt;%\n  filter(lengths(st_intersects(., study_land_proj)) &gt; 0)\n\n# Centroid on land filter\nhex_centroids &lt;- st_centroid(hex_land)\non_land &lt;- lengths(st_intersects(hex_centroids, study_land_proj)) &gt; 0\nhex_land &lt;- hex_land[on_land, ]\n\ncat(\"Hex grid: \", nrow(hex_land), \"hexes on land (\", hex_size/1000, \"km)\\n\")\n\n\nHex grid:  859 hexes on land ( 100 km)"
-  },
-  {
-    "objectID": "lrr_compositional.html#assign-hoards-to-hexes-and-aggregate",
-    "href": "lrr_compositional.html#assign-hoards-to-hexes-and-aggregate",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "6.1 Assign Hoards to Hexes and Aggregate",
-    "text": "6.1 Assign Hoards to Hexes and Aggregate\n\n\nCode\n# Spatial join\nhoard_hex &lt;- st_join(hoard_sf_proj, hex_land, join = st_within) %&gt;%\n  filter(!is.na(hex_id))\n\n# Aggregate composition per hex\nhex_comp &lt;- hoard_hex %&gt;%\n  st_drop_geometry() %&gt;%\n  group_by(hex_id) %&gt;%\n  summarise(\n    n_hoards = n(),\n    total_types = sum(n_types),      # Total coin-type occurrences\n    rome_types = sum(n_rome),        # Rome coin-type occurrences\n    non_rome_types = sum(n_non_rome),\n    \n    # Weighted mean Rome proportion (by hoard size)\n    p_rome_weighted = rome_types / total_types,\n    \n    # Unweighted mean (each hoard counts equally)\n    p_rome_unweighted = mean(p_rome),\n    \n    .groups = \"drop\"\n  )\n\n# Join back to hex geometry\nhex_lrr &lt;- hex_land %&gt;%\n  left_join(hex_comp, by = \"hex_id\") %&gt;%\n  mutate(\n    across(c(n_hoards, total_types, rome_types, non_rome_types), \n           ~replace_na(.x, 0)),\n    has_data = n_hoards &gt; 0\n  )\n\ncat(\"Hoards assigned to hexes:\", sum(hex_lrr$n_hoards), \"\\n\")\n\n\nHoards assigned to hexes: 404 \n\n\nCode\ncat(\"Hexes with data:\", sum(hex_lrr$has_data), \"\\n\")\n\n\nHexes with data: 141"
-  },
-  {
-    "objectID": "lrr_compositional.html#compute-compositional-lrr",
-    "href": "lrr_compositional.html#compute-compositional-lrr",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "6.2 Compute Compositional LRR",
-    "text": "6.2 Compute Compositional LRR\nThree formulations, each with different assumptions:\n\n\nCode\n# Global Rome proportion for reference\np_global &lt;- sum(hex_lrr$rome_types) / sum(hex_lrr$total_types)\ncat(\"Global Rome proportion (from hex data):\", round(p_global * 100, 2), \"%\\n\\n\")\n\n\nGlobal Rome proportion (from hex data): 88.29 %\n\n\nCode\n# Smoothing constant for sparse hexes\nepsilon &lt;- 0.5\n\nhex_lrr &lt;- hex_lrr %&gt;%\n  mutate(\n    # ============================================================\n    # Method 1: Compositional LRR (row-level aggregation)\n    # Compares hex Rome proportion to global Rome proportion\n    # ============================================================\n    LRR_comp = ifelse(\n      has_data,\n      log((rome_types + epsilon) / (total_types + epsilon)) - log(p_global),\n      NA_real_\n    ),\n    \n    # ============================================================\n    # Method 2: Rome vs Non-Rome LRR (direct contrast)\n    # Positive = Rome dominates, Negative = other mints dominate\n    # ============================================================\n    LRR_contrast = ifelse(\n      has_data & non_rome_types &gt; 0,\n      log((rome_types + epsilon) / (non_rome_types + epsilon)),\n      NA_real_\n    ),\n    \n    # ============================================================\n    # Method 3: Deviation from expected (binomial framework)\n    # How many more/fewer Rome coins than expected at global rate?\n    # ============================================================\n    expected_rome = total_types * p_global,\n    rome_excess = rome_types - expected_rome,\n    rome_excess_pct = ifelse(has_data, 100 * rome_excess / expected_rome, NA_real_)\n  )"
-  },
-  {
-    "objectID": "lrr_compositional.html#lrr-summary-statistics",
-    "href": "lrr_compositional.html#lrr-summary-statistics",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "6.3 LRR Summary Statistics",
-    "text": "6.3 LRR Summary Statistics\n\n\nCode\nlrr_stats &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  st_drop_geometry() %&gt;%\n  summarise(\n    n_hexes = n(),\n    \n    # Compositional LRR\n    lrr_comp_mean = mean(LRR_comp, na.rm = TRUE),\n    lrr_comp_sd = sd(LRR_comp, na.rm = TRUE),\n    lrr_comp_min = min(LRR_comp, na.rm = TRUE),\n    lrr_comp_max = max(LRR_comp, na.rm = TRUE),\n    \n    # Rome vs Non-Rome\n    lrr_contrast_mean = mean(LRR_contrast, na.rm = TRUE),\n    lrr_contrast_sd = sd(LRR_contrast, na.rm = TRUE),\n    \n    # Rome proportion\n    p_rome_mean = mean(p_rome_weighted, na.rm = TRUE),\n    p_rome_sd = sd(p_rome_weighted, na.rm = TRUE)\n  )\n\nkable(lrr_stats, digits = 3, caption = \"LRR Summary Statistics\")\n\n\n\nLRR Summary Statistics\n\n\n\n\n\n\n\n\n\n\n\n\n\nn_hexes\nlrr_comp_mean\nlrr_comp_sd\nlrr_comp_min\nlrr_comp_max\nlrr_contrast_mean\nlrr_contrast_sd\np_rome_mean\np_rome_sd\n\n\n\n\n141\n-0.023\n0.185\n-1.311\n0.125\n1.998\n0.896\n0.871\n0.13\n\n\n\n\n\n\n\nCode\nhex_data &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  st_drop_geometry()\n\np1 &lt;- ggplot(hex_data, aes(x = LRR_comp)) +\n  geom_histogram(bins = 25, fill = \"steelblue\", color = \"white\", alpha = 0.8) +\n  geom_vline(xintercept = 0, color = \"darkred\", linetype = \"dashed\") +\n  labs(\n    title = \"Compositional LRR Distribution\",\n    subtitle = \"LRR = 0 means hex matches global Rome proportion\",\n    x = \"LRR (compositional)\",\n    y = \"Count\"\n  )\n\np2 &lt;- ggplot(hex_data, aes(x = p_rome_weighted)) +\n  geom_histogram(bins = 25, fill = \"forestgreen\", color = \"white\", alpha = 0.8) +\n  geom_vline(xintercept = p_global, color = \"darkred\", linetype = \"dashed\") +\n  scale_x_continuous(labels = scales::percent_format()) +\n  labs(\n    title = \"Rome Proportion per Hex\",\n    subtitle = paste(\"Global =\", round(p_global * 100, 1), \"%\"),\n    x = \"Rome proportion\",\n    y = \"Count\"\n  )\n\nlibrary(patchwork)\np1 + p2"
-  },
-  {
-    "objectID": "lrr_compositional.html#map-1-compositional-lrr",
-    "href": "lrr_compositional.html#map-1-compositional-lrr",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "7.1 Map 1: Compositional LRR",
-    "text": "7.1 Map 1: Compositional LRR\n\n\nCode\nhex_map &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  st_transform(4326)\n\nland_wgs &lt;- st_transform(study_land_proj, 4326)\nrome_wgs &lt;- st_transform(rome_mint, 4326)\n\nggplot() +\n  geom_sf(data = land_wgs, fill = \"grey95\", color = \"grey80\") +\n  geom_sf(\n    data = hex_map,\n    aes(fill = LRR_comp),\n    color = \"grey50\",\n    linewidth = 0.2\n  ) +\n  geom_sf(data = rome_wgs, color = \"black\", shape = 8, size = 5, stroke = 1.5) +\n  scale_fill_gradient2(\n    low = \"steelblue\",\n    mid = \"white\",\n    high = \"darkred\",\n    midpoint = 0,\n    name = \"LRR\",\n    limits = c(-0.5, 0.5),\n    oob = scales::squish\n  ) +\n  coord_sf(\n    xlim = c(hoard_bbox[\"xmin\"] - 1, hoard_bbox[\"xmax\"] + 1),\n    ylim = c(hoard_bbox[\"ymin\"] - 1, hoard_bbox[\"ymax\"] + 1)\n  ) +\n  labs(\n    title = \"Compositional Log-Relative Risk\",\n    subtitle = \"Rome proportion relative to global average (88%) | Red = above average, Blue = below\",\n    caption = \"Star = Rome mint | 100 km hexagonal grid\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text = element_blank(),\n    axis.title = element_blank(),\n    legend.position = \"right\"\n  )"
-  },
-  {
-    "objectID": "lrr_compositional.html#map-2-rome-vs.-non-rome-contrast",
-    "href": "lrr_compositional.html#map-2-rome-vs.-non-rome-contrast",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "7.2 Map 2: Rome vs. Non-Rome Contrast",
-    "text": "7.2 Map 2: Rome vs. Non-Rome Contrast\n\n\nCode\nggplot() +\n  geom_sf(data = land_wgs, fill = \"grey95\", color = \"grey80\") +\n  geom_sf(\n    data = hex_map %&gt;% filter(!is.na(LRR_contrast)),\n    aes(fill = LRR_contrast),\n    color = \"grey50\",\n    linewidth = 0.2\n  ) +\n  geom_sf(data = rome_wgs, color = \"black\", shape = 8, size = 5, stroke = 1.5) +\n  scale_fill_gradient2(\n    low = \"purple4\",\n    mid = \"white\",\n    high = \"darkorange\",\n    midpoint = log(1),  # Equal Rome and non-Rome\n    name = \"log(Rome/\\nNon-Rome)\",\n    limits = c(0, 4),\n    oob = scales::squish\n  ) +\n  coord_sf(\n    xlim = c(hoard_bbox[\"xmin\"] - 1, hoard_bbox[\"xmax\"] + 1),\n    ylim = c(hoard_bbox[\"ymin\"] - 1, hoard_bbox[\"ymax\"] + 1)\n  ) +\n  labs(\n    title = \"Rome vs. Non-Rome Mint Contrast\",\n    subtitle = \"Orange = Rome dominates, Purple = other mints more prevalent\",\n    caption = \"Star = Rome mint | Hexes with non-Rome coins only\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text = element_blank(),\n    axis.title = element_blank(),\n    legend.position = \"right\"\n  )"
-  },
-  {
-    "objectID": "lrr_compositional.html#map-3-raw-rome-proportion",
-    "href": "lrr_compositional.html#map-3-raw-rome-proportion",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "7.3 Map 3: Raw Rome Proportion",
-    "text": "7.3 Map 3: Raw Rome Proportion\n\n\nCode\nggplot() +\n  geom_sf(data = land_wgs, fill = \"grey95\", color = \"grey80\") +\n  geom_sf(\n    data = hex_map,\n    aes(fill = p_rome_weighted),\n    color = \"grey50\",\n    linewidth = 0.2\n  ) +\n  geom_sf(data = rome_wgs, color = \"black\", shape = 8, size = 5, stroke = 1.5) +\n  scale_fill_viridis_c(\n    name = \"Rome %\",\n    labels = scales::percent_format(),\n    option = \"plasma\",\n    limits = c(0.5, 1),\n    oob = scales::squish\n  ) +\n  coord_sf(\n    xlim = c(hoard_bbox[\"xmin\"] - 1, hoard_bbox[\"xmax\"] + 1),\n    ylim = c(hoard_bbox[\"ymin\"] - 1, hoard_bbox[\"ymax\"] + 1)\n  ) +\n  labs(\n    title = \"Rome Mint Proportion by Hex\",\n    subtitle = \"Proportion of coin-type occurrences from Rome mint\",\n    caption = \"Star = Rome mint | 100 km hexagonal grid\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text = element_blank(),\n    axis.title = element_blank(),\n    legend.position = \"right\"\n  )"
-  },
-  {
-    "objectID": "lrr_compositional.html#map-4-sample-size-denominator",
-    "href": "lrr_compositional.html#map-4-sample-size-denominator",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "7.4 Map 4: Sample Size (Denominator)",
-    "text": "7.4 Map 4: Sample Size (Denominator)\n\n\nCode\nggplot() +\n  geom_sf(data = land_wgs, fill = \"grey95\", color = \"grey80\") +\n  geom_sf(\n    data = hex_map,\n    aes(fill = total_types),\n    color = \"grey50\",\n    linewidth = 0.2\n  ) +\n  geom_sf(data = rome_wgs, color = \"white\", shape = 8, size = 5, stroke = 1.5) +\n  scale_fill_viridis_c(\n    name = \"Coin-types\",\n    trans = \"sqrt\",\n    option = \"viridis\"\n  ) +\n  coord_sf(\n    xlim = c(hoard_bbox[\"xmin\"] - 1, hoard_bbox[\"xmax\"] + 1),\n    ylim = c(hoard_bbox[\"ymin\"] - 1, hoard_bbox[\"ymax\"] + 1)\n  ) +\n  labs(\n    title = \"Sample Size per Hex (Total Coin-Type Occurrences)\",\n    subtitle = \"Denominator for compositional LRR | sqrt scale\",\n    caption = \"Star = Rome mint\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text = element_blank(),\n    axis.title = element_blank(),\n    legend.position = \"right\"\n  )"
-  },
-  {
-    "objectID": "lrr_compositional.html#hex-level-binomial-model",
-    "href": "lrr_compositional.html#hex-level-binomial-model",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "8.1 Hex-Level Binomial Model",
-    "text": "8.1 Hex-Level Binomial Model\nThe compositional LRR can be formalized as a binomial regression:\n\\[N_{\\text{Rome},h} \\sim \\text{Binomial}(N_{\\text{total},h}, \\pi_h)\\] \\[\\text{logit}(\\pi_h) = \\beta_0 + \\text{spatial effects}\\]\n\n\nCode\n# Prepare data for modeling\nmodel_data &lt;- hex_lrr %&gt;%\n  filter(has_data, total_types &gt; 0) %&gt;%\n  st_drop_geometry()\n\n# Simple binomial model (intercept only)\nbinom_fit &lt;- glm(\n\n  cbind(rome_types, non_rome_types) ~ 1,\n  family = binomial(link = \"logit\"),\n  data = model_data\n)\n\n# Extract estimates\nbeta0 &lt;- coef(binom_fit)[1]\nse_beta0 &lt;- sqrt(vcov(binom_fit)[1,1])\np_fitted &lt;- plogis(beta0)\n\ncat(\"Binomial Model Results\\n\")\n\n\nBinomial Model Results\n\n\nCode\ncat(\"======================\\n\")\n\n\n======================\n\n\nCode\ncat(\"Intercept (logit scale):\", round(beta0, 4), \"\\n\")\n\n\nIntercept (logit scale): 2.0205 \n\n\nCode\ncat(\"Standard error:\", round(se_beta0, 4), \"\\n\")\n\n\nStandard error: 0.0194 \n\n\nCode\ncat(\"Fitted global probability:\", round(p_fitted, 4), \"(\", round(p_fitted*100, 1), \"%)\\n\")\n\n\nFitted global probability: 0.8829 ( 88.3 %)\n\n\nCode\ncat(\"95% CI:\", round(plogis(beta0 - 1.96*se_beta0), 4), \"-\", \n    round(plogis(beta0 + 1.96*se_beta0), 4), \"\\n\")\n\n\n95% CI: 0.879 - 0.8868"
-  },
-  {
-    "objectID": "lrr_compositional.html#distance-from-rome-as-covariate",
-    "href": "lrr_compositional.html#distance-from-rome-as-covariate",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "8.2 Distance from Rome as Covariate",
-    "text": "8.2 Distance from Rome as Covariate\n\n\nCode\n# Calculate hex centroid distance from Rome\nhex_centroids_wgs &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  st_centroid() %&gt;%\n  st_transform(4326)\n\nrome_coords &lt;- c(12.4964, 41.9028)\n\n# Add distance\nhex_lrr_dist &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  mutate(\n    centroid = st_centroid(geometry)\n  )\n\n# Get centroids in WGS84 for distance calculation\ncentroids_wgs &lt;- st_transform(st_centroid(hex_lrr_dist), 4326)\ncoords &lt;- st_coordinates(centroids_wgs)\n\nhex_lrr_dist &lt;- hex_lrr_dist %&gt;%\n  st_drop_geometry() %&gt;%\n  mutate(\n    cent_lon = coords[, 1],\n    cent_lat = coords[, 2],\n    dist_rome_km = sqrt((cent_lon - rome_coords[1])^2 + (cent_lat - rome_coords[2])^2) * 111\n  )\n\n# Binomial with distance covariate\nbinom_dist &lt;- glm(\n  cbind(rome_types, non_rome_types) ~ dist_rome_km,\n  family = binomial(link = \"logit\"),\n  data = hex_lrr_dist\n)\n\nsummary(binom_dist)\n\n\n\nCall:\nglm(formula = cbind(rome_types, non_rome_types) ~ dist_rome_km, \n    family = binomial(link = \"logit\"), data = hex_lrr_dist)\n\nCoefficients:\n               Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)   2.060e+00  3.275e-02  62.896   &lt;2e-16 ***\ndist_rome_km -4.213e-05  2.796e-05  -1.507    0.132    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 1205.8  on 140  degrees of freedom\nResidual deviance: 1203.5  on 139  degrees of freedom\nAIC: 1711.8\n\nNumber of Fisher Scoring iterations: 4\n\n\n\n\nCode\n# Predicted probability vs distance\ndist_seq &lt;- seq(0, max(hex_lrr_dist$dist_rome_km, na.rm = TRUE), length.out = 100)\npred_df &lt;- data.frame(dist_rome_km = dist_seq)\npred_df$p_rome_pred &lt;- predict(binom_dist, newdata = pred_df, type = \"response\")\n\nggplot() +\n  geom_point(\n    data = hex_lrr_dist,\n    aes(x = dist_rome_km, y = p_rome_weighted, size = total_types),\n    alpha = 0.5,\n    color = \"steelblue\"\n  ) +\n  geom_line(\n    data = pred_df,\n    aes(x = dist_rome_km, y = p_rome_pred),\n    color = \"darkred\",\n    linewidth = 1.2\n  ) +\n  geom_hline(yintercept = p_global, linetype = \"dashed\", color = \"grey50\") +\n  scale_y_continuous(labels = scales::percent_format(), limits = c(0.5, 1)) +\n  scale_size_continuous(name = \"Sample size\", range = c(1, 10)) +\n  labs(\n    title = \"Rome Proportion vs. Distance from Rome (Hex-Level)\",\n    subtitle = \"Red line = binomial regression fit | Dashed = global average\",\n    x = \"Distance from Rome (km)\",\n    y = \"Rome proportion\"\n  )\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Extract coefficients\ncoefs &lt;- coef(binom_dist)\ncat(\"\\nDistance Effect Interpretation\\n\")\n\n\n\nDistance Effect Interpretation\n\n\nCode\ncat(\"==============================\\n\")\n\n\n==============================\n\n\nCode\ncat(\"Intercept:\", round(coefs[1], 4), \"\\n\")\n\n\nIntercept: 2.06 \n\n\nCode\ncat(\"Distance coefficient:\", round(coefs[2], 6), \"per km\\n\")\n\n\nDistance coefficient: -4.2e-05 per km\n\n\nCode\ncat(\"\\nAt Rome (0 km): p =\", round(plogis(coefs[1]), 3), \"\\n\")\n\n\n\nAt Rome (0 km): p = 0.887 \n\n\nCode\ncat(\"At 1000 km: p =\", round(plogis(coefs[1] + coefs[2]*1000), 3), \"\\n\")\n\n\nAt 1000 km: p = 0.883 \n\n\nCode\ncat(\"At 2000 km: p =\", round(plogis(coefs[1] + coefs[2]*2000), 3), \"\\n\")\n\n\nAt 2000 km: p = 0.878 \n\n\nCode\ncat(\"At 3000 km: p =\", round(plogis(coefs[1] + coefs[2]*3000), 3), \"\\n\")\n\n\nAt 3000 km: p = 0.874 \n\n\nCode\n# Odds ratio per 100 km\nor_100km &lt;- exp(coefs[2] * 100)\ncat(\"\\nOdds ratio per 100 km increase:\", round(or_100km, 4), \"\\n\")\n\n\n\nOdds ratio per 100 km increase: 0.9958 \n\n\nCode\ncat(\"(Values &lt; 1 indicate Rome proportion decreases with distance)\\n\")\n\n\n(Values &lt; 1 indicate Rome proportion decreases with distance)"
-  },
-  {
-    "objectID": "lrr_compositional.html#temporal-stratification",
-    "href": "lrr_compositional.html#temporal-stratification",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "11.1 Temporal Stratification",
-    "text": "11.1 Temporal Stratification\nThe hex framework is now ready for temporal stratification. Next steps:\n\nBy TPQ (deposition time): Stratify hoards by terminus post quem to see how Rome’s spatial reach changed over deposition periods\nBy mint date (production time): Stratify by when coins were minted to track production reach\nHMM Integration: The hex-level composition becomes the observation for each spatial unit, with temporal sequences enabling regime detection"
-  },
-  {
-    "objectID": "lrr_compositional.html#resolution-refinement",
-    "href": "lrr_compositional.html#resolution-refinement",
-    "title": "Compositional Log-Relative Risk Analysis",
-    "section": "11.2 Resolution Refinement",
-    "text": "11.2 Resolution Refinement\nAfter validating patterns at 100 km:\n\n50 km → regional structure\n25 km → corridor detection\n\n5 km → fine-grained patterns (if sample size permits)"
-  },
-  {
-    "objectID": "circulation_age.html",
-    "href": "circulation_age.html",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "",
-    "text": "The circulation age of a coin is the time between when it was minted and when it was deposited in a hoard:\n\\[\\text{Circulation Age} = \\text{TPQ (deposition)} - \\text{Mint Date (production)}\\]\nThis metric reveals:\n\n\n\nPattern\nInterpretation\n\n\n\n\nHigh mean age\nMonetary backwater; old coins accumulate\n\n\nLow mean age\nActive trade node; fresh coins arrive regularly\n\n\nHigh age variance\nMixed circulation; coins from many eras\n\n\nLow age variance\nUniform replacement; consistent turnover\n\n\n\n\n\n\n\nWhere did old coins accumulate? (periphery vs. core)\nDid circulation velocity vary by distance from Rome?\nHow did age profiles change across monetary regimes?\nAre there regional “pools” of old coinage?"
-  },
-  {
-    "objectID": "circulation_age.html#what-circulation-age-tells-us",
-    "href": "circulation_age.html#what-circulation-age-tells-us",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "",
-    "text": "The circulation age of a coin is the time between when it was minted and when it was deposited in a hoard:\n\\[\\text{Circulation Age} = \\text{TPQ (deposition)} - \\text{Mint Date (production)}\\]\nThis metric reveals:\n\n\n\nPattern\nInterpretation\n\n\n\n\nHigh mean age\nMonetary backwater; old coins accumulate\n\n\nLow mean age\nActive trade node; fresh coins arrive regularly\n\n\nHigh age variance\nMixed circulation; coins from many eras\n\n\nLow age variance\nUniform replacement; consistent turnover"
-  },
-  {
-    "objectID": "circulation_age.html#research-questions",
-    "href": "circulation_age.html#research-questions",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "",
-    "text": "Where did old coins accumulate? (periphery vs. core)\nDid circulation velocity vary by distance from Rome?\nHow did age profiles change across monetary regimes?\nAre there regional “pools” of old coinage?"
-  },
-  {
-    "objectID": "circulation_age.html#compute-circulation-age",
-    "href": "circulation_age.html#compute-circulation-age",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "3.1 Compute Circulation Age",
-    "text": "3.1 Compute Circulation Age\n\n\nCode\nchrr_age &lt;- chrr_raw %&gt;%\n  mutate(\n    # Parse dates\n    mint_start = as.numeric(start_year),\n    mint_end = as.numeric(end_year),\n    mint_mid = (mint_start + mint_end) / 2,\n    tpq_year = readr::parse_number(as.character(hoard_tpq)),\n    \n    # Circulation age\n    circ_age = tpq_year - mint_mid,\n    \n    # Flag Rome mint\n    is_rome = mint_id == \"rome\" | str_detect(mint_uri, \"/id/rome$\"),\n    is_rome = replace_na(is_rome, FALSE)\n  ) %&gt;%\n  filter(\n    !is.na(circ_age),\n    !is.na(hoard_lat),\n    !is.na(hoard_long),\n    circ_age &gt;= 0  # Exclude anomalies where TPQ &lt; mint date\n  )\n\ncat(\"Coin-types with valid circulation age:\", nrow(chrr_age), \"\\n\")\n\n\nCoin-types with valid circulation age: 29819 \n\n\nCode\ncat(\"Unique hoards:\", n_distinct(chrr_age$hoard_id), \"\\n\")\n\n\nUnique hoards: 463"
-  },
-  {
-    "objectID": "circulation_age.html#circulation-age-summary",
-    "href": "circulation_age.html#circulation-age-summary",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "3.2 Circulation Age Summary",
-    "text": "3.2 Circulation Age Summary\n\n\nCode\nage_summary &lt;- chrr_age %&gt;%\n  summarise(\n    n = n(),\n    mean_age = mean(circ_age),\n    median_age = median(circ_age),\n    sd_age = sd(circ_age),\n    q10 = quantile(circ_age, 0.10),\n    q25 = quantile(circ_age, 0.25),\n    q75 = quantile(circ_age, 0.75),\n    q90 = quantile(circ_age, 0.90),\n    max_age = max(circ_age)\n  )\n\nkable(age_summary, digits = 1, caption = \"Overall circulation age statistics (years)\")\n\n\n\nOverall circulation age statistics (years)\n\n\nn\nmean_age\nmedian_age\nsd_age\nq10\nq25\nq75\nq90\nmax_age\n\n\n\n\n29819\n44.2\n38\n33.4\n6\n17\n64\n91\n225"
-  },
-  {
-    "objectID": "circulation_age.html#distribution-of-circulation-ages",
-    "href": "circulation_age.html#distribution-of-circulation-ages",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "3.3 Distribution of Circulation Ages",
-    "text": "3.3 Distribution of Circulation Ages\n\n\nCode\np1 &lt;- ggplot(chrr_age, aes(x = circ_age)) +\n geom_histogram(binwidth = 10, fill = \"steelblue\", color = \"white\", alpha = 0.8) +\n  geom_vline(xintercept = age_summary$median_age, color = \"darkred\", \n             linetype = \"dashed\", linewidth = 1) +\n  labs(\n    title = \"Distribution of Circulation Ages\",\n    subtitle = paste(\"Median =\", round(age_summary$median_age, 0), \"years\"),\n    x = \"Circulation age (years)\",\n    y = \"Count\"\n  )\n\np2 &lt;- ggplot(chrr_age, aes(x = circ_age)) +\n  geom_histogram(binwidth = 10, fill = \"steelblue\", color = \"white\", alpha = 0.8) +\n  scale_y_log10() +\n  labs(\n    title = \"Distribution (log scale)\",\n    subtitle = \"Reveals long tail of very old coins\",\n    x = \"Circulation age (years)\",\n    y = \"Count (log)\"\n  )\n\np1 + p2"
-  },
-  {
-    "objectID": "circulation_age.html#create-hex-grid",
-    "href": "circulation_age.html#create-hex-grid",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "5.1 Create Hex Grid",
-    "text": "5.1 Create Hex Grid\n\n\nCode\nlibrary(rnaturalearth)\nlibrary(rnaturalearthdata)\n\n# Convert to sf\nhoard_sf &lt;- st_as_sf(\n  chrr_age,\n  coords = c(\"hoard_long\", \"hoard_lat\"),\n  crs = 4326,\n  remove = FALSE\n)\n\n# Study area\nland &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\") %&gt;% st_union()\nhoard_bbox &lt;- st_bbox(hoard_sf)\npad &lt;- 2\n\nstudy_extent &lt;- st_polygon(list(rbind(\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymin\"] - pad),\n  c(hoard_bbox[\"xmax\"] + pad, hoard_bbox[\"ymin\"] - pad),\n  c(hoard_bbox[\"xmax\"] + pad, hoard_bbox[\"ymax\"] + pad),\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymax\"] + pad),\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymin\"] - pad)\n))) %&gt;% st_sfc(crs = 4326)\n\nstudy_land &lt;- st_intersection(land, study_extent)\n\n# Project\ntarget_crs &lt;- 3035\nhoard_sf_proj &lt;- st_transform(hoard_sf, target_crs)\nstudy_land_proj &lt;- st_transform(study_land, target_crs)\n\nrome_coords &lt;- c(12.4964, 41.9028)\nrome_sf &lt;- st_as_sf(tibble(lon = rome_coords[1], lat = rome_coords[2]),\n                     coords = c(\"lon\", \"lat\"), crs = 4326) %&gt;%\n  st_transform(target_crs)\n\n# Hex grid\nhex_size &lt;- 100000\nhex_grid &lt;- st_make_grid(study_land_proj, cellsize = hex_size, square = FALSE) %&gt;%\n  st_sf(hex_id = seq_along(.), geometry = .) %&gt;%\n  st_set_crs(target_crs)\n\nhex_land &lt;- hex_grid %&gt;%\n  filter(lengths(st_intersects(., study_land_proj)) &gt; 0)\n\nhex_centroids &lt;- st_centroid(hex_land)\non_land &lt;- lengths(st_intersects(hex_centroids, study_land_proj)) &gt; 0\nhex_land &lt;- hex_land[on_land, ]\n\ncat(\"Hexes on land:\", nrow(hex_land), \"\\n\")\n\n\nHexes on land: 859"
-  },
-  {
-    "objectID": "circulation_age.html#aggregate-circulation-age-by-hex",
-    "href": "circulation_age.html#aggregate-circulation-age-by-hex",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "5.2 Aggregate Circulation Age by Hex",
-    "text": "5.2 Aggregate Circulation Age by Hex\n\n\nCode\n# Spatial join\nhoard_hex &lt;- st_join(hoard_sf_proj, hex_land, join = st_within) %&gt;%\n  filter(!is.na(hex_id))\n\n# Aggregate by hex\nhex_age &lt;- hoard_hex %&gt;%\n  st_drop_geometry() %&gt;%\n  group_by(hex_id) %&gt;%\n  summarise(\n    n_types = n(),\n    n_hoards = n_distinct(hoard_id),\n    mean_age = mean(circ_age),\n    median_age = median(circ_age),\n    sd_age = sd(circ_age),\n    q25_age = quantile(circ_age, 0.25),\n    q75_age = quantile(circ_age, 0.75),\n    age_iqr = q75_age - q25_age,\n    pct_old = mean(circ_age &gt; 50) * 100,  # % coins &gt; 50 years old\n    pct_fresh = mean(circ_age &lt; 20) * 100,  # % coins &lt; 20 years old\n    .groups = \"drop\"\n  )\n\ncat(\"Hexes with data:\", nrow(hex_age), \"\\n\")\n\n\nHexes with data: 141"
-  },
-  {
-    "objectID": "circulation_age.html#add-distance-from-rome",
-    "href": "circulation_age.html#add-distance-from-rome",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "5.3 Add Distance from Rome",
-    "text": "5.3 Add Distance from Rome\n\n\nCode\n# Hex centroids in WGS84\nhex_centroids_wgs &lt;- hex_land %&gt;%\n  st_centroid() %&gt;%\n  st_transform(4326)\n\ncent_coords &lt;- st_coordinates(hex_centroids_wgs)\n\nhex_coords &lt;- tibble(\n  hex_id = hex_land$hex_id,\n  cent_lon = cent_coords[, 1],\n  cent_lat = cent_coords[, 2]\n) %&gt;%\n  mutate(\n    dist_rome_km = sqrt((cent_lon - rome_coords[1])^2 + \n                        (cent_lat - rome_coords[2])^2) * 111\n  )\n\nhex_age &lt;- hex_age %&gt;%\n  left_join(hex_coords, by = \"hex_id\")"
-  },
-  {
-    "objectID": "circulation_age.html#regression-age-vs-distance",
-    "href": "circulation_age.html#regression-age-vs-distance",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "9.1 Regression: Age vs Distance",
-    "text": "9.1 Regression: Age vs Distance\n\n\nCode\n# Linear regression\nlm_age &lt;- lm(mean_age ~ dist_rome_km, data = hex_age, weights = n_types)\n\nsummary(lm_age)\n\n\n\nCall:\nlm(formula = mean_age ~ dist_rome_km, data = hex_age, weights = n_types)\n\nWeighted Residuals:\n    Min      1Q  Median      3Q     Max \n-337.08 -104.90  -51.50   59.81  548.01 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  41.313878   1.670319  24.734   &lt;2e-16 ***\ndist_rome_km  0.003103   0.001444   2.149   0.0334 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 158.3 on 139 degrees of freedom\nMultiple R-squared:  0.03215,   Adjusted R-squared:  0.02519 \nF-statistic: 4.618 on 1 and 139 DF,  p-value: 0.03337\n\n\nCode\n# Extract coefficients\ncoef_dist &lt;- coef(lm_age)[\"dist_rome_km\"]\ncat(\"\\nEffect: Each 100km from Rome adds\", round(coef_dist * 100, 2), \"years to mean circulation age\\n\")\n\n\n\nEffect: Each 100km from Rome adds 0.31 years to mean circulation age"
-  },
-  {
-    "objectID": "circulation_age.html#scatterplot-age-vs-distance",
-    "href": "circulation_age.html#scatterplot-age-vs-distance",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "9.2 Scatterplot: Age vs Distance",
-    "text": "9.2 Scatterplot: Age vs Distance\n\n\nCode\nggplot(hex_age, aes(x = dist_rome_km, y = mean_age)) +\n  geom_point(aes(size = n_types), alpha = 0.6, color = \"steelblue\") +\n  geom_smooth(method = \"lm\", color = \"darkred\", se = TRUE) +\n  scale_size_continuous(name = \"Sample size\", range = c(1, 8)) +\n  labs(\n    title = \"Circulation Age vs Distance from Rome\",\n    subtitle = paste(\"Each 100km adds ~\", round(coef_dist * 100, 1), \"years to mean age\"),\n    x = \"Distance from Rome (km)\",\n    y = \"Mean circulation age (years)\"\n  )"
-  },
-  {
-    "objectID": "circulation_age.html#define-regions",
-    "href": "circulation_age.html#define-regions",
-    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
-    "section": "12.1 Define Regions",
-    "text": "12.1 Define Regions\n\n\nCode\nhex_age &lt;- hex_age %&gt;%\n  mutate(\n    # Bearing from Rome (degrees)\n    bearing = atan2(cent_lon - rome_coords[1], cent_lat - rome_coords[2]) * 180 / pi,\n    bearing = ifelse(bearing &lt; 0, bearing + 360, bearing),\n    \n    # Regional sectors\n    region = case_when(\n      bearing &gt;= 315 | bearing &lt; 45 ~ \"North (Gaul/Alps)\",\n      bearing &gt;= 45 & bearing &lt; 135 ~ \"East (Balkans/Greece)\",\n      bearing &gt;= 135 & bearing &lt; 225 ~ \"South (Africa/Sicily)\",\n      bearing &gt;= 225 & bearing &lt; 315 ~ \"West (Iberia/Sardinia)\"\n    )\n  )\n\nregion_summary &lt;- hex_age %&gt;%\n  group_by(region) %&gt;%\n  summarise(\n    n_hexes = n(),\n    mean_dist = mean(dist_rome_km),\n    mean_age = weighted.mean(mean_age, n_types),\n    mean_pct_fresh = weighted.mean(pct_fresh, n_types),\n    mean_pct_old = weighted.mean(pct_old, n_types),\n    .groups = \"drop\"\n  )\n\nkable(region_summary, digits = 1, caption = \"Circulation patterns by region\")\n\n\n\nCirculation patterns by region\n\n\n\n\n\n\n\n\n\n\nregion\nn_hexes\nmean_dist\nmean_age\nmean_pct_fresh\nmean_pct_old\n\n\n\n\nEast (Balkans/Greece)\n54\n1234.5\n48.5\n23.0\n41.6\n\n\nNorth (Gaul/Alps)\n26\n661.5\n42.3\n31.7\n34.2\n\n\nSouth (Africa/Sicily)\n3\n526.8\n25.7\n51.7\n12.8\n\n\nWest (Iberia/Sardinia)\n58\n1501.0\n40.7\n30.1\n30.6\n\n\n\n\n\n\n\nCode\nggplot(hex_age, aes(x = region, y = mean_age, fill = region)) +\n  geom_boxplot(alpha = 0.7) +\n  geom_jitter(aes(size = n_types), alpha = 0.3, width = 0.2) +\n  scale_fill_brewer(palette = \"Set2\") +\n  scale_size_continuous(name = \"Sample size\", range = c(1, 6)) +\n  labs(\n    title = \"Circulation Age by Region\",\n    subtitle = \"Which directions from Rome had older coins?\",\n    x = NULL,\n    y = \"Mean circulation age (years)\"\n  ) +\n  theme(legend.position = \"right\")"
+    "text": "I am a PhD student at the University of Texas at Dallas studying GIS.\nI am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\nTrajectory analysis\nSynthetic data creation\n\nCurrent projects include * Spatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista * Synthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data * Deterministic ML for individual-rat attribution of ultrasonic vocalizations in multi-animal recordings\nCurriculum vitae"
   },
   {
     "objectID": "lrr_temporal.html",
@@ -796,6 +565,230 @@
     "title": "Temporal Stratification of Compositional LRR",
     "section": "12.1 Interpretation Notes",
     "text": "12.1 Interpretation Notes\nSpatial variation (LRR SD): Higher values indicate more geographic heterogeneity in Rome’s penetration during that period.\nDistance effect (OR per 100km): Values below 1 indicate Rome proportion decreases with distance; closer to 1 means distance matters less.\nChanges over time: Compare whether Rome’s monetary reach became more uniform (lower SD, OR→1) or more differentiated (higher SD, OR&lt;1) across periods."
+  },
+  {
+    "objectID": "circulation_age.html",
+    "href": "circulation_age.html",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "",
+    "text": "The circulation age of a coin is the time between when it was minted and when it was deposited in a hoard:\n\\[\\text{Circulation Age} = \\text{TPQ (deposition)} - \\text{Mint Date (production)}\\]\nThis metric reveals:\n\n\n\nPattern\nInterpretation\n\n\n\n\nHigh mean age\nMonetary backwater; old coins accumulate\n\n\nLow mean age\nActive trade node; fresh coins arrive regularly\n\n\nHigh age variance\nMixed circulation; coins from many eras\n\n\nLow age variance\nUniform replacement; consistent turnover\n\n\n\n\n\n\n\nWhere did old coins accumulate? (periphery vs. core)\nDid circulation velocity vary by distance from Rome?\nHow did age profiles change across monetary regimes?\nAre there regional “pools” of old coinage?"
+  },
+  {
+    "objectID": "circulation_age.html#what-circulation-age-tells-us",
+    "href": "circulation_age.html#what-circulation-age-tells-us",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "",
+    "text": "The circulation age of a coin is the time between when it was minted and when it was deposited in a hoard:\n\\[\\text{Circulation Age} = \\text{TPQ (deposition)} - \\text{Mint Date (production)}\\]\nThis metric reveals:\n\n\n\nPattern\nInterpretation\n\n\n\n\nHigh mean age\nMonetary backwater; old coins accumulate\n\n\nLow mean age\nActive trade node; fresh coins arrive regularly\n\n\nHigh age variance\nMixed circulation; coins from many eras\n\n\nLow age variance\nUniform replacement; consistent turnover"
+  },
+  {
+    "objectID": "circulation_age.html#research-questions",
+    "href": "circulation_age.html#research-questions",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "",
+    "text": "Where did old coins accumulate? (periphery vs. core)\nDid circulation velocity vary by distance from Rome?\nHow did age profiles change across monetary regimes?\nAre there regional “pools” of old coinage?"
+  },
+  {
+    "objectID": "circulation_age.html#compute-circulation-age",
+    "href": "circulation_age.html#compute-circulation-age",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "3.1 Compute Circulation Age",
+    "text": "3.1 Compute Circulation Age\n\n\nCode\nchrr_age &lt;- chrr_raw %&gt;%\n  mutate(\n    # Parse dates\n    mint_start = as.numeric(start_year),\n    mint_end = as.numeric(end_year),\n    mint_mid = (mint_start + mint_end) / 2,\n    tpq_year = readr::parse_number(as.character(hoard_tpq)),\n    \n    # Circulation age\n    circ_age = tpq_year - mint_mid,\n    \n    # Flag Rome mint\n    is_rome = mint_id == \"rome\" | str_detect(mint_uri, \"/id/rome$\"),\n    is_rome = replace_na(is_rome, FALSE)\n  ) %&gt;%\n  filter(\n    !is.na(circ_age),\n    !is.na(hoard_lat),\n    !is.na(hoard_long),\n    circ_age &gt;= 0  # Exclude anomalies where TPQ &lt; mint date\n  )\n\ncat(\"Coin-types with valid circulation age:\", nrow(chrr_age), \"\\n\")\n\n\nCoin-types with valid circulation age: 29819 \n\n\nCode\ncat(\"Unique hoards:\", n_distinct(chrr_age$hoard_id), \"\\n\")\n\n\nUnique hoards: 463"
+  },
+  {
+    "objectID": "circulation_age.html#circulation-age-summary",
+    "href": "circulation_age.html#circulation-age-summary",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "3.2 Circulation Age Summary",
+    "text": "3.2 Circulation Age Summary\n\n\nCode\nage_summary &lt;- chrr_age %&gt;%\n  summarise(\n    n = n(),\n    mean_age = mean(circ_age),\n    median_age = median(circ_age),\n    sd_age = sd(circ_age),\n    q10 = quantile(circ_age, 0.10),\n    q25 = quantile(circ_age, 0.25),\n    q75 = quantile(circ_age, 0.75),\n    q90 = quantile(circ_age, 0.90),\n    max_age = max(circ_age)\n  )\n\nkable(age_summary, digits = 1, caption = \"Overall circulation age statistics (years)\")\n\n\n\nOverall circulation age statistics (years)\n\n\nn\nmean_age\nmedian_age\nsd_age\nq10\nq25\nq75\nq90\nmax_age\n\n\n\n\n29819\n44.2\n38\n33.4\n6\n17\n64\n91\n225"
+  },
+  {
+    "objectID": "circulation_age.html#distribution-of-circulation-ages",
+    "href": "circulation_age.html#distribution-of-circulation-ages",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "3.3 Distribution of Circulation Ages",
+    "text": "3.3 Distribution of Circulation Ages\n\n\nCode\np1 &lt;- ggplot(chrr_age, aes(x = circ_age)) +\n geom_histogram(binwidth = 10, fill = \"steelblue\", color = \"white\", alpha = 0.8) +\n  geom_vline(xintercept = age_summary$median_age, color = \"darkred\", \n             linetype = \"dashed\", linewidth = 1) +\n  labs(\n    title = \"Distribution of Circulation Ages\",\n    subtitle = paste(\"Median =\", round(age_summary$median_age, 0), \"years\"),\n    x = \"Circulation age (years)\",\n    y = \"Count\"\n  )\n\np2 &lt;- ggplot(chrr_age, aes(x = circ_age)) +\n  geom_histogram(binwidth = 10, fill = \"steelblue\", color = \"white\", alpha = 0.8) +\n  scale_y_log10() +\n  labs(\n    title = \"Distribution (log scale)\",\n    subtitle = \"Reveals long tail of very old coins\",\n    x = \"Circulation age (years)\",\n    y = \"Count (log)\"\n  )\n\np1 + p2"
+  },
+  {
+    "objectID": "circulation_age.html#create-hex-grid",
+    "href": "circulation_age.html#create-hex-grid",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "5.1 Create Hex Grid",
+    "text": "5.1 Create Hex Grid\n\n\nCode\nlibrary(rnaturalearth)\nlibrary(rnaturalearthdata)\n\n# Convert to sf\nhoard_sf &lt;- st_as_sf(\n  chrr_age,\n  coords = c(\"hoard_long\", \"hoard_lat\"),\n  crs = 4326,\n  remove = FALSE\n)\n\n# Study area\nland &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\") %&gt;% st_union()\nhoard_bbox &lt;- st_bbox(hoard_sf)\npad &lt;- 2\n\nstudy_extent &lt;- st_polygon(list(rbind(\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymin\"] - pad),\n  c(hoard_bbox[\"xmax\"] + pad, hoard_bbox[\"ymin\"] - pad),\n  c(hoard_bbox[\"xmax\"] + pad, hoard_bbox[\"ymax\"] + pad),\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymax\"] + pad),\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymin\"] - pad)\n))) %&gt;% st_sfc(crs = 4326)\n\nstudy_land &lt;- st_intersection(land, study_extent)\n\n# Project\ntarget_crs &lt;- 3035\nhoard_sf_proj &lt;- st_transform(hoard_sf, target_crs)\nstudy_land_proj &lt;- st_transform(study_land, target_crs)\n\nrome_coords &lt;- c(12.4964, 41.9028)\nrome_sf &lt;- st_as_sf(tibble(lon = rome_coords[1], lat = rome_coords[2]),\n                     coords = c(\"lon\", \"lat\"), crs = 4326) %&gt;%\n  st_transform(target_crs)\n\n# Hex grid\nhex_size &lt;- 100000\nhex_grid &lt;- st_make_grid(study_land_proj, cellsize = hex_size, square = FALSE) %&gt;%\n  st_sf(hex_id = seq_along(.), geometry = .) %&gt;%\n  st_set_crs(target_crs)\n\nhex_land &lt;- hex_grid %&gt;%\n  filter(lengths(st_intersects(., study_land_proj)) &gt; 0)\n\nhex_centroids &lt;- st_centroid(hex_land)\non_land &lt;- lengths(st_intersects(hex_centroids, study_land_proj)) &gt; 0\nhex_land &lt;- hex_land[on_land, ]\n\ncat(\"Hexes on land:\", nrow(hex_land), \"\\n\")\n\n\nHexes on land: 859"
+  },
+  {
+    "objectID": "circulation_age.html#aggregate-circulation-age-by-hex",
+    "href": "circulation_age.html#aggregate-circulation-age-by-hex",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "5.2 Aggregate Circulation Age by Hex",
+    "text": "5.2 Aggregate Circulation Age by Hex\n\n\nCode\n# Spatial join\nhoard_hex &lt;- st_join(hoard_sf_proj, hex_land, join = st_within) %&gt;%\n  filter(!is.na(hex_id))\n\n# Aggregate by hex\nhex_age &lt;- hoard_hex %&gt;%\n  st_drop_geometry() %&gt;%\n  group_by(hex_id) %&gt;%\n  summarise(\n    n_types = n(),\n    n_hoards = n_distinct(hoard_id),\n    mean_age = mean(circ_age),\n    median_age = median(circ_age),\n    sd_age = sd(circ_age),\n    q25_age = quantile(circ_age, 0.25),\n    q75_age = quantile(circ_age, 0.75),\n    age_iqr = q75_age - q25_age,\n    pct_old = mean(circ_age &gt; 50) * 100,  # % coins &gt; 50 years old\n    pct_fresh = mean(circ_age &lt; 20) * 100,  # % coins &lt; 20 years old\n    .groups = \"drop\"\n  )\n\ncat(\"Hexes with data:\", nrow(hex_age), \"\\n\")\n\n\nHexes with data: 141"
+  },
+  {
+    "objectID": "circulation_age.html#add-distance-from-rome",
+    "href": "circulation_age.html#add-distance-from-rome",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "5.3 Add Distance from Rome",
+    "text": "5.3 Add Distance from Rome\n\n\nCode\n# Hex centroids in WGS84\nhex_centroids_wgs &lt;- hex_land %&gt;%\n  st_centroid() %&gt;%\n  st_transform(4326)\n\ncent_coords &lt;- st_coordinates(hex_centroids_wgs)\n\nhex_coords &lt;- tibble(\n  hex_id = hex_land$hex_id,\n  cent_lon = cent_coords[, 1],\n  cent_lat = cent_coords[, 2]\n) %&gt;%\n  mutate(\n    dist_rome_km = sqrt((cent_lon - rome_coords[1])^2 + \n                        (cent_lat - rome_coords[2])^2) * 111\n  )\n\nhex_age &lt;- hex_age %&gt;%\n  left_join(hex_coords, by = \"hex_id\")"
+  },
+  {
+    "objectID": "circulation_age.html#regression-age-vs-distance",
+    "href": "circulation_age.html#regression-age-vs-distance",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "9.1 Regression: Age vs Distance",
+    "text": "9.1 Regression: Age vs Distance\n\n\nCode\n# Linear regression\nlm_age &lt;- lm(mean_age ~ dist_rome_km, data = hex_age, weights = n_types)\n\nsummary(lm_age)\n\n\n\nCall:\nlm(formula = mean_age ~ dist_rome_km, data = hex_age, weights = n_types)\n\nWeighted Residuals:\n    Min      1Q  Median      3Q     Max \n-337.08 -104.90  -51.50   59.81  548.01 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  41.313878   1.670319  24.734   &lt;2e-16 ***\ndist_rome_km  0.003103   0.001444   2.149   0.0334 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 158.3 on 139 degrees of freedom\nMultiple R-squared:  0.03215,   Adjusted R-squared:  0.02519 \nF-statistic: 4.618 on 1 and 139 DF,  p-value: 0.03337\n\n\nCode\n# Extract coefficients\ncoef_dist &lt;- coef(lm_age)[\"dist_rome_km\"]\ncat(\"\\nEffect: Each 100km from Rome adds\", round(coef_dist * 100, 2), \"years to mean circulation age\\n\")\n\n\n\nEffect: Each 100km from Rome adds 0.31 years to mean circulation age"
+  },
+  {
+    "objectID": "circulation_age.html#scatterplot-age-vs-distance",
+    "href": "circulation_age.html#scatterplot-age-vs-distance",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "9.2 Scatterplot: Age vs Distance",
+    "text": "9.2 Scatterplot: Age vs Distance\n\n\nCode\nggplot(hex_age, aes(x = dist_rome_km, y = mean_age)) +\n  geom_point(aes(size = n_types), alpha = 0.6, color = \"steelblue\") +\n  geom_smooth(method = \"lm\", color = \"darkred\", se = TRUE) +\n  scale_size_continuous(name = \"Sample size\", range = c(1, 8)) +\n  labs(\n    title = \"Circulation Age vs Distance from Rome\",\n    subtitle = paste(\"Each 100km adds ~\", round(coef_dist * 100, 1), \"years to mean age\"),\n    x = \"Distance from Rome (km)\",\n    y = \"Mean circulation age (years)\"\n  )"
+  },
+  {
+    "objectID": "circulation_age.html#define-regions",
+    "href": "circulation_age.html#define-regions",
+    "title": "Coin-Type Age Profiles: Circulation Velocity Analysis",
+    "section": "12.1 Define Regions",
+    "text": "12.1 Define Regions\n\n\nCode\nhex_age &lt;- hex_age %&gt;%\n  mutate(\n    # Bearing from Rome (degrees)\n    bearing = atan2(cent_lon - rome_coords[1], cent_lat - rome_coords[2]) * 180 / pi,\n    bearing = ifelse(bearing &lt; 0, bearing + 360, bearing),\n    \n    # Regional sectors\n    region = case_when(\n      bearing &gt;= 315 | bearing &lt; 45 ~ \"North (Gaul/Alps)\",\n      bearing &gt;= 45 & bearing &lt; 135 ~ \"East (Balkans/Greece)\",\n      bearing &gt;= 135 & bearing &lt; 225 ~ \"South (Africa/Sicily)\",\n      bearing &gt;= 225 & bearing &lt; 315 ~ \"West (Iberia/Sardinia)\"\n    )\n  )\n\nregion_summary &lt;- hex_age %&gt;%\n  group_by(region) %&gt;%\n  summarise(\n    n_hexes = n(),\n    mean_dist = mean(dist_rome_km),\n    mean_age = weighted.mean(mean_age, n_types),\n    mean_pct_fresh = weighted.mean(pct_fresh, n_types),\n    mean_pct_old = weighted.mean(pct_old, n_types),\n    .groups = \"drop\"\n  )\n\nkable(region_summary, digits = 1, caption = \"Circulation patterns by region\")\n\n\n\nCirculation patterns by region\n\n\n\n\n\n\n\n\n\n\nregion\nn_hexes\nmean_dist\nmean_age\nmean_pct_fresh\nmean_pct_old\n\n\n\n\nEast (Balkans/Greece)\n54\n1234.5\n48.5\n23.0\n41.6\n\n\nNorth (Gaul/Alps)\n26\n661.5\n42.3\n31.7\n34.2\n\n\nSouth (Africa/Sicily)\n3\n526.8\n25.7\n51.7\n12.8\n\n\nWest (Iberia/Sardinia)\n58\n1501.0\n40.7\n30.1\n30.6\n\n\n\n\n\n\n\nCode\nggplot(hex_age, aes(x = region, y = mean_age, fill = region)) +\n  geom_boxplot(alpha = 0.7) +\n  geom_jitter(aes(size = n_types), alpha = 0.3, width = 0.2) +\n  scale_fill_brewer(palette = \"Set2\") +\n  scale_size_continuous(name = \"Sample size\", range = c(1, 6)) +\n  labs(\n    title = \"Circulation Age by Region\",\n    subtitle = \"Which directions from Rome had older coins?\",\n    x = NULL,\n    y = \"Mean circulation age (years)\"\n  ) +\n  theme(legend.position = \"right\")"
+  },
+  {
+    "objectID": "lrr_compositional.html",
+    "href": "lrr_compositional.html",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "",
+    "text": "The initial diagnostic analysis revealed:\n\n\n\nMetric\nValue\n\n\n\n\nHoards containing Rome coins\n99.4%\n\n\nHoards without ANY Rome coins\n3\n\n\n\nWith only 3 hoards lacking Rome coins, the binary contrast (Rome-containing vs. all hoards) collapsed—numerator ≈ denominator everywhere, producing LRR ≈ 0.\n\n\n\nHowever, the diagnostics also revealed exploitable variation:\n\nRome share within hoards varies from 0% to 100% (mean 88%, SD ~15%)\nDistance-decay signal: Rome proportion declines beyond 2000 km\n80% of hoards contain non-Rome coins: compositional diversity exists\n\nThe compositional approach asks: Where is the proportion of Rome-minted coins higher or lower than the global average?\n\\[\\text{LRR}_{\\text{comp}}(s) = \\log \\left( \\frac{p_{\\text{Rome}}(s)}{p_{\\text{Rome}}^{\\text{global}}} \\right)\\]\nwhere \\(p_{\\text{Rome}}(s)\\) is the proportion of Rome coins in spatial unit \\(s\\)."
+  },
+  {
+    "objectID": "lrr_compositional.html#why-binary-lrr-failed",
+    "href": "lrr_compositional.html#why-binary-lrr-failed",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "",
+    "text": "The initial diagnostic analysis revealed:\n\n\n\nMetric\nValue\n\n\n\n\nHoards containing Rome coins\n99.4%\n\n\nHoards without ANY Rome coins\n3\n\n\n\nWith only 3 hoards lacking Rome coins, the binary contrast (Rome-containing vs. all hoards) collapsed—numerator ≈ denominator everywhere, producing LRR ≈ 0."
+  },
+  {
+    "objectID": "lrr_compositional.html#what-compositional-lrr-captures",
+    "href": "lrr_compositional.html#what-compositional-lrr-captures",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "",
+    "text": "However, the diagnostics also revealed exploitable variation:\n\nRome share within hoards varies from 0% to 100% (mean 88%, SD ~15%)\nDistance-decay signal: Rome proportion declines beyond 2000 km\n80% of hoards contain non-Rome coins: compositional diversity exists\n\nThe compositional approach asks: Where is the proportion of Rome-minted coins higher or lower than the global average?\n\\[\\text{LRR}_{\\text{comp}}(s) = \\log \\left( \\frac{p_{\\text{Rome}}(s)}{p_{\\text{Rome}}^{\\text{global}}} \\right)\\]\nwhere \\(p_{\\text{Rome}}(s)\\) is the proportion of Rome coins in spatial unit \\(s\\)."
+  },
+  {
+    "objectID": "lrr_compositional.html#flag-rome-vs.-non-rome-at-row-level",
+    "href": "lrr_compositional.html#flag-rome-vs.-non-rome-at-row-level",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "4.1 Flag Rome vs. Non-Rome at Row Level",
+    "text": "4.1 Flag Rome vs. Non-Rome at Row Level\n\n\nCode\nchrr_flagged &lt;- chrr_raw %&gt;%\n  mutate(\n    is_rome = mint_id == \"rome\" | str_detect(mint_uri, \"/id/rome$\"),\n    is_rome = replace_na(is_rome, FALSE)\n  )\n\n# Global composition\nglobal_comp &lt;- chrr_flagged %&gt;%\n  summarise(\n    total_rows = n(),\n    rome_rows = sum(is_rome),\n    non_rome_rows = sum(!is_rome),\n    p_rome_global = rome_rows / total_rows\n  )\n\nkable(global_comp, \n      digits = c(0, 0, 0, 4),\n      caption = \"Global composition (row-level)\")\n\n\n\nGlobal composition (row-level)\n\n\ntotal_rows\nrome_rows\nnon_rome_rows\np_rome_global\n\n\n\n\n31951\n28177\n3774\n0.8819\n\n\n\n\n\nCode\np_global &lt;- global_comp$p_rome_global\ncat(\"\\nGlobal Rome proportion:\", round(p_global * 100, 2), \"%\\n\")\n\n\n\nGlobal Rome proportion: 88.19 %"
+  },
+  {
+    "objectID": "lrr_compositional.html#aggregate-to-hoard-level",
+    "href": "lrr_compositional.html#aggregate-to-hoard-level",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "4.2 Aggregate to Hoard Level",
+    "text": "4.2 Aggregate to Hoard Level\n\n\nCode\nhoard_comp &lt;- chrr_flagged %&gt;%\n  group_by(hoard_id, hoard_lat, hoard_long) %&gt;%\n  summarise(\n    n_types = n(),\n    n_rome = sum(is_rome),\n    n_non_rome = sum(!is_rome),\n    p_rome = n_rome / n_types,\n    .groups = \"drop\"\n  ) %&gt;%\n  filter(!is.na(hoard_lat), !is.na(hoard_long))\n\ncat(\"Hoards with valid coordinates:\", nrow(hoard_comp), \"\\n\")\n\n\nHoards with valid coordinates: 466 \n\n\nCode\n# Summary of hoard-level Rome proportions\nhoard_summary &lt;- hoard_comp %&gt;%\n  summarise(\n    n_hoards = n(),\n    mean_p_rome = mean(p_rome),\n    sd_p_rome = sd(p_rome),\n    min_p_rome = min(p_rome),\n    q25_p_rome = quantile(p_rome, 0.25),\n    median_p_rome = median(p_rome),\n    q75_p_rome = quantile(p_rome, 0.75),\n    max_p_rome = max(p_rome)\n  )\n\nkable(hoard_summary, \n      digits = 3,\n      caption = \"Rome proportion within hoards: summary statistics\")\n\n\n\nRome proportion within hoards: summary statistics\n\n\n\n\n\n\n\n\n\n\n\n\nn_hoards\nmean_p_rome\nsd_p_rome\nmin_p_rome\nq25_p_rome\nmedian_p_rome\nq75_p_rome\nmax_p_rome\n\n\n\n\n466\n0.881\n0.154\n0\n0.857\n0.932\n0.97\n1"
+  },
+  {
+    "objectID": "lrr_compositional.html#convert-to-spatial-object",
+    "href": "lrr_compositional.html#convert-to-spatial-object",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "4.3 Convert to Spatial Object",
+    "text": "4.3 Convert to Spatial Object\n\n\nCode\nhoard_sf &lt;- st_as_sf(\n\n  hoard_comp,\n  coords = c(\"hoard_long\", \"hoard_lat\"),\n  crs = 4326,\n  remove = FALSE\n)\n\ncat(\"Spatial object created with\", nrow(hoard_sf), \"hoards\\n\")\n\n\nSpatial object created with 466 hoards"
+  },
+  {
+    "objectID": "lrr_compositional.html#define-study-window",
+    "href": "lrr_compositional.html#define-study-window",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "5.1 Define Study Window",
+    "text": "5.1 Define Study Window\n\n\nCode\nlibrary(rnaturalearth)\nlibrary(rnaturalearthdata)\n\n# Get land polygons\nland &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\") %&gt;%\n  st_union()\n\n# Filter valid geometries\nhoard_sf_valid &lt;- hoard_sf %&gt;%\n  filter(!st_is_empty(geometry))\n\n# Bounding box\nhoard_bbox &lt;- st_bbox(hoard_sf_valid)\n\nif (any(is.na(hoard_bbox))) {\n  hoard_bbox &lt;- c(xmin = -10, ymin = 30, xmax = 45, ymax = 55)\n  names(hoard_bbox) &lt;- c(\"xmin\", \"ymin\", \"xmax\", \"ymax\")\n}\n\npad &lt;- 2\n\n# Create study extent\nstudy_extent &lt;- st_polygon(list(rbind(\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymin\"] - pad),\n  c(hoard_bbox[\"xmax\"] + pad, hoard_bbox[\"ymin\"] - pad),\n  c(hoard_bbox[\"xmax\"] + pad, hoard_bbox[\"ymax\"] + pad),\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymax\"] + pad),\n  c(hoard_bbox[\"xmin\"] - pad, hoard_bbox[\"ymin\"] - pad)\n))) %&gt;%\n  st_sfc(crs = 4326)\n\nstudy_land &lt;- st_intersection(land, study_extent)\n\ncat(\"Study window: [\", \n    round(hoard_bbox[\"xmin\"] - pad, 1), \",\", \n    round(hoard_bbox[\"xmax\"] + pad, 1), \"] x [\",\n    round(hoard_bbox[\"ymin\"] - pad, 1), \",\",\n    round(hoard_bbox[\"ymax\"] + pad, 1), \"]\\n\")\n\n\nStudy window: [ -11.1 , 49.1 ] x [ 33.3 , 54.9 ]\n\n\nCode\nhoard_sf &lt;- hoard_sf_valid"
+  },
+  {
+    "objectID": "lrr_compositional.html#project-to-equal-area-crs",
+    "href": "lrr_compositional.html#project-to-equal-area-crs",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "5.2 Project to Equal-Area CRS",
+    "text": "5.2 Project to Equal-Area CRS\n\n\nCode\ntarget_crs &lt;- 3035  # ETRS89-extended / LAEA Europe\n\nhoard_sf_proj &lt;- st_transform(hoard_sf, target_crs)\nstudy_land_proj &lt;- st_transform(study_land, target_crs)\n\nrome_mint &lt;- st_as_sf(\n  tibble(name = \"Rome\", lon = 12.4964, lat = 41.9028),\n  coords = c(\"lon\", \"lat\"),\n  crs = 4326\n) %&gt;%\n  st_transform(target_crs)\n\ncat(\"Projected to EPSG:\", target_crs, \"\\n\")\n\n\nProjected to EPSG: 3035"
+  },
+  {
+    "objectID": "lrr_compositional.html#construct-hexagonal-grid-100-km",
+    "href": "lrr_compositional.html#construct-hexagonal-grid-100-km",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "5.3 Construct Hexagonal Grid (100 km)",
+    "text": "5.3 Construct Hexagonal Grid (100 km)\n\n\nCode\nhex_size &lt;- 100000  # 100 km in meters\n\nhex_grid &lt;- st_make_grid(\n  study_land_proj,\n  cellsize = hex_size,\n  square = FALSE\n) %&gt;%\n  st_sf(hex_id = seq_along(.), geometry = .) %&gt;%\n  st_set_crs(target_crs)\n\n# Filter to land hexes\nhex_land &lt;- hex_grid %&gt;%\n  filter(lengths(st_intersects(., study_land_proj)) &gt; 0)\n\n# Centroid on land filter\nhex_centroids &lt;- st_centroid(hex_land)\non_land &lt;- lengths(st_intersects(hex_centroids, study_land_proj)) &gt; 0\nhex_land &lt;- hex_land[on_land, ]\n\ncat(\"Hex grid: \", nrow(hex_land), \"hexes on land (\", hex_size/1000, \"km)\\n\")\n\n\nHex grid:  859 hexes on land ( 100 km)"
+  },
+  {
+    "objectID": "lrr_compositional.html#assign-hoards-to-hexes-and-aggregate",
+    "href": "lrr_compositional.html#assign-hoards-to-hexes-and-aggregate",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "6.1 Assign Hoards to Hexes and Aggregate",
+    "text": "6.1 Assign Hoards to Hexes and Aggregate\n\n\nCode\n# Spatial join\nhoard_hex &lt;- st_join(hoard_sf_proj, hex_land, join = st_within) %&gt;%\n  filter(!is.na(hex_id))\n\n# Aggregate composition per hex\nhex_comp &lt;- hoard_hex %&gt;%\n  st_drop_geometry() %&gt;%\n  group_by(hex_id) %&gt;%\n  summarise(\n    n_hoards = n(),\n    total_types = sum(n_types),      # Total coin-type occurrences\n    rome_types = sum(n_rome),        # Rome coin-type occurrences\n    non_rome_types = sum(n_non_rome),\n    \n    # Weighted mean Rome proportion (by hoard size)\n    p_rome_weighted = rome_types / total_types,\n    \n    # Unweighted mean (each hoard counts equally)\n    p_rome_unweighted = mean(p_rome),\n    \n    .groups = \"drop\"\n  )\n\n# Join back to hex geometry\nhex_lrr &lt;- hex_land %&gt;%\n  left_join(hex_comp, by = \"hex_id\") %&gt;%\n  mutate(\n    across(c(n_hoards, total_types, rome_types, non_rome_types), \n           ~replace_na(.x, 0)),\n    has_data = n_hoards &gt; 0\n  )\n\ncat(\"Hoards assigned to hexes:\", sum(hex_lrr$n_hoards), \"\\n\")\n\n\nHoards assigned to hexes: 404 \n\n\nCode\ncat(\"Hexes with data:\", sum(hex_lrr$has_data), \"\\n\")\n\n\nHexes with data: 141"
+  },
+  {
+    "objectID": "lrr_compositional.html#compute-compositional-lrr",
+    "href": "lrr_compositional.html#compute-compositional-lrr",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "6.2 Compute Compositional LRR",
+    "text": "6.2 Compute Compositional LRR\nThree formulations, each with different assumptions:\n\n\nCode\n# Global Rome proportion for reference\np_global &lt;- sum(hex_lrr$rome_types) / sum(hex_lrr$total_types)\ncat(\"Global Rome proportion (from hex data):\", round(p_global * 100, 2), \"%\\n\\n\")\n\n\nGlobal Rome proportion (from hex data): 88.29 %\n\n\nCode\n# Smoothing constant for sparse hexes\nepsilon &lt;- 0.5\n\nhex_lrr &lt;- hex_lrr %&gt;%\n  mutate(\n    # ============================================================\n    # Method 1: Compositional LRR (row-level aggregation)\n    # Compares hex Rome proportion to global Rome proportion\n    # ============================================================\n    LRR_comp = ifelse(\n      has_data,\n      log((rome_types + epsilon) / (total_types + epsilon)) - log(p_global),\n      NA_real_\n    ),\n    \n    # ============================================================\n    # Method 2: Rome vs Non-Rome LRR (direct contrast)\n    # Positive = Rome dominates, Negative = other mints dominate\n    # ============================================================\n    LRR_contrast = ifelse(\n      has_data & non_rome_types &gt; 0,\n      log((rome_types + epsilon) / (non_rome_types + epsilon)),\n      NA_real_\n    ),\n    \n    # ============================================================\n    # Method 3: Deviation from expected (binomial framework)\n    # How many more/fewer Rome coins than expected at global rate?\n    # ============================================================\n    expected_rome = total_types * p_global,\n    rome_excess = rome_types - expected_rome,\n    rome_excess_pct = ifelse(has_data, 100 * rome_excess / expected_rome, NA_real_)\n  )"
+  },
+  {
+    "objectID": "lrr_compositional.html#lrr-summary-statistics",
+    "href": "lrr_compositional.html#lrr-summary-statistics",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "6.3 LRR Summary Statistics",
+    "text": "6.3 LRR Summary Statistics\n\n\nCode\nlrr_stats &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  st_drop_geometry() %&gt;%\n  summarise(\n    n_hexes = n(),\n    \n    # Compositional LRR\n    lrr_comp_mean = mean(LRR_comp, na.rm = TRUE),\n    lrr_comp_sd = sd(LRR_comp, na.rm = TRUE),\n    lrr_comp_min = min(LRR_comp, na.rm = TRUE),\n    lrr_comp_max = max(LRR_comp, na.rm = TRUE),\n    \n    # Rome vs Non-Rome\n    lrr_contrast_mean = mean(LRR_contrast, na.rm = TRUE),\n    lrr_contrast_sd = sd(LRR_contrast, na.rm = TRUE),\n    \n    # Rome proportion\n    p_rome_mean = mean(p_rome_weighted, na.rm = TRUE),\n    p_rome_sd = sd(p_rome_weighted, na.rm = TRUE)\n  )\n\nkable(lrr_stats, digits = 3, caption = \"LRR Summary Statistics\")\n\n\n\nLRR Summary Statistics\n\n\n\n\n\n\n\n\n\n\n\n\n\nn_hexes\nlrr_comp_mean\nlrr_comp_sd\nlrr_comp_min\nlrr_comp_max\nlrr_contrast_mean\nlrr_contrast_sd\np_rome_mean\np_rome_sd\n\n\n\n\n141\n-0.023\n0.185\n-1.311\n0.125\n1.998\n0.896\n0.871\n0.13\n\n\n\n\n\n\n\nCode\nhex_data &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  st_drop_geometry()\n\np1 &lt;- ggplot(hex_data, aes(x = LRR_comp)) +\n  geom_histogram(bins = 25, fill = \"steelblue\", color = \"white\", alpha = 0.8) +\n  geom_vline(xintercept = 0, color = \"darkred\", linetype = \"dashed\") +\n  labs(\n    title = \"Compositional LRR Distribution\",\n    subtitle = \"LRR = 0 means hex matches global Rome proportion\",\n    x = \"LRR (compositional)\",\n    y = \"Count\"\n  )\n\np2 &lt;- ggplot(hex_data, aes(x = p_rome_weighted)) +\n  geom_histogram(bins = 25, fill = \"forestgreen\", color = \"white\", alpha = 0.8) +\n  geom_vline(xintercept = p_global, color = \"darkred\", linetype = \"dashed\") +\n  scale_x_continuous(labels = scales::percent_format()) +\n  labs(\n    title = \"Rome Proportion per Hex\",\n    subtitle = paste(\"Global =\", round(p_global * 100, 1), \"%\"),\n    x = \"Rome proportion\",\n    y = \"Count\"\n  )\n\nlibrary(patchwork)\np1 + p2"
+  },
+  {
+    "objectID": "lrr_compositional.html#map-1-compositional-lrr",
+    "href": "lrr_compositional.html#map-1-compositional-lrr",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "7.1 Map 1: Compositional LRR",
+    "text": "7.1 Map 1: Compositional LRR\n\n\nCode\nhex_map &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  st_transform(4326)\n\nland_wgs &lt;- st_transform(study_land_proj, 4326)\nrome_wgs &lt;- st_transform(rome_mint, 4326)\n\nggplot() +\n  geom_sf(data = land_wgs, fill = \"grey95\", color = \"grey80\") +\n  geom_sf(\n    data = hex_map,\n    aes(fill = LRR_comp),\n    color = \"grey50\",\n    linewidth = 0.2\n  ) +\n  geom_sf(data = rome_wgs, color = \"black\", shape = 8, size = 5, stroke = 1.5) +\n  scale_fill_gradient2(\n    low = \"steelblue\",\n    mid = \"white\",\n    high = \"darkred\",\n    midpoint = 0,\n    name = \"LRR\",\n    limits = c(-0.5, 0.5),\n    oob = scales::squish\n  ) +\n  coord_sf(\n    xlim = c(hoard_bbox[\"xmin\"] - 1, hoard_bbox[\"xmax\"] + 1),\n    ylim = c(hoard_bbox[\"ymin\"] - 1, hoard_bbox[\"ymax\"] + 1)\n  ) +\n  labs(\n    title = \"Compositional Log-Relative Risk\",\n    subtitle = \"Rome proportion relative to global average (88%) | Red = above average, Blue = below\",\n    caption = \"Star = Rome mint | 100 km hexagonal grid\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text = element_blank(),\n    axis.title = element_blank(),\n    legend.position = \"right\"\n  )"
+  },
+  {
+    "objectID": "lrr_compositional.html#map-2-rome-vs.-non-rome-contrast",
+    "href": "lrr_compositional.html#map-2-rome-vs.-non-rome-contrast",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "7.2 Map 2: Rome vs. Non-Rome Contrast",
+    "text": "7.2 Map 2: Rome vs. Non-Rome Contrast\n\n\nCode\nggplot() +\n  geom_sf(data = land_wgs, fill = \"grey95\", color = \"grey80\") +\n  geom_sf(\n    data = hex_map %&gt;% filter(!is.na(LRR_contrast)),\n    aes(fill = LRR_contrast),\n    color = \"grey50\",\n    linewidth = 0.2\n  ) +\n  geom_sf(data = rome_wgs, color = \"black\", shape = 8, size = 5, stroke = 1.5) +\n  scale_fill_gradient2(\n    low = \"purple4\",\n    mid = \"white\",\n    high = \"darkorange\",\n    midpoint = log(1),  # Equal Rome and non-Rome\n    name = \"log(Rome/\\nNon-Rome)\",\n    limits = c(0, 4),\n    oob = scales::squish\n  ) +\n  coord_sf(\n    xlim = c(hoard_bbox[\"xmin\"] - 1, hoard_bbox[\"xmax\"] + 1),\n    ylim = c(hoard_bbox[\"ymin\"] - 1, hoard_bbox[\"ymax\"] + 1)\n  ) +\n  labs(\n    title = \"Rome vs. Non-Rome Mint Contrast\",\n    subtitle = \"Orange = Rome dominates, Purple = other mints more prevalent\",\n    caption = \"Star = Rome mint | Hexes with non-Rome coins only\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text = element_blank(),\n    axis.title = element_blank(),\n    legend.position = \"right\"\n  )"
+  },
+  {
+    "objectID": "lrr_compositional.html#map-3-raw-rome-proportion",
+    "href": "lrr_compositional.html#map-3-raw-rome-proportion",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "7.3 Map 3: Raw Rome Proportion",
+    "text": "7.3 Map 3: Raw Rome Proportion\n\n\nCode\nggplot() +\n  geom_sf(data = land_wgs, fill = \"grey95\", color = \"grey80\") +\n  geom_sf(\n    data = hex_map,\n    aes(fill = p_rome_weighted),\n    color = \"grey50\",\n    linewidth = 0.2\n  ) +\n  geom_sf(data = rome_wgs, color = \"black\", shape = 8, size = 5, stroke = 1.5) +\n  scale_fill_viridis_c(\n    name = \"Rome %\",\n    labels = scales::percent_format(),\n    option = \"plasma\",\n    limits = c(0.5, 1),\n    oob = scales::squish\n  ) +\n  coord_sf(\n    xlim = c(hoard_bbox[\"xmin\"] - 1, hoard_bbox[\"xmax\"] + 1),\n    ylim = c(hoard_bbox[\"ymin\"] - 1, hoard_bbox[\"ymax\"] + 1)\n  ) +\n  labs(\n    title = \"Rome Mint Proportion by Hex\",\n    subtitle = \"Proportion of coin-type occurrences from Rome mint\",\n    caption = \"Star = Rome mint | 100 km hexagonal grid\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text = element_blank(),\n    axis.title = element_blank(),\n    legend.position = \"right\"\n  )"
+  },
+  {
+    "objectID": "lrr_compositional.html#map-4-sample-size-denominator",
+    "href": "lrr_compositional.html#map-4-sample-size-denominator",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "7.4 Map 4: Sample Size (Denominator)",
+    "text": "7.4 Map 4: Sample Size (Denominator)\n\n\nCode\nggplot() +\n  geom_sf(data = land_wgs, fill = \"grey95\", color = \"grey80\") +\n  geom_sf(\n    data = hex_map,\n    aes(fill = total_types),\n    color = \"grey50\",\n    linewidth = 0.2\n  ) +\n  geom_sf(data = rome_wgs, color = \"white\", shape = 8, size = 5, stroke = 1.5) +\n  scale_fill_viridis_c(\n    name = \"Coin-types\",\n    trans = \"sqrt\",\n    option = \"viridis\"\n  ) +\n  coord_sf(\n    xlim = c(hoard_bbox[\"xmin\"] - 1, hoard_bbox[\"xmax\"] + 1),\n    ylim = c(hoard_bbox[\"ymin\"] - 1, hoard_bbox[\"ymax\"] + 1)\n  ) +\n  labs(\n    title = \"Sample Size per Hex (Total Coin-Type Occurrences)\",\n    subtitle = \"Denominator for compositional LRR | sqrt scale\",\n    caption = \"Star = Rome mint\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text = element_blank(),\n    axis.title = element_blank(),\n    legend.position = \"right\"\n  )"
+  },
+  {
+    "objectID": "lrr_compositional.html#hex-level-binomial-model",
+    "href": "lrr_compositional.html#hex-level-binomial-model",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "8.1 Hex-Level Binomial Model",
+    "text": "8.1 Hex-Level Binomial Model\nThe compositional LRR can be formalized as a binomial regression:\n\\[N_{\\text{Rome},h} \\sim \\text{Binomial}(N_{\\text{total},h}, \\pi_h)\\] \\[\\text{logit}(\\pi_h) = \\beta_0 + \\text{spatial effects}\\]\n\n\nCode\n# Prepare data for modeling\nmodel_data &lt;- hex_lrr %&gt;%\n  filter(has_data, total_types &gt; 0) %&gt;%\n  st_drop_geometry()\n\n# Simple binomial model (intercept only)\nbinom_fit &lt;- glm(\n\n  cbind(rome_types, non_rome_types) ~ 1,\n  family = binomial(link = \"logit\"),\n  data = model_data\n)\n\n# Extract estimates\nbeta0 &lt;- coef(binom_fit)[1]\nse_beta0 &lt;- sqrt(vcov(binom_fit)[1,1])\np_fitted &lt;- plogis(beta0)\n\ncat(\"Binomial Model Results\\n\")\n\n\nBinomial Model Results\n\n\nCode\ncat(\"======================\\n\")\n\n\n======================\n\n\nCode\ncat(\"Intercept (logit scale):\", round(beta0, 4), \"\\n\")\n\n\nIntercept (logit scale): 2.0205 \n\n\nCode\ncat(\"Standard error:\", round(se_beta0, 4), \"\\n\")\n\n\nStandard error: 0.0194 \n\n\nCode\ncat(\"Fitted global probability:\", round(p_fitted, 4), \"(\", round(p_fitted*100, 1), \"%)\\n\")\n\n\nFitted global probability: 0.8829 ( 88.3 %)\n\n\nCode\ncat(\"95% CI:\", round(plogis(beta0 - 1.96*se_beta0), 4), \"-\", \n    round(plogis(beta0 + 1.96*se_beta0), 4), \"\\n\")\n\n\n95% CI: 0.879 - 0.8868"
+  },
+  {
+    "objectID": "lrr_compositional.html#distance-from-rome-as-covariate",
+    "href": "lrr_compositional.html#distance-from-rome-as-covariate",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "8.2 Distance from Rome as Covariate",
+    "text": "8.2 Distance from Rome as Covariate\n\n\nCode\n# Calculate hex centroid distance from Rome\nhex_centroids_wgs &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  st_centroid() %&gt;%\n  st_transform(4326)\n\nrome_coords &lt;- c(12.4964, 41.9028)\n\n# Add distance\nhex_lrr_dist &lt;- hex_lrr %&gt;%\n  filter(has_data) %&gt;%\n  mutate(\n    centroid = st_centroid(geometry)\n  )\n\n# Get centroids in WGS84 for distance calculation\ncentroids_wgs &lt;- st_transform(st_centroid(hex_lrr_dist), 4326)\ncoords &lt;- st_coordinates(centroids_wgs)\n\nhex_lrr_dist &lt;- hex_lrr_dist %&gt;%\n  st_drop_geometry() %&gt;%\n  mutate(\n    cent_lon = coords[, 1],\n    cent_lat = coords[, 2],\n    dist_rome_km = sqrt((cent_lon - rome_coords[1])^2 + (cent_lat - rome_coords[2])^2) * 111\n  )\n\n# Binomial with distance covariate\nbinom_dist &lt;- glm(\n  cbind(rome_types, non_rome_types) ~ dist_rome_km,\n  family = binomial(link = \"logit\"),\n  data = hex_lrr_dist\n)\n\nsummary(binom_dist)\n\n\n\nCall:\nglm(formula = cbind(rome_types, non_rome_types) ~ dist_rome_km, \n    family = binomial(link = \"logit\"), data = hex_lrr_dist)\n\nCoefficients:\n               Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)   2.060e+00  3.275e-02  62.896   &lt;2e-16 ***\ndist_rome_km -4.213e-05  2.796e-05  -1.507    0.132    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 1205.8  on 140  degrees of freedom\nResidual deviance: 1203.5  on 139  degrees of freedom\nAIC: 1711.8\n\nNumber of Fisher Scoring iterations: 4\n\n\n\n\nCode\n# Predicted probability vs distance\ndist_seq &lt;- seq(0, max(hex_lrr_dist$dist_rome_km, na.rm = TRUE), length.out = 100)\npred_df &lt;- data.frame(dist_rome_km = dist_seq)\npred_df$p_rome_pred &lt;- predict(binom_dist, newdata = pred_df, type = \"response\")\n\nggplot() +\n  geom_point(\n    data = hex_lrr_dist,\n    aes(x = dist_rome_km, y = p_rome_weighted, size = total_types),\n    alpha = 0.5,\n    color = \"steelblue\"\n  ) +\n  geom_line(\n    data = pred_df,\n    aes(x = dist_rome_km, y = p_rome_pred),\n    color = \"darkred\",\n    linewidth = 1.2\n  ) +\n  geom_hline(yintercept = p_global, linetype = \"dashed\", color = \"grey50\") +\n  scale_y_continuous(labels = scales::percent_format(), limits = c(0.5, 1)) +\n  scale_size_continuous(name = \"Sample size\", range = c(1, 10)) +\n  labs(\n    title = \"Rome Proportion vs. Distance from Rome (Hex-Level)\",\n    subtitle = \"Red line = binomial regression fit | Dashed = global average\",\n    x = \"Distance from Rome (km)\",\n    y = \"Rome proportion\"\n  )\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Extract coefficients\ncoefs &lt;- coef(binom_dist)\ncat(\"\\nDistance Effect Interpretation\\n\")\n\n\n\nDistance Effect Interpretation\n\n\nCode\ncat(\"==============================\\n\")\n\n\n==============================\n\n\nCode\ncat(\"Intercept:\", round(coefs[1], 4), \"\\n\")\n\n\nIntercept: 2.06 \n\n\nCode\ncat(\"Distance coefficient:\", round(coefs[2], 6), \"per km\\n\")\n\n\nDistance coefficient: -4.2e-05 per km\n\n\nCode\ncat(\"\\nAt Rome (0 km): p =\", round(plogis(coefs[1]), 3), \"\\n\")\n\n\n\nAt Rome (0 km): p = 0.887 \n\n\nCode\ncat(\"At 1000 km: p =\", round(plogis(coefs[1] + coefs[2]*1000), 3), \"\\n\")\n\n\nAt 1000 km: p = 0.883 \n\n\nCode\ncat(\"At 2000 km: p =\", round(plogis(coefs[1] + coefs[2]*2000), 3), \"\\n\")\n\n\nAt 2000 km: p = 0.878 \n\n\nCode\ncat(\"At 3000 km: p =\", round(plogis(coefs[1] + coefs[2]*3000), 3), \"\\n\")\n\n\nAt 3000 km: p = 0.874 \n\n\nCode\n# Odds ratio per 100 km\nor_100km &lt;- exp(coefs[2] * 100)\ncat(\"\\nOdds ratio per 100 km increase:\", round(or_100km, 4), \"\\n\")\n\n\n\nOdds ratio per 100 km increase: 0.9958 \n\n\nCode\ncat(\"(Values &lt; 1 indicate Rome proportion decreases with distance)\\n\")\n\n\n(Values &lt; 1 indicate Rome proportion decreases with distance)"
+  },
+  {
+    "objectID": "lrr_compositional.html#temporal-stratification",
+    "href": "lrr_compositional.html#temporal-stratification",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "11.1 Temporal Stratification",
+    "text": "11.1 Temporal Stratification\nThe hex framework is now ready for temporal stratification. Next steps:\n\nBy TPQ (deposition time): Stratify hoards by terminus post quem to see how Rome’s spatial reach changed over deposition periods\nBy mint date (production time): Stratify by when coins were minted to track production reach\nHMM Integration: The hex-level composition becomes the observation for each spatial unit, with temporal sequences enabling regime detection"
+  },
+  {
+    "objectID": "lrr_compositional.html#resolution-refinement",
+    "href": "lrr_compositional.html#resolution-refinement",
+    "title": "Compositional Log-Relative Risk Analysis",
+    "section": "11.2 Resolution Refinement",
+    "text": "11.2 Resolution Refinement\nAfter validating patterns at 100 km:\n\n50 km → regional structure\n25 km → corridor detection\n\n5 km → fine-grained patterns (if sample size permits)"
   },
   {
     "objectID": "index.html",
