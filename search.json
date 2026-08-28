@@ -126,32 +126,60 @@
     "text": "10.2 Polar Heatmap: Rome % by Distance and Bearing\n\n\nCode\n# Bin by distance and bearing\npolar_bins &lt;- hoard_polar %&gt;%\n  mutate(\n    dist_bin = cut(dist_km, breaks = seq(0, 3000, 300), include.lowest = TRUE),\n    bearing_bin = cut(bearing_deg, breaks = seq(0, 360, 45), include.lowest = TRUE)\n  ) %&gt;%\n  group_by(dist_bin, bearing_bin) %&gt;%\n  summarise(\n    n = n(),\n    mean_rome = weighted.mean(p_rome, n_types),\n    .groups = \"drop\"\n  ) %&gt;%\n  filter(n &gt;= 3)  # Minimum sample\n\n# Extract bin midpoints\npolar_bins &lt;- polar_bins %&gt;%\n  mutate(\n    dist_mid = as.numeric(str_extract(as.character(dist_bin), \"\\\\d+\")) + 150,\n    bearing_mid = as.numeric(str_extract(as.character(bearing_bin), \"\\\\d+\")) + 22.5\n  )\n\nggplot(polar_bins, aes(x = bearing_mid, y = dist_mid, fill = mean_rome)) +\n  geom_tile(width = 45, height = 300, alpha = 0.9) +\n  geom_text(aes(label = round(mean_rome * 100)), size = 3, color = \"white\") +\n  coord_polar(theta = \"x\", start = -pi/2) +\n  scale_fill_viridis_c(name = \"Rome %\", labels = scales::percent_format(),\n                       option = \"plasma\") +\n  scale_x_continuous(breaks = seq(22.5, 337.5, 45),\n                     labels = c(\"N\", \"NE\", \"E\", \"SE\", \"S\", \"SW\", \"W\", \"NW\")) +\n  labs(\n    title = \"Polar Heatmap: Rome Proportion\",\n    subtitle = \"By distance (rings) and bearing (sectors) from Rome\",\n    x = NULL, y = \"Distance (km)\"\n  ) +\n  theme(axis.text.y = element_text(size = 8))"
   },
   {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Research",
+    "section": "",
+    "text": "I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings"
+  },
+  {
+    "objectID": "Assignment01.html",
+    "href": "Assignment01.html",
+    "title": "Assignment 01",
+    "section": "",
+    "text": "Live site at https://yourusername.github.io with Send your url to Teaching Assistant\n\n\nThis site, here.\n\n\nResearch page listing one project with two sentences on its data-generating process\n\n\nSee the research page in the EPPS6302 menu.\n\n\nA LICENSE file and a README.md explaining how to rebuild the site\n\n\nSee the License file under the About page.\nThe README.md is referenced under the EPPS6302 menu\n\n\nA .gitignore that would prevent you from ever committing a credential\n\n\nThe .gitignore can be found here\n\n\nAt least three commits with meaningful messages\n\n\nFirst is “Directional Flow”\nSecond is\nThird is"
+  },
+  {
+    "objectID": "Assignment01.html#section",
+    "href": "Assignment01.html#section",
+    "title": "Assignment 01",
+    "section": "",
+    "text": "Live site at https://yourusername.github.io with Send your url to Teaching Assistant\n\n\nThis site, here.\n\n\nResearch page listing one project with two sentences on its data-generating process\n\n\nSee the research page in the EPPS6302 menu.\n\n\nA LICENSE file and a README.md explaining how to rebuild the site\n\n\nSee the License file under the About page.\nThe README.md is referenced under the EPPS6302 menu\n\n\nA .gitignore that would prevent you from ever committing a credential\n\n\nThe .gitignore can be found here\n\n\nAt least three commits with meaningful messages\n\n\nFirst is “Directional Flow”\nSecond is\nThird is"
+  },
+  {
+    "objectID": "Assignment01.html#submit-your-site-url-and-your-repository-url.",
+    "href": "Assignment01.html#submit-your-site-url-and-your-repository-url.",
+    "title": "Assignment 01",
+    "section": "Submit: your site URL and your repository URL.",
+    "text": "Submit: your site URL and your repository URL.\nSite URL: https://jmglendenning.github.io\nRepo URL: https://github.com/jmglendenning/jmglendenning.github.io"
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "EPPS/GISC 3342 & GISC6379 Artificial Intelligence for Environmental Social Science Fall 2026\nEnvironmental Social Science (ESS) aims to understand the interplays of environmental and social factors and how the interplays shape communities. The course will overview AI-based computational approaches to analyze the environmental context in which social activities and processes evolve and to model the human-environment interactions for future projections."
+  },
+  {
+    "objectID": "teaching.html#teaching-assistant",
+    "href": "teaching.html#teaching-assistant",
+    "title": "Teaching",
+    "section": "",
+    "text": "EPPS/GISC 3342 & GISC6379 Artificial Intelligence for Environmental Social Science Fall 2026\nEnvironmental Social Science (ESS) aims to understand the interplays of environmental and social factors and how the interplays shape communities. The course will overview AI-based computational approaches to analyze the environmental context in which social activities and processes evolve and to model the human-environment interactions for future projections."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Coins and Conflict",
     "section": "",
     "text": "Presentation: 17 April 26\n\nContact\njmg220005@utdallas.edu"
-  },
-  {
-    "objectID": "Assignment01.html",
-    "href": "Assignment01.html",
-    "title": "About",
-    "section": "",
-    "text": "Live site at https://yourusername.github.io with Send your url to Teaching Assistant\n\n\nThis site, here. http://jmglendenning.github.io\n\n\nResearch page listing one project with two sentences on its data-generating process\n\n\nSee the research page in the EPPS6302 menu.\n\n\nA LICENSE file and a README.md explaining how to rebuild the site\n\n\nSee the License file under the About page.\nThe README.md is referenced under the EPPS6302 menu\n\n\nA .gitignore that would prevent you from ever committing a credential\n\n\nThe .gitignore is referenced under the EPPS6302 menu\n\n\nAt least three commits with meaningful messages\n\n\nFirst is “Directional Flow”\nSecond is\nThird is"
-  },
-  {
-    "objectID": "Assignment01.html#assignment-01",
-    "href": "Assignment01.html#assignment-01",
-    "title": "About",
-    "section": "",
-    "text": "Live site at https://yourusername.github.io with Send your url to Teaching Assistant\n\n\nThis site, here. http://jmglendenning.github.io\n\n\nResearch page listing one project with two sentences on its data-generating process\n\n\nSee the research page in the EPPS6302 menu.\n\n\nA LICENSE file and a README.md explaining how to rebuild the site\n\n\nSee the License file under the About page.\nThe README.md is referenced under the EPPS6302 menu\n\n\nA .gitignore that would prevent you from ever committing a credential\n\n\nThe .gitignore is referenced under the EPPS6302 menu\n\n\nAt least three commits with meaningful messages\n\n\nFirst is “Directional Flow”\nSecond is\nThird is"
-  },
-  {
-    "objectID": "Assignment01.html#submit-your-site-url-and-your-repository-url.",
-    "href": "Assignment01.html#submit-your-site-url-and-your-repository-url.",
-    "title": "About",
-    "section": "Submit: your site URL and your repository URL.",
-    "text": "Submit: your site URL and your repository URL.\nSite URL: https://jmglendenning.github.io\nRepo URL: https://github.com/jmglendenning/jmglendenning.github.io"
   },
   {
     "objectID": "about.html",

@@ -1,6 +1,25 @@
-.Rproj.user
+# Environment variables / secrets
+.env
+.env.*
+*.pem
+*.key
+secrets.yml
+config/secrets.*
+
+# R-specific credential/config leftovers
+.Renviron
 .Rhistory
+.Rproj.user/
 .RData
 .Ruserdata
-
 /.quarto/
+
+# API keys sometimes stored in these
+credentials.json
+*_credentials.json
+token.json
+
+# OS/editor junk (not credentials, but standard hygiene)
+.DS_Store
+.Rproj.user
+*.Rproj~
