@@ -26,21 +26,72 @@ teaching.html
 ===== publish.R =====
 library(quarto)
 
-project_dir <- getwd()
-site_dir <- file.path(project_dir, "_site")
-publish_dir <- "/GitHub/jmglendenning.github.io"
+# -------------------------------------------------------------------
+# Configuration
+# -------------------------------------------------------------------
 
+project_dir <- getwd()
+
+site_dir <- file.path(project_dir, "_site")
+
+publish_dir <- "/Users/john/Documents/GitHub/jmglendenning.github.io"
+
+# -------------------------------------------------------------------
+# Safety checks
+# -------------------------------------------------------------------
+
+if (!file.exists(file.path(project_dir, "_quarto.yml"))) {
+  stop("This does not appear to be the Quarto website directory: ",
+       project_dir)
+}
+
+if (!dir.exists(publish_dir)) {
+  stop("GitHub publish directory does not exist: ",
+       publish_dir)
+}
+
+if (!dir.exists(file.path(publish_dir, ".git"))) {
+  stop("Publish directory is not a Git repository: ",
+       publish_dir)
+}
+
+# -------------------------------------------------------------------
+# Remove old local render
+# -------------------------------------------------------------------
+
+if (dir.exists(site_dir)) {
+  unlink(site_dir, recursive = TRUE, force = TRUE)
+}
+
+# -------------------------------------------------------------------
 # Render the full Quarto site
+#
+# IMPORTANT:
+# as_job = FALSE forces R to WAIT until rendering is finished.
+# -------------------------------------------------------------------
+
 quarto::quarto_render(
-  input = project_dir
+  input = project_dir,
+  as_job = FALSE
 )
 
-# Safety check
+# -------------------------------------------------------------------
+# Verify render
+# -------------------------------------------------------------------
+
 if (!file.exists(file.path(site_dir, "index.html"))) {
   stop("Render did not produce _site/index.html")
 }
 
-# Copy everything from _site into the GitHub repo
+message("Quarto render complete.")
+message("Local site: ", site_dir)
+
+# -------------------------------------------------------------------
+# Copy _site contents into GitHub repository
+#
+# This does NOT delete README, LICENSE, PDFs, .git, etc.
+# -------------------------------------------------------------------
+
 files <- list.files(
   site_dir,
   all.files = TRUE,
@@ -49,12 +100,24 @@ files <- list.files(
 )
 
 for (f in files) {
-  file.copy(
-    f,
-    publish_dir,
+  
+  ok <- file.copy(
+    from = f,
+    to = publish_dir,
     recursive = TRUE,
-    overwrite = TRUE
+    overwrite = TRUE,
+    copy.mode = TRUE,
+    copy.date = TRUE
   )
+  
+  if (!ok) {
+    warning("Failed to copy: ", f)
+  }
 }
 
-message("Published to: ", publish_dir)
+message("")
+message("Published to:")
+message(publish_dir)
+message("")
+message("Files copied:")
+message(paste(basename(files), collapse = "\n"))
