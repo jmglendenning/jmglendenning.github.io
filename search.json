@@ -1,38 +1,17 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
     "section": "",
-    "text": "I am a PhD student at the University of Texas at Dallas studying GIS.\nI am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings\n\nCurriculum vitae"
+    "text": "[Download PDF] (https://jmglendenning.github.io/John_Glendenning.pdf) {.btn .btn-primary} \nCurriculum vitae"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Coins and Conflict",
-    "section": "",
-    "text": "Current Presentation\nPresentation: 17 April 26"
-  },
-  {
-    "objectID": "research.html",
-    "href": "research.html",
+    "objectID": "publications.html",
+    "href": "publications.html",
     "title": "Research",
     "section": "",
-    "text": "I am interested in applying GIS tools and techniques to historical questions.\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista.\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings\n\n\n\nCoin Hoard Data Generating Process\nThe data-generating process for coin hoards is inherently selective: hoards enter the archaeological record when people deliberately conceal coins and subsequently fail to recover them, while the observed dataset is further shaped by differential preservation, discovery, reporting, and publication.\n\n\nPrevious Projects\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition"
-  },
-  {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
-    "section": "",
-    "text": "EPPS/GISC 3342 & GISC6379 Artificial Intelligence for Environmental Social Science\nFall 2026\nEnvironmental Social Science (ESS) aims to understand the interplays of environmental and social factors and how the interplays shape communities. The course will overview AI-based computational approaches to analyze the environmental context in which social activities and processes evolve and to model the human-environment interactions for future projections."
-  },
-  {
-    "objectID": "teaching.html#teaching-assistant",
-    "href": "teaching.html#teaching-assistant",
-    "title": "Teaching",
-    "section": "",
-    "text": "EPPS/GISC 3342 & GISC6379 Artificial Intelligence for Environmental Social Science\nFall 2026\nEnvironmental Social Science (ESS) aims to understand the interplays of environmental and social factors and how the interplays shape communities. The course will overview AI-based computational approaches to analyze the environmental context in which social activities and processes evolve and to model the human-environment interactions for future projections."
+    "text": "I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings"
   },
   {
     "objectID": "Assignment01.html",
@@ -56,10 +35,38 @@
     "text": "Submit: your site URL and your repository URL.\nSite URL: https://jmglendenning.github.io\nRepo URL: https://github.com/jmglendenning/jmglendenning.github.io"
   },
   {
-    "objectID": "publications.html",
-    "href": "publications.html",
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "EPPS/GISC 3342 & GISC6379 Artificial Intelligence for Environmental Social Science\nFall 2026\nEnvironmental Social Science (ESS) aims to understand the interplays of environmental and social factors and how the interplays shape communities. The course will overview AI-based computational approaches to analyze the environmental context in which social activities and processes evolve and to model the human-environment interactions for future projections."
+  },
+  {
+    "objectID": "teaching.html#teaching-assistant",
+    "href": "teaching.html#teaching-assistant",
+    "title": "Teaching",
+    "section": "",
+    "text": "EPPS/GISC 3342 & GISC6379 Artificial Intelligence for Environmental Social Science\nFall 2026\nEnvironmental Social Science (ESS) aims to understand the interplays of environmental and social factors and how the interplays shape communities. The course will overview AI-based computational approaches to analyze the environmental context in which social activities and processes evolve and to model the human-environment interactions for future projections."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
     "title": "Research",
     "section": "",
-    "text": "I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings"
+    "text": "I am interested in applying GIS tools and techniques to historical questions.\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista.\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings\n\n\n\nCoin Hoard Data Generating Process\nThe data-generating process for coin hoards is inherently selective: hoards enter the archaeological record when people deliberately conceal coins and subsequently fail to recover them, while the observed dataset is further shaped by differential preservation, discovery, reporting, and publication.\n\n\nPrevious Projects\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Coins and Conflict",
+    "section": "",
+    "text": "Current Presentation\nPresentation: 17 April 26"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am a PhD student at the University of Texas at Dallas studying GIS.\nI am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings\n\nCurriculum vitae"
   }
 ]
