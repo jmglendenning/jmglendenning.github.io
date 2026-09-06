@@ -1,10 +1,59 @@
 [
   {
-    "objectID": "publications.html",
-    "href": "publications.html",
-    "title": "Research",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings"
+    "text": "I am a PhD student at the University of Texas at Dallas studying GIS.\nI am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings\n\nCurriculum vitae"
+  },
+  {
+    "objectID": "Prepare01.html",
+    "href": "Prepare01.html",
+    "title": "Prepare for Class01",
+    "section": "",
+    "text": "Bring a computer with the software installed, a team of four with a coordinator.\nDone\n\n\n\n\nA laptop or desktop computer running Windows or macOS. Tablets are not recommended.\nRun the latest update on your operating system. The computer is your most important companion in this class.\nInstall software:\n\nA program/text editor of your choice. The following is recommended but not required: Visual Studio Code\nR\nRStudio\nPython (3.x) - Anaconda\n\n\nDone\n\n\n\n\nCompose a team of four members. -&gt; Brennan, Joseph, John\nElect a coordinator. -&gt; Brennan was volunteered\n\n\n\n\n\nFoster et al., chapters 1 and 2.\nBreiman, Leo. 2001. “Statistical Modeling: The Two Cultures (with Comments and a Rejoinder by the Author).” Statistical Science 16 (3): 199-231.\n\nDone\n\n\n\n\nIdentify a data method in which you want to develop expertise.\n\nExtracting media consumption data via public sources.\n\n\n\n\nWhat is data? Observations or measurements\nWhat is big data? Data that is too large to be held simply or locally.\nSmall data? Data that can be held locally for processing\nData generation process. The mechanism that produces data.\n\nWrite your answers down before class - we open week 2 with these four questions."
+  },
+  {
+    "objectID": "Prepare01.html#before-we-meet",
+    "href": "Prepare01.html#before-we-meet",
+    "title": "Prepare for Class01",
+    "section": "",
+    "text": "Bring a computer with the software installed, a team of four with a coordinator.\nDone"
+  },
+  {
+    "objectID": "Prepare01.html#prepare-your-own-device",
+    "href": "Prepare01.html#prepare-your-own-device",
+    "title": "Prepare for Class01",
+    "section": "",
+    "text": "A laptop or desktop computer running Windows or macOS. Tablets are not recommended.\nRun the latest update on your operating system. The computer is your most important companion in this class.\nInstall software:\n\nA program/text editor of your choice. The following is recommended but not required: Visual Studio Code\nR\nRStudio\nPython (3.x) - Anaconda\n\n\nDone"
+  },
+  {
+    "objectID": "Prepare01.html#build-a-team",
+    "href": "Prepare01.html#build-a-team",
+    "title": "Prepare for Class01",
+    "section": "",
+    "text": "Compose a team of four members. -&gt; Brennan, Joseph, John\nElect a coordinator. -&gt; Brennan was volunteered"
+  },
+  {
+    "objectID": "Prepare01.html#read",
+    "href": "Prepare01.html#read",
+    "title": "Prepare for Class01",
+    "section": "",
+    "text": "Foster et al., chapters 1 and 2.\nBreiman, Leo. 2001. “Statistical Modeling: The Two Cultures (with Comments and a Rejoinder by the Author).” Statistical Science 16 (3): 199-231.\n\nDone"
+  },
+  {
+    "objectID": "Prepare01.html#data",
+    "href": "Prepare01.html#data",
+    "title": "Prepare for Class01",
+    "section": "",
+    "text": "Identify a data method in which you want to develop expertise.\n\nExtracting media consumption data via public sources."
+  },
+  {
+    "objectID": "Prepare01.html#discussion-for-next-week",
+    "href": "Prepare01.html#discussion-for-next-week",
+    "title": "Prepare for Class01",
+    "section": "",
+    "text": "What is data? Observations or measurements\nWhat is big data? Data that is too large to be held simply or locally.\nSmall data? Data that can be held locally for processing\nData generation process. The mechanism that produces data.\n\nWrite your answers down before class - we open week 2 with these four questions."
   },
   {
     "objectID": "Assignment01.html",
@@ -56,10 +105,59 @@
     "text": "Current Presentation\nPresentation: 17 April 26"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Research",
     "section": "",
-    "text": "I am a PhD student at the University of Texas at Dallas studying GIS.\nI am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings\n\nCurriculum vitae"
+    "text": "I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:\n\nRoman villa site location analysis and predictive modeling\nA Python implementation of Geomorphons\nApplication of low-cost drones to disaster efforts\nPython-based DEM-based spatial statistics via WCS data-acquisition\n\nCurrent projects include:\n\nSpatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista\nSynthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data\nML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings"
+  },
+  {
+    "objectID": "Prepare02.html",
+    "href": "Prepare02.html",
+    "title": "Prepare for Class02",
+    "section": "",
+    "text": "Keep pace with the syllabus readings, submit Assignment 1, listen to one podcast episode, and start shaping the team proposal.\nDone\n\n\n\n\nFollow the syllabus on required readings each week.\n\nDone\n\n\n\n\nAssignment 1.\n\nDone\n\n\n\n\nDataFramed - a podcast hosted by DataCamp featuring renowned data scientists’ insights on the latest data science developments.\n\nCheck out the latest episode: Is Math the Key to Better Coding AI?\n\n\nDone\n\nName three things the author emphasized.\n\n\nAI is becoming capable of math\nVerification is as important as discovery\nAI changes the work that people do, not replaces people\n\n\n\n\n\nAre small data methods still needed in the big data age? Why, and how?\n\nBig data does not eliminate the need for systematic small data methodologies. In fact, it could be argued that it increases the need for the need for these methodologies. It is very important to understand the data generating process, as well as the context, representativeness, etc. of the sample itself. More is not better, just more. Without understanding these processes, the inference from the sample set is limited.\n\n\n\nProposal due: 10/6/2026. It must be consulted with the instructor in advance and approved. No late submission will be accepted.\nIn Progress\nBring your three points from the episode and your answer to the thought question - we open class with both."
+  },
+  {
+    "objectID": "Prepare02.html#before-we-meet",
+    "href": "Prepare02.html#before-we-meet",
+    "title": "Prepare for Class02",
+    "section": "",
+    "text": "Keep pace with the syllabus readings, submit Assignment 1, listen to one podcast episode, and start shaping the team proposal.\nDone"
+  },
+  {
+    "objectID": "Prepare02.html#readings",
+    "href": "Prepare02.html#readings",
+    "title": "Prepare for Class02",
+    "section": "",
+    "text": "Follow the syllabus on required readings each week.\n\nDone"
+  },
+  {
+    "objectID": "Prepare02.html#assignment",
+    "href": "Prepare02.html#assignment",
+    "title": "Prepare for Class02",
+    "section": "",
+    "text": "Assignment 1.\n\nDone"
+  },
+  {
+    "objectID": "Prepare02.html#podcast",
+    "href": "Prepare02.html#podcast",
+    "title": "Prepare for Class02",
+    "section": "",
+    "text": "DataFramed - a podcast hosted by DataCamp featuring renowned data scientists’ insights on the latest data science developments.\n\nCheck out the latest episode: Is Math the Key to Better Coding AI?\n\n\nDone\n\nName three things the author emphasized.\n\n\nAI is becoming capable of math\nVerification is as important as discovery\nAI changes the work that people do, not replaces people"
+  },
+  {
+    "objectID": "Prepare02.html#for-thoughts",
+    "href": "Prepare02.html#for-thoughts",
+    "title": "Prepare for Class02",
+    "section": "",
+    "text": "Are small data methods still needed in the big data age? Why, and how?\n\nBig data does not eliminate the need for systematic small data methodologies. In fact, it could be argued that it increases the need for the need for these methodologies. It is very important to understand the data generating process, as well as the context, representativeness, etc. of the sample itself. More is not better, just more. Without understanding these processes, the inference from the sample set is limited."
+  },
+  {
+    "objectID": "Prepare02.html#proposal",
+    "href": "Prepare02.html#proposal",
+    "title": "Prepare for Class02",
+    "section": "",
+    "text": "Proposal due: 10/6/2026. It must be consulted with the instructor in advance and approved. No late submission will be accepted.\nIn Progress\nBring your three points from the episode and your answer to the thought question - we open class with both."
   }
 ]
