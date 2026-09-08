@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="John Glendenning">
 
-<title>Teaching – John Glendenning</title>
+<title>Prepare for Class03 – John Glendenning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -199,7 +235,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#teaching-assistant" id="toc-teaching-assistant" class="nav-link active" data-scroll-target="#teaching-assistant">Teaching Assistant</a></li>
+  <li><a href="#prepare-for-class-3" id="toc-prepare-for-class-3" class="nav-link active" data-scroll-target="#prepare-for-class-3">Prepare for Class 3</a>
+  <ul class="collapse">
+  <li><a href="#before-we-meet" id="toc-before-we-meet" class="nav-link" data-scroll-target="#before-we-meet">Before we meet</a></li>
+  <li><a href="#assigned-reading" id="toc-assigned-reading" class="nav-link" data-scroll-target="#assigned-reading">1. Assigned reading</a></li>
+  <li><a href="#assignment-2" id="toc-assignment-2" class="nav-link" data-scroll-target="#assignment-2">2. Assignment 2</a></li>
+  <li><a href="#get-a-census-api-key" id="toc-get-a-census-api-key" class="nav-link" data-scroll-target="#get-a-census-api-key">3. Get a Census API key</a></li>
+  <li><a href="#weekly-challenge" id="toc-weekly-challenge" class="nav-link" data-scroll-target="#weekly-challenge">4. Weekly challenge</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -212,13 +255,19 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Teaching</h1>
+<h1 class="title">Prepare for Class03</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Glendenning </p>
+          </div>
+  </div>
     
   
     
@@ -229,15 +278,149 @@ window.Quarto = {
 </header>
 
 
-<section id="teaching-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="teaching-assistant">Teaching Assistant</h2>
-<p><strong>EPPS/GISC 3342 &amp; GISC6379 Artificial Intelligence for Environmental Social Science</strong></p>
-<p><em>Fall 2026</em></p>
-<p>Environmental Social Science (ESS) aims to understand the interplays of environmental and social factors and how the interplays shape communities. The course will overview AI-based computational approaches to analyze the environmental context in which social activities and processes evolve and to model the human-environment interactions for future projections.</p>
-
-
-
+<section id="prepare-for-class-3" class="level1 task" style="color: grey;">
+<h1>Prepare for Class 3</h1>
+<section id="before-we-meet" class="level2">
+<h2 class="anchored" data-anchor-id="before-we-meet">Before we meet</h2>
+<p>Read Walker on the US Census, request and activate a Census API key, and be ready to explain how data get into R using both conventional and newer data formats.</p>
 </section>
+<section id="assigned-reading" class="level2">
+<h2 class="anchored" data-anchor-id="assigned-reading">1. Assigned reading</h2>
+<ol type="a">
+<li><p>Walker, Kyle. 2023. <a href="https://walker-data.com/census-r/index.html"><em>Analyzing US Census Data: Methods, Maps, and Models in R</em></a>. Chapman and Hall/CRC.</p>
+<ol type="i">
+<li>For this week: Chapter 1, <em>The US Census and the R programming language</em>, and Chapter 2, <em>An introduction to tidycensus</em>.</li>
+</ol></li>
+</ol>
+<p><em>To Do</em></p>
+</section>
+<section id="assignment-2" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-2">2. Assignment 2</h2>
+<ol type="a">
+<li><a href="https://jmglendenning.github.io/Assignment02.html">Assignment 2.</a></li>
+</ol>
+<p><em>To Do</em></p>
+</section>
+<section id="get-a-census-api-key" class="level2">
+<h2 class="anchored" data-anchor-id="get-a-census-api-key">3. Get a Census API key</h2>
+<ol type="a">
+<li><p>Read the <a href="https://www.census.gov/data/developers/guidance/api-user-guide.html">Census Data API User Guide</a>.</p></li>
+<li><p><a href="https://api.census.gov/data/key_signup.html">Request a Census API key</a>.</p>
+<ol type="i">
+<li><p>Use a UTD email address.</p></li>
+<li><p>Activate the key from the confirmation email before class.</p></li>
+</ol></li>
+<li><p>Never commit the API key to the public GitHub site. Store it once in R with:</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tidycensus<span class="sc">::</span><span class="fu">census_api_key</span>(<span class="st">"KEY"</span>, <span class="at">install =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="4" type="a">
+<li>Add <code>.Renviron</code> to <code>.gitignore</code>.</li>
+</ol>
+<p><em>To Do</em></p>
+</section>
+<section id="weekly-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-challenge">4. Weekly challenge</h2>
+<ol type="a">
+<li><p>Getting familiar with data import in R.</p>
+<ol type="i">
+<li>What are the most commonly used packages for importing data in R?</li>
+</ol>
+<ul>
+<li><code>readr</code> — delimited text files such as CSV</li>
+<li><code>readxl</code> — Excel files</li>
+<li><code>haven</code> — SPSS, Stata, and SAS files</li>
+<li><code>jsonlite</code> — JSON</li>
+<li><code>xml2</code> — XML</li>
+<li><code>arrow</code> — Parquet, Feather, and Arrow IPC</li>
+</ul>
+<ol start="2" type="i">
+<li>Conventional formats — CSV, SPSS, Stata, XML, JSON. Be able to name what reads each one.</li>
+</ol></li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Format</th>
+<th>Common R package/function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CSV</td>
+<td><code>readr::read_csv()</code></td>
+</tr>
+<tr class="even">
+<td>SPSS</td>
+<td><code>haven::read_sav()</code></td>
+</tr>
+<tr class="odd">
+<td>Stata</td>
+<td><code>haven::read_dta()</code></td>
+</tr>
+<tr class="even">
+<td>XML</td>
+<td><code>xml2::read_xml()</code></td>
+</tr>
+<tr class="odd">
+<td>JSON</td>
+<td><code>jsonlite::fromJSON()</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="i">
+<li>New formats — Feather, Parquet, Arrow IPC, ORC, HDF5, Zarr, Avro. What problem does each one solve that CSV does not?</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th>Main advantage over CSV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Feather</td>
+<td>Fast, typed, columnar exchange between data-analysis systems</td>
+</tr>
+<tr class="even">
+<td>Parquet</td>
+<td>Compressed columnar storage optimized for large analytical datasets</td>
+</tr>
+<tr class="odd">
+<td>Arrow IPC</td>
+<td>Fast in-memory or interprocess exchange without repeated serialization</td>
+</tr>
+<tr class="even">
+<td>ORC</td>
+<td>Compressed columnar storage designed for large-scale analytical workloads</td>
+</tr>
+<tr class="odd">
+<td>HDF5</td>
+<td>Efficient storage of large, complex, multidimensional scientific data</td>
+</tr>
+<tr class="even">
+<td>Zarr</td>
+<td>Chunked, compressed multidimensional arrays suited to cloud/object storage</td>
+</tr>
+<tr class="odd">
+<td>Avro</td>
+<td>Schema-based row-oriented serialization useful for data exchange and streaming</td>
+</tr>
+</tbody>
+</table>
+<p><strong>One sentence:</strong> <em>New data formats exist because CSV is simple and portable but does not preserve data types, efficiently compress large datasets, support fast columnar access, or handle complex and multidimensional data well.</em></p>
+<p><em>Bring the activated Census API key and the one-sentence explanation of why the new formats exist; class begins by pulling Census data live.</em></p>
+</section>
+</section>
+
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

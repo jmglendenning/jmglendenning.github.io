@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Teaching – John Glendenning</title>
+<title>Assignment 02 – John Glendenning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -199,7 +234,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#teaching-assistant" id="toc-teaching-assistant" class="nav-link active" data-scroll-target="#teaching-assistant">Teaching Assistant</a></li>
+  <li><a href="#google-trends-two-ways-to-get-the-same-data" id="toc-google-trends-two-ways-to-get-the-same-data" class="nav-link active" data-scroll-target="#google-trends-two-ways-to-get-the-same-data">Google Trends: two ways to get the same data</a>
+  <ul class="collapse">
+  <li><a href="#query-parameters" id="toc-query-parameters" class="nav-link" data-scroll-target="#query-parameters">Query parameters</a></li>
+  </ul></li>
+  <li><a href="#submit" id="toc-submit" class="nav-link" data-scroll-target="#submit">Submit</a></li>
   </ul>
 </nav>
 </nav>
@@ -212,7 +251,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Teaching</h1>
+<h1 class="title">Assignment 02</h1>
 </div>
 
 
@@ -229,11 +268,205 @@ window.Quarto = {
 </header>
 
 
-<section id="teaching-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="teaching-assistant">Teaching Assistant</h2>
-<p><strong>EPPS/GISC 3342 &amp; GISC6379 Artificial Intelligence for Environmental Social Science</strong></p>
-<p><em>Fall 2026</em></p>
-<p>Environmental Social Science (ESS) aims to understand the interplays of environmental and social factors and how the interplays shape communities. The course will overview AI-based computational approaches to analyze the environmental context in which social activities and processes evolve and to model the human-environment interactions for future projections.</p>
+<section id="google-trends-two-ways-to-get-the-same-data" class="level2">
+<h2 class="anchored" data-anchor-id="google-trends-two-ways-to-get-the-same-data">Google Trends: two ways to get the same data</h2>
+<section id="query-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="query-parameters">Query parameters</h3>
+<ul>
+<li><strong>Search terms:</strong> Trump, Kamala Harris, Election</li>
+<li><strong>Geography:</strong> United States</li>
+<li><strong>Time window:</strong> Last five years</li>
+<li><strong>Category:</strong> All categories</li>
+<li><strong>Search type:</strong> Web Search</li>
+<li><strong>Date/time pulled:</strong> <em>[enter date and time]</em></li>
+<li><strong>Additional current-news term:</strong> <em>[enter term]</em></li>
+</ul>
+<ol type="1">
+<li>Collect the data from the Google Trends website</li>
+</ol>
+<ul>
+<li>Download the Google Trends CSV for <strong>Trump</strong>, <strong>Kamala Harris</strong>, and <strong>Election</strong> using the parameters above.</li>
+<li>Repeat the download using a current-news term of your choice: <strong>[term]</strong>.</li>
+<li>Cached website CSV: <em>[enter filename or link]</em></li>
+</ul>
+<ol start="2" type="1">
+<li>Look at the website data</li>
+</ol>
+<ul>
+<li><strong>Date range:</strong> <em>[enter range]</em></li>
+<li><strong>Interval:</strong> <em>[hourly / daily / weekly / monthly]</em></li>
+<li>After changing the date window, the interval <em>[did / did not]</em> change. <em>[brief explanation]</em></li>
+<li>Google Trends values are normalized rather than raw search counts. A value of <strong>100</strong> represents the peak relative search interest within the query, while <strong>0</strong> indicates insufficient or very low relative interest.</li>
+<li>After removing one search term, the remaining values <em>[did / did not]</em> stay the same. <em>[brief explanation]</em></li>
+</ul>
+<ol start="3" type="1">
+<li>Collect the same data with <code>gtrendsR</code></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtrendsR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>TrumpHarrisElection <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Trump"</span>, <span class="st">"Harris"</span>, <span class="st">"election"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">onlyInterest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">geo =</span> <span class="st">"US"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">gprop =</span> <span class="st">"web"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="st">"today+5-y"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="dv">0</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>the_df <span class="ot">&lt;-</span> TrumpHarrisElection<span class="sc">$</span>interest_over_time</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(TrumpHarrisElection)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Assignment02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cache the raw pull because later calls may return slightly different values.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  the_df,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">"gtrends_us_5y_"</span>, <span class="fu">Sys.Date</span>(), <span class="st">".csv"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>One term over its full history:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tg <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(<span class="st">"tariff"</span>, <span class="at">time =</span> <span class="st">"all"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Assignment02_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>The same term in another country:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">gtrends</span>(<span class="st">"tariff"</span>, <span class="at">geo =</span> <span class="st">"GB"</span>, <span class="at">time =</span> <span class="st">"all"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Assignment02_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>One term across the United States, Great Britain, and Taiwan:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">gtrends</span>(<span class="st">"tariff"</span>, <span class="at">geo =</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"GB"</span>, <span class="st">"TW"</span>), <span class="at">time =</span> <span class="st">"all"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Assignment02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Three terms worldwide:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tct <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(<span class="fu">c</span>(<span class="st">"tariff"</span>, <span class="st">"China military"</span>, <span class="st">"Taiwan"</span>), <span class="at">time =</span> <span class="st">"all"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Assignment02_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>With <code>onlyInterest</code> left at its default, <code>names(tct)</code> returns:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "interest_over_time"  "interest_by_country" "interest_by_region" 
+[4] "interest_by_dma"     "interest_by_city"    "related_topics"     
+[7] "related_queries"    </code></pre>
+</div>
+</div>
+<ul>
+<li>The additional data frames that the website CSV did not provide were: <em>[enter names and briefly describe them]</em>.</li>
+</ul>
+<ol start="4" type="1">
+<li>Search term versus intended concept</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>harris_compare <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Harris"</span>, <span class="st">"Kamala Harris"</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">geo =</span> <span class="st">"US"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">gprop =</span> <span class="st">"web"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="st">"today+5-y"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="dv">0</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">onlyInterest =</span> <span class="cn">TRUE</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(harris_compare)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Assignment02_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>The <strong>Harris</strong> and <strong>Kamala Harris</strong> series <em>[are / are not]</em> the same. <em>[describe the difference]</em></li>
+<li>This difference shows that a search term is not necessarily identical to the concept being measured. <strong>Harris</strong> can refer to many people, places, or organizations, while <strong>Kamala Harris</strong> is a more specific query.</li>
+</ul>
+<ol start="5" type="1">
+<li>Compare the website and R methods</li>
+</ol>
+<ul>
+<li>The website and <code>gtrendsR</code> series <em>[were / were not]</em> identical. The differences were <em>[describe magnitude and direction]</em>.</li>
+<li><strong>Reproducibility:</strong> <em>[compare whether another person could regenerate the same result]</em></li>
+<li><strong>Provenance:</strong> <em>[compare how each method records query parameters]</em></li>
+<li><strong>Scale:</strong> <em>[compare the practicality of collecting three terms versus many terms]</em></li>
+<li><strong>Fragility:</strong> <em>[describe what can break and how failures would be detected]</em></li>
+</ul>
+<ol start="6" type="1">
+<li>Repeatability of the Google Trends sample</li>
+</ol>
+<p>Run the same call twice a few minutes apart and compare the results.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pull_1 <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Trump"</span>, <span class="st">"Harris"</span>, <span class="st">"election"</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">onlyInterest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">geo =</span> <span class="st">"US"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">gprop =</span> <span class="st">"web"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="st">"today+5-y"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="dv">0</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>interest_over_time</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the second pull a few minutes later.</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>pull_2 <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Trump"</span>, <span class="st">"Harris"</span>, <span class="st">"election"</span>),</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">onlyInterest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">geo =</span> <span class="st">"US"</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">gprop =</span> <span class="st">"web"</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="st">"today+5-y"</span>,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="dv">0</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>interest_over_time</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>The two pulls <em>[did / did not]</em> return exactly the same values. <em>[briefly quantify the difference]</em></li>
+<li>Because Google Trends is based on a sample of searches, repeated pulls can vary. This means findings should be interpreted as estimates from a sampled and normalized source, and successful pulls should be cached for reproducibility.</li>
+</ul>
+</section>
+</section>
+<section id="submit" class="level2">
+<h2 class="anchored" data-anchor-id="submit">Submit</h2>
+<p>Assignment page: <a href="https://jmglendenning.github.io/assign02.html">https://jmglendenning.github.io/assign02.html</a></p>
 
 
 
