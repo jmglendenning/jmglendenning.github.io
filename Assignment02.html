@@ -234,10 +234,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#google-trends-two-ways-to-get-the-same-data" id="toc-google-trends-two-ways-to-get-the-same-data" class="nav-link active" data-scroll-target="#google-trends-two-ways-to-get-the-same-data">Google Trends: two ways to get the same data</a>
-  <ul class="collapse">
-  <li><a href="#query-parameters" id="toc-query-parameters" class="nav-link" data-scroll-target="#query-parameters">Query parameters</a></li>
-  </ul></li>
+  <li><a href="#google-trends-two-ways-to-get-the-same-data" id="toc-google-trends-two-ways-to-get-the-same-data" class="nav-link active" data-scroll-target="#google-trends-two-ways-to-get-the-same-data">Google Trends: two ways to get the same data</a></li>
   <li><a href="#submit" id="toc-submit" class="nav-link" data-scroll-target="#submit">Submit</a></li>
   </ul>
 </nav>
@@ -270,27 +267,37 @@ window.Quarto = {
 
 <section id="google-trends-two-ways-to-get-the-same-data" class="level2">
 <h2 class="anchored" data-anchor-id="google-trends-two-ways-to-get-the-same-data">Google Trends: two ways to get the same data</h2>
-<section id="query-parameters" class="level3">
-<h3 class="anchored" data-anchor-id="query-parameters">Query parameters</h3>
-<ul>
-<li><strong>Search terms:</strong> Trump, Kamala Harris, Election</li>
-<li><strong>Geography:</strong> United States</li>
-<li><strong>Time window:</strong> Last five years</li>
-<li><strong>Category:</strong> All categories</li>
-<li><strong>Search type:</strong> Web Search</li>
-<li><strong>Date/time pulled:</strong> <em>[enter date and time]</em></li>
-<li><strong>Additional current-news term:</strong> <em>[enter term]</em></li>
-</ul>
+<p><strong>What you will produce:</strong> <em>The same Google Trends series pulled two ways — once by hand from the website, once from R with gtrendsR — and a short note on what differs between them and why.</em></p>
 <ol type="1">
 <li>Collect the data from the Google Trends website</li>
 </ol>
+<ol type="a">
+<li><p>Go to https://trends.google.com and search Trump, Kamala Harris and Election.</p></li>
+<li><p>Download the data as [csv](https://jmglendenning.github.io/(https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv)</p></li>
+<li><p><em>Record the query</em></p></li>
+</ol>
+<p>Query parameters</p>
 <ul>
-<li>Download the Google Trends CSV for <strong>Trump</strong>, <strong>Kamala Harris</strong>, and <strong>Election</strong> using the parameters above.</li>
-<li>Repeat the download using a current-news term of your choice: <strong>[term]</strong>.</li>
-<li>Cached website CSV: <em>[enter filename or link]</em></li>
+<li><p><strong>Search terms:</strong> Trump, Kamala Harris, Election</p></li>
+<li><p><strong>Geography:</strong> United States</p></li>
+<li><p><strong>Time window:</strong> Last five years</p></li>
+<li><p><strong>Category:</strong> All categories</p></li>
+<li><p><strong>Search type:</strong> Web Search</p></li>
+<li><p><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></p></li>
+<li><p><strong>Additional current-news term:</strong> <em>data center</em>, United States,</p>
+<ul>
+<li>Repeat the download using a current-news term of your choice: <strong>data center</strong>. Query parameters</li>
+</ul></li>
+<li><p><strong>Search terms:</strong> data center</p></li>
+<li><p><strong>Geography:</strong> United States</p></li>
+<li><p><strong>Time window:</strong> Last five years</p></li>
+<li><p><strong>Category:</strong> All categories</p></li>
+<li><p><strong>Search type:</strong> Web Search</p></li>
+<li><p><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></p></li>
+<li><p><strong>Additional current-news term:</strong> <em>data center</em>, United States,</p></li>
 </ul>
 <ol start="2" type="1">
-<li>Look at the website data</li>
+<li>Look at what you got</li>
 </ol>
 <ul>
 <li><strong>Date range:</strong> <em>[enter range]</em></li>
@@ -462,7 +469,6 @@ window.Quarto = {
 <li>The two pulls <em>[did / did not]</em> return exactly the same values. <em>[briefly quantify the difference]</em></li>
 <li>Because Google Trends is based on a sample of searches, repeated pulls can vary. This means findings should be interpreted as estimates from a sampled and normalized source, and successful pulls should be cached for reproducibility.</li>
 </ul>
-</section>
 </section>
 <section id="submit" class="level2">
 <h2 class="anchored" data-anchor-id="submit">Submit</h2>
