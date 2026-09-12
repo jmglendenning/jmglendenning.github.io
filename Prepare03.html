@@ -292,14 +292,14 @@ window.Quarto = {
 <li>For this week: Chapter 1, <em>The US Census and the R programming language</em>, and Chapter 2, <em>An introduction to tidycensus</em>.</li>
 </ol></li>
 </ol>
-<p><em>To Do</em></p>
+<p><em>Done</em></p>
 </section>
 <section id="assignment-2" class="level2">
 <h2 class="anchored" data-anchor-id="assignment-2">2. Assignment 2</h2>
 <ol type="a">
 <li><a href="https://jmglendenning.github.io/Assignment02.html">Assignment 2.</a></li>
 </ol>
-<p><em>To Do</em></p>
+<p><em>Done</em></p>
 </section>
 <section id="get-a-census-api-key" class="level2">
 <h2 class="anchored" data-anchor-id="get-a-census-api-key">3. Get a Census API key</h2>
@@ -310,15 +310,19 @@ window.Quarto = {
 <li><p>Use a UTD email address.</p></li>
 <li><p>Activate the key from the confirmation email before class.</p></li>
 </ol></li>
-<li><p>Never commit the API key to the public GitHub site. Store it once in R with:</p></li>
+</ol>
+<p><em>Done</em></p>
+<ol start="3" type="a">
+<li>Never commit the API key to the public GitHub site. Store it once in R with:</li>
 </ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tidycensus<span class="sc">::</span><span class="fu">census_api_key</span>(<span class="st">"KEY"</span>, <span class="at">install =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p><em>Correct</em></p>
 <ol start="4" type="a">
 <li>Add <code>.Renviron</code> to <code>.gitignore</code>.</li>
 </ol>
-<p><em>To Do</em></p>
+<p><a href="https://github.com/jmglendenning/jmglendenning.github.io/blob/main/.gitignore"><em>Done</em></a></p>
 </section>
 <section id="weekly-challenge" class="level2">
 <h2 class="anchored" data-anchor-id="weekly-challenge">4. Weekly challenge</h2>
@@ -334,6 +338,17 @@ window.Quarto = {
 <li><code>jsonlite</code> — JSON</li>
 <li><code>xml2</code> — XML</li>
 <li><code>arrow</code> — Parquet, Feather, and Arrow IPC</li>
+</ul>
+<p>For geospatial data, some of the common packages are:</p>
+<ul>
+<li><code>sf</code> — vector geospatial data such as Shapefile, GeoPackage, and GeoJSON</li>
+<li><code>terra</code> — raster geospatial data such as GeoTIFF and other GDAL-supported formats</li>
+<li><code>stars</code> — multidimensional raster and spatiotemporal data</li>
+<li><code>lidR</code> — LiDAR point-cloud data such as LAS and LAZ</li>
+<li><code>rnaturalearth</code> — Natural Earth country, boundary, coastline, and physical geography data</li>
+<li><code>gdalcubes</code> — access and process large collections of Earth observation imagery</li>
+<li><code>osmdata</code> — OpenStreetMap data through the Overpass API</li>
+<li><code>tigris</code> — U.S. Census TIGER/Line geographic data</li>
 </ul>
 <ol start="2" type="i">
 <li>Conventional formats — CSV, SPSS, Stata, XML, JSON. Be able to name what reads each one.</li>
@@ -414,7 +429,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p><strong>One sentence:</strong> <em>New data formats exist because CSV is simple and portable but does not preserve data types, efficiently compress large datasets, support fast columnar access, or handle complex and multidimensional data well.</em></p>
+<p><strong>One sentence:</strong> <em>New data formats exist because CSV is simple and portable but does not preserve data types, efficiently compress large datasets, support fast columnar access, or handle complex and multidimensional data well. This is especially problematic with geospatial data.</em></p>
 <p><em>Bring the activated Census API key and the one-sentence explanation of why the new formats exist; class begins by pulling Census data live.</em></p>
 </section>
 </section>
