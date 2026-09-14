@@ -234,7 +234,28 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#submit" id="toc-submit" class="nav-link active" data-scroll-target="#submit">Submit</a></li>
+  <li><a href="#a.-google-trends" id="toc-a.-google-trends" class="nav-link active" data-scroll-target="#a.-google-trends">A. Google Trends</a>
+  <ul class="collapse">
+  <li><a href="#collect-it-from-the-website" id="toc-collect-it-from-the-website" class="nav-link" data-scroll-target="#collect-it-from-the-website">1. Collect it from the website</a>
+  <ul class="collapse">
+  <li><a href="#a.-trends.google.com" id="toc-a.-trends.google.com" class="nav-link" data-scroll-target="#a.-trends.google.com">a. trends.google.com</a></li>
+  <li><a href="#b.-download" id="toc-b.-download" class="nav-link" data-scroll-target="#b.-download">b. Download</a></li>
+  <li><a href="#c.-record-the-query" id="toc-c.-record-the-query" class="nav-link" data-scroll-target="#c.-record-the-query">c.&nbsp;<em>Record the query</em></a></li>
+  <li><a href="#d.-repeat-once-with-a-term-of-your-own-that-is-currently-in-the-news." id="toc-d.-repeat-once-with-a-term-of-your-own-that-is-currently-in-the-news." class="nav-link" data-scroll-target="#d.-repeat-once-with-a-term-of-your-own-that-is-currently-in-the-news.">d.&nbsp;Repeat once with a term of your own that is currently in the news.</a></li>
+  </ul></li>
+  <li><a href="#look-at-what-you-got" id="toc-look-at-what-you-got" class="nav-link" data-scroll-target="#look-at-what-you-got">2. Look at what you got</a>
+  <ul class="collapse">
+  <li><a href="#a.-what-range-of-dates-does-the-file-cover" id="toc-a.-what-range-of-dates-does-the-file-cover" class="nav-link" data-scroll-target="#a.-what-range-of-dates-does-the-file-cover">a. What range of dates does the file cover?</a></li>
+  <li><a href="#b.-interval" id="toc-b.-interval" class="nav-link" data-scroll-target="#b.-interval">b. Interval</a></li>
+  <li><a href="#c.-what-are-the-units-what-does-a-value-of-100-mean-and-0" id="toc-c.-what-are-the-units-what-does-a-value-of-100-mean-and-0" class="nav-link" data-scroll-target="#c.-what-are-the-units-what-does-a-value-of-100-mean-and-0">c.&nbsp;What are the units? What does a value of 100 mean, and 0?</a></li>
+  <li><a href="#d.-now-remove-one-search-term-and-download-again.-did-the-numbers-for-the-remaining-terms-stay" id="toc-d.-now-remove-one-search-term-and-download-again.-did-the-numbers-for-the-remaining-terms-stay" class="nav-link" data-scroll-target="#d.-now-remove-one-search-term-and-download-again.-did-the-numbers-for-the-remaining-terms-stay">d.&nbsp;Now remove one search term and download again. Did the numbers for the remaining terms stay</a></li>
+  </ul></li>
+  <li><a href="#collect-it-from-r" id="toc-collect-it-from-r" class="nav-link" data-scroll-target="#collect-it-from-r">3. Collect it from R</a>
+  <ul class="collapse">
+  <li><a href="#a.-gtrends-package" id="toc-a.-gtrends-package" class="nav-link" data-scroll-target="#a.-gtrends-package">a. <code>gtrends</code> package</a></li>
+  </ul></li>
+  <li><a href="#submit" id="toc-submit" class="nav-link" data-scroll-target="#submit">Submit</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -266,13 +287,20 @@ window.Quarto = {
 
 <p><strong>Google Trends: two ways to get the same data</strong></p>
 <p><em>What you will produce:</em> <em>The same Google Trends series pulled two ways — once by hand from the website, once from R with gtrendsR — and a short note on what differs between them and why.</em></p>
-<p>#A. Google Trends</p>
-<p>##1. Collect it from the website</p>
-<p>###a. trends.google.com</p>
+<section id="a.-google-trends" class="level1">
+<h1>A. Google Trends</h1>
+<section id="collect-it-from-the-website" class="level2">
+<h2 class="anchored" data-anchor-id="collect-it-from-the-website">1. Collect it from the website</h2>
+<section id="a.-trends.google.com" class="level3">
+<h3 class="anchored" data-anchor-id="a.-trends.google.com">a. trends.google.com</h3>
 <p>Go to https://trends.google.com and search Trump, Kamala Harris and Election.</p>
-<p>###b. Download</p>
+</section>
+<section id="b.-download" class="level3">
+<h3 class="anchored" data-anchor-id="b.-download">b. Download</h3>
 <p>Download the data as <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a></p>
-<p>###c.&nbsp;<em>Record the query</em></p>
+</section>
+<section id="c.-record-the-query" class="level3">
+<h3 class="anchored" data-anchor-id="c.-record-the-query">c.&nbsp;<em>Record the query</em></h3>
 <p>Query parameters</p>
 <ul>
 <li><strong>Search terms:</strong> Trump, Kamala Harris, Election</li>
@@ -283,7 +311,9 @@ window.Quarto = {
 <li><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></li>
 <li><strong>Data:</strong> <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a></li>
 </ul>
-<p>###d.&nbsp;Repeat once with a term of your own that is currently in the news.</p>
+</section>
+<section id="d.-repeat-once-with-a-term-of-your-own-that-is-currently-in-the-news." class="level3">
+<h3 class="anchored" data-anchor-id="d.-repeat-once-with-a-term-of-your-own-that-is-currently-in-the-news.">d.&nbsp;Repeat once with a term of your own that is currently in the news.</h3>
 <p>Query parameters</p>
 <ul>
 <li><strong>Search terms:</strong> data center</li>
@@ -294,22 +324,37 @@ window.Quarto = {
 <li><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></li>
 <li><strong>Data:</strong> <a href="https://jmglendenning.github.io/time_series_US_20260612-1941_20260912-1941.csv">csv</a></li>
 </ul>
-<p>##2. Look at what you got</p>
-<p>###a. What range of dates does the file cover?</p>
+</section>
+</section>
+<section id="look-at-what-you-got" class="level2">
+<h2 class="anchored" data-anchor-id="look-at-what-you-got">2. Look at what you got</h2>
+<section id="a.-what-range-of-dates-does-the-file-cover" class="level3">
+<h3 class="anchored" data-anchor-id="a.-what-range-of-dates-does-the-file-cover">a. What range of dates does the file cover?</h3>
 <p><em>2021-09-01 to 2026-09-01</em></p>
-<p>###b. Interval</p>
+</section>
+<section id="b.-interval" class="level3">
+<h3 class="anchored" data-anchor-id="b.-interval">b. Interval</h3>
 <p>What is the interval — hourly, daily, weekly, <strong><em>monthly</em></strong>? Now change the date window and download again <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a>. Did the interval change? <strong>Yes, with ‘Last 24 hours’ the data is every 16 minutes. How odd.</strong></p>
-<p>###c.&nbsp;What are the units? What does a value of 100 mean, and 0?</p>
+</section>
+<section id="c.-what-are-the-units-what-does-a-value-of-100-mean-and-0" class="level3">
+<h3 class="anchored" data-anchor-id="c.-what-are-the-units-what-does-a-value-of-100-mean-and-0">c.&nbsp;What are the units? What does a value of 100 mean, and 0?</h3>
 <p>These are a normalized search-interest index from 0–100, based on the proportion of searches for the term relative to all searches in the selected place and time period.</p>
 <ul>
 <li>100 = the point of peak relative search interest within the selected dataset.</li>
 <li>50 = relative search interest was half the peak level.</li>
 <li>0 = insufficient search volume to report a value; it does not necessarily mean zero searches occurred.</li>
 </ul>
-<p>###d.&nbsp;Now remove one search term and download again. Did the numbers for the remaining terms stay the same?</p>
+</section>
+<section id="d.-now-remove-one-search-term-and-download-again.-did-the-numbers-for-the-remaining-terms-stay" class="level3">
+<h3 class="anchored" data-anchor-id="d.-now-remove-one-search-term-and-download-again.-did-the-numbers-for-the-remaining-terms-stay">d.&nbsp;Now remove one search term and download again. Did the numbers for the remaining terms stay</h3>
+<p>the same?</p>
 <p><strong>Dropped <em>Trump</em></strong> from the <em>Past 5 years</em> search. The numbers changed, of course, because they are normalized.</p>
-<p>##3. Collect it from R</p>
-<p>###a. <code>gtrends</code> package</p>
+</section>
+</section>
+<section id="collect-it-from-r" class="level2">
+<h2 class="anchored" data-anchor-id="collect-it-from-r">3. Collect it from R</h2>
+<section id="a.-gtrends-package" class="level3">
+<h3 class="anchored" data-anchor-id="a.-gtrends-package">a. <code>gtrends</code> package</h3>
 <p>Use the <code>gtrendsR</code> package and the gtrendsR01.R program. The first call in that script is the same query you just ran by hand:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtrendsR)</span>
@@ -545,12 +590,15 @@ window.Quarto = {
 <li>Because Google Trends is based on a sample of searches, repeated pulls can vary. This means findings should be interpreted as estimates from a sampled and normalized source, and successful pulls should be cached for reproducibility.</li>
 </ul>
 <p>B. Write it up a. b. c.&nbsp;One page, in Quarto, with your code and at least one plot. Open with the query parameters from A.1.c — that block is a small datasheet for your data. Publish as assign02.qmd under Assignments on your website, and send the URL to the teaching assistant.</p>
+</section>
+</section>
 <section id="submit" class="level2">
 <h2 class="anchored" data-anchor-id="submit">Submit</h2>
 <p>Assignment page: <a href="https://jmglendenning.github.io/assign02.html">https://jmglendenning.github.io/assign02.html</a></p>
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
