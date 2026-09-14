@@ -273,17 +273,15 @@ window.Quarto = {
 <p>###c.&nbsp;<em>Record the query</em></p>
 <p>Query parameters</p>
 <ul>
-<li><p><strong>Search terms:</strong> Trump, Kamala Harris, Election</p></li>
-<li><p><strong>Geography:</strong> United States</p></li>
-<li><p><strong>Time window:</strong> Last five years</p></li>
-<li><p><strong>Category:</strong> All categories</p></li>
-<li><p><strong>Search type:</strong> Web Search</p></li>
-<li><p><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></p></li>
-<li><p><strong>Data:</strong> <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a></p>
-<ol start="4" type="a">
-<li>Repeat once with a term of your own that is currently in the news.</li>
-</ol></li>
+<li><strong>Search terms:</strong> Trump, Kamala Harris, Election</li>
+<li><strong>Geography:</strong> United States</li>
+<li><strong>Time window:</strong> Last five years</li>
+<li><strong>Category:</strong> All categories</li>
+<li><strong>Search type:</strong> Web Search</li>
+<li><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></li>
+<li><strong>Data:</strong> <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a></li>
 </ul>
+<p>###d.&nbsp;Repeat once with a term of your own that is currently in the news.</p>
 <p>Query parameters</p>
 <ul>
 <li><strong>Search terms:</strong> data center</li>
@@ -294,23 +292,15 @@ window.Quarto = {
 <li><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></li>
 <li><strong>Data:</strong> <a href="https://jmglendenning.github.io/time_series_US_20260612-1941_20260912-1941.csv">csv</a></li>
 </ul>
-<ol start="2" type="1">
-<li>Look at what you got</li>
-</ol>
-<ol type="a">
-<li>What range of dates does the file cover? <em>2021-09-01 to 2026-09-01</em></li>
-<li>What is the interval — hourly, daily, weekly, <strong><em>monthly</em></strong>? Now change the date window and download again <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a>. Did the interval change? <strong>Yes, with ‘Last 24 hours’ the data is every 16 minutes. How odd.</strong></li>
-<li>What are the units? What does a value of 100 mean, and 0?</li>
-</ol>
+<p>##2. Look at what you got</p>
+<p>###a. What range of dates does the file cover? <em>2021-09-01 to 2026-09-01</em> ###b. Interval What is the interval — hourly, daily, weekly, <strong><em>monthly</em></strong>? Now change the date window and download again <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a>. Did the interval change? <strong>Yes, with ‘Last 24 hours’ the data is every 16 minutes. How odd.</strong> ###c.&nbsp;What are the units? What does a value of 100 mean, and 0?</p>
 <p>These are a normalized search-interest index from 0–100, based on the proportion of searches for the term relative to all searches in the selected place and time period.</p>
 <ul>
 <li>100 = the point of peak relative search interest within the selected dataset.</li>
 <li>50 = relative search interest was half the peak level.</li>
 <li>0 = insufficient search volume to report a value; it does not necessarily mean zero searches occurred.</li>
 </ul>
-<ol start="4" type="a">
-<li>Now remove one search term and download again. Did the numbers for the remaining terms stay the same?</li>
-</ol>
+<p>###d.&nbsp;Now remove one search term and download again. Did the numbers for the remaining terms stay the same?</p>
 <p><strong>Dropped <em>Trump</em></strong> from the <em>Past 5 years</em> search. The numbers changed, of course, because they are normalized.</p>
 <ol start="3" type="1">
 <li>Collect it from R</li>
