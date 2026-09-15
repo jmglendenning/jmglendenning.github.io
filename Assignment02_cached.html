@@ -317,7 +317,7 @@ window.Quarto = {
 <li><strong>Time window:</strong> Last five years</li>
 <li><strong>Category:</strong> All categories</li>
 <li><strong>Search type:</strong> Web Search</li>
-<li><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></li>
+<li><strong>Date/time pulled:</strong> <em>2026-09-12T08:54:31-05:00</em></li>
 <li><strong>Data:</strong> <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a></li>
 </ul>
 </section>
@@ -330,7 +330,7 @@ window.Quarto = {
 <li><strong>Time window:</strong> Past 3 months</li>
 <li><strong>Category:</strong> All categories</li>
 <li><strong>Search type:</strong> Web Search</li>
-<li><strong>Date/time pulled:</strong> <em>2026-09-12T08:52:23-05:00</em></li>
+<li><strong>Date/time pulled:</strong> <em>2026-09-12T19:41:53-05:00</em></li>
 <li><strong>Data:</strong> <a href="https://jmglendenning.github.io/time_series_US_20260612-1941_20260912-1941.csv">csv</a></li>
 </ul>
 </section>
@@ -344,7 +344,7 @@ window.Quarto = {
 <section id="b.-interval" class="level3">
 <h3 class="anchored" data-anchor-id="b.-interval">b. Interval</h3>
 <p>What is the interval — hourly, daily, weekly, <strong><em>monthly</em></strong>? Now change the date window and download again <a href="https://jmglendenning.github.io/time_series_US_20260911-1903_20260912-1903.csv">csv</a>. Did the interval change?</p>
-<p><em>Yes, with ‘Last 24 hours’ the data is every 16 minutes. The original dataset uses monthly observations. Changing the window to “Last 24 hours” changed the interval to 16 minutes. Google Trends automatically adjusts its temporal resolution.</em></p>
+<p><em>The five-year dataset uses monthly observations. After changing the window to “Last 24 hours,” the interval changed to 16 minutes because Google Trends automatically adjusts its temporal resolution to the selected time window.</em></p>
 </section>
 <section id="c.-what-are-the-units-what-does-a-value-of-100-mean-and-0" class="level3">
 <h3 class="anchored" data-anchor-id="c.-what-are-the-units-what-does-a-value-of-100-mean-and-0">c.&nbsp;What are the units? What does a value of 100 mean, and 0?</h3>
@@ -358,7 +358,7 @@ window.Quarto = {
 <section id="d.-now-remove-one-search-term-and-download-again." class="level3">
 <h3 class="anchored" data-anchor-id="d.-now-remove-one-search-term-and-download-again.">d.&nbsp;Now remove one search term and download again.</h3>
 <p>Did the numbers for the remaining terms stay the same?</p>
-<p>Dropped <em>Trump</em> from the <em>Past 5 years</em> search. The numbers changed, of course, because they are normalized. <a href="https://jmglendenning.github.io/time_series_US_20210912-1911_20260912-1911.csv">csv</a></p>
+<p>Dropped <em>Trump</em> from the <em>Past 5 years</em> search. The values for <em>Kamala Harris</em> and <em>Election</em> stayed exactly the same across all 61 monthly observations. Removing <em>Trump</em> did not alter the scale in this comparison because <em>Election</em> still supplied the peak value of 100, while <em>Trump</em> had a maximum value of 40. <a href="https://jmglendenning.github.io/time_series_US_20210912-1911_20260912-1911.csv">csv</a></p>
 </section>
 </section>
 <section id="collect-it-from-r" class="level2">
@@ -433,13 +433,13 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional CSV copy for inspection or use outside R.</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>csv_file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(cache_dir, <span class="st">"trump_harris_election_us_5y.csv"</span>)</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CSV copy for inspection, publication, or use outside R.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>csv_file <span class="ot">&lt;-</span> <span class="st">"trump_harris_election_us_5y.csv"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(csv_file)) {</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(the_df, csv_file)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="https://jmglendenning.github.io/trump_harris_election_us_5y">csv</a></p>
+<p><a href="trump_harris_election_us_5y.csv">csv</a></p>
 </section>
 <section id="b.-work-through-the-rest-of-the-script" class="level3">
 <h3 class="anchored" data-anchor-id="b.-work-through-the-rest-of-the-script">b. Work through the rest of the script:</h3>
@@ -676,105 +676,87 @@ window.Quarto = {
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">gprop =</span> <span class="st">"web"</span>,</span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="st">"today+5-y"</span>,</span>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="dv">0</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Google Trends request failed on attempt 1: Status code was not 200. Returned status code:429</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Retrying in 67 seconds...</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Google Trends request failed on attempt 2: Status code was not 200. Returned status code:429</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Retrying in 130 seconds...</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Google Trends data saved to: _gtrends_cache/repeat_trump_harris_election_spaced_1.rds</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wait only when the second sample has not yet been cached. Later renders reuse</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># both files without waiting or contacting Google Trends again.</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>second_cache_file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(cache_dir, second_cache_name)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(second_cache_file)) {</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Waiting three minutes before the second pull..."</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">180</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Waiting three minutes before the second pull...</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>repeat_pull_2 <span class="ot">&lt;-</span> <span class="fu">cached_gtrends</span>(</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  second_cache_name,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Trump"</span>, <span class="st">"Harris"</span>, <span class="st">"election"</span>),</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">onlyInterest =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">geo =</span> <span class="st">"US"</span>,</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">gprop =</span> <span class="st">"web"</span>,</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="st">"today+5-y"</span>,</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="dv">0</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Google Trends data saved to: _gtrends_cache/repeat_trump_harris_election_spaced_2.rds</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>repeat_pull_times <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">pull =</span> <span class="fu">c</span>(<span class="st">"Pull 1"</span>, <span class="st">"Pull 2"</span>),</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">cached_at =</span> <span class="fu">file.info</span>(</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">file.path</span>(</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>      cache_dir,</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(first_cache_name, second_cache_name)</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">$</span>mtime</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>repeat_pull_times</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Wait only when the second sample has not yet been cached. Later renders reuse</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co"># both files without waiting or contacting Google Trends again.</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>second_cache_file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(cache_dir, second_cache_name)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(second_cache_file)) {</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Waiting three minutes before the second pull..."</span>)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">180</span>)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>repeat_pull_2 <span class="ot">&lt;-</span> <span class="fu">cached_gtrends</span>(</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  second_cache_name,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Trump"</span>, <span class="st">"Harris"</span>, <span class="st">"election"</span>),</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">onlyInterest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">geo =</span> <span class="st">"US"</span>,</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">gprop =</span> <span class="st">"web"</span>,</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="st">"today+5-y"</span>,</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="dv">0</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>repeat_pull_times <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">pull =</span> <span class="fu">c</span>(<span class="st">"Pull 1"</span>, <span class="st">"Pull 2"</span>),</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">cached_at =</span> <span class="fu">file.info</span>(</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">file.path</span>(</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>      cache_dir,</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(first_cache_name, second_cache_name)</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">$</span>mtime</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>repeat_pull_times</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    pull           cached_at
 1 Pull 1 2026-09-15 09:12:36
 2 Pull 2 2026-09-15 09:15:37</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pull_1 <span class="ot">&lt;-</span> repeat_pull_1<span class="sc">$</span>interest_over_time</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>pull_2 <span class="ot">&lt;-</span> repeat_pull_2<span class="sc">$</span>interest_over_time</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert Google Trends scores to numbers.</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># "&lt;1" is represented by its midpoint, 0.5.</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>hits_to_numeric <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">as.character</span>(x)</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(x))</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  result[x <span class="sc">==</span> <span class="st">"&lt;1"</span>] <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  result</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>pull_comparison <span class="ot">&lt;-</span> pull_1 <span class="sc">|&gt;</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    date,</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    keyword,</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">hits_1_raw =</span> hits,</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">hits_1 =</span> <span class="fu">hits_to_numeric</span>(hits)</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>    pull_2 <span class="sc">|&gt;</span></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>        date,</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>        keyword,</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">hits_2_raw =</span> hits,</span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">hits_2 =</span> <span class="fu">hits_to_numeric</span>(hits)</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span>, <span class="st">"keyword"</span>)</span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">difference =</span> hits_2 <span class="sc">-</span> hits_1,</span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">absolute_difference =</span> <span class="fu">abs</span>(difference)</span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>pull_summary <span class="ot">&lt;-</span> pull_comparison <span class="sc">|&gt;</span></span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">exactly_identical =</span> <span class="fu">all</span>(hits_1_raw <span class="sc">==</span> hits_2_raw),</span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">observations_compared =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">observations_different =</span> <span class="fu">sum</span>(hits_1_raw <span class="sc">!=</span> hits_2_raw),</span>
-<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_absolute_difference =</span> <span class="fu">mean</span>(absolute_difference, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">maximum_absolute_difference =</span> <span class="fu">max</span>(absolute_difference, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>pull_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pull_1 <span class="ot">&lt;-</span> repeat_pull_1<span class="sc">$</span>interest_over_time</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pull_2 <span class="ot">&lt;-</span> repeat_pull_2<span class="sc">$</span>interest_over_time</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert Google Trends scores to numbers.</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># "&lt;1" is represented by its midpoint, 0.5.</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>hits_to_numeric <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">as.character</span>(x)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(x))</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  result[x <span class="sc">==</span> <span class="st">"&lt;1"</span>] <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  result</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>pull_comparison <span class="ot">&lt;-</span> pull_1 <span class="sc">|&gt;</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    date,</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    keyword,</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">hits_1_raw =</span> hits,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">hits_1 =</span> <span class="fu">hits_to_numeric</span>(hits)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    pull_2 <span class="sc">|&gt;</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        date,</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>        keyword,</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">hits_2_raw =</span> hits,</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">hits_2 =</span> <span class="fu">hits_to_numeric</span>(hits)</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span>, <span class="st">"keyword"</span>)</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">difference =</span> hits_2 <span class="sc">-</span> hits_1,</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">absolute_difference =</span> <span class="fu">abs</span>(difference)</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>pull_summary <span class="ot">&lt;-</span> pull_comparison <span class="sc">|&gt;</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">exactly_identical =</span> <span class="fu">all</span>(hits_1_raw <span class="sc">==</span> hits_2_raw),</span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">observations_compared =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">observations_different =</span> <span class="fu">sum</span>(hits_1_raw <span class="sc">!=</span> hits_2_raw),</span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_absolute_difference =</span> <span class="fu">mean</span>(absolute_difference, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">maximum_absolute_difference =</span> <span class="fu">max</span>(absolute_difference, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>pull_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  exactly_identical observations_compared observations_different
 1             FALSE                   786                     15
@@ -782,7 +764,7 @@ window.Quarto = {
 1                0.0178117                           1</code></pre>
 </div>
 </div>
-<p>The two pulls did not return exactly the same values. Of the 786 matched observations, 15 differed. The mean absolute difference was 0.02 points, and the maximum absolute difference was 1 points.</p>
+<p>The two pulls did not return exactly the same values. Of the 786 matched observations, 15 differed. The mean absolute difference was 0.02 points, and the maximum absolute difference was 1 point.</p>
 <p>The first pull was cached at 2026-09-15 09:12:36 CDT, and the second was cached at 2026-09-15 09:15:37 CDT.</p>
 <p>What does your answer imply about every finding you might report from this source?</p>
 <p>Because Google Trends uses sampled and normalized search data, its values should be interpreted as estimates rather than exact counts. Repeated pulls may produce slightly different values, although the broad pattern may remain stable. Each successful pull should therefore be cached, documented, and interpreted without overemphasizing small numerical differences.</p>
