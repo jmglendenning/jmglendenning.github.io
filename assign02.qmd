@@ -1,0 +1,553 @@
+---
+title: "Assignment 02"
+format:
+  html:
+    toc: true
+    number-sections: false
+---
+
+**Google Trends: two ways to get the same data**
+
+*What you will produce:*
+*The same Google Trends series pulled two ways — once by hand from the website, once from R with gtrendsR — and a short note on what differs between them and why.*
+
+# A. Google Trends
+
+## 1. Collect it from the website
+
+### a. trends.google.com
+
+Go to https://trends.google.com and search Trump, Kamala Harris and Election.
+
+### b. Download 
+
+Download the data as [csv](https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv)
+  
+### c. Record the query
+
+Query parameters
+
+- **Search terms:** Trump, Kamala Harris, Election
+- **Geography:** United States
+- **Time window:** Last five years
+- **Category:** All categories
+- **Search type:** Web Search
+- **Date/time pulled:** *2026-09-12T08:54:31-05:00*
+- **Data:** [csv](https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv)
+  
+### d. Repeat once with a term of your own that is currently in the news.
+  
+Query parameters
+
+- **Search terms:** data center
+- **Geography:** United States
+- **Time window:** Past 3 months
+- **Category:** All categories
+- **Search type:** Web Search
+- **Date/time pulled:** *2026-09-12T19:41:53-05:00*
+- **Data:** [csv](https://jmglendenning.github.io/time_series_US_20260612-1941_20260912-1941.csv)
+
+## 2. Look at what you got
+
+### a. What range of dates does the file cover? 
+
+*2021-09-01 to 2026-09-01*
+
+### b. Interval
+
+What is the interval — hourly, daily, weekly, ***monthly***? Now change the date window and download again [csv](https://jmglendenning.github.io/time_series_US_20260911-1903_20260912-1903.csv). Did the interval change? 
+
+*The five-year dataset uses monthly observations. After changing the window to “Last 24 hours,” the interval changed to 16 minutes because Google Trends automatically adjusts its temporal resolution to the selected time window.*
+
+### c. What are the units? What does a value of 100 mean, and 0?
+
+These are a normalized search-interest index from 0–100, based on the proportion of searches for the term relative to all searches in the selected place and time period.
+
+* 100 = the point of peak relative search interest within the selected dataset.
+* 50 = relative search interest was half the peak level.
+* 0 = insufficient search volume to report a value; it does not necessarily mean zero searches occurred.
+
+### d. Now remove one search term and download again. 
+Did the numbers for the remaining terms stay the same? 
+
+Dropped *Trump* from the *Past 5 years* search. The values for *Kamala Harris* and *Election* stayed exactly the same across all 61 monthly observations. Removing *Trump* did not alter the scale in this comparison because *Election* still supplied the peak value of 100, while *Trump* had a maximum value of 40. [csv](https://jmglendenning.github.io/time_series_US_20210912-1911_20260912-1911.csv)
+
+## 3. Collect it from R
+
+### a. `gtrends` package
+
+Use the `gtrendsR` package and the gtrendsR01.R program. The first call in that script is the same query you just ran by hand:
+
+```{r}
+#| label: chunk3
+#| message: false
+#| warning: false
+#| fig-cap: "Weekly relative search interest for Trump, Harris, and election in the United States, September 2021–September 2026."
+
+library(gtrendsR)
+library(readr)
+
+# Store successful Google Trends downloads here.
+cache_dir <- "_gtrends_cache"
+dir.create(cache_dir, showWarnings = FALSE)
+
+# Download each query only once. If Google temporarily blocks the request,
+# retry with exponential backoff until a successful result is returned.
+# Once saved as an RDS file, future renders read the local file and never
+# contact Google Trends for that query again.
+cached_gtrends <- function(cache_name, ..., initial_wait = 60, max_wait = 600) {
+  cache_file <- file.path(cache_dir, cache_name)
+
+  if (file.exists(cache_file)) {
+    return(readRDS(cache_file))
+  }
+
+  attempt <- 1L
+
+  repeat {
+    result <- tryCatch(
+      gtrends(...),
+      error = function(e) {
+        message(
+          "Google Trends request failed on attempt ", attempt,
+          ": ", conditionMessage(e)
+        )
+        NULL
+      }
+    )
+
+    if (!is.null(result)) {
+      saveRDS(result, cache_file)
+      message("Google Trends data saved to: ", cache_file)
+      return(result)
+    }
+
+    wait <- min(initial_wait * 2^(attempt - 1L), max_wait)
+    wait <- wait + runif(1, 0, 15)
+    message("Retrying in ", round(wait), " seconds...")
+    Sys.sleep(wait)
+    attempt <- attempt + 1L
+  }
+}
+
+TrumpHarrisElection <- cached_gtrends(
+  "trump_harris_election_us_5y.rds",
+  c("Trump", "Harris", "election"),
+  onlyInterest = TRUE,
+  geo = "US",
+  gprop = "web",
+  time = "today+5-y",
+  category = 0
+)
+
+the_df <- TrumpHarrisElection$interest_over_time
+plot(TrumpHarrisElection)
+
+# CSV copy for inspection, publication, or use outside R.
+csv_file <- "trump_harris_election_us_5y.csv"
+if (!file.exists(csv_file)) {
+  write_csv(the_df, csv_file)
+}
+```
+
+[csv](trump_harris_election_us_5y.csv)
+
+### b. Work through the rest of the script: 
+
+#### i. one term over its full history (time = "all")
+
+```{r}
+#| fig-cap: "Monthly worldwide relative search interest for tariff, January 2004–September 2026."
+tg <- cached_gtrends(
+  "tariff_world_all.rds",
+  "tariff",
+  time = "all"
+)
+plot(tg)
+```
+
+#### ii. The same term in another country
+
+```{r}
+#| fig-cap: "Monthly relative search interest for tariff in Great Britain, January 2004–September 2026."
+tg_gb <- cached_gtrends(
+  "tariff_gb_all.rds",
+  "tariff",
+  geo = "GB",
+  time = "all"
+)
+plot(tg_gb)
+```
+
+#### iii. One term across c("US", "GB", "TW"): the United States, Great Britain, and Taiwan
+
+```{r}
+#| fig-cap: "Monthly relative search interest for tariff in the United States, Great Britain, and Taiwan, January 2004–September 2026."
+tg_countries <- cached_gtrends(
+  "tariff_us_gb_tw_all.rds",
+  "tariff",
+  geo = c("US", "GB", "TW"),
+  time = "all"
+)
+plot(tg_countries)
+```
+
+#### iv. three terms worldwide
+
+```{r}
+#| fig-cap: "Monthly worldwide relative search interest for tariff, China military, and Taiwan, January 2004–September 2026."
+tct <- cached_gtrends(
+  "tariff_china_military_taiwan_all.rds",
+  c("tariff", "China military", "Taiwan"),
+  time = "all"
+)
+plot(tct)
+```
+
+### c. Section 6 of the script runs names(tct). 
+
+That call left onlyInterest at its default, so the object carries several data frames. **Which of them did the website CSV not give you?**
+
+With `onlyInterest` left at its default, `names(tct)` returns:
+
+```{r}
+names(tct)
+```
+
+The additional data frames that the website CSV did not provide were:
+
+* interest_by_country — search interest summarized by country.
+* interest_by_region — search interest summarized by region or subregion.
+* interest_by_dma — search interest by designated market area (media market).
+* interest_by_city — search interest summarized by city.
+* related_topics — topics associated with the search term.
+* related_queries — other search queries associated with the term.
+
+***A note on terms***
+*The website instructions above say Kamala Harris. The script searches Harris.*
+
+##### a. Pull both and compare the series. Are they the same?
+
+```{r}
+#| fig-cap: "Weekly relative search interest for Harris and Kamala Harris in the United States, September 2021–September 2026."
+#| fig-height: 5.5
+#| fig-keep: last
+
+harris_compare <- cached_gtrends(
+  "harris_vs_kamala_harris_us_5y.rds",
+  c("Harris", "Kamala Harris"),
+  geo = "US",
+  gprop = "web",
+  time = "today+5-y",
+  category = 0,
+  onlyInterest = TRUE
+)
+
+harris_plot <- plot(harris_compare)
+
+harris_plot +
+  ggplot2::theme(
+    plot.margin = ggplot2::margin(t = 16, r = 8, b = 8, l = 8)
+  )
+```
+
+```{r}
+harris_numeric <- harris_compare$interest_over_time |>
+  dplyr::mutate(
+    hits_numeric = suppressWarnings(as.numeric(as.character(hits))),
+    hits_numeric = dplyr::if_else(
+      as.character(hits) == "<1",
+      0.5,
+      hits_numeric
+    )
+  )
+
+harris_means <- harris_numeric |>
+  dplyr::group_by(keyword) |>
+  dplyr::summarise(
+    observations = dplyr::n(),
+    mean_interest = mean(hits_numeric),
+    .groups = "drop"
+  )
+
+harris_by_date <- harris_numeric |>
+  dplyr::filter(keyword == "Harris") |>
+  dplyr::select(date, harris = hits_numeric) |>
+  dplyr::inner_join(
+    harris_numeric |>
+      dplyr::filter(keyword == "Kamala Harris") |>
+      dplyr::select(date, kamala_harris = hits_numeric),
+    by = "date"
+  )
+
+harris_gap <- harris_by_date |>
+  dplyr::summarise(
+    matched_dates = dplyr::n(),
+    dates_harris_higher = sum(harris > kamala_harris),
+    mean_gap = mean(harris - kamala_harris)
+  )
+
+harris_means
+harris_gap
+```
+
+The **Harris** and **Kamala Harris** series are not the same. Across 262 weekly observations, the mean Google Trends index was 9.19 for **Harris** and 2.02 for **Kamala Harris**, an average gap of 7.17 points. **Harris** had the higher value on all 262 dates. These normalized values show relative interest within this joint comparison; they are not raw search counts.
+
+##### b. Harris
+
+Harris is also a county, a supermarket chain, and several thousand other people. What does that
+gap tell you about the difference between a search term and the concept you meant to measure?
+
+**This gap shows that a search term is not necessarily identical to the concept being measured. `Harris` is an ambiguous term that can capture searches concerning Kamala Harris as well as unrelated people, places, and organizations. The results do not reveal how much of the broader `Harris` series actually concerns Kamala Harris. Therefore, using `Harris` to measure interest in Kamala Harris introduces measurement error, while the more specific `Kamala Harris` query better represents the intended concept.**
+
+## 4. Compare the two methods
+### a. Line the two series up. Are the numbers identical? If not, by how much, and in which direction?
+
+The website query used *Kamala Harris*, while the R script used *Harris*. To avoid treating those different search terms as equivalent, this comparison uses the two terms shared by both pulls: *Trump* and *Election*. The website data are monthly, whereas the R data are weekly, so the R observations are averaged by month and rescaled to a 0–100 index. The incomplete first and last months are excluded, leaving 59 complete months for each term.
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-cap: "Monthly Google Trends indices from the website and R for the two shared search terms, October 2021–August 2026."
+
+website_common <- read_csv(
+  "time_series_US_20210912-0854_20260912-0854.csv",
+  show_col_types = FALSE
+) |>
+  dplyr::select(date = Time, Trump, Election) |>
+  tidyr::pivot_longer(
+    cols = -date,
+    names_to = "keyword",
+    values_to = "website_hits"
+  ) |>
+  dplyr::filter(
+    date >= as.Date("2021-10-01"),
+    date <= as.Date("2026-08-01")
+  )
+
+r_monthly <- the_df |>
+  dplyr::filter(keyword %in% c("Trump", "election")) |>
+  dplyr::mutate(
+    keyword = dplyr::recode(keyword, election = "Election"),
+    r_hits = suppressWarnings(as.numeric(as.character(hits))),
+    r_hits = dplyr::if_else(as.character(hits) == "<1", 0.5, r_hits),
+    date = as.Date(date),
+    month = as.Date(format(date, "%Y-%m-01"))
+  ) |>
+  dplyr::group_by(month, keyword) |>
+  dplyr::summarise(
+    r_monthly_mean = mean(r_hits),
+    .groups = "drop"
+  ) |>
+  dplyr::filter(
+    month >= as.Date("2021-10-01"),
+    month <= as.Date("2026-08-01")
+  ) |>
+  dplyr::mutate(
+    r_monthly_index = 100 * r_monthly_mean / max(r_monthly_mean)
+  )
+
+method_comparison <- website_common |>
+  dplyr::inner_join(
+    r_monthly,
+    by = c("date" = "month", "keyword")
+  ) |>
+  dplyr::mutate(
+    difference = r_monthly_index - website_hits,
+    absolute_difference = abs(difference)
+  )
+
+method_comparison_by_term <- method_comparison |>
+  dplyr::group_by(keyword) |>
+  dplyr::summarise(
+    months = dplyr::n(),
+    mean_website = mean(website_hits),
+    mean_r = mean(r_monthly_index),
+    mean_difference = mean(difference),
+    mean_absolute_difference = mean(absolute_difference),
+    maximum_absolute_difference = max(absolute_difference),
+    correlation = cor(website_hits, r_monthly_index),
+    .groups = "drop"
+  )
+
+method_comparison_overall <- method_comparison |>
+  dplyr::summarise(
+    observations_compared = dplyr::n(),
+    observations_different = sum(abs(difference) > 1e-9),
+    mean_difference = mean(difference),
+    mean_absolute_difference = mean(absolute_difference),
+    maximum_absolute_difference = max(absolute_difference)
+  )
+
+election_comparison <- method_comparison_by_term |>
+  dplyr::filter(keyword == "Election")
+
+trump_comparison <- method_comparison_by_term |>
+  dplyr::filter(keyword == "Trump")
+
+method_comparison_by_term
+method_comparison_overall
+
+method_comparison |>
+  dplyr::select(date, keyword, Website = website_hits, R = r_monthly_index) |>
+  tidyr::pivot_longer(
+    cols = c(Website, R),
+    names_to = "method",
+    values_to = "interest"
+  ) |>
+  ggplot2::ggplot(
+    ggplot2::aes(x = date, y = interest, color = method)
+  ) +
+  ggplot2::geom_line(linewidth = 0.7) +
+  ggplot2::facet_wrap(~keyword, ncol = 1) +
+  ggplot2::labs(
+    x = "Date",
+    y = "Relative search interest",
+    color = "Source"
+  ) +
+  ggplot2::theme_minimal()
+```
+
+The numbers are not identical: `r method_comparison_overall$observations_different` of `r method_comparison_overall$observations_compared` matched term-month observations differed. Across both terms, the mean absolute difference was `r round(method_comparison_overall$mean_absolute_difference, 2)` points and the maximum absolute difference was `r round(method_comparison_overall$maximum_absolute_difference, 2)` points. On average, the R index for *Election* was `r abs(round(election_comparison$mean_difference, 2))` points `r if (election_comparison$mean_difference >= 0) "higher" else "lower"` than the website index, while the R index for *Trump* was `r abs(round(trump_comparison$mean_difference, 2))` points `r if (trump_comparison$mean_difference >= 0) "higher" else "lower"`. Despite the small numerical differences, the series have very similar shapes: their correlations are `r round(election_comparison$correlation, 3)` for *Election* and `r round(trump_comparison$correlation, 3)` for *Trump*. This remains an approximate comparison because the original queries used different Harris terms and Google Trends relies on sampled, normalized data.
+
+### b. What are the differences between the two methods? Consider at least:
+#### i. Reproducibility — could someone else regenerate your file exactly?
+
+Neither method guarantees that another person can reproduce the exact values by making a new request, because Google Trends draws from sampled data and a moving “last five years” window. The R method makes the procedure more reproducible because the code records the query and analysis steps. Exact numerical reproduction depends on retaining and sharing the cached raw data used for the analysis.
+
+#### ii. Provenance — which method records the query parameters for you?
+
+The R method provides stronger provenance because the function call explicitly records the search terms, geography, time window, category, and search type. The website download requires those selections and the pull time to be documented manually in a datasheet; the CSV alone does not preserve the complete collection procedure.
+
+#### iii. Scale — what happens when you need fifty terms instead of three?
+
+Collecting fifty terms manually would require many repeated website searches and downloads, increasing both labor and the risk of inconsistent settings. R can automate the repeated calls, file naming, validation, and caching. However, the terms must still be divided into batches because the service limits comparisons, and the batches need a shared anchor term if their separately normalized indices are to be placed on a common scale.
+
+#### iv. Fragility — what breaks, and how would you know?
+
+The website method is vulnerable to interface changes, inconsistent manual selections, and misplaced downloads. The R method depends on `gtrendsR` and an unofficial endpoint, so changes to the service can break requests or parsing; rate limiting can also return errors such as HTTP 429. Failures should be detected by checking request errors, expected columns, date ranges, row counts, missing values, and the 0–100 range before analysis. Caching the first successful pull prevents later endpoint failures from changing an already completed analysis.
+
+### c. Run section 7 of the script: the same call twice, a few minutes apart.
+
+Do you get the same numbers?
+
+```{r}
+#| message: false
+# These use two different cache files intentionally so the assignment captures
+# two Google Trends samples collected three minutes apart. Each sample is
+# downloaded only once.
+first_cache_name <- "repeat_trump_harris_election_spaced_1.rds"
+second_cache_name <- "repeat_trump_harris_election_spaced_2.rds"
+
+repeat_pull_1 <- cached_gtrends(
+  first_cache_name,
+  c("Trump", "Harris", "election"),
+  onlyInterest = TRUE,
+  geo = "US",
+  gprop = "web",
+  time = "today+5-y",
+  category = 0
+)
+
+# Wait only when the second sample has not yet been cached. Later renders reuse
+# both files without waiting or contacting Google Trends again.
+second_cache_file <- file.path(cache_dir, second_cache_name)
+
+if (!file.exists(second_cache_file)) {
+  message("Waiting three minutes before the second pull...")
+  Sys.sleep(180)
+}
+
+repeat_pull_2 <- cached_gtrends(
+  second_cache_name,
+  c("Trump", "Harris", "election"),
+  onlyInterest = TRUE,
+  geo = "US",
+  gprop = "web",
+  time = "today+5-y",
+  category = 0
+)
+
+repeat_pull_times <- data.frame(
+  pull = c("Pull 1", "Pull 2"),
+  cached_at = file.info(
+    file.path(
+      cache_dir,
+      c(first_cache_name, second_cache_name)
+    )
+  )$mtime
+)
+
+repeat_pull_times
+
+pull_1 <- repeat_pull_1$interest_over_time
+pull_2 <- repeat_pull_2$interest_over_time
+
+# Convert Google Trends scores to numbers.
+# "<1" is represented by its midpoint, 0.5.
+hits_to_numeric <- function(x) {
+  x <- as.character(x)
+  result <- suppressWarnings(as.numeric(x))
+  result[x == "<1"] <- 0.5
+  result
+}
+
+pull_comparison <- pull_1 |>
+  dplyr::transmute(
+    date,
+    keyword,
+    hits_1_raw = hits,
+    hits_1 = hits_to_numeric(hits)
+  ) |>
+  dplyr::inner_join(
+    pull_2 |>
+      dplyr::transmute(
+        date,
+        keyword,
+        hits_2_raw = hits,
+        hits_2 = hits_to_numeric(hits)
+      ),
+    by = c("date", "keyword")
+  ) |>
+  dplyr::mutate(
+    difference = hits_2 - hits_1,
+    absolute_difference = abs(difference)
+  )
+
+pull_summary <- pull_comparison |>
+  dplyr::summarise(
+    exactly_identical = all(hits_1_raw == hits_2_raw),
+    observations_compared = dplyr::n(),
+    observations_different = sum(hits_1_raw != hits_2_raw),
+    mean_absolute_difference = mean(absolute_difference, na.rm = TRUE),
+    maximum_absolute_difference = max(absolute_difference, na.rm = TRUE)
+  )
+
+pull_summary
+```
+
+The two pulls `r if (isTRUE(pull_summary$exactly_identical)) "did" else "did not"` return exactly the same values. Of the `r pull_summary$observations_compared` matched observations, `r pull_summary$observations_different` differed. The mean absolute difference was `r round(pull_summary$mean_absolute_difference, 2)` points, and the maximum absolute difference was `r round(pull_summary$maximum_absolute_difference, 2)` `r if (round(pull_summary$maximum_absolute_difference, 2) == 1) "point" else "points"`.
+
+The first pull was cached at `r format(repeat_pull_times$cached_at[1], "%Y-%m-%d %H:%M:%S %Z")`, and the second was cached at `r format(repeat_pull_times$cached_at[2], "%Y-%m-%d %H:%M:%S %Z")`.
+
+What does your answer imply about every finding you might report from this source?
+
+Because Google Trends uses sampled and normalized search data, its values should be interpreted as estimates rather than exact counts. Repeated pulls may produce slightly different values, although the broad pattern may remain stable. Each successful pull should therefore be cached, documented, and interpreted without overemphasizing small numerical differences.
+
+# B. Write it up
+
+### a. One page, in Quarto, with your code and at least one plot.
+
+[One long HTML page.](https://jmglendenning.github.io/assign02.html)
+
+### b. Open with the query parameters from `A.1.c` — that block is a small datasheet for your data.
+
+The query datasheet records the search terms, geography, time window, category, search type, pull time, and source data.
+
+### c. Publish as assign02.qmd under Assignments on your website, and send the URL to the teaching assistant.
+
+**Note:** Published under [assign02.html](https://jmglendenning.github.io/assign02.html) Code is available at [assign.qmd](https://jmglendenning.github.io/assign.qmd)
+
+## Submit
+
+Assignment page: [https://jmglendenning.github.io/assign02.html](https://jmglendenning.github.io/assign02.html)
