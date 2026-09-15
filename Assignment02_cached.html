@@ -528,7 +528,15 @@ window.Quarto = {
 [7] "related_queries"    </code></pre>
 </div>
 </div>
-<p>The additional data frames that the website CSV did not provide were: - interest_by_country — search interest summarized by country. - interest_by_region — search interest summarized by region or subregion. - interest_by_dma — search interest by designated market area (media market). - interest_by_city — search interest summarized by city. - related_topics — topics associated with the search term. - related_queries — other search queries associated with the term.</p>
+<p>The additional data frames that the website CSV did not provide were:</p>
+<ul>
+<li>interest_by_country — search interest summarized by country.</li>
+<li>interest_by_region — search interest summarized by region or subregion.</li>
+<li>interest_by_dma — search interest by designated market area (media market).</li>
+<li>interest_by_city — search interest summarized by city.</li>
+<li>related_topics — topics associated with the search term.</li>
+<li>related_queries — other search queries associated with the term.</li>
+</ul>
 <p><strong><em>A note on terms</em></strong> <em>The website instructions above say Kamala Harris. The script searches Harris.</em></p>
 <section id="a.-pull-both-and-compare-the-series.-are-they-the-same" class="level5">
 <h5 class="anchored" data-anchor-id="a.-pull-both-and-compare-the-series.-are-they-the-same">a. Pull both and compare the series. Are they the same?</h5>
@@ -557,9 +565,9 @@ window.Quarto = {
 <section id="b.-harris" class="level5">
 <h5 class="anchored" data-anchor-id="b.-harris">b. Harris</h5>
 <p>Harris is also a county, a supermarket chain, and several thousand other people. What does that gap tell you about the difference between a search term and the concept you meant to measure?</p>
-<p>**This difference shows that a search term is not necessarily identical to the concept being measured. <code>Harris</code> can refer to many people, places, or organizations, while <code>Kamala Harris</code> is a more specific query. Unfortunately, it is likely that as a search term <code>Harris</code> is being used to mean the same as <code>Kamala Harris</code> which will obfuscate or mix results.</p>
+<p><strong>This difference shows that a search term is not necessarily identical to the concept being measured. <code>Harris</code> can refer to many people, places, or organizations, while <code>Kamala Harris</code> is a more specific query. Unfortunately, it is likely that as a search term <code>Harris</code> is being used to mean the same as <code>Kamala Harris</code> which will obfuscate or mix results.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These use two different cache files intentionally so the assignment captures</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These use two different cache files intentionally so it captures</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># two independent Google Trends samples. Each sample is downloaded only once.</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>repeat_pull_1 <span class="ot">&lt;-</span> <span class="fu">cached_gtrends</span>(</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"repeat_trump_harris_election_1.rds"</span>,</span>
@@ -571,7 +579,7 @@ window.Quarto = {
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="dv">0</span></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># This second cache file creates the second independent pull. Once it succeeds,</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># This second cache file created the second independent pull. Once it succeeds,</span></span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># it is also reused forever on later renders.</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>repeat_pull_2 <span class="ot">&lt;-</span> <span class="fu">cached_gtrends</span>(</span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"repeat_trump_harris_election_2.rds"</span>,</span>
@@ -584,7 +592,55 @@ window.Quarto = {
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>pull_1 <span class="ot">&lt;-</span> repeat_pull_1<span class="sc">$</span>interest_over_time</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>pull_2 <span class="ot">&lt;-</span> repeat_pull_2<span class="sc">$</span>interest_over_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>pull_2 <span class="ot">&lt;-</span> repeat_pull_2<span class="sc">$</span>interest_over_time</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert Google Trends scores to numbers.</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co"># "&lt;1" is represented by its midpoint, 0.5.</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>hits_to_numeric <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">as.character</span>(x)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(x))</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  result[x <span class="sc">==</span> <span class="st">"&lt;1"</span>] <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  result</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>pull_comparison <span class="ot">&lt;-</span> pull_1 <span class="sc">|&gt;</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    date,</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    keyword,</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">hits_1_raw =</span> hits,</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">hits_1 =</span> <span class="fu">hits_to_numeric</span>(hits)</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>    pull_2 <span class="sc">|&gt;</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>        date,</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>        keyword,</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">hits_2_raw =</span> hits,</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">hits_2 =</span> <span class="fu">hits_to_numeric</span>(hits)</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span>, <span class="st">"keyword"</span>)</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">difference =</span> hits_2 <span class="sc">-</span> hits_1,</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">absolute_difference =</span> <span class="fu">abs</span>(difference)</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>pull_summary <span class="ot">&lt;-</span> pull_comparison <span class="sc">|&gt;</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">exactly_identical =</span> <span class="fu">all</span>(hits_1_raw <span class="sc">==</span> hits_2_raw),</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">observations_compared =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">observations_different =</span> <span class="fu">sum</span>(hits_1_raw <span class="sc">!=</span> hits_2_raw),</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_absolute_difference =</span> <span class="fu">mean</span>(absolute_difference, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">maximum_absolute_difference =</span> <span class="fu">max</span>(absolute_difference, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>pull_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  exactly_identical observations_compared observations_different
+1              TRUE                   786                      0
+  mean_absolute_difference maximum_absolute_difference
+1                        0                           0</code></pre>
+</div>
 </div>
 <ul>
 <li>The two pulls <em>[did / did not]</em> return exactly the same values. <em>[briefly quantify the difference]</em></li>
