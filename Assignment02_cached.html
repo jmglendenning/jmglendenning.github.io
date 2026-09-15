@@ -342,7 +342,8 @@ window.Quarto = {
 </section>
 <section id="b.-interval" class="level3">
 <h3 class="anchored" data-anchor-id="b.-interval">b. Interval</h3>
-<p>What is the interval — hourly, daily, weekly, <strong><em>monthly</em></strong>? Now change the date window and download again <a href="https://jmglendenning.github.io/time_series_US_20210912-0854_20260912-0854.csv">csv</a>. Did the interval change? <strong>Yes, with ‘Last 24 hours’ the data is every 16 minutes. How odd.</strong></p>
+<p>What is the interval — hourly, daily, weekly, <strong><em>monthly</em></strong>? Now change the date window and download again <a href="https://jmglendenning.github.io/time_series_US_20260911-1903_20260912-1903.csv">csv</a>. Did the interval change?</p>
+<p><em>Yes, with ‘Last 24 hours’ the data is every 16 minutes. How odd.</em></p>
 </section>
 <section id="c.-what-are-the-units-what-does-a-value-of-100-mean-and-0" class="level3">
 <h3 class="anchored" data-anchor-id="c.-what-are-the-units-what-does-a-value-of-100-mean-and-0">c.&nbsp;What are the units? What does a value of 100 mean, and 0?</h3>
@@ -356,7 +357,7 @@ window.Quarto = {
 <section id="d.-now-remove-one-search-term-and-download-again." class="level3">
 <h3 class="anchored" data-anchor-id="d.-now-remove-one-search-term-and-download-again.">d.&nbsp;Now remove one search term and download again.</h3>
 <p>Did the numbers for the remaining terms stay the same?</p>
-<p>Dropped <em>Trump</em> from the <em>Past 5 years</em> search. The numbers changed, of course, because they are normalized.</p>
+<p>Dropped <em>Trump</em> from the <em>Past 5 years</em> search. The numbers changed, of course, because they are normalized. <a href="https://jmglendenning.github.io/time_series_US_20210912-1911_20260912-1911.csv">csv</a></p>
 </section>
 </section>
 <section id="collect-it-from-r" class="level2">
@@ -436,6 +437,7 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(the_df, csv_file)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><a href="https://jmglendenning.github.io/trump_harris_election_us_5y">csv</a></p>
 </section>
 <section id="b.-work-through-the-rest-of-the-script" class="level3">
 <h3 class="anchored" data-anchor-id="b.-work-through-the-rest-of-the-script">b. Work through the rest of the script:</h3>
@@ -516,7 +518,7 @@ window.Quarto = {
 </section>
 <section id="c.-section-6-of-the-script-runs-namestct." class="level3">
 <h3 class="anchored" data-anchor-id="c.-section-6-of-the-script-runs-namestct.">c.&nbsp;Section 6 of the script runs names(tct).</h3>
-<p>That call left onlyInterest at its default, so the object carries several data frames. Which of them did the website CSV not give you?</p>
+<p>That call left onlyInterest at its default, so the object carries several data frames. <strong>Which of them did the website CSV not give you?</strong></p>
 <p>With <code>onlyInterest</code> left at its default, <code>names(tct)</code> returns:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tct)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -526,17 +528,10 @@ window.Quarto = {
 [7] "related_queries"    </code></pre>
 </div>
 </div>
-<p>The additional data frames that the website CSV did not provide were: <em>[enter names and briefly describe them]</em>.</p>
+<p>The additional data frames that the website CSV did not provide were: - interest_by_country — search interest summarized by country. - interest_by_region — search interest summarized by region or subregion. - interest_by_dma — search interest by designated market area (media market). - interest_by_city — search interest summarized by city. - related_topics — topics associated with the search term. - related_queries — other search queries associated with the term.</p>
 <p><strong><em>A note on terms</em></strong> <em>The website instructions above say Kamala Harris. The script searches Harris.</em></p>
 <section id="a.-pull-both-and-compare-the-series.-are-they-the-same" class="level5">
 <h5 class="anchored" data-anchor-id="a.-pull-both-and-compare-the-series.-are-they-the-same">a. Pull both and compare the series. Are they the same?</h5>
-</section>
-<section id="b.-harris" class="level5">
-<h5 class="anchored" data-anchor-id="b.-harris">b. Harris</h5>
-<p>Harris is also a county, a supermarket chain, and several thousand other people. What does that gap tell you about the difference between a search term and the concept you meant to measure?</p>
-<ol start="4" type="1">
-<li>Search term versus intended concept</li>
-</ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>harris_compare <span class="ot">&lt;-</span> <span class="fu">cached_gtrends</span>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"harris_vs_kamala_harris_us_5y.rds"</span>,</span>
@@ -557,24 +552,12 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<ul>
-<li>The <strong>Harris</strong> and <strong>Kamala Harris</strong> series <em>[are / are not]</em> the same. <em>[describe the difference]</em></li>
-<li>This difference shows that a search term is not necessarily identical to the concept being measured. <strong>Harris</strong> can refer to many people, places, or organizations, while <strong>Kamala Harris</strong> is a more specific query.</li>
-</ul>
-<ol start="5" type="1">
-<li>Compare the website and R methods</li>
-</ol>
-<ul>
-<li>The website and <code>gtrendsR</code> series <em>[were / were not]</em> identical. The differences were <em>[describe magnitude and direction]</em>.</li>
-<li><strong>Reproducibility:</strong> <em>[compare whether another person could regenerate the same result]</em></li>
-<li><strong>Provenance:</strong> <em>[compare how each method records query parameters]</em></li>
-<li><strong>Scale:</strong> <em>[compare the practicality of collecting three terms versus many terms]</em></li>
-<li><strong>Fragility:</strong> <em>[describe what can break and how failures would be detected]</em></li>
-</ul>
-<ol start="6" type="1">
-<li>Repeatability of the Google Trends sample</li>
-</ol>
-<p>Run the same call twice a few minutes apart and compare the results.</p>
+<p>The <strong>Harris</strong> and <strong>Kamala Harris</strong> query series <em>are not</em> the same. <em>It is clear that just <code>Harris</code> includes many more terms than <code>Kamala Harris</code>. This indicates that either <code>Kamala</code> is not being used with <code>Harris</code> or that there are other <code>Harris</code>.</em></p>
+</section>
+<section id="b.-harris" class="level5">
+<h5 class="anchored" data-anchor-id="b.-harris">b. Harris</h5>
+<p>Harris is also a county, a supermarket chain, and several thousand other people. What does that gap tell you about the difference between a search term and the concept you meant to measure?</p>
+<p>**This difference shows that a search term is not necessarily identical to the concept being measured. <code>Harris</code> can refer to many people, places, or organizations, while <code>Kamala Harris</code> is a more specific query. Unfortunately, it is likely that as a search term <code>Harris</code> is being used to mean the same as <code>Kamala Harris</code> which will obfuscate or mix results.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These use two different cache files intentionally so the assignment captures</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># two independent Google Trends samples. Each sample is downloaded only once.</span></span>
@@ -638,7 +621,7 @@ window.Quarto = {
 <h1>B. Write it up</h1>
 <section id="a.-one-page-in-quarto-with-your-code-and-at-least-one-plot." class="level3">
 <h3 class="anchored" data-anchor-id="a.-one-page-in-quarto-with-your-code-and-at-least-one-plot.">a. One page, in Quarto, with your code and at least one plot.</h3>
-<p>One long HTML page.</p>
+<p><a href="https://jmglendenning.github.io/Assignment02_cached.html">One long HTML page.</a></p>
 </section>
 <section id="b.-open-with-the-query-parameters-from-a.1.c-that-block-is-a-small-datasheet-for-your-data." class="level3">
 <h3 class="anchored" data-anchor-id="b.-open-with-the-query-parameters-from-a.1.c-that-block-is-a-small-datasheet-for-your-data.">b. Open with the query parameters from <code>A.1.c</code> — that block is a small datasheet for your data.</h3>
