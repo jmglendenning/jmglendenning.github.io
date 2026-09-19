@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="John Glendenning">
 
-<title>Research – John Glendenning</title>
+<title>Prepare for Class 4 – John Glendenning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -199,7 +200,27 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#before-we-meet" id="toc-before-we-meet" class="nav-link active" data-scroll-target="#before-we-meet">Before we meet</a></li>
+  <li><a href="#assignment-3" id="toc-assignment-3" class="nav-link" data-scroll-target="#assignment-3">1. Assignment 3</a></li>
+  <li><a href="#read" id="toc-read" class="nav-link" data-scroll-target="#read">2. Read</a>
+  <ul class="collapse">
+  <li><a href="#a.-foster-et-al.-ch.-2-scraping-2.2.-httpstextbook.coleridgeinitiative.orgchap-web.html" id="toc-a.-foster-et-al.-ch.-2-scraping-2.2.-httpstextbook.coleridgeinitiative.orgchap-web.html" class="nav-link" data-scroll-target="#a.-foster-et-al.-ch.-2-scraping-2.2.-httpstextbook.coleridgeinitiative.orgchap-web.html">a. Foster et al., ch.&nbsp;2 — scraping, §2.2. https://textbook.coleridgeinitiative.org/chap-web.html</a></li>
+  <li><a href="#b.-r4ds-2e-ch.-24-web-scraping.-httpsr4ds.hadley.nzwebscraping.html" id="toc-b.-r4ds-2e-ch.-24-web-scraping.-httpsr4ds.hadley.nzwebscraping.html" class="nav-link" data-scroll-target="#b.-r4ds-2e-ch.-24-web-scraping.-httpsr4ds.hadley.nzwebscraping.html">b. R4DS (2e) ch.&nbsp;24, Web scraping. https://r4ds.hadley.nz/webscraping.html</a></li>
+  <li><a href="#c.-optional-aydin-olgun.-2018.-r-web-scraping-quick-start-guide-techniques-and-tools-to-crawl-and-scrape-data-from-websites.-packt-publishing." id="toc-c.-optional-aydin-olgun.-2018.-r-web-scraping-quick-start-guide-techniques-and-tools-to-crawl-and-scrape-data-from-websites.-packt-publishing." class="nav-link" data-scroll-target="#c.-optional-aydin-olgun.-2018.-r-web-scraping-quick-start-guide-techniques-and-tools-to-crawl-and-scrape-data-from-websites.-packt-publishing.">c.&nbsp;Optional: Aydin, Olgun. 2018. R Web Scraping Quick Start Guide: Techniques and Tools to Crawl and Scrape Data from Websites. Packt Publishing.</a></li>
+  </ul></li>
+  <li><a href="#research" id="toc-research" class="nav-link" data-scroll-target="#research">3. Research</a>
+  <ul class="collapse">
+  <li><a href="#a.-survey-the-r-packages-for-web-scraping.-at-minimum-look-at-rvest-httr2-polite-rselenium-and-chromote." id="toc-a.-survey-the-r-packages-for-web-scraping.-at-minimum-look-at-rvest-httr2-polite-rselenium-and-chromote." class="nav-link" data-scroll-target="#a.-survey-the-r-packages-for-web-scraping.-at-minimum-look-at-rvest-httr2-polite-rselenium-and-chromote.">a. Survey the R packages for web scraping. At minimum look at rvest, httr2, polite, RSelenium and chromote.</a></li>
+  <li><a href="#b.-choose-two-to-compare.-for-each-be-ready-to-say-what-does-it-assume-the-page-looks-like-what-does-it-do-about-javascript-and-what-does-it-do-about-rate-limiting" id="toc-b.-choose-two-to-compare.-for-each-be-ready-to-say-what-does-it-assume-the-page-looks-like-what-does-it-do-about-javascript-and-what-does-it-do-about-rate-limiting" class="nav-link" data-scroll-target="#b.-choose-two-to-compare.-for-each-be-ready-to-say-what-does-it-assume-the-page-looks-like-what-does-it-do-about-javascript-and-what-does-it-do-about-rate-limiting">b. Choose two to compare. For each, be ready to say: what does it assume the page looks like, what does it do about JavaScript, and what does it do about rate limiting?</a></li>
+  <li><a href="#c.-what-is-robots.txt-who-writes-it-who-reads-it-and-what-happens-if-you-ignore-it" id="toc-c.-what-is-robots.txt-who-writes-it-who-reads-it-and-what-happens-if-you-ignore-it" class="nav-link" data-scroll-target="#c.-what-is-robots.txt-who-writes-it-who-reads-it-and-what-happens-if-you-ignore-it">c.&nbsp;What is robots.txt? Who writes it, who reads it, and what happens if you ignore it?</a></li>
+  <li><a href="#d.-find-two-websites-robots.txt-and-analyse-them.-append-robots.txt-to-any-domain.-for-each-file-identify" id="toc-d.-find-two-websites-robots.txt-and-analyse-them.-append-robots.txt-to-any-domain.-for-each-file-identify" class="nav-link" data-scroll-target="#d.-find-two-websites-robots.txt-and-analyse-them.-append-robots.txt-to-any-domain.-for-each-file-identify">d.&nbsp;Find two websites’ robots.txt and analyse them. Append /robots.txt to any domain. For each file, identify:</a></li>
+  </ul></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -210,13 +231,20 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Research</h1>
+<h1 class="title">Prepare for Class 4</h1>
+<p class="subtitle lead">Week 4 — Fall 2026</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Glendenning </p>
+          </div>
+  </div>
     
   
     
@@ -227,22 +255,95 @@ window.Quarto = {
 </header>
 
 
-<p>I am interested in applying GIS tools and techniques to historical questions. Projects that I have worked on include:</p>
-<ul>
-<li>Roman villa site location analysis and predictive modeling</li>
-<li>A Python implementation of Geomorphons</li>
-<li>Application of low-cost drones to disaster efforts</li>
-<li>Python-based DEM-based spatial statistics via WCS data-acquisition</li>
-</ul>
-<p>Current projects include:</p>
-<ul>
-<li>Spatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista</li>
-<li>Synthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data</li>
-<li>ML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings</li>
-</ul>
+<section id="before-we-meet" class="level2">
+<h2 class="anchored" data-anchor-id="before-we-meet">Before we meet</h2>
+<p>Start Assignment 3, read the two scraping chapters, and come with two R packages compared and two robots.txt files read.</p>
+</section>
+<section id="assignment-3" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-3">1. Assignment 3</h2>
+<ol type="a">
+<li>Begin Assignment 3 — ACS via tidycensus. Bring your Census API key working.</li>
+</ol>
+<p><em>Done</em></p>
+</section>
+<section id="read" class="level2">
+<h2 class="anchored" data-anchor-id="read">2. Read</h2>
+<section id="a.-foster-et-al.-ch.-2-scraping-2.2.-httpstextbook.coleridgeinitiative.orgchap-web.html" class="level3">
+<h3 class="anchored" data-anchor-id="a.-foster-et-al.-ch.-2-scraping-2.2.-httpstextbook.coleridgeinitiative.orgchap-web.html">a. Foster et al., ch.&nbsp;2 — scraping, §2.2. https://textbook.coleridgeinitiative.org/chap-web.html</h3>
+<p><em>Done</em></p>
+</section>
+<section id="b.-r4ds-2e-ch.-24-web-scraping.-httpsr4ds.hadley.nzwebscraping.html" class="level3">
+<h3 class="anchored" data-anchor-id="b.-r4ds-2e-ch.-24-web-scraping.-httpsr4ds.hadley.nzwebscraping.html">b. R4DS (2e) ch.&nbsp;24, Web scraping. https://r4ds.hadley.nz/webscraping.html</h3>
+<p><em>Done</em></p>
+</section>
+<section id="c.-optional-aydin-olgun.-2018.-r-web-scraping-quick-start-guide-techniques-and-tools-to-crawl-and-scrape-data-from-websites.-packt-publishing." class="level3">
+<h3 class="anchored" data-anchor-id="c.-optional-aydin-olgun.-2018.-r-web-scraping-quick-start-guide-techniques-and-tools-to-crawl-and-scrape-data-from-websites.-packt-publishing.">c.&nbsp;Optional: Aydin, Olgun. 2018. R Web Scraping Quick Start Guide: Techniques and Tools to Crawl and Scrape Data from Websites. Packt Publishing.</h3>
+<p><em>Done</em></p>
+</section>
+</section>
+<section id="research" class="level2">
+<h2 class="anchored" data-anchor-id="research">3. Research</h2>
+<section id="a.-survey-the-r-packages-for-web-scraping.-at-minimum-look-at-rvest-httr2-polite-rselenium-and-chromote." class="level3">
+<h3 class="anchored" data-anchor-id="a.-survey-the-r-packages-for-web-scraping.-at-minimum-look-at-rvest-httr2-polite-rselenium-and-chromote.">a. Survey the R packages for web scraping. At minimum look at rvest, httr2, polite, RSelenium and chromote.</h3>
+</section>
+<section id="b.-choose-two-to-compare.-for-each-be-ready-to-say-what-does-it-assume-the-page-looks-like-what-does-it-do-about-javascript-and-what-does-it-do-about-rate-limiting" class="level3">
+<h3 class="anchored" data-anchor-id="b.-choose-two-to-compare.-for-each-be-ready-to-say-what-does-it-assume-the-page-looks-like-what-does-it-do-about-javascript-and-what-does-it-do-about-rate-limiting">b. Choose two to compare. For each, be ready to say: what does it assume the page looks like, what does it do about JavaScript, and what does it do about rate limiting?</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>rvest</th>
+<th>RSelenium</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>What does it assume the page looks like?</td>
+<td>Assumes the desired content is available in the returned HTML, where it can be selected using CSS selectors or XPath.</td>
+<td>Treats the site as a browser-rendered page and interacts with it much like a user would.</td>
+</tr>
+<tr class="even">
+<td>What does it do about JavaScript?</td>
+<td>Does not execute JavaScript. Content generated only after JavaScript runs generally will not be available to rvest alone.</td>
+<td>Uses a real browser/WebDriver, so JavaScript executes. It can scrape dynamically generated content and interact with buttons, forms, scrolling, etc.</td>
+</tr>
+<tr class="odd">
+<td>What does it do about rate limiting?</td>
+<td>Nothing automatically. You need to control request frequency yourself, for example with delays or by combining it with polite.</td>
+<td>Nothing specifically for rate limiting. Browser interaction is naturally slower than simple HTTP requests, but request frequency still needs to be deliberately controlled.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c.-what-is-robots.txt-who-writes-it-who-reads-it-and-what-happens-if-you-ignore-it" class="level3">
+<h3 class="anchored" data-anchor-id="c.-what-is-robots.txt-who-writes-it-who-reads-it-and-what-happens-if-you-ignore-it">c.&nbsp;What is robots.txt? Who writes it, who reads it, and what happens if you ignore it?</h3>
+</section>
+<section id="d.-find-two-websites-robots.txt-and-analyse-them.-append-robots.txt-to-any-domain.-for-each-file-identify" class="level3">
+<h3 class="anchored" data-anchor-id="d.-find-two-websites-robots.txt-and-analyse-them.-append-robots.txt-to-any-domain.-for-each-file-identify">d.&nbsp;Find two websites’ robots.txt and analyse them. Append /robots.txt to any domain. For each file, identify:</h3>
+<section id="i.-the-user-agent-blocks-does-the-site-treat-all-crawlers-alike" class="level4">
+<h4 class="anchored" data-anchor-id="i.-the-user-agent-blocks-does-the-site-treat-all-crawlers-alike">i. the User-agent blocks — does the site treat all crawlers alike?</h4>
+</section>
+<section id="ii.-what-is-disallowed-and-what-is-explicitly-allowed" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-what-is-disallowed-and-what-is-explicitly-allowed">ii. what is Disallowed, and what is explicitly Allowed</h4>
+</section>
+<section id="iii.-any-crawl-delay-and-any-sitemap" class="level4">
+<h4 class="anchored" data-anchor-id="iii.-any-crawl-delay-and-any-sitemap">iii. any Crawl-delay and any Sitemap</h4>
+</section>
+<section id="iv.-whether-the-scrape-you-have-in-mind-would-be-permitted" class="level4">
+<h4 class="anchored" data-anchor-id="iv.-whether-the-scrape-you-have-in-mind-would-be-permitted">iv. whether the scrape you have in mind would be permitted</h4>
+<p>Check it from R, not by eye. The robotstxt package reads the file for you: <code>robotstxt::paths_allowed("https://example.com/some/page")</code>. The polite package wraps that check together with rate limiting, so compliance is the default rather than an afterthought.</p>
+<p>Bring the two robots.txt files and your two-package comparison — we open class by arguing about whether permission and legality are the same thing.</p>
 
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
