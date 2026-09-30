@@ -102,28 +102,28 @@
     "href": "Prepare06.html#assignment",
     "title": "EPPS 6302 Methods of Data Collection and Production: Prepare for Class 6",
     "section": "1. Assignment",
-    "text": "1. Assignment\n\nAssignment 4 — Webscraping 1."
+    "text": "1. Assignment\n\nAssignment 4 — Webscraping 1.\n\nCompleted"
   },
   {
     "objectID": "Prepare06.html#read-web-data",
     "href": "Prepare06.html#read-web-data",
     "title": "EPPS 6302 Methods of Data Collection and Production: Prepare for Class 6",
     "section": "2. Read — web data",
-    "text": "2. Read — web data\n\nFoster et al., ch. 2 — https://textbook.coleridgeinitiative.org/chap-web.html\nR4DS (2e) ch. 24, Web scraping — https://r4ds.hadley.nz/webscraping.html\nWickham, rvest — https://rvest.tidyverse.org/"
+    "text": "2. Read — web data\n\nFoster et al., ch. 2 — https://textbook.coleridgeinitiative.org/chap-web.html\nR4DS (2e) ch. 24, Web scraping — https://r4ds.hadley.nz/webscraping.html\nWickham, rvest — https://rvest.tidyverse.org/\n\nDone"
   },
   {
     "objectID": "Prepare06.html#get-a-youtube-data-api-key",
     "href": "Prepare06.html#get-a-youtube-data-api-key",
     "title": "EPPS 6302 Methods of Data Collection and Production: Prepare for Class 6",
     "section": "3. Get a YouTube Data API key",
-    "text": "3. Get a YouTube Data API key\n\nCreate a Google account if you do not have one — your own name as the account ID, no birthday or year in it.\nOpen the Google Cloud Console — https://console.cloud.google.com — and create a project; it is just a container for the key.\nAPIs & Services → Library → YouTube Data API v3 → Enable. Nothing works until the API is enabled on that project.\nAPIs & Services → Credentials → Create credentials → API key. Copy it, then Restrict key to the YouTube Data API.\nGoogle’s Create access credentials — https://developers.google.com/workspace/guides/create-credentials\n\nYou probably do not need OAuth. An API key covers everything this course does — reading public data: search, videos, channels, playlists, comments. An OAuth 2.0 client ID and secret is needed only to write, or to read a signed-in user’s private data.\nQuota. A new project gets 100 search.list calls plus 10,000 units/day across other endpoints; most reads cost 1 unit — so search is the scarce resource. Collect IDs once, cache them, page through cheaper endpoints. And treat the key like the Census key: never in a .qmd, never committed."
+    "text": "3. Get a YouTube Data API key\n\nCreate a Google account if you do not have one — your own name as the account ID, no birthday or year in it.\nOpen the Google Cloud Console — https://console.cloud.google.com — and create a project; it is just a container for the key.\nAPIs & Services → Library → YouTube Data API v3 → Enable. Nothing works until the API is enabled on that project.\nAPIs & Services → Credentials → Create credentials → API key. Copy it, then Restrict key to the YouTube Data API.\nGoogle’s Create access credentials — https://developers.google.com/workspace/guides/create-credentials\n\nYou probably do not need OAuth. An API key covers everything this course does — reading public data: search, videos, channels, playlists, comments. An OAuth 2.0 client ID and secret is needed only to write, or to read a signed-in user’s private data.\nQuota. A new project gets 100 search.list calls plus 10,000 units/day across other endpoints; most reads cost 1 unit — so search is the scarce resource. Collect IDs once, cache them, page through cheaper endpoints. And treat the key like the Census key: never in a .qmd, never committed.\nDone"
   },
   {
     "objectID": "Prepare06.html#more-on-causal-inference",
     "href": "Prepare06.html#more-on-causal-inference",
     "title": "EPPS 6302 Methods of Data Collection and Production: Prepare for Class 6",
     "section": "4. More on causal inference",
-    "text": "4. More on causal inference\n\nListen to Judea Pearl on the Lex Fridman Podcast — Causal Reasoning, Counterfactuals, Bayesian Networks, and the Path to AGI — https://open.spotify.com/episode/4B76DewevJy9f6rGPHyovI\nPrepare answers to: (i) what is a Bayesian network? (ii) compare causation with correlation.\n\nBring the key working and the two answers written down."
+    "text": "4. More on causal inference\n\nListen to Judea Pearl on the Lex Fridman Podcast — Causal Reasoning, Counterfactuals, Bayesian Networks, and the Path to AGI — https://open.spotify.com/episode/4B76DewevJy9f6rGPHyovI\n\nDone\n\nPrepare answers to: (i) what is a Bayesian network? (ii) compare causation with correlation.\n\nBayesian Network\n\nA Bayesian network is a probabilistic model that represents relationships among variables using a directed acyclic graph (DAG).\n\nCausation / Correlation\n\nCorrelation means that two variables are statistically linked. When one changes, the other tends to change in some way. Correlation does not establish why the association exists.\n\n\nCausation means that changing one thing produces a change in another thing.\n\n\nFor instance ice-cream sales and heat-related illnesses may be positively correlated, but buying ice cream does not necessarily cause heat stroke.\n\nBring the key working and the two answers written down.\nAI Disclosure: Somewhere here AI was involved. For instance the template for this QMD was prepared using AI."
   },
   {
     "objectID": "Prepare02.html",
