@@ -673,18 +673,29 @@ $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "
 <span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
 <span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">abs</span>(pct_difference)))</span>
 <span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>reserves_compare <span class="sc">|&gt;</span></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>    country,</span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>    last_reported_date,</span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>    reserves_wikipedia,</span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>    reserves_wdi,</span>
-<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>    difference,</span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>    pct_difference</span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="co"># reserves_compare |&gt;</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="co">#     country,</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="co">#     last_reported_date,</span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="co">#     reserves_wikipedia,</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="co">#     reserves_wdi,</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="co">#     difference,</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="co">#     pct_difference</span></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="co">#   ) |&gt;</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a><span class="co">#   print(n = 20)</span></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>reserves_compare <span class="sc">|&gt;</span></span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(difference) <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>    country,</span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a>    last_reported_date,</span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>    reserves_wikipedia,</span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>    reserves_wdi,</span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a>    difference,</span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a>    pct_difference</span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 160 × 6
+<pre><code># A tibble: 141 × 6
    country         last_reported_date reserves_wikipedia reserves_wdi difference
    &lt;chr&gt;           &lt;chr&gt;                           &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
  1 South Sudan     2 Mar 2024                         80         16.0       64.0
@@ -697,17 +708,7 @@ $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "
  8 Bangladesh      03 Jul 2026                     37660      21395.     16265. 
  9 Kenya           5 Mar 2024                       2490      10067.     -7577. 
 10 Greece          1 Mar 2024                       3926      15222.    -11296. 
-11 United States   22 Aug 2025                    253767     910037.   -656270. 
-12 Zimbabwe        1 Mar 2024                        159        485.      -326. 
-13 Samoa           1 Mar 2024                        188        508.      -320. 
-14 Suriname        8 Mar 2024                        647       1632.      -985. 
-15 Luxembourg      5 Mar 2024                       1119       2789.     -1670. 
-16 Tajikistan      1 Mar 2024                       1482       3631.     -2149. 
-17 Zambia          12 JUN 2026                      6500       4090.      2410. 
-18 Netherlands     1 Mar 2024                     125451      79130.     46321. 
-19 Lebanon         1 Mar 2024                      14738      33301.    -18563. 
-20 Finland         1 Mar 2024                       7995      17993.     -9998. 
-# ℹ 140 more rows
+# ℹ 131 more rows
 # ℹ 1 more variable: pct_difference &lt;dbl&gt;</code></pre>
 </div>
 </div>
