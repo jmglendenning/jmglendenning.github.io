@@ -600,6 +600,7 @@ $ award        &lt;chr&gt; "2014 MTV Europe Music Awards — Wild Card for Best 
 $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "Nomi…</code></pre>
 </div>
 </div>
+<p>The Babymetal table does not contain the multi-row header, Total or World rows, or a full date variable found in the original reserves table. The Year field was already parsed as an integer, so cleaning focused on removing citation markers and standardizing the column names and text fields.</p>
 </section>
 </section>
 <section id="now-do-it-the-right-way" class="level2">
@@ -710,7 +711,7 @@ $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "
 # ℹ 1 more variable: pct_difference &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>The Wikipedia and World Bank values differ for many countries. The primary reason is that the two sources are not reporting the same data. The World Bank comparison uses 2024 observations, while the Wikipedia table contains each country’s most recently reported value, with dates ranging from 2024 through 2026. For example, Wikipedia reports Bangladesh as of July 3, 2026, while the World Bank value is from 2024. Some large differences therefore reflect changes in reserves between reporting dates rather than disagreement between the sources. Differences may also result from differences in reporting and compilation methods, while some countries may not match directly because Wikipedia and the World Bank could use different country names.</p>
+<p>The sources differ in both reporting vintage and, potentially, measurement or reporting conventions. Because the Wikipedia table contains country-specific reporting dates while the World Bank comparison holds the year at 2024, the values are not directly comparable as measurements from the same period. Extreme discrepancies should therefore be investigated individually before being interpreted as substantive changes in reserves.</p>
 </section>
 <section id="c.-1" class="level3">
 <h3 class="anchored" data-anchor-id="c.-1">c.</h3>
@@ -724,7 +725,7 @@ $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "
 <p>Write one page: a plan to acquire web data for your own research.</p>
 <section id="a.-3" class="level3">
 <h3 class="anchored" data-anchor-id="a.-3">a.</h3>
-<p>The primary source will be Media Cloud, using its online news archive to identify news articles related to data centers. Media Cloud is appropriate because it is designed specifically for media research and provides a large, searchable collection of online news sources. We will constrain our searches of this database by keywords, and dates. This will create the URLs that we will scrape for our corpus. The list of publisher URLS will then be queried for text data. Media Cloud itself does not make its extracted article text available for download because of copyright restrictions.</p>
+<p>The primary source will be Media Cloud, using its online news archive to identify news articles related to data centers. Media Cloud is appropriate because it is designed specifically for media research and provides a large, searchable collection of online news sources. We will constrain our searches of this database by keywords and dates. This will create the URLs that we will scrape for our corpus. The list of publisher URLS will then be queried for text data. Media Cloud itself does not make its extracted article text available for download because of copyright restrictions.</p>
 </section>
 <section id="b.-3" class="level3">
 <h3 class="anchored" data-anchor-id="b.-3">b.</h3>
@@ -734,7 +735,7 @@ $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "
 <section id="c.-2" class="level3">
 <h3 class="anchored" data-anchor-id="c.-2">c.</h3>
 <p><em>Whether an API exists — and your justification if you scrape anyway</em></p>
-<p>Media Cloud provides a search API, but we will generate a CSV so that we can do preprocess the URL dataset.</p>
+<p>Media Cloud provides a search API, but we will generate a CSV so that we can preprocess the URL dataset.</p>
 <p>Scraping is still necessary for the next stage because Media Cloud does not provide downloadable full article text. Where permitted, the URLs returned by the API will therefore be used to retrieve the original publisher pages and extract their article text.</p>
 </section>
 <section id="d." class="level3">
@@ -747,7 +748,7 @@ $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "
 <h3 class="anchored" data-anchor-id="e.">e.</h3>
 <p><em>What breaks when the page changes, and how you will notice?</em></p>
 <p>Scraping article text from publishers is always error prone because HTML structure differs among publishers and will change over time. A selector that identifies article text today may stop finding it after a site redesign, or it may begin capturing navigation, advertising, or other material instead.</p>
-<p>The collection process will retains collection-status information and validate scraped results before treating them as successful. Missing text, unusually short text, HTTP errors, unexpected content, or changes in expected fields will be recorded as collection failures rather than cached as valid articles. Primary collection is via <code>rvest</code>, but on a failure, we also have implemented an <code>Rselenium</code> backup process. Because successful articles are already stored in the parquet database, a change to a publisher’s website should require recollecting only failed or new records rather than rebuilding the entire corpus.</p>
+<p>The collection process will retain collection-status information and validate scraped results before treating them as successful. Missing text, unusually short text, HTTP errors, unexpected content, or changes in expected fields will be recorded as collection failures rather than cached as valid articles. Primary collection is via <code>rvest</code>, but on a failure, we also have implemented an <code>Rselenium</code> backup process. Because successful articles are already stored in the Parquet database, a change to a publisher’s website should require recollecting only failed or new records rather than rebuilding the entire corpus.</p>
 </section>
 </section>
 <section id="submit" class="level2">
