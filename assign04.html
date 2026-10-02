@@ -343,6 +343,7 @@ window.Quarto = {
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
+<p><em>The paths_allowed() check returned TRUE, showing that the Wikipedia path is permitted by its robots.txt rules.</em></p>
 </section>
 <section id="warm-up-on-a-page-built-to-be-scraped" class="level2">
 <h2 class="anchored" data-anchor-id="warm-up-on-a-page-built-to-be-scraped">1. Warm up on a page built to be scraped</h2>
@@ -687,38 +688,1182 @@ $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "
 <span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>reserves_compare <span class="sc">|&gt;</span></span>
 <span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(difference) <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
 <span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>    country,</span>
-<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a>    last_reported_date,</span>
-<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>    reserves_wikipedia,</span>
-<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>    reserves_wdi,</span>
-<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a>    difference,</span>
-<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a>    pct_difference</span>
-<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 141 × 6
-   country         last_reported_date reserves_wikipedia reserves_wdi difference
-   &lt;chr&gt;           &lt;chr&gt;                           &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
- 1 South Sudan     2 Mar 2024                         80         16.0       64.0
- 2 Gabon           1 Mar 2024                       1377        639.       738. 
- 3 North Macedonia 31 Aug 2025                         4       5252.     -5248. 
- 4 Mozambique      31 Jul 2025                         4       3843.     -3839. 
- 5 Equatorial Gui… 1 Mar 2024                         46       1077.     -1031. 
- 6 Belgium         1 Mar 2024                      82000      42331.     39669. 
- 7 Chad            1 Mar 2024                        143       1548.     -1405. 
- 8 Bangladesh      03 Jul 2026                     37660      21395.     16265. 
- 9 Kenya           5 Mar 2024                       2490      10067.     -7577. 
-10 Greece          1 Mar 2024                       3926      15222.    -11296. 
-# ℹ 131 more rows
-# ℹ 1 more variable: pct_difference &lt;dbl&gt;</code></pre>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">Country =</span> country,</span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Wikipedia date</span><span class="st">`</span> <span class="ot">=</span> last_reported_date,</span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Wikipedia (US$ millions)</span><span class="st">`</span> <span class="ot">=</span> reserves_wikipedia,</span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">World Bank 2024 (US$ millions)</span><span class="st">`</span> <span class="ot">=</span> reserves_wdi,</span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Difference (US$ millions)</span><span class="st">`</span> <span class="ot">=</span> difference,</span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Difference (%)</span><span class="st">`</span> <span class="ot">=</span> pct_difference</span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">1</span>,</span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Comparison of Wikipedia and World Bank foreign reserve estimates"</span></span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Comparison of Wikipedia and World Bank foreign reserve estimates</caption>
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 22%">
+<col style="width: 18%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Country</th>
+<th style="text-align: left;">Wikipedia date</th>
+<th style="text-align: right;">Wikipedia (US$ millions)</th>
+<th style="text-align: right;">World Bank 2024 (US$ millions)</th>
+<th style="text-align: right;">Difference (US$ millions)</th>
+<th style="text-align: right;">Difference (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">South Sudan</td>
+<td style="text-align: left;">2 Mar 2024</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">64.0</td>
+<td style="text-align: right;">401.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gabon</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">1377</td>
+<td style="text-align: right;">638.8</td>
+<td style="text-align: right;">738.2</td>
+<td style="text-align: right;">115.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">North Macedonia</td>
+<td style="text-align: left;">31 Aug 2025</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5251.9</td>
+<td style="text-align: right;">-5247.9</td>
+<td style="text-align: right;">-99.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mozambique</td>
+<td style="text-align: left;">31 Jul 2025</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3842.8</td>
+<td style="text-align: right;">-3838.8</td>
+<td style="text-align: right;">-99.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Equatorial Guinea</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">1076.8</td>
+<td style="text-align: right;">-1030.8</td>
+<td style="text-align: right;">-95.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Belgium</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">82000</td>
+<td style="text-align: right;">42330.8</td>
+<td style="text-align: right;">39669.2</td>
+<td style="text-align: right;">93.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chad</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">143</td>
+<td style="text-align: right;">1547.6</td>
+<td style="text-align: right;">-1404.6</td>
+<td style="text-align: right;">-90.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bangladesh</td>
+<td style="text-align: left;">03 Jul 2026</td>
+<td style="text-align: right;">37660</td>
+<td style="text-align: right;">21394.8</td>
+<td style="text-align: right;">16265.2</td>
+<td style="text-align: right;">76.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kenya</td>
+<td style="text-align: left;">5 Mar 2024</td>
+<td style="text-align: right;">2490</td>
+<td style="text-align: right;">10066.6</td>
+<td style="text-align: right;">-7576.6</td>
+<td style="text-align: right;">-75.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Greece</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">3926</td>
+<td style="text-align: right;">15221.8</td>
+<td style="text-align: right;">-11295.8</td>
+<td style="text-align: right;">-74.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">22 Aug 2025</td>
+<td style="text-align: right;">253767</td>
+<td style="text-align: right;">910036.5</td>
+<td style="text-align: right;">-656269.5</td>
+<td style="text-align: right;">-72.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zimbabwe</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">159</td>
+<td style="text-align: right;">485.0</td>
+<td style="text-align: right;">-326.0</td>
+<td style="text-align: right;">-67.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Samoa</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">188</td>
+<td style="text-align: right;">507.7</td>
+<td style="text-align: right;">-319.7</td>
+<td style="text-align: right;">-63.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Suriname</td>
+<td style="text-align: left;">8 Mar 2024</td>
+<td style="text-align: right;">647</td>
+<td style="text-align: right;">1632.3</td>
+<td style="text-align: right;">-985.3</td>
+<td style="text-align: right;">-60.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Luxembourg</td>
+<td style="text-align: left;">5 Mar 2024</td>
+<td style="text-align: right;">1119</td>
+<td style="text-align: right;">2789.2</td>
+<td style="text-align: right;">-1670.2</td>
+<td style="text-align: right;">-59.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tajikistan</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">1482</td>
+<td style="text-align: right;">3630.7</td>
+<td style="text-align: right;">-2148.7</td>
+<td style="text-align: right;">-59.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zambia</td>
+<td style="text-align: left;">12 JUN 2026</td>
+<td style="text-align: right;">6500</td>
+<td style="text-align: right;">4089.8</td>
+<td style="text-align: right;">2410.2</td>
+<td style="text-align: right;">58.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Netherlands</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">125451</td>
+<td style="text-align: right;">79129.6</td>
+<td style="text-align: right;">46321.4</td>
+<td style="text-align: right;">58.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lebanon</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">14738</td>
+<td style="text-align: right;">33301.3</td>
+<td style="text-align: right;">-18563.3</td>
+<td style="text-align: right;">-55.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Finland</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">7995</td>
+<td style="text-align: right;">17992.9</td>
+<td style="text-align: right;">-9997.9</td>
+<td style="text-align: right;">-55.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Barbados</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">770</td>
+<td style="text-align: right;">1653.7</td>
+<td style="text-align: right;">-883.7</td>
+<td style="text-align: right;">-53.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ecuador</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">3305</td>
+<td style="text-align: right;">6907.7</td>
+<td style="text-align: right;">-3602.7</td>
+<td style="text-align: right;">-52.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Botswana</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">5080</td>
+<td style="text-align: right;">3455.7</td>
+<td style="text-align: right;">1624.3</td>
+<td style="text-align: right;">47.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pakistan</td>
+<td style="text-align: left;">19 Sep 2026</td>
+<td style="text-align: right;">26791</td>
+<td style="text-align: right;">18407.7</td>
+<td style="text-align: right;">8383.3</td>
+<td style="text-align: right;">45.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guyana</td>
+<td style="text-align: left;">10 Mar 2024</td>
+<td style="text-align: right;">553</td>
+<td style="text-align: right;">1009.8</td>
+<td style="text-align: right;">-456.8</td>
+<td style="text-align: right;">-45.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Djibouti</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">504</td>
+<td style="text-align: right;">348.7</td>
+<td style="text-align: right;">155.3</td>
+<td style="text-align: right;">44.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sierra Leone</td>
+<td style="text-align: left;">2 Mar 2024</td>
+<td style="text-align: right;">624</td>
+<td style="text-align: right;">433.3</td>
+<td style="text-align: right;">190.7</td>
+<td style="text-align: right;">44.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New Zealand</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">31712</td>
+<td style="text-align: right;">22065.2</td>
+<td style="text-align: right;">9646.8</td>
+<td style="text-align: right;">43.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Belize</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">281</td>
+<td style="text-align: right;">498.1</td>
+<td style="text-align: right;">-217.1</td>
+<td style="text-align: right;">-43.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Madagascar</td>
+<td style="text-align: left;">19 Mar 2024</td>
+<td style="text-align: right;">1620</td>
+<td style="text-align: right;">2784.6</td>
+<td style="text-align: right;">-1164.6</td>
+<td style="text-align: right;">-41.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Grenada</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">247</td>
+<td style="text-align: right;">423.3</td>
+<td style="text-align: right;">-176.3</td>
+<td style="text-align: right;">-41.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tonga</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">226</td>
+<td style="text-align: right;">377.3</td>
+<td style="text-align: right;">-151.3</td>
+<td style="text-align: right;">-40.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Namibia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">2019</td>
+<td style="text-align: right;">3355.5</td>
+<td style="text-align: right;">-1336.5</td>
+<td style="text-align: right;">-39.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rwanda</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">1458</td>
+<td style="text-align: right;">2406.5</td>
+<td style="text-align: right;">-948.5</td>
+<td style="text-align: right;">-39.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Comoros</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">197</td>
+<td style="text-align: right;">323.9</td>
+<td style="text-align: right;">-126.9</td>
+<td style="text-align: right;">-39.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cyprus</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">1271</td>
+<td style="text-align: right;">2087.3</td>
+<td style="text-align: right;">-816.3</td>
+<td style="text-align: right;">-39.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Papua New Guinea</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">2339</td>
+<td style="text-align: right;">3708.9</td>
+<td style="text-align: right;">-1369.9</td>
+<td style="text-align: right;">-36.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nicaragua</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">3980</td>
+<td style="text-align: right;">6104.9</td>
+<td style="text-align: right;">-2124.9</td>
+<td style="text-align: right;">-34.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mauritius</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">5591</td>
+<td style="text-align: right;">8506.1</td>
+<td style="text-align: right;">-2915.1</td>
+<td style="text-align: right;">-34.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Malta</td>
+<td style="text-align: left;">20 Mar 2024</td>
+<td style="text-align: right;">937</td>
+<td style="text-align: right;">1417.6</td>
+<td style="text-align: right;">-480.6</td>
+<td style="text-align: right;">-33.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lithuania</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">4900</td>
+<td style="text-align: right;">7407.1</td>
+<td style="text-align: right;">-2507.1</td>
+<td style="text-align: right;">-33.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fiji</td>
+<td style="text-align: left;">5 Mar 2024</td>
+<td style="text-align: right;">1065</td>
+<td style="text-align: right;">1599.6</td>
+<td style="text-align: right;">-534.6</td>
+<td style="text-align: right;">-33.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">El Salvador</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">2510</td>
+<td style="text-align: right;">3704.7</td>
+<td style="text-align: right;">-1194.7</td>
+<td style="text-align: right;">-32.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cameroon</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">3459</td>
+<td style="text-align: right;">5061.5</td>
+<td style="text-align: right;">-1602.5</td>
+<td style="text-align: right;">-31.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Romania</td>
+<td style="text-align: left;">31 Jan 2026</td>
+<td style="text-align: right;">95127</td>
+<td style="text-align: right;">73391.2</td>
+<td style="text-align: right;">21735.8</td>
+<td style="text-align: right;">29.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Seychelles</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">546</td>
+<td style="text-align: right;">773.7</td>
+<td style="text-align: right;">-227.7</td>
+<td style="text-align: right;">-29.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Thailand</td>
+<td style="text-align: left;">1 Jul 2026</td>
+<td style="text-align: right;">300180</td>
+<td style="text-align: right;">236934.0</td>
+<td style="text-align: right;">63246.0</td>
+<td style="text-align: right;">26.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Portugal</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">53710</td>
+<td style="text-align: right;">42434.3</td>
+<td style="text-align: right;">11275.7</td>
+<td style="text-align: right;">26.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ghana</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">3368</td>
+<td style="text-align: right;">4472.5</td>
+<td style="text-align: right;">-1104.5</td>
+<td style="text-align: right;">-24.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kazakhstan</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">34500</td>
+<td style="text-align: right;">45807.5</td>
+<td style="text-align: right;">-11307.5</td>
+<td style="text-align: right;">-24.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Libya</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">70524</td>
+<td style="text-align: right;">92893.7</td>
+<td style="text-align: right;">-22369.7</td>
+<td style="text-align: right;">-24.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Argentina</td>
+<td style="text-align: left;">1 Jun 2026</td>
+<td style="text-align: right;">36625</td>
+<td style="text-align: right;">29559.6</td>
+<td style="text-align: right;">7065.4</td>
+<td style="text-align: right;">23.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Latvia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">3913</td>
+<td style="text-align: right;">5140.8</td>
+<td style="text-align: right;">-1227.8</td>
+<td style="text-align: right;">-23.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Central African Republic</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">375</td>
+<td style="text-align: right;">489.3</td>
+<td style="text-align: right;">-114.3</td>
+<td style="text-align: right;">-23.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">India</td>
+<td style="text-align: left;">04 September 2026</td>
+<td style="text-align: right;">785710</td>
+<td style="text-align: right;">643042.6</td>
+<td style="text-align: right;">142667.4</td>
+<td style="text-align: right;">22.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lesotho</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">785</td>
+<td style="text-align: right;">1007.9</td>
+<td style="text-align: right;">-222.9</td>
+<td style="text-align: right;">-22.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Uzbekistan</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">32195</td>
+<td style="text-align: right;">41236.9</td>
+<td style="text-align: right;">-9041.9</td>
+<td style="text-align: right;">-21.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Antigua and Barbuda</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">285</td>
+<td style="text-align: right;">358.4</td>
+<td style="text-align: right;">-73.4</td>
+<td style="text-align: right;">-20.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Solomon Islands</td>
+<td style="text-align: left;">8 Mar 2024</td>
+<td style="text-align: right;">551</td>
+<td style="text-align: right;">685.8</td>
+<td style="text-align: right;">-134.8</td>
+<td style="text-align: right;">-19.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Qatar</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">64560</td>
+<td style="text-align: right;">53987.4</td>
+<td style="text-align: right;">10572.6</td>
+<td style="text-align: right;">19.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bulgaria</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">35395</td>
+<td style="text-align: right;">43698.3</td>
+<td style="text-align: right;">-8303.3</td>
+<td style="text-align: right;">-19.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Albania</td>
+<td style="text-align: left;">31 Apr 2024</td>
+<td style="text-align: right;">5290</td>
+<td style="text-align: right;">6515.6</td>
+<td style="text-align: right;">-1225.6</td>
+<td style="text-align: right;">-18.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Algeria</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">68028</td>
+<td style="text-align: right;">83007.1</td>
+<td style="text-align: right;">-14979.1</td>
+<td style="text-align: right;">-18.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cambodia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">18496</td>
+<td style="text-align: right;">22505.6</td>
+<td style="text-align: right;">-4009.6</td>
+<td style="text-align: right;">-17.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Georgia</td>
+<td style="text-align: left;">25 Mar 2024</td>
+<td style="text-align: right;">5224</td>
+<td style="text-align: right;">4447.2</td>
+<td style="text-align: right;">776.8</td>
+<td style="text-align: right;">17.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Serbia</td>
+<td style="text-align: left;">11 Sept 2026</td>
+<td style="text-align: right;">35770</td>
+<td style="text-align: right;">30484.2</td>
+<td style="text-align: right;">5285.8</td>
+<td style="text-align: right;">17.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vanuatu</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">509</td>
+<td style="text-align: right;">614.6</td>
+<td style="text-align: right;">-105.6</td>
+<td style="text-align: right;">-17.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Armenia</td>
+<td style="text-align: left;">25 Mar 2024</td>
+<td style="text-align: right;">4298</td>
+<td style="text-align: right;">3685.2</td>
+<td style="text-align: right;">612.8</td>
+<td style="text-align: right;">16.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Timor-Leste</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">654</td>
+<td style="text-align: right;">780.4</td>
+<td style="text-align: right;">-126.4</td>
+<td style="text-align: right;">-16.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nepal</td>
+<td style="text-align: left;">11 Mar 2024</td>
+<td style="text-align: right;">18400</td>
+<td style="text-align: right;">15846.8</td>
+<td style="text-align: right;">2553.2</td>
+<td style="text-align: right;">16.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Haiti</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">2296</td>
+<td style="text-align: right;">2714.2</td>
+<td style="text-align: right;">-418.2</td>
+<td style="text-align: right;">-15.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jordan</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">18765</td>
+<td style="text-align: right;">21939.1</td>
+<td style="text-align: right;">-3174.1</td>
+<td style="text-align: right;">-14.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Denmark</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">93196</td>
+<td style="text-align: right;">108405.1</td>
+<td style="text-align: right;">-15209.1</td>
+<td style="text-align: right;">-14.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morocco</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">32037</td>
+<td style="text-align: right;">37133.9</td>
+<td style="text-align: right;">-5096.9</td>
+<td style="text-align: right;">-13.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nigeria</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">34980</td>
+<td style="text-align: right;">40406.0</td>
+<td style="text-align: right;">-5426.0</td>
+<td style="text-align: right;">-13.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eswatini</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">467</td>
+<td style="text-align: right;">536.6</td>
+<td style="text-align: right;">-69.6</td>
+<td style="text-align: right;">-13.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jamaica</td>
+<td style="text-align: left;">5 Mar 2024</td>
+<td style="text-align: right;">4921</td>
+<td style="text-align: right;">5632.9</td>
+<td style="text-align: right;">-711.9</td>
+<td style="text-align: right;">-12.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guatemala</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">21390</td>
+<td style="text-align: right;">24412.4</td>
+<td style="text-align: right;">-3022.4</td>
+<td style="text-align: right;">-12.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Croatia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">2935</td>
+<td style="text-align: right;">3335.3</td>
+<td style="text-align: right;">-400.3</td>
+<td style="text-align: right;">-12.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">United Arab Emirates</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">210000</td>
+<td style="text-align: right;">237931.3</td>
+<td style="text-align: right;">-27931.3</td>
+<td style="text-align: right;">-11.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oman</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">16163</td>
+<td style="text-align: right;">18286.5</td>
+<td style="text-align: right;">-2123.5</td>
+<td style="text-align: right;">-11.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">China</td>
+<td style="text-align: left;">1 August 2026</td>
+<td style="text-align: right;">3854885</td>
+<td style="text-align: right;">3456024.8</td>
+<td style="text-align: right;">398860.2</td>
+<td style="text-align: right;">11.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: left;">30 Apr 2026</td>
+<td style="text-align: right;">366913</td>
+<td style="text-align: right;">329732.4</td>
+<td style="text-align: right;">37180.6</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Singapore</td>
+<td style="text-align: left;">30 June 2026</td>
+<td style="text-align: right;">426830</td>
+<td style="text-align: right;">383946.0</td>
+<td style="text-align: right;">42884.0</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bahrain</td>
+<td style="text-align: left;">25 Mar 2024</td>
+<td style="text-align: right;">5500</td>
+<td style="text-align: right;">4948.7</td>
+<td style="text-align: right;">551.3</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Uruguay</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">15449</td>
+<td style="text-align: right;">17377.7</td>
+<td style="text-align: right;">-1928.7</td>
+<td style="text-align: right;">-11.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Slovenia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">2519</td>
+<td style="text-align: right;">2832.3</td>
+<td style="text-align: right;">-313.3</td>
+<td style="text-align: right;">-11.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hungary</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">41344</td>
+<td style="text-align: right;">46422.4</td>
+<td style="text-align: right;">-5078.4</td>
+<td style="text-align: right;">-10.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Montenegro</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">1558</td>
+<td style="text-align: right;">1741.5</td>
+<td style="text-align: right;">-183.5</td>
+<td style="text-align: right;">-10.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bolivia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">1769</td>
+<td style="text-align: right;">1977.0</td>
+<td style="text-align: right;">-208.0</td>
+<td style="text-align: right;">-10.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Panama</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">6143</td>
+<td style="text-align: right;">6855.5</td>
+<td style="text-align: right;">-712.5</td>
+<td style="text-align: right;">-10.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">30 Jan 2026</td>
+<td style="text-align: right;">255605</td>
+<td style="text-align: right;">232035.4</td>
+<td style="text-align: right;">23569.6</td>
+<td style="text-align: right;">10.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ethiopia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">3430</td>
+<td style="text-align: right;">3784.4</td>
+<td style="text-align: right;">-354.4</td>
+<td style="text-align: right;">-9.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">1 Oct 2024</td>
+<td style="text-align: right;">345338</td>
+<td style="text-align: right;">377935.1</td>
+<td style="text-align: right;">-32597.1</td>
+<td style="text-align: right;">-8.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kuwait</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">46420</td>
+<td style="text-align: right;">50727.9</td>
+<td style="text-align: right;">-4307.9</td>
+<td style="text-align: right;">-8.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">United Kingdom</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">189228</td>
+<td style="text-align: right;">174597.8</td>
+<td style="text-align: right;">14630.2</td>
+<td style="text-align: right;">8.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Azerbaijan</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">11650</td>
+<td style="text-align: right;">12699.1</td>
+<td style="text-align: right;">-1049.1</td>
+<td style="text-align: right;">-8.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Israel</td>
+<td style="text-align: left;">6 Oct 2025</td>
+<td style="text-align: right;">231880</td>
+<td style="text-align: right;">214543.7</td>
+<td style="text-align: right;">17336.3</td>
+<td style="text-align: right;">8.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Honduras</td>
+<td style="text-align: left;">21 Mar 2024</td>
+<td style="text-align: right;">7390</td>
+<td style="text-align: right;">8036.3</td>
+<td style="text-align: right;">-646.3</td>
+<td style="text-align: right;">-8.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tunisia</td>
+<td style="text-align: left;">21 Mar 2024</td>
+<td style="text-align: right;">8623</td>
+<td style="text-align: right;">9343.6</td>
+<td style="text-align: right;">-720.6</td>
+<td style="text-align: right;">-7.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dominica</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">156.0</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: right;">7.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: left;">7 Nov 2024</td>
+<td style="text-align: right;">65018</td>
+<td style="text-align: right;">60404.1</td>
+<td style="text-align: right;">4613.9</td>
+<td style="text-align: right;">7.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bosnia and Herzegovina</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">8711</td>
+<td style="text-align: right;">9418.9</td>
+<td style="text-align: right;">-707.9</td>
+<td style="text-align: right;">-7.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colombia</td>
+<td style="text-align: left;">8 Mar 2024</td>
+<td style="text-align: right;">57269</td>
+<td style="text-align: right;">61898.0</td>
+<td style="text-align: right;">-4629.0</td>
+<td style="text-align: right;">-7.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ukraine</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">40507</td>
+<td style="text-align: right;">43780.5</td>
+<td style="text-align: right;">-3273.5</td>
+<td style="text-align: right;">-7.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peru</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">73483</td>
+<td style="text-align: right;">79246.0</td>
+<td style="text-align: right;">-5763.0</td>
+<td style="text-align: right;">-7.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mongolia</td>
+<td style="text-align: left;">20 Mar 2024</td>
+<td style="text-align: right;">5120</td>
+<td style="text-align: right;">5507.9</td>
+<td style="text-align: right;">-387.9</td>
+<td style="text-align: right;">-7.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Liberia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">342</td>
+<td style="text-align: right;">367.7</td>
+<td style="text-align: right;">-25.7</td>
+<td style="text-align: right;">-7.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Iceland</td>
+<td style="text-align: left;">15 Mar 2024</td>
+<td style="text-align: right;">6847</td>
+<td style="text-align: right;">6403.0</td>
+<td style="text-align: right;">444.0</td>
+<td style="text-align: right;">6.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Costa Rica</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">13200</td>
+<td style="text-align: right;">14177.0</td>
+<td style="text-align: right;">-977.0</td>
+<td style="text-align: right;">-6.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dominican Republic</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">14371</td>
+<td style="text-align: right;">13471.3</td>
+<td style="text-align: right;">899.7</td>
+<td style="text-align: right;">6.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spain</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">100983</td>
+<td style="text-align: right;">107774.1</td>
+<td style="text-align: right;">-6791.1</td>
+<td style="text-align: right;">-6.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Uganda</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">3700</td>
+<td style="text-align: right;">3482.9</td>
+<td style="text-align: right;">217.1</td>
+<td style="text-align: right;">6.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sri Lanka</td>
+<td style="text-align: left;">31 Oct 2024</td>
+<td style="text-align: right;">6467</td>
+<td style="text-align: right;">6093.9</td>
+<td style="text-align: right;">373.1</td>
+<td style="text-align: right;">6.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guinea</td>
+<td style="text-align: left;">15 Mar 2024</td>
+<td style="text-align: right;">1425</td>
+<td style="text-align: right;">1345.6</td>
+<td style="text-align: right;">79.4</td>
+<td style="text-align: right;">5.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Philippines</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">112434</td>
+<td style="text-align: right;">106195.1</td>
+<td style="text-align: right;">6238.9</td>
+<td style="text-align: right;">5.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Marino</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">716</td>
+<td style="text-align: right;">758.9</td>
+<td style="text-align: right;">-42.9</td>
+<td style="text-align: right;">-5.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Saudi Arabia</td>
+<td style="text-align: left;">31 May 2026</td>
+<td style="text-align: right;">487370</td>
+<td style="text-align: right;">463869.6</td>
+<td style="text-align: right;">23500.4</td>
+<td style="text-align: right;">5.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Japan</td>
+<td style="text-align: left;">30 June 2026</td>
+<td style="text-align: right;">1287470</td>
+<td style="text-align: right;">1230667.0</td>
+<td style="text-align: right;">56803.0</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maldives</td>
+<td style="text-align: left;">1 September 2026</td>
+<td style="text-align: right;">644</td>
+<td style="text-align: right;">673.9</td>
+<td style="text-align: right;">-29.9</td>
+<td style="text-align: right;">-4.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chile</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">42527</td>
+<td style="text-align: right;">44403.0</td>
+<td style="text-align: right;">-1876.0</td>
+<td style="text-align: right;">-4.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Italy</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">279631</td>
+<td style="text-align: right;">290547.4</td>
+<td style="text-align: right;">-10916.4</td>
+<td style="text-align: right;">-3.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">France</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">272693</td>
+<td style="text-align: right;">282857.4</td>
+<td style="text-align: right;">-10164.4</td>
+<td style="text-align: right;">-3.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trinidad and Tobago</td>
+<td style="text-align: left;">18 Mar 2024</td>
+<td style="text-align: right;">5800</td>
+<td style="text-align: right;">5601.1</td>
+<td style="text-align: right;">198.9</td>
+<td style="text-align: right;">3.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bhutan</td>
+<td style="text-align: left;">10 Mar 2024</td>
+<td style="text-align: right;">972</td>
+<td style="text-align: right;">941.0</td>
+<td style="text-align: right;">31.0</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Switzerland</td>
+<td style="text-align: left;">30 June 2026</td>
+<td style="text-align: right;">939140</td>
+<td style="text-align: right;">909365.7</td>
+<td style="text-align: right;">29774.3</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">South Africa</td>
+<td style="text-align: left;">31 Mar 2025</td>
+<td style="text-align: right;">67450</td>
+<td style="text-align: right;">65435.0</td>
+<td style="text-align: right;">2015.0</td>
+<td style="text-align: right;">3.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Malaysia</td>
+<td style="text-align: left;">1 Oct 2024</td>
+<td style="text-align: right;">119700</td>
+<td style="text-align: right;">116229.2</td>
+<td style="text-align: right;">3470.8</td>
+<td style="text-align: right;">3.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Canada</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">123084</td>
+<td style="text-align: right;">119778.5</td>
+<td style="text-align: right;">3305.5</td>
+<td style="text-align: right;">2.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Belarus</td>
+<td style="text-align: left;">31 Aug 2024</td>
+<td style="text-align: right;">8697</td>
+<td style="text-align: right;">8912.2</td>
+<td style="text-align: right;">-215.2</td>
+<td style="text-align: right;">-2.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indonesia</td>
+<td style="text-align: left;">1 Nov 2024</td>
+<td style="text-align: right;">159246</td>
+<td style="text-align: right;">155708.3</td>
+<td style="text-align: right;">3537.7</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Moldova</td>
+<td style="text-align: left;">30 Aug 2024</td>
+<td style="text-align: right;">5600</td>
+<td style="text-align: right;">5483.5</td>
+<td style="text-align: right;">116.5</td>
+<td style="text-align: right;">2.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Austria</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">34856</td>
+<td style="text-align: right;">35405.5</td>
+<td style="text-align: right;">-549.5</td>
+<td style="text-align: right;">-1.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Paraguay</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">9707</td>
+<td style="text-align: right;">9567.7</td>
+<td style="text-align: right;">139.3</td>
+<td style="text-align: right;">1.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Norway</td>
+<td style="text-align: left;">1 Oct 2024</td>
+<td style="text-align: right;">80110</td>
+<td style="text-align: right;">81241.6</td>
+<td style="text-align: right;">-1131.6</td>
+<td style="text-align: right;">-1.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ireland</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">12599</td>
+<td style="text-align: right;">12698.1</td>
+<td style="text-align: right;">-99.1</td>
+<td style="text-align: right;">-0.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Iraq</td>
+<td style="text-align: left;">25 Mar 2024</td>
+<td style="text-align: right;">100000</td>
+<td style="text-align: right;">100691.0</td>
+<td style="text-align: right;">-691.0</td>
+<td style="text-align: right;">-0.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estonia</td>
+<td style="text-align: left;">1 Mar 2024</td>
+<td style="text-align: right;">2065</td>
+<td style="text-align: right;">2074.5</td>
+<td style="text-align: right;">-9.5</td>
+<td style="text-align: right;">-0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Angola</td>
+<td style="text-align: left;">15 Mar 2024</td>
+<td style="text-align: right;">14200</td>
+<td style="text-align: right;">14242.9</td>
+<td style="text-align: right;">-42.9</td>
+<td style="text-align: right;">-0.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sweden</td>
+<td style="text-align: left;">7 Nov 2024</td>
+<td style="text-align: right;">62438</td>
+<td style="text-align: right;">62569.4</td>
+<td style="text-align: right;">-131.4</td>
+<td style="text-align: right;">-0.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Poland</td>
+<td style="text-align: left;">7 Jan 2025</td>
+<td style="text-align: right;">223200</td>
+<td style="text-align: right;">223114.9</td>
+<td style="text-align: right;">85.1</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+</tbody>
+</table>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>n_different <span class="ot">&lt;-</span> reserves_compare <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(difference) <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The sources differ in both reporting vintage and, potentially, measurement or reporting conventions. Because the Wikipedia table contains country-specific reporting dates while the World Bank comparison holds the year at 2024, the values are not directly comparable as measurements from the same period. Extreme discrepancies should therefore be investigated individually before being interpreted as substantive changes in reserves.</p>
+<p>The two sources differ by more than $1 million for 141 matched countries. The World Bank values are 2024 annual observations, while Wikipedia reports country-specific values with different reporting dates. Therefore, many of the differences may reflect different reporting vintages rather than directly comparable measurements from the same period. Large discrepancies may also reflect differences in measurement or reporting conventions and should be investigated individually before being interpreted as changes in reserves.</p>
+<p>This comparison includes only countries whose names match in both datasets because the tables were combined using an <code>inner_join()</code>. Countries missing from either source or recorded under different country names are excluded from the comparison.</p>
 </section>
 <section id="c.-1" class="level3">
 <h3 class="anchored" data-anchor-id="c.-1">c.</h3>
 <p><em>In two sentences: when is scraping the right tool?</em></p>
 <p>Scraping is the right tool when the data are publicly available on a webpage but there is no structured way to access it. When an API or structured dataset is available, use that because it is reproducible, and less dependent on changes to the webpage’s HTML structure.</p>
-<p><em>Wikipedia is a poor scraping target, and that is the lesson. It is volunteer-edited, has no schema, no versioning and no stated uncertainty, and the table shape changes without notice — so your parser breaks silently. It also has a documented API and bulk dumps, which means scraping it is a choice you did not have to make. Scrape when there is no other way in.</em></p>
+<p><em>Wikipedia is a poor scraping target. It is volunteer-edited, has no schema, no versioning and no stated uncertainty, and the table shape changes without notice so the parser breaks silently. It also has a documented API and bulk dumps, which means scraping it is a choice one did not have to make. Scrape when there is no other way in.</em></p>
 </section>
 </section>
 <section id="data-plan" class="level2">
@@ -731,7 +1876,7 @@ $ result       &lt;chr&gt; "Pre-nominated", "Won", "Won", "Won", "Won", "Won", "
 <section id="b.-3" class="level3">
 <h3 class="anchored" data-anchor-id="b.-3">b.</h3>
 <p><em>What robots.txt and the Terms of Service permit</em></p>
-<p>We are not scraping Media Cloud, but its Terms of Use permit lawful use of the platform and specifically describe it as intended for academic, nonprofit, and journalistic research. The terms prohibit unreasonable bandwidth use and exceeding API request limits. They also distinguish Media Cloud’s own service from the third-party news content indexed by the service and thus Media Cloud does not grant permission to reproduce the underlying articles.</p>
+<p>Media Cloud will be used to identify article URLs rather than as the target of scraping. Its Terms of Service permit lawful academic, nonprofit, and journalistic research but prohibit unreasonable use of bandwidth or exceeding API limits. Because the article text will be collected from individual publishers, each publisher’s robots.txt rules and Terms of Service would be applied for scraping them. Pages that prohibit automated access will not be collected. Media Cloud does not grant permission to reproduce third-party article content.</p>
 </section>
 <section id="c.-2" class="level3">
 <h3 class="anchored" data-anchor-id="c.-2">c.</h3>
