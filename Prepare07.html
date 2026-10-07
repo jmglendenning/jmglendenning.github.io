@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Instructor: Karl Ho">
 
-<title>Research – John Glendenning</title>
+<title>EPPS 6302 Methods of Data Collection and Production: Prepare for Class 7 – John Glendenning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -227,7 +263,17 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#before-we-meet" id="toc-before-we-meet" class="nav-link active" data-scroll-target="#before-we-meet">Before we meet</a></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">1. Assignment</a></li>
+  <li><a href="#read-text-data-and-one-more-on-web-data" id="toc-read-text-data-and-one-more-on-web-data" class="nav-link" data-scroll-target="#read-text-data-and-one-more-on-web-data">2. Read — text data, and one more on web data</a></li>
+  <li><a href="#install-the-text-packages" id="toc-install-the-text-packages" class="nav-link" data-scroll-target="#install-the-text-packages">3. Install the text packages</a></li>
+  <li><a href="#prepare-answers-analytics-of-text-data" id="toc-prepare-answers-analytics-of-text-data" class="nav-link" data-scroll-target="#prepare-answers-analytics-of-text-data">4. Prepare answers — analytics of text data</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -238,13 +284,20 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Research</h1>
+<h1 class="title">EPPS 6302 Methods of Data Collection and Production: Prepare for Class 7</h1>
+<p class="subtitle lead">Week 7 — Fall 2026</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Instructor: Karl Ho </p>
+          </div>
+  </div>
     
   
     
@@ -255,27 +308,59 @@ window.Quarto = {
 </header>
 
 
-<p>I am interested in applying GIS tools and techniques to historical questions.</p>
-<section id="current-projects-include" class="level4">
-<h4 class="anchored" data-anchor-id="current-projects-include">Current projects include:</h4>
-<ul>
-<li>Spatial analysis of Dacian coin hoards to model deposition patterns during the Dacian Kingdom under Burebista.</li>
-<li>Synthetic voter data generation using Latent Class Analysis and Bayesian Networks to model demographic and media structure from voter polling data</li>
-<li>ML classification of individual-rat attribution of ultrasonic vocalizations in multi-animal recordings</li>
-</ul>
+<section id="before-we-meet" class="level2">
+<h2 class="anchored" data-anchor-id="before-we-meet">Before we meet</h2>
+<p>Finish Assignment 5 and today’s workshop, read the text-analysis chapters, install the text packages, and arrive with written answers to the four discussion questions.</p>
 </section>
-<section id="coin-hoard-data-generating-process" class="level4">
-<h4 class="anchored" data-anchor-id="coin-hoard-data-generating-process">Coin Hoard Data Generating Process</h4>
-<p>The data-generating process for coin hoards is inherently selective: hoards enter the archaeological record when people deliberately conceal coins and subsequently fail to recover them, while the observed dataset is further shaped by differential preservation, discovery, reporting, and publication.</p>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">1. Assignment</h2>
+<ol type="a">
+<li>Assignment 5.</li>
+<li>Finish today’s workshop — all 50 pages of books, all 100 quotes — and post the rendered page to your website.</li>
+</ol>
 </section>
-<section id="previous-projects" class="level4">
-<h4 class="anchored" data-anchor-id="previous-projects">Previous Projects</h4>
-<ul>
-<li>Roman villa site location analysis and predictive modeling</li>
-<li>A Python implementation of Geomorphons</li>
-<li>Application of low-cost drones to disaster efforts</li>
-<li>Python-based DEM-based spatial statistics via WCS data-acquisition</li>
-</ul>
+<section id="read-text-data-and-one-more-on-web-data" class="level2">
+<h2 class="anchored" data-anchor-id="read-text-data-and-one-more-on-web-data">2. Read — text data, and one more on web data</h2>
+<ol type="a">
+<li>Foster et al., ch.&nbsp;8, <em>Text Analysis</em> — <a href="https://textbook.coleridgeinitiative.org/chap-text.html" class="uri">https://textbook.coleridgeinitiative.org/chap-text.html</a></li>
+<li>Silge, Julia, and David Robinson. 2017. <em>Text Mining with R: A Tidy Approach</em>. O’Reilly. Ch. 1–2 and ch.&nbsp;6 — <a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a></li>
+<li>Dogucu, Mine, and Mine Çetinkaya-Rundel. 2021. “Web Scraping in the Statistics and Data Science Curriculum: Challenges and Opportunities.” <em>Journal of Statistics and Data Science Education</em> 29 (sup1): S112–S122. <a href="https://doi.org/10.1080/10691898.2020.1787116" class="uri">https://doi.org/10.1080/10691898.2020.1787116</a></li>
+<li>Rec.: Grimmer, Roberts &amp; Stewart. 2022. <em>Text as Data</em>. Princeton UP.</li>
+</ol>
+</section>
+<section id="install-the-text-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-text-packages">3. Install the text packages</h2>
+<ol type="a">
+<li>In the Console:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"quanteda"</span>, <span class="st">"quanteda.textstats"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"quanteda.textplots"</span>, <span class="st">"tidytext"</span>, <span class="st">"topicmodels"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="a">
+<li>Check: <code>library(quanteda); tokens("It works.")</code> returns three tokens.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Text is scraped data.</strong> Next week’s corpus is made the way today’s tables were: somebody chose the pages, wrote the selectors and decided what to clean away. Read Foster ch.&nbsp;8 asking where those choices enter — tokenising, removing stopwords, stemming are each a decision about what counts as data. Keep today’s files: the quotes from the workshop are a small corpus, and we tokenise them first.</p>
+</div>
+</div>
+</section>
+<section id="prepare-answers-analytics-of-text-data" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-answers-analytics-of-text-data">4. Prepare answers — analytics of text data</h2>
+<ol type="a">
+<li>How are text data generated? Who wrote the text, for whom, and what decided which texts you can collect?</li>
+<li>What is a topic, and what would convince you a topic model found one?</li>
+<li>What does a sentiment score measure — and what does a dictionary miss?</li>
+<li>How would you place a text on a position or polarity scale, and against what would you validate it?</li>
+</ol>
+<p>Bring the packages installed and the four answers written down.</p>
 
 
 
