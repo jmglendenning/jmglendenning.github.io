@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Instructor: Karl Ho">
+<meta name="author" content="John Glendenning">
 
 <title>EPPS 6302 Methods of Data Collection and Production: Prepare for Class 7 – John Glendenning</title>
 <style>
@@ -295,7 +295,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Instructor: Karl Ho </p>
+             <p>John Glendenning </p>
           </div>
   </div>
     
@@ -308,6 +308,24 @@ window.Quarto = {
 </header>
 
 
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Package version: 4.5.0
+Unicode version: 14.0
+ICU version: 71.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Parallel computing: disabled</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>See https://quanteda.io for tutorials and examples.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <section id="before-we-meet" class="level2">
 <h2 class="anchored" data-anchor-id="before-we-meet">Before we meet</h2>
 <p>Finish Assignment 5 and today’s workshop, read the text-analysis chapters, install the text packages, and arrive with written answers to the four discussion questions.</p>
@@ -315,9 +333,10 @@ window.Quarto = {
 <section id="assignment" class="level2">
 <h2 class="anchored" data-anchor-id="assignment">1. Assignment</h2>
 <ol type="a">
-<li>Assignment 5.</li>
-<li>Finish today’s workshop — all 50 pages of books, all 100 quotes — and post the rendered page to your website.</li>
+<li><p><a href="https://jmglendenning.github.io/assign05.html">Assignment 5.</a></p></li>
+<li><p>Finish today’s workshop — all 50 pages of books, all 100 quotes — and post the rendered page to your website.</p></li>
 </ol>
+<p><a href="https://jmglendenning.github.io/workshop_scraping.html">Workshop - Scraping</a></p>
 </section>
 <section id="read-text-data-and-one-more-on-web-data" class="level2">
 <h2 class="anchored" data-anchor-id="read-text-data-and-one-more-on-web-data">2. Read — text data, and one more on web data</h2>
@@ -325,19 +344,32 @@ window.Quarto = {
 <li>Foster et al., ch.&nbsp;8, <em>Text Analysis</em> — <a href="https://textbook.coleridgeinitiative.org/chap-text.html" class="uri">https://textbook.coleridgeinitiative.org/chap-text.html</a></li>
 <li>Silge, Julia, and David Robinson. 2017. <em>Text Mining with R: A Tidy Approach</em>. O’Reilly. Ch. 1–2 and ch.&nbsp;6 — <a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a></li>
 <li>Dogucu, Mine, and Mine Çetinkaya-Rundel. 2021. “Web Scraping in the Statistics and Data Science Curriculum: Challenges and Opportunities.” <em>Journal of Statistics and Data Science Education</em> 29 (sup1): S112–S122. <a href="https://doi.org/10.1080/10691898.2020.1787116" class="uri">https://doi.org/10.1080/10691898.2020.1787116</a></li>
-<li>Rec.: Grimmer, Roberts &amp; Stewart. 2022. <em>Text as Data</em>. Princeton UP.</li>
+<li>Rec.: Grimmer, Roberts &amp; Stew</li>
 </ol>
+<p><em>Done</em></p>
 </section>
 <section id="install-the-text-packages" class="level2">
 <h2 class="anchored" data-anchor-id="install-the-text-packages">3. Install the text packages</h2>
 <ol type="a">
 <li>In the Console:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"quanteda"</span>, <span class="st">"quanteda.textstats"</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"quanteda.textplots"</span>, <span class="st">"tidytext"</span>, <span class="st">"topicmodels"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"quanteda"</span>, <span class="st">"quanteda.textstats"</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"quanteda.textplots"</span>, <span class="st">"tidytext"</span>, <span class="st">"topicmodels"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE TRUE TRUE TRUE TRUE</code></pre>
+</div>
+</div>
 <ol start="2" type="a">
 <li>Check: <code>library(quanteda); tokens("It works.")</code> returns three tokens.</li>
 </ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+[1] "It"    "works" "."    </code></pre>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -356,10 +388,27 @@ Note
 <h2 class="anchored" data-anchor-id="prepare-answers-analytics-of-text-data">4. Prepare answers — analytics of text data</h2>
 <ol type="a">
 <li>How are text data generated? Who wrote the text, for whom, and what decided which texts you can collect?</li>
+</ol>
+<p>In general text is generated by people writing, although that will be changing in the future. The content reflects an author’s purpose, intended audience, and the context for which it was produced.</p>
+<p>What texts can be collected are determined by social, legal and mechanical constraints. Social is defined by our morals and ethics. Legal is defined by our laws. Mechanical is defined by what is actually available.</p>
+<ol start="2" type="a">
 <li>What is a topic, and what would convince you a topic model found one?</li>
+</ol>
+<p>A topic is a common theme or subject found across documents. Topic models identify groups of words that often appear together, helping researchers find themes in large collections of text.</p>
+<p>To decide whether a model found meaningful topics, I would look at the words associated with each topic and read some of the documents individually. The topics should make sense, be different from one another, and appear consistently when the model is run again. I would also compare the results with human analysis.</p>
+<p>For our data center research, topics might include electricity use, water consumption, economic development, and local opposition. A good model would identify these themes and connect them to documents that actually discuss those issues.</p>
+<ol start="3" type="a">
 <li>What does a sentiment score measure — and what does a dictionary miss?</li>
+</ol>
+<p>A sentiment score measures how positive or negative a text is. Dictionary-based methods assign values to words and combine them to estimate the overall tone of a document. Some methods also measure emotions such as fear, anger, etc.</p>
+<p>Dictionary methods have limitations because they often miss context, sarcasm, and how words are used. For example, the word “power” might be positive in one context but neutral when discussing electricity.</p>
+<p>For our data center research, sentiment scores could help show differences in how data centers are discussed. However, a positive or negative score does not necessarily mean the author supports or opposes data centers. It could just be based on quotes. Comparing the scores with documents reviewed by people would help determine how accurate the results are.</p>
+<ol start="4" type="a">
 <li>How would you place a text on a position or polarity scale, and against what would you validate it?</li>
 </ol>
+<p>A text can be placed on a scale using dictionaries, classification models, or statistical methods such as Wordfish. These methods estimate where a document falls between two positions, such as supporting or opposing a policy.</p>
+<p>For our data center research, I would use a scale ranging from opposition to support. A model could be trained using documents that people have already classified, with neutral or mixed positions placed near the middle.</p>
+<p>To check the results, I would compare the model’s scores with documents independently reviewed by people. I would also check whether different reviewers agree and whether the model produces consistent results across sources. This is important because a document might discuss negative environmental effects while still supporting data center development.</p>
 <p>Bring the packages installed and the four answers written down.</p>
 
 

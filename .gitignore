@@ -5,6 +5,7 @@
 *.key
 secrets.yml
 config/secrets.*
+govinfo_pdfs/
 
 # R-specific credential/config leftovers
 .Renviron
