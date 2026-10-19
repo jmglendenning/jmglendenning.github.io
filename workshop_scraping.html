@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="John Glendenning">
+<meta name="dcterms.date" content="2026-10-19">
 
 <title>Workshop — Web Scraping – John Glendenning</title>
 <style>
@@ -179,6 +180,10 @@ window.Quarto = {
  <span class="dropdown-text">Assignment 05</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./assign06.html">
+ <span class="dropdown-text">Assignment 06</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./Prepare01.html">
  <span class="dropdown-text">Prepare 01</span></a>
   </li>  
@@ -205,6 +210,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./Prepare07.html">
  <span class="dropdown-text">Prepare 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Prepare08.html">
+ <span class="dropdown-text">Prepare 08</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./workshop_scraping.html">
@@ -281,6 +290,12 @@ window.Quarto = {
   </ul></li>
   <li><a href="#block-c-if-time-an-api-with-a-contract" id="toc-block-c-if-time-an-api-with-a-contract" class="nav-link" data-scroll-target="#block-c-if-time-an-api-with-a-contract">Block C — if time: an API with a contract</a></li>
   <li><a href="#before-you-leave-write-the-data-note" id="toc-before-you-leave-write-the-data-note" class="nav-link" data-scroll-target="#before-you-leave-write-the-data-note">Before you leave — write the data note</a></li>
+  <li><a href="#data-notes" id="toc-data-notes" class="nav-link" data-scroll-target="#data-notes">Data Notes</a>
+  <ul class="collapse">
+  <li><a href="#books-to-scrape" id="toc-books-to-scrape" class="nav-link" data-scroll-target="#books-to-scrape">1. Books to Scrape</a></li>
+  <li><a href="#quotes-to-scrape" id="toc-quotes-to-scrape" class="nav-link" data-scroll-target="#quotes-to-scrape">2. Quotes to Scrape</a></li>
+  <li><a href="#youtube-data-api" id="toc-youtube-data-api" class="nav-link" data-scroll-target="#youtube-data-api">3. YouTube Data API</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -311,7 +326,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">October 19, 2026</p>
     </div>
   </div>
   
@@ -405,13 +420,13 @@ on_suspect_content, : Event: on_suspect_content</code></pre>
 <pre><code>[1] TRUE</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>session <span class="ot">&lt;-</span> <span class="fu">bow</span>(<span class="st">"https://books.toscrape.com/"</span>,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">"EPPS6302 student; your-netid@utdallas.edu"</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">"EPPS6302 student; jmg220005@utdallas.edu"</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">delay =</span> <span class="dv">5</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>session</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;polite session&gt; https://books.toscrape.com/
-    User-agent: EPPS6302 student; your-netid@utdallas.edu
+    User-agent: EPPS6302 student; jmg220005@utdallas.edu
     robots.txt: 1 rules are defined for 1 bots
    Crawl delay: 5 sec
   The path is scrapable for this user-agent</code></pre>
@@ -539,6 +554,26 @@ Note
 <p><strong>Checkpoint A.</strong> <code>nrow(books)</code> is 100; <code>price</code> and <code>rating</code> are numeric; no <code>NA</code> in <code>title</code>. Then answer in one sentence each: what is the mean price by rating? Which line breaks first if the site is redesigned?</p>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the data</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(books)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(books<span class="sc">$</span>title))</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(books[<span class="fu">c</span>(<span class="st">"price"</span>, <span class="st">"rating"</span>)], is.numeric)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean price by star rating</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(rating) <span class="sc">|&gt;</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_price =</span> <span class="fu">round</span>(<span class="fu">mean</span>(price, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>),</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Star Rating"</span>, <span class="st">"Mean Price (£)"</span>, <span class="st">"Number of Books"</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The mean price by rating can be calculated by grouping the books by their star ratings and averaging their prices. This allows us to examine whether higher-rated books tend to cost more, although rating and price are not necessarily related.</p>
+<p>The most fragile part of the scraper is the parse_books() function, particularly its CSS selectors (article.product_pod, .price_color, .star-rating, and .availability). If the website changes its HTML structure or class names, these selectors may no longer identify the correct elements, causing missing or incorrect data.</p>
 </section>
 </section>
 <section id="block-b-a-dynamic-site-quotes.toscrape.com-40-minutes" class="level2">
@@ -546,16 +581,16 @@ Note
 <section id="b1.-diagnose.-same-quotes-two-addresses.-count-what-the-server-actually-sent." class="level3">
 <h3 class="anchored" data-anchor-id="b1.-diagnose.-same-quotes-two-addresses.-count-what-the-server-actually-sent.">B1. Diagnose. Same quotes, two addresses. Count what the server actually sent.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>count_quotes <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>(url) <span class="sc">|&gt;</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_elements</span>(<span class="st">".quote"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">length</span>()</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">count_quotes</span>(<span class="st">"https://quotes.toscrape.com/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>count_quotes <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>(url) <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_elements</span>(<span class="st">".quote"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">length</span>()</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">count_quotes</span>(<span class="st">"https://quotes.toscrape.com/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count_quotes</span>(<span class="st">"https://quotes.toscrape.com/js/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count_quotes</span>(<span class="st">"https://quotes.toscrape.com/js/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
@@ -566,19 +601,19 @@ Note
 <h3 class="anchored" data-anchor-id="b2.-route-1-find-the-api-the-page-uses.">B2. Route 1 — find the API the page uses.</h3>
 <p>Open <a href="https://quotes.toscrape.com/scroll" class="uri">https://quotes.toscrape.com/scroll</a>, then DevTools → Network → Fetch/XHR, and scroll. Each scroll calls <code>api/quotes?page=N</code>. Call it yourself:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr2)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>ua <span class="ot">&lt;-</span> <span class="st">"EPPS6302 student; your-netid@utdallas.edu"</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>get_quotes <span class="ot">&lt;-</span> <span class="cf">function</span>(page) {</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">1</span>) <span class="co"># one request a second</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">request</span>(<span class="st">"https://quotes.toscrape.com/api/quotes"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_url_query</span>(<span class="at">page =</span> page) <span class="sc">|&gt;</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_user_agent</span>(ua) <span class="sc">|&gt;</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_retry</span>(<span class="at">max_tries =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_perform</span>() <span class="sc">|&gt;</span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">resp_body_json</span>()</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="fu">get_quotes</span>(<span class="dv">1</span>)</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(j) <span class="co"># has_next, page, quotes, tag, top_ten_tags</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr2)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>ua <span class="ot">&lt;-</span> <span class="st">"EPPS6302 student; jmg220005@utdallas.edu"</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>get_quotes <span class="ot">&lt;-</span> <span class="cf">function</span>(page) {</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">1</span>) <span class="co"># one request a second</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">request</span>(<span class="st">"https://quotes.toscrape.com/api/quotes"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_url_query</span>(<span class="at">page =</span> page) <span class="sc">|&gt;</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_user_agent</span>(ua) <span class="sc">|&gt;</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_retry</span>(<span class="at">max_tries =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_perform</span>() <span class="sc">|&gt;</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">resp_body_json</span>()</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="fu">get_quotes</span>(<span class="dv">1</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(j) <span class="co"># has_next, page, quotes, tag, top_ten_tags</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "has_next"     "page"         "quotes"       "tag"          "top_ten_tags"</code></pre>
 </div>
@@ -587,17 +622,17 @@ Note
 <section id="b3.-rectangle-the-json-r4ds-ch.-23.-one-row-per-quote." class="level3">
 <h3 class="anchored" data-anchor-id="b3.-rectangle-the-json-r4ds-ch.-23.-one-row-per-quote.">B3. Rectangle the JSON (R4DS ch.&nbsp;23). One row per quote.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>rectangle <span class="ot">&lt;-</span> <span class="cf">function</span>(quote_list) {</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">q =</span> quote_list) <span class="sc">|&gt;</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest_wider</span>(q) <span class="sc">|&gt;</span> <span class="co"># author, tags, text</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hoist</span>(author, <span class="at">author_name =</span> <span class="st">"name"</span>, <span class="at">author_slug =</span> <span class="st">"slug"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">tags =</span> <span class="fu">map_chr</span>(</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>      tags,</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>      \(x) <span class="fu">paste</span>(<span class="fu">unlist</span>(x), <span class="at">collapse =</span> <span class="st">"; "</span>)</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">|&gt;</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(text, author_name, author_slug, tags)</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rectangle</span>(j<span class="sc">$</span>quotes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>rectangle <span class="ot">&lt;-</span> <span class="cf">function</span>(quote_list) {</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">q =</span> quote_list) <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest_wider</span>(q) <span class="sc">|&gt;</span> <span class="co"># author, tags, text</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hoist</span>(author, <span class="at">author_name =</span> <span class="st">"name"</span>, <span class="at">author_slug =</span> <span class="st">"slug"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">tags =</span> <span class="fu">map_chr</span>(</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>      tags,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>      \(x) <span class="fu">paste</span>(<span class="fu">unlist</span>(x), <span class="at">collapse =</span> <span class="st">"; "</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">|&gt;</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(text, author_name, author_slug, tags)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rectangle</span>(j<span class="sc">$</span>quotes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
    text                                            author_name author_slug tags 
@@ -618,26 +653,31 @@ Note
 <section id="b4.-follow-has_next-to-the-end.-the-api-tells-you-when-to-stop." class="level3">
 <h3 class="anchored" data-anchor-id="b4.-follow-has_next-to-the-end.-the-api-tells-you-when-to-stop.">B4. Follow <code>has_next</code> to the end. The API tells you when to stop.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>pages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  pages[[p]] <span class="ot">&lt;-</span> <span class="fu">get_quotes</span>(p)</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>pages[[p]]<span class="sc">$</span>has_next) <span class="cf">break</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>quotes <span class="ot">&lt;-</span> <span class="fu">map</span>(pages, <span class="st">"quotes"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_flatten</span>() <span class="sc">|&gt;</span></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rectangle</span>()</span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(quotes, <span class="st">"data/quotes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pages <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  pages[[p]] <span class="ot">&lt;-</span> <span class="fu">get_quotes</span>(p)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>pages[[p]]<span class="sc">$</span>has_next) <span class="cf">break</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>quotes <span class="ot">&lt;-</span> <span class="fu">map</span>(pages, <span class="st">"quotes"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_flatten</span>() <span class="sc">|&gt;</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rectangle</span>()</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(quotes, <span class="st">"data/quotes.csv"</span>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(quotes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100</code></pre>
+</div>
 </div>
 </section>
 <section id="b5.-route-2-drive-a-browser.-when-there-is-no-api-to-find." class="level3">
 <h3 class="anchored" data-anchor-id="b5.-route-2-drive-a-browser.-when-there-is-no-api-to-find.">B5. Route 2 — drive a browser. When there is no API to find.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>live <span class="ot">&lt;-</span> <span class="fu">read_html_live</span>(<span class="st">"https://quotes.toscrape.com/js/"</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>live <span class="sc">|&gt;</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">".quote .text"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>() <span class="co"># ten quotes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>live <span class="ot">&lt;-</span> <span class="fu">read_html_live</span>(<span class="st">"https://quotes.toscrape.com/js/"</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>live <span class="sc">|&gt;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">".quote .text"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>() <span class="co"># ten quotes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "“The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.”"                
  [2] "“It is our choices, Harry, that show what we truly are, far more than our abilities.”"                                              
@@ -650,25 +690,7 @@ Note
  [9] "“A woman is like a tea bag; you never know how strong it is until it's in hot water.”"                                              
 [10] "“A day without sunshine is like, you know, night.”"                                                                                 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># live$view() # watch the browser</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>live <span class="ot">&lt;-</span> <span class="fu">read_html_live</span>(<span class="st">"https://quotes.toscrape.com/js/"</span>)</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>live <span class="sc">|&gt;</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">".quote .text"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>() <span class="co"># ten quotes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "“The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.”"                
- [2] "“It is our choices, Harry, that show what we truly are, far more than our abilities.”"                                              
- [3] "“There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.”"
- [4] "“The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid.”"                           
- [5] "“Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.”"                    
- [6] "“Try not to become a man of success. Rather become a man of value.”"                                                                
- [7] "“It is better to be hated for what you are than to be loved for what you are not.”"                                                 
- [8] "“I have not failed. I've just found 10,000 ways that won't work.”"                                                                  
- [9] "“A woman is like a tea bag; you never know how strong it is until it's in hot water.”"                                              
-[10] "“A day without sunshine is like, you know, night.”"                                                                                 </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># live$view() # watch the browser</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -683,40 +705,41 @@ Note
 <p><strong>Checkpoint B.</strong> <code>nrow(quotes)</code> is 100 from 10 pages. Routes 1 and 2 return the same text for page 1 — which was faster, and which made fewer demands on the server? Which would survive a redesign of the page?</p>
 </div>
 </div>
+<p>The API method is generally faster and requires fewer server resources because it retrieves structured JSON without launching a browser and executing JavaScript. The API method is also more likely to survive a redesign of the website, provided the API endpoint and response structure remain unchanged. An API also uses less compute resources.</p>
 </section>
 </section>
 <section id="block-c-if-time-an-api-with-a-contract" class="level2">
 <h2 class="anchored" data-anchor-id="block-c-if-time-an-api-with-a-contract">Block C — if time: an API with a contract</h2>
 <p>Your YouTube Data API key from last week, stored with <code>usethis::edit_r_environ()</code> as <code>YOUTUBE_API_KEY=...</code> (restart R afterwards).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>yt <span class="ot">&lt;-</span> <span class="fu">request</span>(<span class="st">"https://www.googleapis.com/youtube/v3/videos"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_url_query</span>(</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">part =</span> <span class="st">"snippet,statistics"</span>, <span class="at">chart =</span> <span class="st">"mostPopular"</span>,</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">regionCode =</span> <span class="st">"US"</span>, <span class="at">maxResults =</span> <span class="dv">10</span>,</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"YOUTUBE_API_KEY"</span>)</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_perform</span>() <span class="sc">|&gt;</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">resp_body_json</span>()</span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">v =</span> yt<span class="sc">$</span>items) <span class="sc">|&gt;</span></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_wider</span>(v) <span class="sc">|&gt;</span></span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hoist</span>(snippet, <span class="at">title =</span> <span class="st">"title"</span>, <span class="at">channel =</span> <span class="st">"channelTitle"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hoist</span>(statistics, <span class="at">views =</span> <span class="st">"viewCount"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, title, channel, views)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>yt <span class="ot">&lt;-</span> <span class="fu">request</span>(<span class="st">"https://www.googleapis.com/youtube/v3/videos"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_url_query</span>(</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">part =</span> <span class="st">"snippet,statistics"</span>, <span class="at">chart =</span> <span class="st">"mostPopular"</span>,</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">regionCode =</span> <span class="st">"US"</span>, <span class="at">maxResults =</span> <span class="dv">10</span>,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"YOUTUBE_API_KEY"</span>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_perform</span>() <span class="sc">|&gt;</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">resp_body_json</span>()</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">v =</span> yt<span class="sc">$</span>items) <span class="sc">|&gt;</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_wider</span>(v) <span class="sc">|&gt;</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hoist</span>(snippet, <span class="at">title =</span> <span class="st">"title"</span>, <span class="at">channel =</span> <span class="st">"channelTitle"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hoist</span>(statistics, <span class="at">views =</span> <span class="st">"viewCount"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, title, channel, views)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
-   id          title                                            channel    views
-   &lt;chr&gt;       &lt;chr&gt;                                            &lt;chr&gt;      &lt;chr&gt;
- 1 3juuih0WdH8 Anuel AA - Vuelve (Video Oficial)                Anuel AA   2403…
- 2 iIEYfH-jg1Y The Exorcist: Martyrs | Official Trailer         Universal… 2816…
- 3 h8VE9_aHd94 $10,000 Every Day You Survive In Minecraft       MrBeast G… 5564…
- 4 48rRv5ISfrg Gunna - pop it [Official Video]                  Gunna      1124…
- 5 gg33XSAtdZM Sonic the Hedgehog: Memories And Beyond Trailer  Sonic the… 4331…
- 6 GF4RGA8daaE This Might Be The Scariest Minecraft Horror Mod… CaseOh     1176…
- 7 gpjocObn2BQ 5.0                                              LOS DOS D… 3810…
- 8 pTHEkEZhMgM Squadron 42 - Official Wishlist Trailer          IGN        2710…
- 9 y17156N1o-M The Game Of Niche Ball Knowledge                 Joe Bart … 4256…
-10 CgayKlnjmMg The Aura Farmer - Horror Skunx (official song)   Horror Sk… 1046…</code></pre>
+   id          title                                               channel views
+   &lt;chr&gt;       &lt;chr&gt;                                               &lt;chr&gt;   &lt;chr&gt;
+ 1 WBN1AoBoFQ8 "Wanuga Tarugana(ft.Jah-Ben &amp; Java Gee)"            "Jeruu… 39287
+ 2 WhZxoQx_vf4 "Returning To Japan | Official Trailer"             "Kai C… 9163…
+ 3 Mmw-PpWhKFg "K/DA - FIRESTARTER ft. MIYEON and SOYEON of i-dle… "Leagu… 4160…
+ 4 KErzkNC-roE "Johnny Slime - Biggest Announcement 3 [Official M… "Johnn… 46420
+ 5 AfcCyTsh4ag "RISE AND FALL // Hush Agent Trailer - VALORANT"    "VALOR… 2158…
+ 6 lPCkLmw3H04 "Okay... This is Definitely our Worst Fishing Trip… "SMii7… 1370…
+ 7 m13K6XabD7M "Lil Noonie - Not Me (Official Music Video)"        "Lil N… 67418
+ 8 VyuIhUsoCIw "Avengers Doomsday Trailer Breakdown &amp; Easter Eggs" "Emerg… 3154…
+ 9 7CtCQuBDaZo "\"We\" Got Crazy Armor...? - Sky Factory Season 7… "SSund… 6279…
+10 0HxCZ0Zdwb0 "Death Battle: Limit Breakers (feat. Brandon Yates… "There… 1007…</code></pre>
 </div>
 </div>
 <p>Same rectangling as B3 — but documented, versioned and metered (1 quota unit).</p>
@@ -724,6 +747,38 @@ Note
 <section id="before-you-leave-write-the-data-note" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-leave-write-the-data-note">Before you leave — write the data note</h2>
 <p>Five lines under your code, for each dataset: source and date collected; permission (robots.txt, terms, or a key); method (selector, endpoint or browser); cleaning rules applied; known gaps. This is the start of the datasheet your project proposal needs.</p>
+</section>
+<section id="data-notes" class="level2">
+<h2 class="anchored" data-anchor-id="data-notes">Data Notes</h2>
+<section id="books-to-scrape" class="level3">
+<h3 class="anchored" data-anchor-id="books-to-scrape">1. Books to Scrape</h3>
+<ul>
+<li><strong>Source and date:</strong> <a href="https://books.toscrape.com/">books.toscrape.com</a>, October 2026.</li>
+<li><strong>Permission:</strong> The website is a scraping sandbox. The robots.txt check returned <code>TRUE</code>, and the <code>polite</code> package was used with a five-second delay between requests.</li>
+<li><strong>Method:</strong> HTML scraping using <code>polite</code> and <code>rvest</code>, with CSS selectors to extract book titles, prices, ratings, and availability.</li>
+<li><strong>Cleaning:</strong> Prices were converted to numeric values, star ratings to integers (1–5), and availability to logical values (<code>TRUE</code>/<code>FALSE</code>).</li>
+<li><strong>Known gaps:</strong> The scraper depends on the website’s HTML structure and CSS selectors. Changes to these could cause missing or incorrectly extracted data.</li>
+</ul>
+</section>
+<section id="quotes-to-scrape" class="level3">
+<h3 class="anchored" data-anchor-id="quotes-to-scrape">2. Quotes to Scrape</h3>
+<ul>
+<li><strong>Source and date:</strong> <a href="https://quotes.toscrape.com/">quotes.toscrape.com</a>, October 2026.</li>
+<li><strong>Permission:</strong> The website is a scraping sandbox designed for practicing data extraction. Requests were limited to approximately one per second.</li>
+<li><strong>Method:</strong> The site’s JSON API was accessed using <code>httr2</code>, with pagination controlled by <code>has_next</code>. The JavaScript-rendered page was also accessed using <code>rvest::read_html_live()</code>.</li>
+<li><strong>Cleaning:</strong> Nested JSON was converted into a tibble containing quote text, author names, author identifiers, and tags. Multiple tags were combined into semicolon-separated strings.</li>
+<li><strong>Known gaps:</strong> The API method depends on the endpoint and JSON structure remaining unchanged. Browser scraping depends on JavaScript rendering and CSS selectors.</li>
+</ul>
+</section>
+<section id="youtube-data-api" class="level3">
+<h3 class="anchored" data-anchor-id="youtube-data-api">3. YouTube Data API</h3>
+<ul>
+<li><strong>Source and date:</strong> YouTube Data API v3, October 2026.</li>
+<li><strong>Permission:</strong> Access was authorized using a YouTube API key stored in the <code>.Renviron</code> file. Requests are subject to Google’s API quotas.</li>
+<li><strong>Method:</strong> The <code>videos.list</code> endpoint was queried using <code>httr2</code> to retrieve ten popular videos in the United States, including video metadata and statistics.</li>
+<li><strong>Cleaning:</strong> Nested JSON responses were converted into a tibble containing video IDs, titles, channel names, and view counts.</li>
+<li><strong>Known gaps:</strong> The results represent a snapshot of popular videos rather than a comprehensive sample of YouTube content. View counts change over time, and the selection is determined by YouTube’s popularity rankings.</li>
+</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -740,6 +795,7 @@ Tip
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
