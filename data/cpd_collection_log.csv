@@ -1,0 +1,2 @@
+endpoint,query,result_level,sort,retrieved_at_utc,packages_with_text
+https://api.govinfo.gov/search,"collection:(CPD) AND ""Xi Jinping"" AND publishdate:range(2021-01-20,)",package,publishdate ASC,2026-10-19 12:27:57 UTC,344
