@@ -1,0 +1,88 @@
+{
+  "source": "YouTube Data API v3 via tuber",
+  "tuber": "3.0.0",
+  "credential": "API key (public data only); key not stored",
+  "period": "after",
+  "collected_at": "2026-11-09 19:36:14 UTC",
+  "search": {
+    "term": "US midterm election",
+    "orders": ["relevance", "viewCount"],
+    "max_results": 100,
+    "published_after": "2026-11-04T00:00:00Z",
+    "published_before": "2026-11-09T19:35:27Z",
+    "returned": [100, 100],
+    "total_reported": {
+      "relevance": 1000000,
+      "viewCount": 1000000
+    },
+    "duplicates": [5, 6]
+  },
+  "channels": [
+    {
+      "label": "BBC News",
+      "kind": "international broadcaster",
+      "pages": 3,
+      "oldest": "2026-11-03",
+      "channel_id": "UC16niRr50-MSBwiO3YDb3RA"
+    },
+    {
+      "label": "Fox News",
+      "kind": "cable news",
+      "pages": 7,
+      "oldest": "2026-11-03",
+      "channel_id": "UCXIJgqnII2ZOINSWNOGFThA"
+    },
+    {
+      "label": "NBC News",
+      "kind": "national network",
+      "pages": 8,
+      "oldest": "2026-11-03",
+      "channel_id": "UCeY0bbntWzzVIaj2z3QigXg"
+    }
+  ],
+  "channel_window": ["2026-11-04", "2026-11-09"],
+  "title_filter": "midterm|election|senate|house race|ballot|\\bvot(e|es|er|ers|ing)\\b|congress",
+  "selection": "Per channel, the 3 most-viewed uploads in the window whose title matches the filter; at most 300 comments (replies included) per video",
+  "videos": [
+    {
+      "video_id": "Pp5HAuHIUTs",
+      "channel": "BBC News"
+    },
+    {
+      "video_id": "rVYnYzeY-9A",
+      "channel": "BBC News"
+    },
+    {
+      "video_id": "xbgtOgYVGJM",
+      "channel": "BBC News"
+    },
+    {
+      "video_id": "WgNhkLbYLFQ",
+      "channel": "Fox News"
+    },
+    {
+      "video_id": "YLHno5zZ4xc",
+      "channel": "Fox News"
+    },
+    {
+      "video_id": "cTX4gcXStxQ",
+      "channel": "Fox News"
+    },
+    {
+      "video_id": "b043z24ErQk",
+      "channel": "NBC News"
+    },
+    {
+      "video_id": "NOZL0wdrJJI",
+      "channel": "NBC News"
+    },
+    {
+      "video_id": "hY2pr51lw4M",
+      "channel": "NBC News"
+    }
+  ],
+  "n_videos": 9,
+  "n_comments": 2700,
+  "retention": "Delete or refresh within 30 days (YouTube API Developer Policies III.E.4.d)",
+  "delete_by": "2026-12-09"
+}

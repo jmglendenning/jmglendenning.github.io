@@ -1,0 +1,4 @@
+period,label,kind,uploads_in_window,kept_by_filter,kept_also_in_search,kept_not_in_search,in_search_but_dropped,pages,oldest
+before,BBC News,international broadcaster,1271,66,1,65,0,32,2026-08-30
+before,Fox News,cable news,3022,143,0,143,0,75,2026-08-31
+before,NBC News,national network,2889,201,2,199,1,72,2026-08-31

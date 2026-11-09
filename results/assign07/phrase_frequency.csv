@@ -1,0 +1,8 @@
+feature,frequency,rank,docfreq,group
+senate_race,5,1,3,after
+mail_in,3,2,3,after
+election_fraud,2,3,2,after
+early_voting,5,1,4,before
+senate_race,3,2,2,before
+mail_in,2,3,2,before
+election_fraud,1,4,1,before

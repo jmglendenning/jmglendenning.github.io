@@ -256,12 +256,14 @@ window.Quarto = {
   <ul>
   <li><a href="#assign07.qmd" id="toc-assign07.qmd" class="nav-link active" data-scroll-target="#assign07.qmd">assign07.qmd</a>
   <ul class="collapse">
+  <li><a href="#how-the-file-is-laid-out" id="toc-how-the-file-is-laid-out" class="nav-link" data-scroll-target="#how-the-file-is-laid-out">How the file is laid out</a></li>
   <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
-  <li><a href="#structure-chunk-labels" id="toc-structure-chunk-labels" class="nav-link" data-scroll-target="#structure-chunk-labels">Structure (chunk labels)</a></li>
-  <li><a href="#outputs-written-by-part-5" id="toc-outputs-written-by-part-5" class="nav-link" data-scroll-target="#outputs-written-by-part-5">Outputs (written by Part 5)</a></li>
-  <li><a href="#fixes-from-the-first-version" id="toc-fixes-from-the-first-version" class="nav-link" data-scroll-target="#fixes-from-the-first-version">Fixes from the first version</a></li>
-  <li><a href="#conversion-notes" id="toc-conversion-notes" class="nav-link" data-scroll-target="#conversion-notes">Conversion notes</a></li>
+  <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
+  <li><a href="#what-changed-in-this-revision" id="toc-what-changed-in-this-revision" class="nav-link" data-scroll-target="#what-changed-in-this-revision">What changed in this revision</a></li>
+  <li><a href="#before-rendering" id="toc-before-rendering" class="nav-link" data-scroll-target="#before-rendering">Before rendering</a></li>
+  <li><a href="#checks-done" id="toc-checks-done" class="nav-link" data-scroll-target="#checks-done">Checks done</a></li>
+  <li><a href="#earlier-collection-1-november" id="toc-earlier-collection-1-november" class="nav-link" data-scroll-target="#earlier-collection-1-november">Earlier collection (1 November)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -278,128 +280,104 @@ window.Quarto = {
 
 <section id="assign07.qmd" class="level1">
 <h1>assign07.qmd</h1>
-<p>Quarto conversion of <code>YouTubeAPI02_usmidtermelections.R</code> (EPPS 6302, revised 27 October 2026 for tuber 2.0.0.9000). Collects YouTube videos and comments about the 2026 US midterm elections through the YouTube Data API v3 and builds a quanteda corpus from the comments.</p>
+<p>EPPS 6302 Assignment 7, “Social media data from the YouTube API,” revised to the updated assignment sheet (<code>epps6302_assignment07.pdf</code>). It collects YouTube videos and comments about the 2026 US midterm elections, before and after Election Day (3 November 2026), from three channels (NBC News, Fox News, BBC News). It then analyzes the comments with quanteda by channel and period, and compares them with the Assignment 6 corpora.</p>
+<section id="how-the-file-is-laid-out" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-file-is-laid-out">How the file is laid out</h2>
+<ul>
+<li>Every item on the assignment sheet appears in a quote block, word for word, with the sheet’s code formatting, bold and italics. The code and notes under each quote are the work.</li>
+<li>Sub-items (i, ii, iii …) sit directly above the code that answers them.</li>
+<li>The sheet’s two boxed notes (“The data expire.” and “Every comment section has a data-generating process.”) are callouts at the same places as on the sheet.</li>
+<li>Headings follow the sheet: 0 Set up, 1 Read, 2 Collect, 3 Analyze, 4 Submit. Report and Data note are under 4 Submit.</li>
+<li>Title and subtitle are the sheet’s, with “Instructor: Karl Ho” under them.</li>
+</ul>
+</section>
 <section id="rendering" class="level2">
 <h2 class="anchored" data-anchor-id="rendering">Rendering</h2>
 <ul>
-<li>The YAML sets <code>execute: eval: false</code>, so <code>quarto render</code> produces the page without calling the API or needing credentials.</li>
-<li>Exception: the <strong>Collection results</strong> and <strong>Data note</strong> sections run at render time (<code>eval: true</code>). They read <code>data/youtube/collection_log.csv</code> and <code>data/youtube/manifest.json</code> and print counts only. If the files are missing, the page still renders and the note shows “[not yet run]”.</li>
-<li>Render from the folder that contains <code>data/youtube/</code>.</li>
-<li>To run the code, work through the chunks interactively in RStudio, or switch <code>eval: true</code> on for the chunks you want executed at render time.</li>
-<li>Running the API chunks requires <code>YOUTUBE_KEY</code> in <code>.Renviron</code> (Part 1b); Part 7 also requires <code>YT_CLIENT_ID</code> and <code>YT_CLIENT_SECRET</code>.</li>
+<li>The YAML sets <code>execute: eval: false</code>, so <code>quarto render</code> never calls the API.</li>
+<li>Chunks marked <strong>Result</strong> (<code>eval: true</code>) run at render time. They read only files in <code>results/assign07/</code>: logs, manifests, aggregate tables and PNG plots. If a file is missing, the table shows “Not yet run” and inline values show “[not yet run]”.</li>
+<li>Render from the folder that contains <code>results/assign07/</code>.</li>
+<li>Run the collection and analysis chunks interactively in RStudio. Run 2e (after Election Day) in a fresh R session, after <code>setup</code>, <code>parameters</code> and the function chunks, so that <code>yt_get_quota_usage()</code> counts that period only.</li>
 </ul>
 </section>
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <ul>
-<li>R packages: <code>tuber</code> (dev, 2.0.0.9000+ via <code>pak::pak(c("soodoku/tuber", "httr2"))</code>), <code>httr2</code> (≥ 1.1.0), <code>tidyverse</code>, <code>quanteda</code>, <code>quanteda.textstats</code>, <code>quanteda.textplots</code>, <code>jsonlite</code>, <code>usethis</code>.</li>
-<li>Optional (Part 9): <code>vosonSML</code>, <code>igraph</code>.</li>
+<li><code>YOUTUBE_KEY</code> in <code>~/.Renviron</code>.</li>
+<li>R packages: <code>tuber</code> 2.0.0.9000+ and <code>httr2</code> ≥ 1.1.0 via <code>pak::pak(c("soodoku/tuber", "httr2"))</code>; <code>tidyverse</code>, <code>quanteda</code>, <code>quanteda.textstats</code>, <code>quanteda.textplots</code>, <code>jsonlite</code>, <code>usethis</code>.</li>
+<li>Optional (3c): <code>vosonSML</code>, <code>igraph</code>.</li>
 </ul>
 </section>
-<section id="structure-chunk-labels" class="level2">
-<h2 class="anchored" data-anchor-id="structure-chunk-labels">Structure (chunk labels)</h2>
+<section id="files" class="level2">
+<h2 class="anchored" data-anchor-id="files">Files</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 28%">
-<col style="width: 50%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Part</th>
-<th>Chunks</th>
-<th>What it does</th>
+<th>Folder</th>
+<th>Contents</th>
+<th>Published</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>0</td>
-<td><code>install</code>, <code>setup</code></td>
-<td>Install packages; load libraries and check versions</td>
+<td><code>results/assign07/</code></td>
+<td>quota usage, search summaries, channel routes, logs, manifests, aggregate tables, PNG plots</td>
+<td>yes</td>
 </tr>
 <tr class="even">
-<td>1</td>
-<td><code>check-key</code>, <code>diagnose-renviron</code>, <code>reload-renviron</code>, <code>gitignore-renviron</code>, <code>check-credentials</code></td>
-<td>Verify API key and OAuth client are in the environment</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td><code>quota</code></td>
-<td>Local quota estimate</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td><code>search-relevance</code>, <code>search-viewcount</code>, <code>channel-uploads</code>, <code>channel-range</code></td>
-<td>Search “US midterm election” (Sep 1 – Oct 28, 2026) by relevance and view count; list NBC News uploads</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td><code>video-stats</code>, <code>channel-details</code></td>
-<td>Video statistics and channel details for search results</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td><code>comments-one-video</code>, <code>comments-with-replies</code>, <code>output-dir</code>, <code>collect-function</code>, <code>collect-many</code>, <code>save-comments</code>, <code>manifest</code></td>
-<td>Comments from the top video, then the 10 most-viewed videos (≤300 comments each) with a log and manifest</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td><code>build-corpus</code>, <code>tokens-dfm</code>, <code>keyness</code></td>
-<td>quanteda corpus, DFM, top features, KWIC, keyness by channel</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td><code>oauth-login</code>, <code>oauth-private</code>, <code>oauth-my-channel</code>, <code>oauth-public-read</code>, <code>captions</code>, <code>oauth-signout</code></td>
-<td>OAuth for private account data and captions</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td><code>httr2-request</code>, <code>httr2-response</code></td>
-<td>Raw httr2 request equivalent to <code>list_comment_threads()</code></td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td><code>vosonsml</code></td>
-<td>Optional reply network</td>
-</tr>
-<tr class="odd">
-<td>Results</td>
-<td><code>results-load</code>, <code>results-manifest</code>, <code>results-log</code></td>
-<td>Read log and manifest; table of query, counts, and <code>delete_by</code>; videos and comments by status</td>
-</tr>
-<tr class="even">
-<td>Data note</td>
-<td><code>note-values</code> + inline R</td>
-<td>What was collected, what it is a sample of, who is missing, retention date</td>
+<td><code>data/youtube/</code></td>
+<td>search results, uploads, comments, kwic reading sheet, hand-coding sheet</td>
+<td>no (gitignored; delete by each manifest’s <code>delete_by</code>)</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="outputs-written-by-part-5" class="level2">
-<h2 class="anchored" data-anchor-id="outputs-written-by-part-5">Outputs (written by Part 5)</h2>
-<p>All in <code>data/youtube/</code> (gitignored):</p>
+<p>New in this revision:</p>
 <ul>
-<li><code>collection_log.csv</code> — per-video status (<code>ok</code>, <code>none</code>, <code>disabled</code>, <code>error</code>), comment count, collection time (UTC)</li>
-<li><code>comments.rds</code> — collected comments joined to channel and video title</li>
-<li><code>manifest.json</code> — query, selection rule, counts, and <code>delete_by</code> date (collection date + 30 days, per YouTube API Developer Policies III.E.4)</li>
+<li><code>results/assign07/received_by_type.csv</code> — per video, top-level comments and replies received (counts only). Written by the <code>received-by-type</code> chunk in 3a.</li>
+<li><code>results/assign07/rebuild_pre.json</code>, <code>rebuild_post.json</code> — written only if the comments are rebuilt from a manifest.</li>
 </ul>
 </section>
-<section id="fixes-from-the-first-version" class="level2">
-<h2 class="anchored" data-anchor-id="fixes-from-the-first-version">Fixes from the first version</h2>
+<section id="what-changed-in-this-revision" class="level2">
+<h2 class="anchored" data-anchor-id="what-changed-in-this-revision">What changed in this revision</h2>
 <ul>
-<li>Key check reads <code>YOUTUBE_KEY</code> (the rendered page had <code>YOUTUBE_API_KEY</code>, which tuber does not use).</li>
-<li>Manifest search term now matches the query: “US midterm election”.</li>
-<li><code>kwic()</code> patterns changed from the leftover “xi”, “tariff*“,”taiwan” to midterm terms.</li>
-<li>Page date is <code>last-modified</code> instead of the script’s revision date.</li>
-<li>Added the Collection results and Data note sections.</li>
+<li><strong>Assignment text.</strong> All item text replaced with the sheet’s exact wording, including the “What you will produce” paragraph, the reading list (the Freelon entry as the sheet gives it) and the two boxed notes. Paraphrased lead-ins under the items were rewritten so they no longer restate the sheet.</li>
+<li><strong>3a.i (replies).</strong> The sheet now lists replies among the places the reported–received gap can go. A new chunk counts top-level comments and replies per video, and the Result table shows the split next to <code>reported</code> and <code>received</code>. The old combined Result chunk is split into 3a.i and 3a.ii.</li>
+<li><strong>“The data expire.”</strong> The sheet asks for a report reproducible from the code and the manifest, not from a saved copy. A new subsection, <em>Rebuilding the comments from a manifest</em>, adds <code>rebuild_from_manifest()</code>: it reads a published manifest and log and collects the same videos’ comments again (a new 30-day clock).</li>
+<li><strong>Policy section.</strong> Retention cites III.E.4.d (manifest text and data note).</li>
+<li><strong>0b.</strong> The renamed-functions note lists the three functions the sheet names.</li>
+<li><strong>2c/2e.</strong> <code>route_summary()</code> now has its own chunk (<code>route-summary-fn</code>), so 2e runs in a fresh session; 2e names the function chunks to run first.</li>
+<li><strong>tuber 3.0.0.</strong> pak installed tuber 3.0.0 (needs httr2 1.2.0 or later); the install check, the 0b note and the tuber reference now say so. <code>collect_comments()</code> logs an empty comment section as <code>none</code> even if tuber stops signalling it with a warning.</li>
+<li><strong>Replies without a video (tuber 3.0.0).</strong> 257 replies came back with no <code>video_id</code>, so they had no channel or period. <code>load-comments</code> now takes these from each reply’s parent comment, and <code>collect_comments()</code> writes the video ID onto every comment it collects.</li>
+<li><strong>Report.</strong> Written from the rendered results (about 670 words). Four bracketed spots remain: the kwic tally, your two phrases, keyness, and the hand-coding agreement. Each needs either your coding or the keyness tables.</li>
+<li><strong>Data note.</strong> The title-filter pattern now prints as code, so its backslashes survive.</li>
+<li><strong>4b, posting.</strong> The YAML’s <code>resources:</code> copies every CSV and JSON in <code>results/assign07/</code> to the site; the data note links the logs and manifests. A new <code>publish-check</code> chunk stops if the key, or a comment-text or commenter column, is in any of those files.</li>
+<li><strong>Section 4</strong> is now “Submit”, with the sheet’s a and b quoted, then Report and Data note.</li>
+<li>The section-map table at the top was removed; the table of contents covers it.</li>
+<li>References are in alphabetical order (APA).</li>
 </ul>
 </section>
-<section id="conversion-notes" class="level2">
-<h2 class="anchored" data-anchor-id="conversion-notes">Conversion notes</h2>
+<section id="before-rendering" class="level2">
+<h2 class="anchored" data-anchor-id="before-rendering">Before rendering</h2>
 <ul>
-<li>Code is unchanged from the R script. Section comment blocks became Markdown headings and prose; inline code comments were kept.</li>
-<li>Code that was commented out in the R script (install commands, <code>.Renviron</code> diagnostics, captions, vosonSML) is uncommented here, since <code>eval: false</code> already keeps it from running. The <code>file.remove(tok_ro)</code> line stays commented.</li>
+<li>Run the <code>received-by-type</code> chunk once (after <code>load-comments</code>) while <code>data/youtube/</code> still holds the comments, so <code>received_by_type.csv</code> exists.</li>
+<li>Existing manifests keep the old retention text (“III.E.4”); only new manifests carry “III.E.4.d”. Nothing else in them changes.</li>
 </ul>
+</section>
+<section id="checks-done" class="level2">
+<h2 class="anchored" data-anchor-id="checks-done">Checks done</h2>
+<ul>
+<li>The quoted text was compared with the PDF word for word: 1,278 words, no differences except “post-election”, which breaks across a line in the PDF; the QMD keeps the hyphen.</li>
+<li>56 chunks, fences balanced, labels unique, all callout blocks closed.</li>
+</ul>
+</section>
+<section id="earlier-collection-1-november" class="level2">
+<h2 class="anchored" data-anchor-id="earlier-collection-1-november">Earlier collection (1 November)</h2>
+<p><code>data/youtube/collection_log.csv</code>, <code>comments.rds</code> and <code>manifest.json</code> come from a test run of an earlier version of the file: one search (relevance), the 10 most-viewed results, 300 comments each. It does not match 2b–2d (both orderings, three channels, two to four videos per channel), so the page does not use it. Delete it by its <code>delete_by</code>, 1 December 2026. - R was not available, so the code was not run here.</p>
 
 
 

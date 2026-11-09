@@ -1,0 +1,10 @@
+word,negative,positive
+landslide,0,0
+rigged,0,0
+fraud,1,0
+win,0,1
+lose,1,0
+steal,1,0
+flip,1,0
+red,0,0
+blue,0,0
